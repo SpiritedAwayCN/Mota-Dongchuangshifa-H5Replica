@@ -33,6 +33,11 @@ main.floors.MT0=
             "name": "item:book",
             "operator": "+=",
             "value": "1"
+        },
+        {
+            "type": "setValue",
+            "name": "flag:VerboseHint",
+            "value": "1"
         }
     ],
     "parallelDo": "",
