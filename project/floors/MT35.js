@@ -1,0 +1,595 @@
+main.floors.MT35=
+{
+    "floorId": "MT35",
+    "title": "主塔 35 层",
+    "name": "第 35 层",
+    "width": 15,
+    "height": 15,
+    "canFlyTo": true,
+    "canFlyFrom": true,
+    "canUseQuickShop": true,
+    "cannotViewMap": false,
+    "cannotMoveDirectly": false,
+    "images": [],
+    "ratio": 1,
+    "defaultGround": "ground",
+    "bgm": "060Slow03.mp3",
+    "firstArrive": [],
+    "eachArrive": [],
+    "parallelDo": "",
+    "events": {
+        "6,1": [
+            "\t[老人,man]\b[this]退化怪物战斗后，勇士攻、防减2点、3点",
+            "\t[老人,man]\b[this]神偷怪物战斗前，所持的4种血瓶数量减半，并夺走20%的金钱。",
+            "\t[老人,man]\b[this]这两种属性会变化的。",
+            {
+                "type": "setValue",
+                "name": "flag:v116_Chat",
+                "operator": "+=",
+                "value": "1"
+            },
+            {
+                "type": "hide",
+                "remove": true
+            }
+        ],
+        "3,7": {
+            "trigger": null,
+            "enable": false,
+            "noPass": null,
+            "displayDamage": true,
+            "opacity": 1,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": [
+                {
+                    "type": "openShop",
+                    "id": "F35TSWShop",
+                    "open": true
+                }
+            ]
+        }
+    },
+    "changeFloor": {
+        "7,1": {
+            "floorId": ":before",
+            "stair": "upFloor"
+        },
+        "12,12": {
+            "floorId": ":next",
+            "stair": "downFloor"
+        }
+    },
+    "beforeBattle": {},
+    "afterBattle": {
+        "2,13": [
+            {
+                "type": "setValue",
+                "name": "flag:v106_F35Sword",
+                "operator": "+=",
+                "value": "1"
+            },
+            {
+                "type": "switch",
+                "condition": "flag:v106_F35Sword",
+                "caseList": [
+                    {
+                        "case": "2",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    12
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "4",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    10
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "6",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    8
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "8",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    5
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "4,13": [
+            {
+                "type": "setValue",
+                "name": "flag:v106_F35Sword",
+                "operator": "+=",
+                "value": "1"
+            },
+            {
+                "type": "switch",
+                "condition": "flag:v106_F35Sword",
+                "caseList": [
+                    {
+                        "case": "2",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    12
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "4",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    10
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "6",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    8
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "8",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    5
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "2,11": [
+            {
+                "type": "setValue",
+                "name": "flag:v106_F35Sword",
+                "operator": "+=",
+                "value": "1"
+            },
+            {
+                "type": "switch",
+                "condition": "flag:v106_F35Sword",
+                "caseList": [
+                    {
+                        "case": "2",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    12
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "4",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    10
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "6",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    8
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "8",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    5
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "4,11": [
+            {
+                "type": "setValue",
+                "name": "flag:v106_F35Sword",
+                "operator": "+=",
+                "value": "1"
+            },
+            {
+                "type": "switch",
+                "condition": "flag:v106_F35Sword",
+                "caseList": [
+                    {
+                        "case": "2",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    12
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "4",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    10
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "6",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    8
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "8",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    5
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "2,9": [
+            {
+                "type": "setValue",
+                "name": "flag:v106_F35Sword",
+                "operator": "+=",
+                "value": "1"
+            },
+            {
+                "type": "switch",
+                "condition": "flag:v106_F35Sword",
+                "caseList": [
+                    {
+                        "case": "2",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    12
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "4",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    10
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "6",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    8
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "8",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    5
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "4,9": [
+            {
+                "type": "setValue",
+                "name": "flag:v106_F35Sword",
+                "operator": "+=",
+                "value": "1"
+            },
+            {
+                "type": "switch",
+                "condition": "flag:v106_F35Sword",
+                "caseList": [
+                    {
+                        "case": "2",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    12
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "4",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    10
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "6",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    8
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "8",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    5
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "2,6": [
+            {
+                "type": "setValue",
+                "name": "flag:v106_F35Sword",
+                "operator": "+=",
+                "value": "1"
+            },
+            {
+                "type": "switch",
+                "condition": "flag:v106_F35Sword",
+                "caseList": [
+                    {
+                        "case": "2",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    12
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "4",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    10
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "6",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    8
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "8",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    5
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "4,6": [
+            {
+                "type": "setValue",
+                "name": "flag:v106_F35Sword",
+                "operator": "+=",
+                "value": "1"
+            },
+            {
+                "type": "switch",
+                "condition": "flag:v106_F35Sword",
+                "caseList": [
+                    {
+                        "case": "2",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    12
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "4",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    10
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "6",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    8
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "case": "8",
+                        "action": [
+                            {
+                                "type": "openDoor",
+                                "loc": [
+                                    3,
+                                    5
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "afterGetItem": {},
+    "afterOpenDoor": {},
+    "autoEvent": {},
+    "cannotMove": {},
+    "cannotMoveIn": {},
+    "map": [
+    [20040,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20042],
+    [20040,  3,  3,  3,  3,  3,121, 88,  3,  0,  3,  3,  3,  3,20042],
+    [20040,  3, 33, 39, 33,  3,  0,425,  3,  0,  3, 27, 28,  3,20042],
+    [20040,  3, 27, 30, 28,  3,407,222,  3,212, 81, 27, 28,  3,20042],
+    [20040,  3, 27, 34, 28,  3,406,244,  3,  0,  3, 27, 28,  3,20042],
+    [20040,  3,  3, 85,  3,  3,410,226,  3,  0,  3,  3,  3,  3,20042],
+    [20040,  3,215,  0,215,  3,  0,218,  3,426, 81,426,  0,  3,20042],
+    [20040,  3,  0,131,  0,  3,  0,  0,  3,  3,  3,  0,426, 34,20042],
+    [20040,  3,  3, 85,  3,  3,  0,  0,  0,222,  3,  3,  0,  3,20042],
+    [20040,  3,246,  0,246,  3, 31,  3,  3,222, 34,  3,426, 34,20042],
+    [20040,  3,  3, 85,  3,  3,226,  3,  0,222,  3,  3, 81,  3,20042],
+    [20040,  3,426,  0,426,  3,226,  3,  0,  0,  0,  0,426,  0,20042],
+    [20040,  3,  3, 85,  3,  3,222,  3,  3,  3,  3,  3, 87,  0,20042],
+    [20040,  0,222,  0,222,  0, 31,  0,426,426,  0, 34,  0,  0,20042],
+    [20048,20049,20049,20049,20049,20049,20049,20049,20049,20049,20049,20049,20049,20049,20050]
+],
+    "bgmap": [
+
+],
+    "fgmap": [
+
+]
+}
