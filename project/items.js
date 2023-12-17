@@ -316,7 +316,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 	},
 	"amulet": {
 		"cls": "constants",
-		"name": "护符",
+		"name": "自然之靴",
 		"text": "持有时无视负面地形"
 	},
 	"bigKey": {
@@ -331,12 +331,14 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 	"greenKey": {
 		"cls": "tools",
 		"name": "绿钥匙",
-		"text": "可以打开一扇绿门"
+		"text": "可以打开一扇绿门",
+		"hideInToolbox": true
 	},
 	"steelKey": {
 		"cls": "tools",
 		"name": "铁门钥匙",
-		"text": "可以打开一扇铁门"
+		"text": "可以打开一扇铁门",
+		"hideInToolbox": false
 	},
 	"pickaxe": {
 		"cls": "tools",
@@ -647,9 +649,19 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		}
 	},
 	"I391": {
-		"cls": "items",
-		"name": "新物品",
-		"canUseItemEffect": "true"
+		"cls": "equips",
+		"name": "万能钻戒",
+		"canUseItemEffect": "true",
+		"text": "提升攻击、防御、魔防各15点（装饰品）",
+		"equip": {
+			"type": 4,
+			"value": {
+				"atk": 15,
+				"def": 15,
+				"mdef": 15
+			},
+			"percentage": {}
+		}
 	},
 	"I392": {
 		"cls": "equips",
@@ -678,9 +690,17 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"text": "提升防御30点（装饰品）"
 	},
 	"I394": {
-		"cls": "items",
-		"name": "新物品",
-		"canUseItemEffect": "true"
+		"cls": "equips",
+		"name": "绿钻戒LV2",
+		"canUseItemEffect": "true",
+		"equip": {
+			"type": 4,
+			"value": {
+				"mdef": 30
+			},
+			"percentage": {}
+		},
+		"text": "提升魔防30点（装饰品）"
 	},
 	"I395": {
 		"cls": "items",
@@ -816,5 +836,39 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"name": "万能铁门钥匙",
 		"canUseItemEffect": null,
 		"text": "用来开所有的铁门"
+	},
+	"I526": {
+		"cls": "items",
+		"name": "物种探知器",
+		"canUseItemEffect": "true",
+		"text": "用来侦测潜伏的怪物（复刻版无效果）",
+		"itemEffectTip": "，用来侦测潜伏的怪物（复刻版无效果）"
+	},
+	"bAtkGem": {
+		"cls": "items",
+		"name": "攻击香蕉",
+		"canUseItemEffect": "true",
+		"text": "可增加使用者3点攻击（消耗物品）",
+		"itemEffect": "core.addStatus(\"atk\", 3);",
+		"itemEffectTip": "，攻击+3",
+		"useItemEffect": "core.addStatus(\"atk\", 3);"
+	},
+	"bDefGem": {
+		"cls": "items",
+		"name": "防御香蕉",
+		"canUseItemEffect": "true",
+		"text": "可增加使用者3点攻击（消耗物品）",
+		"itemEffect": "core.addStatus(\"def\", 3);",
+		"itemEffectTip": "，防御+3",
+		"useItemEffect": "core.addStatus(\"def\", 3);"
+	},
+	"bMdefGem": {
+		"cls": "items",
+		"name": "魔防香蕉",
+		"canUseItemEffect": "true",
+		"text": "可增加使用者3点魔防（消耗物品）",
+		"itemEffect": "core.addStatus(\"mdef\", 3);",
+		"itemEffectTip": "，魔防+3",
+		"useItemEffect": "core.addStatus(\"mdef\", 3);"
 	}
 }

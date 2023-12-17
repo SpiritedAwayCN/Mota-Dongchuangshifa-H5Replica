@@ -1127,7 +1127,8 @@ control.prototype.checkBlock = function () {
         core.status.hero.hp -= damage;
         var text = (Object.keys(core.status.checkBlock.type[loc] || {}).join("，")) || "伤害";
         core.drawTip("受到" + text + damage + "点");
-        core.drawHeroAnimate("zone");
+        if(text.search(/(领域)|(夹击)|(激光)|(阻击)/) >= 0)
+            core.drawHeroAnimate("A03");
         this._checkBlock_disableQuickShop();
         core.status.hero.statistics.extraDamage += damage;
         if (core.status.hero.hp <= 0) {

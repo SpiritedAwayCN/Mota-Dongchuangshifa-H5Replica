@@ -1471,7 +1471,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 	var potionPattern = /^(red|blue|green|yellow)Potion$/;
 	var potionItemFlag = "isPotionItemized";
 
-	var gemPattern = /^(red|blue|green|yellow)Gem$/;
+	var gemPattern = /^(red|blue|green|yellow|bAtk|bDef|bMdef)Gem$/;
 	var gemItemFlag = "isGemItemized";
 
 	// 覆写函数

@@ -26,6 +26,12 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"LuckyGold4",
 			"LuckyGold5",
 			"LuckyGold6",
+			"TrapSwamp0",
+			"TrapSwamp1",
+			"TrapSwamp2",
+			"TrapSwamp3",
+			"SuperSpace1",
+			"SuperSpace2",
 			"MTWorld",
 			"MTn32",
 			"MTn31",
@@ -110,7 +116,21 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"MT48",
 			"MT49",
 			"MT50",
-			"MT51"
+			"MT51",
+			"MT52",
+			"MT53",
+			"MT54",
+			"MT55",
+			"MT56",
+			"MT57",
+			"MT58",
+			"MT59",
+			"MT60",
+			"MT61",
+			"MT62",
+			"MT63",
+			"MT64",
+			"MT65"
 		],
 		"floorPartitions": [],
 		"images": [
@@ -159,6 +179,8 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"012Theme01.mp3",
 			"014Theme03.mp3",
 			"031Castle01.mp3",
+			"037Dungeon03.mp3",
+			"040Dungeon06.mp3",
 			"045Positive03.mp3",
 			"060Slow03.mp3",
 			"CastleinSky.mp3",
@@ -895,6 +917,214 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"commonEvent": "回收钥匙商店"
 			},
 			{
+				"id": "Fm18ExpShop",
+				"text": "\t[商人,trader]本商店需当面购买！\n无限收购钥匙！",
+				"textInList": "-18F钥匙收购商人",
+				"mustEnable": true,
+				"disablePreview": false,
+				"choices": [
+					{
+						"text": "前往-18F(上楼梯)",
+						"need": "core.hasVisitedFloor(\"MTn18\")",
+						"icon": "fly",
+						"color": [
+							255,
+							215,
+							0,
+							1
+						],
+						"action": [
+							{
+								"type": "stopSound"
+							},
+							{
+								"type": "changeFloor",
+								"floorId": "MTn18",
+								"stair": "upFloor",
+								"direction": "down"
+							},
+							{
+								"type": "break",
+								"n": 1
+							}
+						]
+					},
+					{
+						"text": "前往-18F(下楼梯)",
+						"need": "core.hasVisitedFloor(\"MTn19\")",
+						"icon": "fly",
+						"color": [
+							255,
+							215,
+							0,
+							1
+						],
+						"action": [
+							{
+								"type": "stopSound"
+							},
+							{
+								"type": "changeFloor",
+								"floorId": "MTn18",
+								"stair": "downFloor",
+								"direction": "down"
+							},
+							{
+								"type": "break",
+								"n": 1
+							}
+						]
+					}
+				]
+			},
+			{
+				"id": "Fm17ExpShop",
+				"text": "\t[老人,man]本商店需当面购买！\n-17F所需经验: ${flag:Fm17ShopVisited?\"700\":\"???\"}\n-27F所需经验: ${flag:Fm27ShopVisited?\"600\":\"???\"}",
+				"textInList": "-17/-27F经验老人",
+				"mustEnable": true,
+				"disablePreview": false,
+				"choices": [
+					{
+						"text": "前往-17F(上楼梯)",
+						"need": "core.hasVisitedFloor(\"MTn17\")",
+						"icon": "fly",
+						"color": [
+							255,
+							215,
+							0,
+							1
+						],
+						"condition": "flag:Fm17ShopVisited",
+						"action": [
+							{
+								"type": "stopSound"
+							},
+							{
+								"type": "changeFloor",
+								"floorId": "MTn17",
+								"loc": [
+									13,
+									13
+								],
+								"direction": "down"
+							},
+							{
+								"type": "break",
+								"n": 1
+							}
+						]
+					},
+					{
+						"text": "前往-17F(下楼梯)",
+						"need": "core.hasVisitedFloor(\"MTn18\")",
+						"icon": "fly",
+						"color": [
+							255,
+							215,
+							0,
+							1
+						],
+						"condition": "flag:Fm17ShopVisited",
+						"action": [
+							{
+								"type": "stopSound"
+							},
+							{
+								"type": "changeFloor",
+								"floorId": "MTn17",
+								"loc": [
+									1,
+									8
+								],
+								"direction": "down"
+							},
+							{
+								"type": "break",
+								"n": 1
+							}
+						]
+					},
+					{
+						"text": "前往-27F(上楼梯)",
+						"need": "core.hasVisitedFloor(\"MTn27\")",
+						"icon": "fly",
+						"color": [
+							255,
+							215,
+							0,
+							1
+						],
+						"condition": "flag:Fm27ShopVisited",
+						"action": [
+							{
+								"type": "stopSound"
+							},
+							{
+								"type": "changeFloor",
+								"floorId": "MTn27",
+								"loc": [
+									1,
+									1
+								],
+								"direction": "down"
+							},
+							{
+								"type": "break",
+								"n": 1
+							}
+						]
+					},
+					{
+						"text": "前往-27F(下楼梯)",
+						"need": "core.hasVisitedFloor(\"MTn28\")",
+						"icon": "fly",
+						"color": [
+							255,
+							215,
+							0,
+							1
+						],
+						"condition": "flag:Fm27ShopVisited",
+						"action": [
+							{
+								"type": "stopSound"
+							},
+							{
+								"type": "changeFloor",
+								"floorId": "MTn27",
+								"loc": [
+									1,
+									13
+								],
+								"direction": "down"
+							},
+							{
+								"type": "break",
+								"n": 1
+							}
+						]
+					}
+				]
+			},
+			{
+				"id": "Fm3m4GoldShop",
+				"textInList": "-3/-4/-5F金币商店",
+				"mustEnable": true,
+				"commonEvent": "OtherShops",
+				"args": [
+					"MTm3m4"
+				]
+			},
+			{
+				"id": "F0KeyShop",
+				"textInList": "0F钥匙商店",
+				"mustEnable": true,
+				"commonEvent": "OtherShops",
+				"args": [
+					"MT0"
+				]
+			},
+			{
 				"id": "Expshop7F",
 				"text": "\t[经验商店,expShop]花${100+45*flag:Expshop7F}经验就可以：",
 				"textInList": "7F经验商店",
@@ -1484,220 +1714,13 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				]
 			},
 			{
-				"id": "Fm3m4GoldShop",
-				"textInList": "-3/-4/-5F金币商店",
-				"mustEnable": true,
-				"commonEvent": "OtherShops",
-				"args": [
-					"MTm3m4"
-				]
-			},
-			{
-				"id": "Fm17ExpShop",
-				"text": "\t[老人,man]本商店需当面购买！\n-17F所需经验: ${flag:Fm17ShopVisited?\"700\":\"???\"}\n-27F所需经验: ${flag:Fm27ShopVisited?\"600\":\"???\"}",
-				"textInList": "-17/-27F经验老人",
-				"mustEnable": true,
-				"disablePreview": false,
-				"choices": [
-					{
-						"text": "前往-17F(上楼梯)",
-						"need": "core.hasVisitedFloor(\"MTn17\")",
-						"icon": "fly",
-						"color": [
-							255,
-							215,
-							0,
-							1
-						],
-						"condition": "flag:Fm17ShopVisited",
-						"action": [
-							{
-								"type": "stopSound"
-							},
-							{
-								"type": "changeFloor",
-								"floorId": "MTn17",
-								"loc": [
-									13,
-									13
-								],
-								"direction": "down"
-							},
-							{
-								"type": "break",
-								"n": 1
-							}
-						]
-					},
-					{
-						"text": "前往-17F(下楼梯)",
-						"need": "core.hasVisitedFloor(\"MTn18\")",
-						"icon": "fly",
-						"color": [
-							255,
-							215,
-							0,
-							1
-						],
-						"condition": "flag:Fm17ShopVisited",
-						"action": [
-							{
-								"type": "stopSound"
-							},
-							{
-								"type": "changeFloor",
-								"floorId": "MTn17",
-								"loc": [
-									1,
-									8
-								],
-								"direction": "down"
-							},
-							{
-								"type": "break",
-								"n": 1
-							}
-						]
-					},
-					{
-						"text": "前往-27F(上楼梯)",
-						"need": "core.hasVisitedFloor(\"MTn27\")",
-						"icon": "fly",
-						"color": [
-							255,
-							215,
-							0,
-							1
-						],
-						"condition": "flag:Fm27ShopVisited",
-						"action": [
-							{
-								"type": "stopSound"
-							},
-							{
-								"type": "changeFloor",
-								"floorId": "MTn27",
-								"loc": [
-									1,
-									1
-								],
-								"direction": "down"
-							},
-							{
-								"type": "break",
-								"n": 1
-							}
-						]
-					},
-					{
-						"text": "前往-27F(下楼梯)",
-						"need": "core.hasVisitedFloor(\"MTn28\")",
-						"icon": "fly",
-						"color": [
-							255,
-							215,
-							0,
-							1
-						],
-						"condition": "flag:Fm27ShopVisited",
-						"action": [
-							{
-								"type": "stopSound"
-							},
-							{
-								"type": "changeFloor",
-								"floorId": "MTn27",
-								"loc": [
-									1,
-									13
-								],
-								"direction": "down"
-							},
-							{
-								"type": "break",
-								"n": 1
-							}
-						]
-					}
-				]
-			},
-			{
-				"id": "Fm18ExpShop",
-				"text": "\t[商人,trader]本商店需当面购买！\n无限收购钥匙！",
-				"textInList": "-18F钥匙收购商人",
-				"mustEnable": true,
-				"disablePreview": false,
-				"choices": [
-					{
-						"text": "前往-18F(上楼梯)",
-						"need": "core.hasVisitedFloor(\"MTn18\")",
-						"icon": "fly",
-						"color": [
-							255,
-							215,
-							0,
-							1
-						],
-						"action": [
-							{
-								"type": "stopSound"
-							},
-							{
-								"type": "changeFloor",
-								"floorId": "MTn18",
-								"stair": "upFloor",
-								"direction": "down"
-							},
-							{
-								"type": "break",
-								"n": 1
-							}
-						]
-					},
-					{
-						"text": "前往-18F(下楼梯)",
-						"need": "core.hasVisitedFloor(\"MTn19\")",
-						"icon": "fly",
-						"color": [
-							255,
-							215,
-							0,
-							1
-						],
-						"action": [
-							{
-								"type": "stopSound"
-							},
-							{
-								"type": "changeFloor",
-								"floorId": "MTn18",
-								"stair": "downFloor",
-								"direction": "down"
-							},
-							{
-								"type": "break",
-								"n": 1
-							}
-						]
-					}
-				]
-			},
-			{
 				"id": "F35TSWShop",
-				"textInList": "35F金币商店",
+				"textInList": "35/48/59F商店",
 				"mustEnable": true,
 				"commonEvent": "OtherShops",
 				"args": [
-					"MT35"
-				]
-			},
-			{
-				"id": "F0KeyShop",
-				"textInList": "0F钥匙商店",
-				"mustEnable": true,
-				"commonEvent": "OtherShops",
-				"args": [
-					"MT0"
+					"TSWShop",
+					-1
 				]
 			},
 			{
@@ -1707,6 +1730,15 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"commonEvent": "OtherShops",
 				"args": [
 					"MT49"
+				]
+			},
+			{
+				"id": "F59ExpShop",
+				"textInList": "59F经验商人",
+				"mustEnable": true,
+				"commonEvent": "OtherShops",
+				"args": [
+					"MT59"
 				]
 			}
 		],

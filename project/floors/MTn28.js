@@ -268,7 +268,8 @@ main.floors.MTn28=
                         "loc": [
                             11,
                             9
-                        ]
+                        ],
+                        "async": true
                     },
                     {
                         "type": "openDoor",
@@ -276,6 +277,9 @@ main.floors.MTn28=
                             11,
                             4
                         ]
+                    },
+                    {
+                        "type": "waitAsync"
                     }
                 ]
             }
@@ -296,7 +300,8 @@ main.floors.MTn28=
                         "loc": [
                             11,
                             9
-                        ]
+                        ],
+                        "async": true
                     },
                     {
                         "type": "openDoor",
@@ -304,6 +309,9 @@ main.floors.MTn28=
                             11,
                             4
                         ]
+                    },
+                    {
+                        "type": "waitAsync"
                     }
                 ]
             }
@@ -324,7 +332,8 @@ main.floors.MTn28=
                         "loc": [
                             11,
                             9
-                        ]
+                        ],
+                        "async": true
                     },
                     {
                         "type": "openDoor",
@@ -332,6 +341,9 @@ main.floors.MTn28=
                             11,
                             4
                         ]
+                    },
+                    {
+                        "type": "waitAsync"
                     }
                 ]
             }
@@ -352,7 +364,8 @@ main.floors.MTn28=
                         "loc": [
                             11,
                             9
-                        ]
+                        ],
+                        "async": true
                     },
                     {
                         "type": "openDoor",
@@ -360,6 +373,9 @@ main.floors.MTn28=
                             11,
                             4
                         ]
+                    },
+                    {
+                        "type": "waitAsync"
                     }
                 ]
             }

@@ -270,6 +270,30 @@ main.floors.MTWorld=
                     ]
                 }
             ]
+        },
+        "4,3": {
+            "trigger": null,
+            "enable": false,
+            "noPass": null,
+            "displayDamage": true,
+            "opacity": 1,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": [
+                {
+                    "type": "changeFloor",
+                    "floorId": "TrapSwamp0",
+                    "loc": [
+                        7,
+                        13
+                    ]
+                }
+            ]
         }
     },
     "changeFloor": {},

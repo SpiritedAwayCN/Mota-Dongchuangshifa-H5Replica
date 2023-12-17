@@ -25,7 +25,7 @@ main.floors.MT22=
                     {
                         "type": "setValue",
                         "name": "temp:curPrice",
-                        "value": "10*(flag:v13_TSWshop*flag:v13_TSWshop+flag:v13_TSWshop+2)"
+                        "value": "10*(flag:v13_TSWshop*flag:v13_TSWshop+flag:v13_TSWshop+2)+flag:TSWshopOffset"
                     },
                     {
                         "type": "choices",

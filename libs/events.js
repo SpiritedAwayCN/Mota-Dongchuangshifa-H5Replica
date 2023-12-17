@@ -572,7 +572,7 @@ events.prototype._openDoor_check = function (block, x, y, needKey) {
             //     return false;
             // }
         }
-        if (!canOpen) {
+        if (canOpen === false) {
             core.stopSound();
             core.playSound('操作失败');
             core.drawTip("无法开启此门");

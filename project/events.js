@@ -686,6 +686,20 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 												]
 											},
 											{
+												"text": "使用香蕉(共${item:bAtkGem+item:bDefGem+item:bMdefGem}个可用)",
+												"icon": "bAtkGem",
+												"need": "item:bAtkGem+item:bDefGem+item:bMdefGem>0",
+												"action": [
+													{
+														"type": "insert",
+														"name": "SetPotionItemized",
+														"args": [
+															"Banana"
+														]
+													}
+												]
+											},
+											{
 												"text": "升级加点（可用点数:${core.values.levelupPoint}）",
 												"color": [
 													255,
@@ -703,6 +717,96 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 											},
 											{
 												"text": "完成",
+												"action": [
+													{
+														"type": "break",
+														"n": 1
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					},
+					{
+						"case": "\"Banana\"",
+						"action": [
+							{
+								"type": "while",
+								"condition": "1",
+								"data": [
+									{
+										"type": "choices",
+										"text": "\t[使用香蕉]香蕉与宝石共用道具化设置\n每点击一次使用一个香蕉。",
+										"choices": [
+											{
+												"text": "宝石道具化 [${core.values.isGemItemized ? \"ON\" : \"OFF\"}]",
+												"color": [
+													255,
+													215,
+													0,
+													1
+												],
+												"action": [
+													{
+														"type": "function",
+														"function": "function(){\ncore.values.isGemItemized = !core.values.isGemItemized\n}"
+													}
+												]
+											},
+											{
+												"text": "攻击香蕉(x${item:bAtkGem})：+3 ATK",
+												"icon": "bAtkGem",
+												"color": [
+													255,
+													128,
+													128
+												],
+												"need": "item:bAtkGem>0",
+												"action": [
+													{
+														"type": "useItem",
+														"id": "bAtkGem"
+													}
+												]
+											},
+											{
+												"text": "防御香蕉(x${item:bDefGem})：+3 DEF",
+												"icon": "bDefGem",
+												"color": [
+													128,
+													128,
+													255
+												],
+												"need": "item:bDefGem>0",
+												"action": [
+													{
+														"type": "useItem",
+														"id": "bDefGem"
+													}
+												]
+											},
+											{
+												"text": "魔防香蕉(x${item:bMdefGem})：+3 MAG",
+												"icon": "bMdefGem",
+												"color": [
+													128,
+													255,
+													128
+												],
+												"need": "item:bMdefGem>0",
+												"condition": "core.values.isMAGValid",
+												"action": [
+													{
+														"type": "useItem",
+														"id": "bMdefGem"
+													}
+												]
+											},
+											{
+												"text": "返回上一级",
 												"action": [
 													{
 														"type": "break",
@@ -1664,8 +1768,41 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 						]
 					},
 					{
-						"case": "\"MT35\"",
+						"case": "\"TSWShop\"",
 						"action": [
+							{
+								"type": "if",
+								"condition": "(flag:arg2 > flag:TSWshopBest)",
+								"true": [
+									{
+										"type": "setValue",
+										"name": "flag:TSWshopBest",
+										"value": "flag:arg2",
+										"norefresh": true
+									}
+								]
+							},
+							{
+								"type": "if",
+								"condition": "(flag:arg2<0)",
+								"true": [
+									{
+										"type": "setValue",
+										"name": "flag:arg2",
+										"value": "flag:TSWshopBest",
+										"norefresh": true
+									},
+									{
+										"type": "tip",
+										"text": "已自动选择性价比最高的商店"
+									}
+								]
+							},
+							{
+								"type": "setValue",
+								"name": "temp:bestFloorId",
+								"value": "(flag:arg2===8?\"35F\":(flag:arg2===10?\"48F\":(flag:arg2===12?\"59F\":\"金币\")))"
+							},
 							{
 								"type": "while",
 								"condition": "1",
@@ -1673,17 +1810,22 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 									{
 										"type": "setValue",
 										"name": "temp:curPrice",
-										"value": "10*(flag:v13_TSWshop*flag:v13_TSWshop+flag:v13_TSWshop+2)"
+										"value": "10*(flag:v13_TSWshop*flag:v13_TSWshop+flag:v13_TSWshop+2)+flag:TSWshopOffset"
 									},
 									{
 										"type": "choices",
-										"text": "\t[商店,moneyShop]花${temp:curPrice}枚金币，您可以：",
+										"text": "\t[${temp:bestFloorId}商店,moneyShop]花${temp:curPrice}枚金币，您可以：",
 										"choices": [
 											{
-												"text": "加8攻击",
+												"text": "加${flag:arg2}攻击",
 												"icon": "redGem",
 												"need": "status:money>=temp:curPrice",
 												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
 													{
 														"type": "setValue",
 														"name": "status:money",
@@ -1705,10 +1847,15 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 												]
 											},
 											{
-												"text": "加16防御",
+												"text": "加${2*flag:arg2}防御",
 												"icon": "blueGem",
 												"need": "status:money>=temp:curPrice",
 												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
 													{
 														"type": "setValue",
 														"name": "status:money",
@@ -1730,10 +1877,15 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 												]
 											},
 											{
-												"text": "加1150生命",
+												"text": "加${150+125*flag:arg2}生命",
 												"icon": "redPotion",
 												"need": "status:money>=temp:curPrice",
 												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
 													{
 														"type": "setValue",
 														"name": "status:money",
@@ -1789,8 +1941,13 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 													128,
 													1
 												],
-												"need": "status:money>=10",
+												"need": "status:money>=20",
 												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
 													{
 														"type": "setValue",
 														"name": "status:money",
@@ -1817,6 +1974,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 												"need": "status:money>=100",
 												"action": [
 													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
 														"type": "setValue",
 														"name": "status:money",
 														"operator": "-=",
@@ -1841,6 +2003,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 												],
 												"need": "status:money>=200",
 												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
 													{
 														"type": "setValue",
 														"name": "status:money",
@@ -1911,6 +2078,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																"condition": "((flag:input>=1 )&&( flag:input <=Math.floor(status:money/200) ))",
 																"true": [
 																	{
+																		"type": "playSound",
+																		"name": "shop.mp3",
+																		"stop": true
+																	},
+																	{
 																		"type": "setValue",
 																		"name": "status:money",
 																		"operator": "-=",
@@ -1949,6 +2121,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																"condition": "((flag:input>=1 )&&( flag:input <=Math.floor(status:money/200) ))",
 																"true": [
 																	{
+																		"type": "playSound",
+																		"name": "shop.mp3",
+																		"stop": true
+																	},
+																	{
 																		"type": "setValue",
 																		"name": "status:money",
 																		"operator": "-=",
@@ -1986,6 +2163,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																"type": "if",
 																"condition": "((flag:input>=1 )&&( flag:input <=status:money))",
 																"true": [
+																	{
+																		"type": "playSound",
+																		"name": "shop.mp3",
+																		"stop": true
+																	},
 																	{
 																		"type": "setValue",
 																		"name": "status:money",
@@ -2054,6 +2236,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																"condition": "((flag:input>=1 )&&( flag:input <=Math.floor(status:money/100) ))",
 																"true": [
 																	{
+																		"type": "playSound",
+																		"name": "shop.mp3",
+																		"stop": true
+																	},
+																	{
 																		"type": "setValue",
 																		"name": "status:money",
 																		"operator": "-=",
@@ -2091,6 +2278,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																"type": "if",
 																"condition": "((flag:input>=1 )&&( flag:input <=Math.floor(status:money/100) ))",
 																"true": [
+																	{
+																		"type": "playSound",
+																		"name": "shop.mp3",
+																		"stop": true
+																	},
 																	{
 																		"type": "setValue",
 																		"name": "status:money",
@@ -2130,6 +2322,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																"condition": "((flag:input>=1 )&&( flag:input <=status:money))",
 																"true": [
 																	{
+																		"type": "playSound",
+																		"name": "shop.mp3",
+																		"stop": true
+																	},
+																	{
 																		"type": "setValue",
 																		"name": "status:money",
 																		"operator": "-=",
@@ -2162,6 +2359,176 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																"n": 1
 															}
 														]
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					},
+					{
+						"case": "\"MT59\"",
+						"action": [
+							{
+								"type": "while",
+								"condition": "1",
+								"data": [
+									{
+										"type": "choices",
+										"text": "\t[商人,trader]只要有足够的经验，你就可以交换。\n为当前角色增加：",
+										"choices": [
+											{
+												"text": "400经验升1级",
+												"icon": "yellowGem",
+												"color": [
+													255,
+													255,
+													128,
+													1
+												],
+												"need": "status:exp>=400",
+												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
+														"type": "setValue",
+														"name": "status:exp",
+														"operator": "-=",
+														"value": "400"
+													},
+													{
+														"type": "setValue",
+														"name": "status:lv",
+														"operator": "+=",
+														"value": "1"
+													},
+													{
+														"type": "setValue",
+														"name": "status:hp",
+														"operator": "+=",
+														"value": "2580"
+													},
+													{
+														"type": "setValue",
+														"name": "status:atk",
+														"operator": "+=",
+														"value": "6"
+													},
+													{
+														"type": "setValue",
+														"name": "status:def",
+														"operator": "+=",
+														"value": "6"
+													},
+													{
+														"type": "setValue",
+														"name": "status:mdef",
+														"operator": "+=",
+														"value": "3"
+													}
+												]
+											},
+											{
+												"text": "150经验换4攻击",
+												"icon": "redGem",
+												"color": [
+													255,
+													128,
+													128,
+													1
+												],
+												"need": "status:exp>=150",
+												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
+														"type": "setValue",
+														"name": "status:exp",
+														"operator": "-=",
+														"value": "150"
+													},
+													{
+														"type": "setValue",
+														"name": "status:atk",
+														"operator": "+=",
+														"value": "4"
+													}
+												]
+											},
+											{
+												"text": "150经验换4防御",
+												"icon": "blueGem",
+												"color": [
+													128,
+													255,
+													255,
+													1
+												],
+												"need": "status:exp>=150",
+												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
+														"type": "setValue",
+														"name": "status:exp",
+														"operator": "-=",
+														"value": "150"
+													},
+													{
+														"type": "setValue",
+														"name": "status:def",
+														"operator": "+=",
+														"value": "4"
+													}
+												]
+											},
+											{
+												"text": "150经验换4魔防",
+												"icon": "greenGem",
+												"color": [
+													128,
+													255,
+													128,
+													1
+												],
+												"need": "status:exp>=150",
+												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
+														"type": "setValue",
+														"name": "status:exp",
+														"operator": "-=",
+														"value": "150"
+													},
+													{
+														"type": "setValue",
+														"name": "status:mdef",
+														"operator": "+=",
+														"value": "4"
+													}
+												]
+											},
+											{
+												"text": "离开",
+												"action": [
+													{
+														"type": "break",
+														"n": 1
 													}
 												]
 											}

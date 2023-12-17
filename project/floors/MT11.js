@@ -20,53 +20,60 @@ main.floors.MT11=
         "2,2": [
             {
                 "type": "if",
-                "condition": "core.getBlockId(core.getHeroLoc('x'), core.getHeroLoc('y'))===\"darkLight\"",
+                "condition": "switch:A!==1",
                 "true": [
                     {
-                        "type": "setValue",
-                        "name": "flag:v124_PotionExist",
-                        "operator": "+=",
-                        "value": "1"
-                    },
-                    {
                         "type": "if",
-                        "condition": "flag:v124_PotionExist===10",
+                        "condition": "(core.getBlockId(core.getHeroLoc('x'), core.getHeroLoc('y'))===\"darkLight\")",
                         "true": [
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        6,
-                                        1
-                                    ]
-                                ]
+                                "type": "setValue",
+                                "name": "flag:v124_PotionExist",
+                                "operator": "+=",
+                                "value": "1"
                             },
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        7,
-                                        1
-                                    ]
-                                ]
+                                "type": "setValue",
+                                "name": "switch:A",
+                                "value": "1"
                             },
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        8,
-                                        1
-                                    ]
+                                "type": "if",
+                                "condition": "(flag:v124_PotionExist===10)",
+                                "true": [
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                6,
+                                                1
+                                            ]
+                                        ]
+                                    },
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                7,
+                                                1
+                                            ]
+                                        ]
+                                    },
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                8,
+                                                1
+                                            ]
+                                        ]
+                                    }
                                 ]
                             }
                         ]
-                    },
-                    {
-                        "type": "hide",
-                        "remove": true
                     }
                 ]
             }
@@ -74,53 +81,60 @@ main.floors.MT11=
         "4,2": [
             {
                 "type": "if",
-                "condition": "core.getBlockId(core.getHeroLoc('x'), core.getHeroLoc('y'))===\"darkLight\"",
+                "condition": "switch:A!==1",
                 "true": [
                     {
-                        "type": "setValue",
-                        "name": "flag:v124_PotionExist",
-                        "operator": "+=",
-                        "value": "1"
-                    },
-                    {
                         "type": "if",
-                        "condition": "flag:v124_PotionExist===10",
+                        "condition": "(core.getBlockId(core.getHeroLoc('x'), core.getHeroLoc('y'))===\"darkLight\")",
                         "true": [
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        6,
-                                        1
-                                    ]
-                                ]
+                                "type": "setValue",
+                                "name": "flag:v124_PotionExist",
+                                "operator": "+=",
+                                "value": "1"
                             },
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        7,
-                                        1
-                                    ]
-                                ]
+                                "type": "setValue",
+                                "name": "switch:A",
+                                "value": "1"
                             },
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        8,
-                                        1
-                                    ]
+                                "type": "if",
+                                "condition": "(flag:v124_PotionExist===10)",
+                                "true": [
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                6,
+                                                1
+                                            ]
+                                        ]
+                                    },
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                7,
+                                                1
+                                            ]
+                                        ]
+                                    },
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                8,
+                                                1
+                                            ]
+                                        ]
+                                    }
                                 ]
                             }
                         ]
-                    },
-                    {
-                        "type": "hide",
-                        "remove": true
                     }
                 ]
             }
@@ -128,53 +142,60 @@ main.floors.MT11=
         "4,4": [
             {
                 "type": "if",
-                "condition": "core.getBlockId(core.getHeroLoc('x'), core.getHeroLoc('y'))===\"darkLight\"",
+                "condition": "switch:A!==1",
                 "true": [
                     {
-                        "type": "setValue",
-                        "name": "flag:v124_PotionExist",
-                        "operator": "+=",
-                        "value": "1"
-                    },
-                    {
                         "type": "if",
-                        "condition": "flag:v124_PotionExist===10",
+                        "condition": "(core.getBlockId(core.getHeroLoc('x'), core.getHeroLoc('y'))===\"darkLight\")",
                         "true": [
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        6,
-                                        1
-                                    ]
-                                ]
+                                "type": "setValue",
+                                "name": "flag:v124_PotionExist",
+                                "operator": "+=",
+                                "value": "1"
                             },
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        7,
-                                        1
-                                    ]
-                                ]
+                                "type": "setValue",
+                                "name": "switch:A",
+                                "value": "1"
                             },
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        8,
-                                        1
-                                    ]
+                                "type": "if",
+                                "condition": "(flag:v124_PotionExist===10)",
+                                "true": [
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                6,
+                                                1
+                                            ]
+                                        ]
+                                    },
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                7,
+                                                1
+                                            ]
+                                        ]
+                                    },
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                8,
+                                                1
+                                            ]
+                                        ]
+                                    }
                                 ]
                             }
                         ]
-                    },
-                    {
-                        "type": "hide",
-                        "remove": true
                     }
                 ]
             }
@@ -182,53 +203,60 @@ main.floors.MT11=
         "3,3": [
             {
                 "type": "if",
-                "condition": "core.getBlockId(core.getHeroLoc('x'), core.getHeroLoc('y'))===\"darkLight\"",
+                "condition": "switch:A!==1",
                 "true": [
                     {
-                        "type": "setValue",
-                        "name": "flag:v124_PotionExist",
-                        "operator": "+=",
-                        "value": "1"
-                    },
-                    {
                         "type": "if",
-                        "condition": "flag:v124_PotionExist===10",
+                        "condition": "(core.getBlockId(core.getHeroLoc('x'), core.getHeroLoc('y'))===\"darkLight\")",
                         "true": [
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        6,
-                                        1
-                                    ]
-                                ]
+                                "type": "setValue",
+                                "name": "flag:v124_PotionExist",
+                                "operator": "+=",
+                                "value": "1"
                             },
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        7,
-                                        1
-                                    ]
-                                ]
+                                "type": "setValue",
+                                "name": "switch:A",
+                                "value": "1"
                             },
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        8,
-                                        1
-                                    ]
+                                "type": "if",
+                                "condition": "(flag:v124_PotionExist===10)",
+                                "true": [
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                6,
+                                                1
+                                            ]
+                                        ]
+                                    },
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                7,
+                                                1
+                                            ]
+                                        ]
+                                    },
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                8,
+                                                1
+                                            ]
+                                        ]
+                                    }
                                 ]
                             }
                         ]
-                    },
-                    {
-                        "type": "hide",
-                        "remove": true
                     }
                 ]
             }
@@ -236,53 +264,60 @@ main.floors.MT11=
         "2,4": [
             {
                 "type": "if",
-                "condition": "core.getBlockId(core.getHeroLoc('x'), core.getHeroLoc('y'))===\"darkLight\"",
+                "condition": "switch:A!==1",
                 "true": [
                     {
-                        "type": "setValue",
-                        "name": "flag:v124_PotionExist",
-                        "operator": "+=",
-                        "value": "1"
-                    },
-                    {
                         "type": "if",
-                        "condition": "flag:v124_PotionExist===10",
+                        "condition": "(core.getBlockId(core.getHeroLoc('x'), core.getHeroLoc('y'))===\"darkLight\")",
                         "true": [
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        6,
-                                        1
-                                    ]
-                                ]
+                                "type": "setValue",
+                                "name": "flag:v124_PotionExist",
+                                "operator": "+=",
+                                "value": "1"
                             },
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        7,
-                                        1
-                                    ]
-                                ]
+                                "type": "setValue",
+                                "name": "switch:A",
+                                "value": "1"
                             },
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        8,
-                                        1
-                                    ]
+                                "type": "if",
+                                "condition": "(flag:v124_PotionExist===10)",
+                                "true": [
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                6,
+                                                1
+                                            ]
+                                        ]
+                                    },
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                7,
+                                                1
+                                            ]
+                                        ]
+                                    },
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                8,
+                                                1
+                                            ]
+                                        ]
+                                    }
                                 ]
                             }
                         ]
-                    },
-                    {
-                        "type": "hide",
-                        "remove": true
                     }
                 ]
             }
@@ -290,53 +325,60 @@ main.floors.MT11=
         "10,2": [
             {
                 "type": "if",
-                "condition": "core.getBlockId(core.getHeroLoc('x'), core.getHeroLoc('y'))===\"darkLight\"",
+                "condition": "switch:A!==1",
                 "true": [
                     {
-                        "type": "setValue",
-                        "name": "flag:v124_PotionExist",
-                        "operator": "+=",
-                        "value": "1"
-                    },
-                    {
                         "type": "if",
-                        "condition": "flag:v124_PotionExist===10",
+                        "condition": "(core.getBlockId(core.getHeroLoc('x'), core.getHeroLoc('y'))===\"darkLight\")",
                         "true": [
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        6,
-                                        1
-                                    ]
-                                ]
+                                "type": "setValue",
+                                "name": "flag:v124_PotionExist",
+                                "operator": "+=",
+                                "value": "1"
                             },
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        7,
-                                        1
-                                    ]
-                                ]
+                                "type": "setValue",
+                                "name": "switch:A",
+                                "value": "1"
                             },
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        8,
-                                        1
-                                    ]
+                                "type": "if",
+                                "condition": "(flag:v124_PotionExist===10)",
+                                "true": [
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                6,
+                                                1
+                                            ]
+                                        ]
+                                    },
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                7,
+                                                1
+                                            ]
+                                        ]
+                                    },
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                8,
+                                                1
+                                            ]
+                                        ]
+                                    }
                                 ]
                             }
                         ]
-                    },
-                    {
-                        "type": "hide",
-                        "remove": true
                     }
                 ]
             }
@@ -344,53 +386,60 @@ main.floors.MT11=
         "11,3": [
             {
                 "type": "if",
-                "condition": "core.getBlockId(core.getHeroLoc('x'), core.getHeroLoc('y'))===\"darkLight\"",
+                "condition": "switch:A!==1",
                 "true": [
                     {
-                        "type": "setValue",
-                        "name": "flag:v124_PotionExist",
-                        "operator": "+=",
-                        "value": "1"
-                    },
-                    {
                         "type": "if",
-                        "condition": "flag:v124_PotionExist===10",
+                        "condition": "(core.getBlockId(core.getHeroLoc('x'), core.getHeroLoc('y'))===\"darkLight\")",
                         "true": [
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        6,
-                                        1
-                                    ]
-                                ]
+                                "type": "setValue",
+                                "name": "flag:v124_PotionExist",
+                                "operator": "+=",
+                                "value": "1"
                             },
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        7,
-                                        1
-                                    ]
-                                ]
+                                "type": "setValue",
+                                "name": "switch:A",
+                                "value": "1"
                             },
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        8,
-                                        1
-                                    ]
+                                "type": "if",
+                                "condition": "(flag:v124_PotionExist===10)",
+                                "true": [
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                6,
+                                                1
+                                            ]
+                                        ]
+                                    },
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                7,
+                                                1
+                                            ]
+                                        ]
+                                    },
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                8,
+                                                1
+                                            ]
+                                        ]
+                                    }
                                 ]
                             }
                         ]
-                    },
-                    {
-                        "type": "hide",
-                        "remove": true
                     }
                 ]
             }
@@ -398,53 +447,60 @@ main.floors.MT11=
         "10,4": [
             {
                 "type": "if",
-                "condition": "core.getBlockId(core.getHeroLoc('x'), core.getHeroLoc('y'))===\"darkLight\"",
+                "condition": "switch:A!==1",
                 "true": [
                     {
-                        "type": "setValue",
-                        "name": "flag:v124_PotionExist",
-                        "operator": "+=",
-                        "value": "1"
-                    },
-                    {
                         "type": "if",
-                        "condition": "flag:v124_PotionExist===10",
+                        "condition": "(core.getBlockId(core.getHeroLoc('x'), core.getHeroLoc('y'))===\"darkLight\")",
                         "true": [
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        6,
-                                        1
-                                    ]
-                                ]
+                                "type": "setValue",
+                                "name": "flag:v124_PotionExist",
+                                "operator": "+=",
+                                "value": "1"
                             },
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        7,
-                                        1
-                                    ]
-                                ]
+                                "type": "setValue",
+                                "name": "switch:A",
+                                "value": "1"
                             },
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        8,
-                                        1
-                                    ]
+                                "type": "if",
+                                "condition": "(flag:v124_PotionExist===10)",
+                                "true": [
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                6,
+                                                1
+                                            ]
+                                        ]
+                                    },
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                7,
+                                                1
+                                            ]
+                                        ]
+                                    },
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                8,
+                                                1
+                                            ]
+                                        ]
+                                    }
                                 ]
                             }
                         ]
-                    },
-                    {
-                        "type": "hide",
-                        "remove": true
                     }
                 ]
             }
@@ -452,53 +508,60 @@ main.floors.MT11=
         "12,2": [
             {
                 "type": "if",
-                "condition": "core.getBlockId(core.getHeroLoc('x'), core.getHeroLoc('y'))===\"darkLight\"",
+                "condition": "switch:A!==1",
                 "true": [
                     {
-                        "type": "setValue",
-                        "name": "flag:v124_PotionExist",
-                        "operator": "+=",
-                        "value": "1"
-                    },
-                    {
                         "type": "if",
-                        "condition": "flag:v124_PotionExist===10",
+                        "condition": "(core.getBlockId(core.getHeroLoc('x'), core.getHeroLoc('y'))===\"darkLight\")",
                         "true": [
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        6,
-                                        1
-                                    ]
-                                ]
+                                "type": "setValue",
+                                "name": "flag:v124_PotionExist",
+                                "operator": "+=",
+                                "value": "1"
                             },
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        7,
-                                        1
-                                    ]
-                                ]
+                                "type": "setValue",
+                                "name": "switch:A",
+                                "value": "1"
                             },
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        8,
-                                        1
-                                    ]
+                                "type": "if",
+                                "condition": "(flag:v124_PotionExist===10)",
+                                "true": [
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                6,
+                                                1
+                                            ]
+                                        ]
+                                    },
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                7,
+                                                1
+                                            ]
+                                        ]
+                                    },
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                8,
+                                                1
+                                            ]
+                                        ]
+                                    }
                                 ]
                             }
                         ]
-                    },
-                    {
-                        "type": "hide",
-                        "remove": true
                     }
                 ]
             }
@@ -506,53 +569,60 @@ main.floors.MT11=
         "12,4": [
             {
                 "type": "if",
-                "condition": "core.getBlockId(core.getHeroLoc('x'), core.getHeroLoc('y'))===\"darkLight\"",
+                "condition": "switch:A!==1",
                 "true": [
                     {
-                        "type": "setValue",
-                        "name": "flag:v124_PotionExist",
-                        "operator": "+=",
-                        "value": "1"
-                    },
-                    {
                         "type": "if",
-                        "condition": "flag:v124_PotionExist===10",
+                        "condition": "(core.getBlockId(core.getHeroLoc('x'), core.getHeroLoc('y'))===\"darkLight\")",
                         "true": [
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        6,
-                                        1
-                                    ]
-                                ]
+                                "type": "setValue",
+                                "name": "flag:v124_PotionExist",
+                                "operator": "+=",
+                                "value": "1"
                             },
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        7,
-                                        1
-                                    ]
-                                ]
+                                "type": "setValue",
+                                "name": "switch:A",
+                                "value": "1"
                             },
                             {
-                                "type": "setBlock",
-                                "number": "greenPotion",
-                                "loc": [
-                                    [
-                                        8,
-                                        1
-                                    ]
+                                "type": "if",
+                                "condition": "(flag:v124_PotionExist===10)",
+                                "true": [
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                6,
+                                                1
+                                            ]
+                                        ]
+                                    },
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                7,
+                                                1
+                                            ]
+                                        ]
+                                    },
+                                    {
+                                        "type": "setBlock",
+                                        "number": "greenPotion",
+                                        "loc": [
+                                            [
+                                                8,
+                                                1
+                                            ]
+                                        ]
+                                    }
                                 ]
                             }
                         ]
-                    },
-                    {
-                        "type": "hide",
-                        "remove": true
                     }
                 ]
             }

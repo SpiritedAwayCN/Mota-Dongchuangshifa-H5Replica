@@ -49,8 +49,15 @@ main.floors.MT35=
             "data": [
                 {
                     "type": "openShop",
-                    "id": "F35TSWShop",
-                    "open": true
+                    "id": "F35TSWShop"
+                },
+                {
+                    "type": "insert",
+                    "name": "OtherShops",
+                    "args": [
+                        "TSWShop",
+                        8
+                    ]
                 }
             ]
         }

@@ -35,7 +35,7 @@ main.floors.MT49=
         "1,1": [
             {
                 "type": "if",
-                "condition": "(blockId:13,13===\"T458\")",
+                "condition": "(blockId:1,1===\"T458\")",
                 "true": [
                     {
                         "type": "playSound",
@@ -108,21 +108,27 @@ main.floors.MT49=
         "11,1": [
             {
                 "type": "if",
-                "condition": "(switch:A !== 1)",
+                "condition": "(flag:VerboseHint===1)",
                 "true": [
                     {
-                        "type": "confirm",
-                        "text": "上楼将永久扣除所有角色66攻66防，\n且需要持有至少一个幸运金币。\n是否确认上楼？",
-                        "yes": [
+                        "type": "if",
+                        "condition": "(switch:A !== 1)",
+                        "true": [
                             {
-                                "type": "setValue",
-                                "name": "switch:A",
-                                "value": "1"
-                            }
-                        ],
-                        "no": [
-                            {
-                                "type": "exit"
+                                "type": "confirm",
+                                "text": "上楼将永久扣除所有角色66攻66防，\n且49F金币商人暂时涨价，\n且需要持有至少一个幸运金币。\n是否确认上楼？",
+                                "yes": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "switch:A",
+                                        "value": "1"
+                                    }
+                                ],
+                                "no": [
+                                    {
+                                        "type": "exit"
+                                    }
+                                ]
                             }
                         ]
                     }
