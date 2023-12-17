@@ -1062,6 +1062,16 @@ main.floors.MT65=
                         ]
                     },
                     {
+                        "type": "setFloor",
+                        "name": "canFlyFrom",
+                        "value": true
+                    },
+                    {
+                        "type": "setFloor",
+                        "name": "canUseQuickShop",
+                        "value": true
+                    },
+                    {
                         "type": "waitAsync"
                     }
                 ]
