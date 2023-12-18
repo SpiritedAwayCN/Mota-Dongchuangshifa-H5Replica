@@ -205,7 +205,11 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"tallRedDoor": 6,
 		"tallGreenDoor": 7,
 		"tallSpecialDoor": 8,
-		"tallSteelDoor": 9
+		"tallSteelDoor": 9,
+		"N551": 12,
+		"N552": 13,
+		"N549": 10,
+		"N550": 11
 	},
 	"enemys": {
 		"redSlime": 1,
@@ -350,7 +354,20 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"E519": 138,
 		"E520": 139,
 		"E521": 140,
-		"E522": 141
+		"E522": 141,
+		"E528": 142,
+		"E529": 143,
+		"E530": 144,
+		"E531": 145,
+		"E532": 146,
+		"E533": 147,
+		"E534": 148,
+		"E535": 149,
+		"E536": 150,
+		"E537": 151,
+		"E538": 152,
+		"E539": 153,
+		"E540": 154
 	},
 	"enemy48": {
 		"angel": 0,
@@ -457,7 +474,15 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"I526": 95,
 		"bAtkGem": 92,
 		"bDefGem": 93,
-		"bMdefGem": 94
+		"bMdefGem": 94,
+		"I541": 96,
+		"I542": 97,
+		"I543": 98,
+		"I544": 99,
+		"I545": 100,
+		"I546": 101,
+		"I547": 102,
+		"I548": 103
 	},
 	"autotile": {
 		"autotile": 0,

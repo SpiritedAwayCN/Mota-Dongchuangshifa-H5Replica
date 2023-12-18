@@ -2637,7 +2637,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 						"action": [
 							{
 								"type": "function",
-								"function": "function(){\nvar prompt = \"\";\nvar atk = core.getFlag(\"arg2\", 0),\n\tdef = core.getFlag(\"arg3\", 0),\n\tmdef = core.getFlag(\"arg4\", 0);\n\nif (atk) prompt += `\n+` + atk + \"攻击\";\nif (def) prompt += `\n+` + def + \"防御\";\nif (mdef) prompt += `\n+` + mdef + \"魔防\";\n\ncore.setFlag(\"arg1\", prompt);\n}"
+								"function": "function(){\nvar prompt = \"\";\nvar atk = core.getFlag(\"arg2\", 0),\n\tdef = core.getFlag(\"arg3\", 0),\n\tmdef = core.getFlag(\"arg4\", 0),\n\thp = core.getFlag(\"arg5\", 0);\n\nif (atk) prompt += `\n+` + atk + \"攻击\";\nif (def) prompt += `\n+` + def + \"防御\";\nif (mdef) prompt += `\n+` + mdef + \"魔防\";\nif (hp) prompt += `\n+` + hp + \"生命\";\n\ncore.setFlag(\"arg1\", prompt);\n}"
 							},
 							{
 								"type": "choices",
@@ -2654,7 +2654,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 										"action": [
 											{
 												"type": "function",
-												"function": "function(){\nvar hero = core.status.hero;\nhero.atk += core.getFlag(\"arg2\", 0);\nhero.def += core.getFlag(\"arg3\", 0);\nhero.mdef += core.getFlag(\"arg4\", 0);\ncore.updateStatusBar(true);\n}"
+												"function": "function(){\nvar hero = core.status.hero;\nhero.atk += core.getFlag(\"arg2\", 0);\nhero.def += core.getFlag(\"arg3\", 0);\nhero.mdef += core.getFlag(\"arg4\", 0);\nhero.hp += core.getFlag(\"arg5\", 0);\ncore.setFlag(\"arg2\", 0);\ncore.setFlag(\"arg3\", 0);\ncore.setFlag(\"arg4\", 0);\ncore.setFlag(\"arg5\", 0);\ncore.updateStatusBar(true);\n}"
 											}
 										]
 									},
@@ -2664,7 +2664,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 										"action": [
 											{
 												"type": "function",
-												"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\nvar hero = (hero_id == 0 ? core.status.hero : core.getFlag(\"hero0\"))\nhero.atk += core.getFlag(\"arg2\", 0);\nhero.def += core.getFlag(\"arg3\", 0);\nhero.mdef += core.getFlag(\"arg4\", 0);\ncore.updateStatusBar(true);\n}"
+												"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\nvar hero = (hero_id == 0 ? core.status.hero : core.getFlag(\"hero0\"))\nhero.atk += core.getFlag(\"arg2\", 0);\nhero.def += core.getFlag(\"arg3\", 0);\nhero.mdef += core.getFlag(\"arg4\", 0);\nhero.hp += core.getFlag(\"arg5\", 0);\ncore.setFlag(\"arg2\", 0);\ncore.setFlag(\"arg3\", 0);\ncore.setFlag(\"arg4\", 0);\ncore.setFlag(\"arg5\", 0);\ncore.updateStatusBar(true);\n}"
 											}
 										]
 									},
@@ -2675,7 +2675,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 										"action": [
 											{
 												"type": "function",
-												"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\nvar hero = (hero_id == 1 ? core.status.hero : core.getFlag(\"hero1\"))\nhero.atk += core.getFlag(\"arg2\", 0);\nhero.def += core.getFlag(\"arg3\", 0);\nhero.mdef += core.getFlag(\"arg4\", 0);\ncore.updateStatusBar(true);\n}"
+												"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\nvar hero = (hero_id == 1 ? core.status.hero : core.getFlag(\"hero1\"))\nhero.atk += core.getFlag(\"arg2\", 0);\nhero.def += core.getFlag(\"arg3\", 0);\nhero.mdef += core.getFlag(\"arg4\", 0);\nhero.hp += core.getFlag(\"arg5\", 0);\ncore.setFlag(\"arg2\", 0);\ncore.setFlag(\"arg3\", 0);\ncore.setFlag(\"arg4\", 0);\ncore.setFlag(\"arg5\", 0);\ncore.updateStatusBar(true);\n}"
 											}
 										]
 									}
@@ -2691,73 +2691,88 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 						"case": "\"brocade\"",
 						"action": [
 							{
+								"type": "function",
+								"function": "function(){\ncore.setFlag(\"noItemSound\", 1);\n}"
+							},
+							{
 								"type": "setValue",
 								"name": "item:yellowKey",
 								"operator": "+=",
-								"value": "5"
+								"value": "5",
+								"norefresh": true
 							},
 							{
 								"type": "setValue",
 								"name": "item:blueKey",
 								"operator": "+=",
-								"value": "3"
+								"value": "3",
+								"norefresh": true
 							},
 							{
 								"type": "setValue",
 								"name": "item:redKey",
 								"operator": "+=",
-								"value": "1"
+								"value": "1",
+								"norefresh": true
 							},
 							{
 								"type": "setValue",
 								"name": "item:redPotion",
 								"operator": "+=",
-								"value": "4"
+								"value": "4",
+								"norefresh": true
 							},
 							{
 								"type": "setValue",
 								"name": "item:bluePotion",
 								"operator": "+=",
-								"value": "3"
+								"value": "3",
+								"norefresh": true
 							},
 							{
 								"type": "setValue",
 								"name": "item:yellowPotion",
 								"operator": "+=",
-								"value": "2"
+								"value": "2",
+								"norefresh": true
 							},
 							{
 								"type": "setValue",
 								"name": "item:greenPotion",
 								"operator": "+=",
-								"value": "1"
+								"value": "1",
+								"norefresh": true
 							},
 							{
 								"type": "setValue",
 								"name": "item:redGem",
 								"operator": "+=",
-								"value": "1"
+								"value": "1",
+								"norefresh": true
 							},
 							{
 								"type": "setValue",
 								"name": "item:blueGem",
 								"operator": "+=",
-								"value": "1"
+								"value": "1",
+								"norefresh": true
 							},
 							{
 								"type": "setValue",
 								"name": "item:greenGem",
 								"operator": "+=",
-								"value": "1"
+								"value": "1",
+								"norefresh": true
+							},
+							{
+								"type": "function",
+								"function": "function(){\ncore.removeFlag(\"noItemSound\");\n}"
 							},
 							{
 								"type": "setValue",
 								"name": "item:I339",
 								"operator": "+=",
 								"value": "1"
-							},
-							{
-								"type": "stopSound"
 							}
 						]
 					}

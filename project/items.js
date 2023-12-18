@@ -25,7 +25,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"itemEffect": "core.status.hero.atk += core.values.redGem * core.status.thisMap.ratio",
 		"itemEffectTip": "，攻击+${core.values.redGem * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.atk += core.values.redGem",
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "true",
+		"hideInToolbox": true
 	},
 	"blueGem": {
 		"cls": "tools",
@@ -34,7 +35,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"itemEffect": "core.status.hero.def += core.values.blueGem * core.status.thisMap.ratio",
 		"itemEffectTip": "，防御+${core.values.blueGem * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.def += core.values.blueGem",
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "true",
+		"hideInToolbox": true
 	},
 	"greenGem": {
 		"cls": "tools",
@@ -43,7 +45,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"itemEffect": "core.status.hero.mdef += core.values.greenGem * core.status.thisMap.ratio",
 		"itemEffectTip": "，护盾+${core.values.greenGem * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.mdef += core.values.greenGem",
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "true",
+		"hideInToolbox": true
 	},
 	"yellowGem": {
 		"cls": "items",
@@ -58,7 +61,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 			}
 		],
 		"canUseItemEffect": "true",
-		"useItemEffect": "core.values.levelupPoint += core.values.yellowGem;\ncore.status.hero.lv += 1;\ncore.plugin.refreshComboWand();"
+		"useItemEffect": "core.values.levelupPoint += core.values.yellowGem;\ncore.status.hero.lv += 1;\ncore.plugin.refreshComboWand();",
+		"hideInToolbox": true
 	},
 	"redPotion": {
 		"cls": "tools",
@@ -67,7 +71,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"itemEffect": "core.status.hero.hp += core.values.redPotion * core.status.thisMap.ratio;",
 		"itemEffectTip": "，生命+${core.values.redPotion * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.hp += core.values.redPotion",
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "true",
+		"hideInToolbox": true
 	},
 	"bluePotion": {
 		"cls": "tools",
@@ -76,7 +81,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"itemEffect": "core.status.hero.hp += core.values.bluePotion * core.status.thisMap.ratio",
 		"itemEffectTip": "，生命+${core.values.bluePotion * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.hp += core.values.bluePotion",
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "true",
+		"hideInToolbox": true
 	},
 	"yellowPotion": {
 		"cls": "tools",
@@ -85,7 +91,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"itemEffect": "core.status.hero.hp += core.values.yellowPotion * core.status.thisMap.ratio",
 		"itemEffectTip": "，生命+${core.values.yellowPotion * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.hp += core.values.yellowPotion",
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "true",
+		"hideInToolbox": true
 	},
 	"greenPotion": {
 		"cls": "tools",
@@ -94,7 +101,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"itemEffect": "core.status.hero.hp += core.values.greenPotion * core.status.thisMap.ratio",
 		"itemEffectTip": "，生命+${core.values.greenPotion * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.hp += core.values.greenPotion",
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "true",
+		"hideInToolbox": true
 	},
 	"sword0": {
 		"cls": "items",
@@ -293,7 +301,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 	"coin": {
 		"cls": "tools",
 		"name": "幸运金币",
-		"text": "持有时打败怪物可得双倍金币"
+		"text": "持有时打败怪物可得双倍金币（不叠加）"
 	},
 	"freezeBadge": {
 		"cls": "tools",
@@ -325,8 +333,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"text": "可以开启当前层所有黄门",
 		"itemEffect": "core.addItem('yellowKey', 1);\ncore.addItem('blueKey', 1);\ncore.addItem('redKey', 1);",
 		"itemEffectTip": "，全钥匙+1",
-		"useItemEffect": "(function () {\n\tvar actions = core.searchBlock(/yellowDoor\\d*/).map(function (block) {\n\t\treturn { \"type\": \"openDoor\", \"loc\": [block.x, block.y], \"async\": true };\n\t});\n\tactions.push({ \"type\": \"waitAsync\" });\n\tactions.push({ \"type\": \"tip\", \"text\": core.material.items[itemId].name + \"使用成功\" });\n\tcore.insertAction(actions);\n})();",
-		"canUseItemEffect": "(function () {\n\treturn core.searchBlock(/yellowDoor\\d*/).length > 0;\n})();"
+		"useItemEffect": "(function () {\n\tcore.setFlag(\"noDoorSound\", 1);\n\tvar actions = core.searchBlock(\"yellowDoor\\\\d*\").map(function (block) {\n\t\treturn { \"type\": \"openDoor\", \"loc\": [block.x, block.y], \"async\": true };\n\t});\n\tactions.push({ \"type\": \"waitAsync\" });\n\tactions.push({ \"type\": \"tip\", \"text\": core.material.items[itemId].name + \"使用成功\" });\n\tactions.push({ \"type\": \"function\", \"function\": \"function(){\\ncore.removeFlag(\\\"noDoorSound\\\");\\n}\" });\n\tcore.insertAction(actions);\n})();",
+		"canUseItemEffect": "(function () {\n\treturn core.searchBlock(\"yellowDoor\\\\d*\").length > 0;\n})();"
 	},
 	"greenKey": {
 		"cls": "tools",
@@ -787,10 +795,10 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"canUseItemEffect": "true"
 	},
 	"I457": {
-		"cls": "items",
+		"cls": "tools",
 		"name": "珍贵钥匙",
-		"canUseItemEffect": "(function () {\n\treturn core.searchBlock(/(yellow|blue|red|green|steel)Door\\d*/).length > 0;\n})();",
-		"useItemEffect": "(function () {\n\tvar actions = core.searchBlock(/(yellow|blue|red|green|steel)Door\\d*/).map(function (block) {\n\t\treturn { \"type\": \"openDoor\", \"loc\": [block.x, block.y], \"async\": true };\n\t});\n\tactions.push({ \"type\": \"waitAsync\" });\n\tactions.push({ \"type\": \"tip\", \"text\": core.material.items[itemId].name + \"使用成功\" });\n\tcore.insertAction(actions);\n})();",
+		"canUseItemEffect": "(function () {\n\treturn core.searchBlock(\"(yellow|blue|red|green|steel)Door\\\\d*\").length > 0;\n})();",
+		"useItemEffect": "(function () {\n\tcore.setFlag(\"noDoorSound\", 1);\n\tvar actions = core.searchBlock(\"(yellow|blue|red|green|steel)Door\\\\d*\").map(function (block) {\n\t\treturn { \"type\": \"openDoor\", \"loc\": [block.x, block.y], \"async\": true };\n\t});\n\tactions.push({ \"type\": \"waitAsync\" });\n\tactions.push({ \"type\": \"tip\", \"text\": core.material.items[itemId].name + \"使用成功\" });\n\tactions.push({ \"type\": \"function\", \"function\": \"function(){\\ncore.removeFlag(\\\"noDoorSound\\\");\\n}\" });\n\tcore.insertAction(actions);\n})();",
 		"text": "抵消一层中所有门（消耗物品）"
 	},
 	"BSpecialKey": {
@@ -819,17 +827,20 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 	"I495": {
 		"cls": "items",
 		"name": "新物品",
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "true",
+		"hideInToolbox": true
 	},
 	"I496": {
 		"cls": "items",
 		"name": "新物品",
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "true",
+		"hideInToolbox": true
 	},
 	"I497": {
 		"cls": "items",
 		"name": "新物品",
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "true",
+		"hideInToolbox": true
 	},
 	"allSteel": {
 		"cls": "constants",
@@ -851,7 +862,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"text": "可增加使用者3点攻击（消耗物品）",
 		"itemEffect": "core.addStatus(\"atk\", 3);",
 		"itemEffectTip": "，攻击+3",
-		"useItemEffect": "core.addStatus(\"atk\", 3);"
+		"useItemEffect": "core.addStatus(\"atk\", 3);",
+		"hideInToolbox": true
 	},
 	"bDefGem": {
 		"cls": "items",
@@ -870,5 +882,84 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"itemEffect": "core.addStatus(\"mdef\", 3);",
 		"itemEffectTip": "，魔防+3",
 		"useItemEffect": "core.addStatus(\"mdef\", 3);"
+	},
+	"I541": {
+		"cls": "constants",
+		"name": "护符",
+		"canUseItemEffect": null,
+		"text": "持有后不受怪物领域、夹击的伤害"
+	},
+	"I542": {
+		"cls": "items",
+		"name": "？？？",
+		"canUseItemEffect": "true",
+		"itemEffect": "var hero_id = core.getFlag(\"heroId\", 0);\n[0, 1].forEach(id => {\n\tvar hero = hero_id === id ? core.status.hero : core.getFlag(\"hero\" + id);\n\thero.hp += 9999;\n});\ncore.updateStatusBar(true);",
+		"itemEffectTip": "，全体角色回复9999点生命！"
+	},
+	"I543": {
+		"cls": "items",
+		"name": "？？？",
+		"canUseItemEffect": "true",
+		"itemEffect": "var hero_id = core.getFlag(\"heroId\", 0);\n[0, 1].forEach(id => {\n\tvar hero = hero_id === id ? core.status.hero : core.getFlag(\"hero\" + id);\n\thero.hp += 9999;\n});\ncore.updateStatusBar(true);",
+		"itemEffectTip": "，全体角色回复9999点生命！"
+	},
+	"I544": {
+		"cls": "items",
+		"name": "？？？",
+		"canUseItemEffect": "true",
+		"itemEffect": "var hero_id = core.getFlag(\"heroId\", 0);\n[0, 1].forEach(id => {\n\tvar hero = hero_id === id ? core.status.hero : core.getFlag(\"hero\" + id);\n\thero.hp += 9999;\n});\ncore.updateStatusBar(true);",
+		"itemEffectTip": "，全体角色回复9999点生命！"
+	},
+	"I545": {
+		"cls": "items",
+		"name": "？？？",
+		"canUseItemEffect": "true",
+		"itemEffect": "var hero_id = core.getFlag(\"heroId\", 0);\n[0, 1].forEach(id => {\n\tvar hero = hero_id === id ? core.status.hero : core.getFlag(\"hero\" + id);\n\thero.hp += 9999;\n});\ncore.updateStatusBar(true);",
+		"itemEffectTip": "，全体角色回复9999点生命！"
+	},
+	"I546": {
+		"cls": "equips",
+		"name": "铠甲",
+		"canUseItemEffect": "true",
+		"text": "最差的盔甲，掺入部分木质品(装备物品)",
+		"equip": {
+			"type": 3,
+			"value": {
+				"mdef": 5,
+				"def": 15,
+				"atk": 10
+			},
+			"percentage": {}
+		}
+	},
+	"I547": {
+		"cls": "equips",
+		"name": "头盔",
+		"canUseItemEffect": "true",
+		"text": "头盔而已啦(装备物品)",
+		"equip": {
+			"type": 2,
+			"value": {
+				"mdef": 5,
+				"def": 10,
+				"atk": 5
+			},
+			"percentage": {}
+		}
+	},
+	"I548": {
+		"cls": "equips",
+		"name": "高级铠甲",
+		"canUseItemEffect": "true",
+		"text": "纯铁打造的盔甲(装备物品)",
+		"equip": {
+			"type": 3,
+			"value": {
+				"mdef": 10,
+				"def": 25,
+				"atk": 20
+			},
+			"percentage": {}
+		}
 	}
 }

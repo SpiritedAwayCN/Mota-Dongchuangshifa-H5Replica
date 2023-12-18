@@ -556,7 +556,7 @@ events.prototype._openDoor_check = function (block, x, y, needKey) {
                 if(is_o){
                     firstKey = keyName + ":o";
                     break;
-                }else if(firstKey === null)
+                }else if(firstKey === null || firstKey === "I436" || firstKey === "allSteel")
                     firstKey = keyName;
             }
             // if (!core.material.items[keyName]) {
@@ -584,7 +584,8 @@ events.prototype._openDoor_check = function (block, x, y, needKey) {
         //     if (!keyName.endsWith(':o')) core.removeItem(keyName, keyInfo[keyName]);
         // }
     }
-    core.playSound(doorInfo.openSound);
+    if(!core.hasFlag("noDoorSound"))
+        core.playSound(doorInfo.openSound);
     return true;
 }
 

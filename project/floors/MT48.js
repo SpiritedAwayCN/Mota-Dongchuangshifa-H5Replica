@@ -151,6 +151,26 @@ main.floors.MT48=
                 "type": "hide",
                 "remove": true
             }
+        ],
+        "3,1": [
+            {
+                "type": "if",
+                "condition": "(blockId:3,1===\"moneyShop\")",
+                "true": [
+                    {
+                        "type": "openShop",
+                        "id": "F35TSWShop"
+                    },
+                    {
+                        "type": "insert",
+                        "name": "OtherShops",
+                        "args": [
+                            "TSWShop",
+                            10
+                        ]
+                    }
+                ]
+            }
         ]
     },
     "changeFloor": {

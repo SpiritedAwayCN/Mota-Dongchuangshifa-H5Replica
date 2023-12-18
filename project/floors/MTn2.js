@@ -27,6 +27,11 @@ main.floors.MTn2=
             {
                 "type": "openDoor"
             }
+        ],
+        "4,10": [
+            {
+                "type": "openDoor"
+            }
         ]
     },
     "changeFloor": {

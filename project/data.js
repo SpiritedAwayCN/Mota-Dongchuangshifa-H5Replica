@@ -5,6 +5,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"sample0",
 			"sample1",
 			"sample2",
+			"Scene0",
 			"NM_FEK0",
 			"NM_FEX1",
 			"NM_FEX2",
@@ -130,16 +131,38 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"MT62",
 			"MT63",
 			"MT64",
-			"MT65"
+			"MT65",
+			"MT66",
+			"MT67",
+			"MT68",
+			"MT69",
+			"MT70",
+			"MT71",
+			"MT72",
+			"MT73",
+			"MT74",
+			"MT75",
+			"MT76",
+			"MT77",
+			"MT78",
+			"MT79",
+			"MT80",
+			"MT81",
+			"MT82",
+			"MT83",
+			"MT84",
+			"MT85"
 		],
 		"floorPartitions": [],
 		"images": [
 			"016-Braver06.png",
+			"047-Monster17.png",
 			"F.png",
 			"bear.png",
 			"bg.jpg",
 			"brave.png",
 			"dragon.png",
+			"dragonColor.png",
 			"hero.png",
 			"title.png",
 			"winskin.png"
@@ -175,6 +198,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 		],
 		"bgms": [
 			"001Battle01.mp3",
+			"009LastBoss01.mp3",
 			"011LastBoss03.mp3",
 			"012Theme01.mp3",
 			"014Theme03.mp3",
@@ -182,6 +206,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"037Dungeon03.mp3",
 			"040Dungeon06.mp3",
 			"045Positive03.mp3",
+			"055Negative04.mp3",
 			"060Slow03.mp3",
 			"CastleinSky.mp3",
 			"bgm.mp3",
@@ -377,10 +402,22 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"prefix": "dragon_"
 			},
 			{
+				"name": "dragonColor.png",
+				"width": 384,
+				"height": 96,
+				"prefix": "dragonColor_"
+			},
+			{
 				"name": "F.png",
 				"width": 124,
 				"height": 35,
 				"prefix": "F_"
+			},
+			{
+				"name": "047-Monster17.png",
+				"width": 180,
+				"height": 40,
+				"prefix": "047-Monster17_"
 			}
 		]
 	},
