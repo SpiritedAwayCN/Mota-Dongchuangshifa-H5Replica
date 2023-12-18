@@ -94,73 +94,80 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			})
 		},
         "changingFloor": function (floorId, heroLoc) {
-			// 正在切换楼层过程中执行的操作；此函数的执行时间是“屏幕完全变黑“的那一刻
-			// floorId为要切换到的楼层ID；heroLoc表示勇士切换到的位置
+	// 正在切换楼层过程中执行的操作；此函数的执行时间是“屏幕完全变黑“的那一刻
+	// floorId为要切换到的楼层ID；heroLoc表示勇士切换到的位置
 
-			// ---------- 此时还没有进行切换，当前floorId还是原来的 ---------- //
-			var currentId = core.status.floorId || null; // 获得当前的floorId，可能为null
-			var fromLoad = core.hasFlag('__fromLoad__'); // 是否是读档造成的切换
-			var isFlying = core.hasFlag('__isFlying__'); // 是否是楼传造成的切换
-			if (!fromLoad && !(isFlying && currentId == floorId)) {
-				if (!core.hasFlag("__leaveLoc__")) core.setFlag("__leaveLoc__", {});
-				if (currentId != null) core.getFlag("__leaveLoc__")[currentId] = core.clone(core.status.hero.loc);
+	// ---------- 此时还没有进行切换，当前floorId还是原来的 ---------- //
+	var currentId = core.status.floorId || null; // 获得当前的floorId，可能为null
+	var fromLoad = core.hasFlag('__fromLoad__'); // 是否是读档造成的切换
+	var isFlying = core.hasFlag('__isFlying__'); // 是否是楼传造成的切换
+	if (!fromLoad && !(isFlying && currentId == floorId)) {
+		if (!core.hasFlag("__leaveLoc__")) core.setFlag("__leaveLoc__", {});
+		if (currentId != null) core.getFlag("__leaveLoc__")[currentId] = core.clone(core.status.hero.loc);
+	}
+
+	// 可以对currentId进行判定，比如删除某些自定义图层等
+	// if (currentId == 'MT0') {
+	//     core.deleteAllCanvas();
+	// }
+
+	// 根据分区信息自动砍层与恢复
+	if (core.autoRemoveMaps) core.autoRemoveMaps(floorId);
+
+	// 重置画布尺寸
+	core.maps.resizeMap(floorId);
+	// 设置勇士的位置
+	heroLoc.direction = core.turnDirection(heroLoc.direction);
+	core.status.hero.loc = heroLoc;
+	// 检查重生怪并重置
+	if (!fromLoad) {
+		core.extractBlocks(floorId);
+		core.status.maps[floorId].blocks.forEach(function (block) {
+			if (block.disable && core.enemys.hasSpecial(block.event.id, 23)) {
+				block.disable = false;
+				core.setMapBlockDisabled(floorId, block.x, block.y, false);
+				core.maps._updateMapArray(floorId, block.x, block.y);
 			}
+		});
+		core.control.gatherFollowers();
+	}
 
-			// 可以对currentId进行判定，比如删除某些自定义图层等
-			// if (currentId == 'MT0') {
-			//     core.deleteAllCanvas();
-			// }
+	// ---------- 重绘新地图；这一步将会设置core.status.floorId ---------- //
+	core.drawMap(floorId);
 
-			// 根据分区信息自动砍层与恢复
-			if (core.autoRemoveMaps) core.autoRemoveMaps(floorId);
+	// 切换楼层BGM
+	if (core.status.maps[floorId].bgm) {
+		var bgm = core.status.maps[floorId].bgm;
+		if (bgm instanceof Array) bgm = bgm[Math.floor(Math.random() * bgm.length)]; // 多个bgm则随机播放一个
+		if (!core.hasFlag("__bgm__")) {
+			core.playBgm(bgm);
+			core.setBgmSpeed(core.status.maps[floorId].pitch || 100, true);
+		}
+	} else if (fromLoad && !core.hasFlag("__bgm__")) {
+		core.pauseBgm();
+	}
+	// 更改画面色调
+	var color = core.getFlag('__color__', null);
+	if (!color && core.status.maps[floorId].color)
+		color = core.status.maps[floorId].color;
+	core.clearMap('curtain');
+	core.status.curtainColor = color;
+	if (color) core.fillRect('curtain', 0, 0, core.__PIXELS__, core.__PIXELS__, core.arrayToRGBA(color));
+	// 更改天气
+	var weather = core.getFlag('__weather__', null);
+	if (!weather && core.status.maps[floorId].weather)
+		weather = core.status.maps[floorId].weather;
+	if (weather)
+		core.setWeather(weather[0], weather[1]);
+	else core.setWeather();
 
-			// 重置画布尺寸
-			core.maps.resizeMap(floorId);
-			// 设置勇士的位置
-			heroLoc.direction = core.turnDirection(heroLoc.direction);
-			core.status.hero.loc = heroLoc;
-			// 检查重生怪并重置
-			if (!fromLoad) {
-				core.extractBlocks(floorId);
-				core.status.maps[floorId].blocks.forEach(function (block) {
-					if (block.disable && core.enemys.hasSpecial(block.event.id, 23)) {
-						block.disable = false;
-						core.setMapBlockDisabled(floorId, block.x, block.y, false);
-						core.maps._updateMapArray(floorId, block.x, block.y);
-					}
-				});
-				core.control.gatherFollowers();
-			}
+	// ...可以新增一些其他内容，比如创建个画布在右上角显示什么内容等等
+	// 漆黑层处理
+	if (core.shouldDrawDarkMask()) {
+		core.updateDarkMask(core.status.heroCenter.px, core.status.heroCenter.py, core.hasItem("candle") ? 112 : 48, true);
+	}
 
-			// ---------- 重绘新地图；这一步将会设置core.status.floorId ---------- //
-			core.drawMap(floorId);
-
-			// 切换楼层BGM
-			if (core.status.maps[floorId].bgm) {
-				var bgm = core.status.maps[floorId].bgm;
-				if (bgm instanceof Array) bgm = bgm[Math.floor(Math.random() * bgm.length)]; // 多个bgm则随机播放一个
-				if (!core.hasFlag("__bgm__")) core.playBgm(bgm);
-			} else if (fromLoad && !core.hasFlag("__bgm__")) {
-				core.pauseBgm();
-			}
-			// 更改画面色调
-			var color = core.getFlag('__color__', null);
-			if (!color && core.status.maps[floorId].color)
-				color = core.status.maps[floorId].color;
-			core.clearMap('curtain');
-			core.status.curtainColor = color;
-			if (color) core.fillRect('curtain', 0, 0, core.__PIXELS__, core.__PIXELS__, core.arrayToRGBA(color));
-			// 更改天气
-			var weather = core.getFlag('__weather__', null);
-			if (!weather && core.status.maps[floorId].weather)
-				weather = core.status.maps[floorId].weather;
-			if (weather)
-				core.setWeather(weather[0], weather[1]);
-			else core.setWeather();
-
-			// ...可以新增一些其他内容，比如创建个画布在右上角显示什么内容等等
-
-		},
+},
         "afterChangeFloor": function (floorId) {
 	// 转换楼层结束的事件；此函数会在整个楼层切换完全结束后再执行
 	// floorId是切换到的楼层
@@ -1009,7 +1016,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		// 		}
 		break;
 	case 51: // 快捷键3: 飞
-		core.insertCommonEvent("SetPotionItemized", ["Wine"]);
+		core.insertCommonEvent("SetPotionItemized", ["Wand"]);
 		// 		if (core.hasItem('centerFly')) {
 		// 			core.ui._drawCenterFly();
 		// 		}

@@ -450,6 +450,7 @@ var maps_90f36752_8815_4be8_b32b_d7fad1d0542e =
 	"550": {"cls":"npc48","id":"N550"},
 	"551": {"cls":"npc48","id":"N551"},
 	"552": {"cls":"npc48","id":"N552"},
+	"553": {"cls":"items","id":"candle"},
 	"10003": {"cls":"tileset","id":"X10003","canPass":true},
 	"10022": {"cls":"tileset","id":"X10022","canPass":false,"canDestoriedByReels":true},
 	"10030": {"cls":"tileset","id":"X10030","canDestoriedByReels":true},

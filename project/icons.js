@@ -482,7 +482,8 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"I545": 100,
 		"I546": 101,
 		"I547": 102,
-		"I548": 103
+		"I548": 103,
+		"candle": 104
 	},
 	"autotile": {
 		"autotile": 0,

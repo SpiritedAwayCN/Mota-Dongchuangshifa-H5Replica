@@ -664,12 +664,25 @@ var comment_c456ea59_6018_45ef_8bcc_211a24c627dc = {
 							"_docs": "背景音乐",
 							"_data": "到达该层后默认播放的BGM"
 						},
+						"pitch": {
+							"_leaf": true,
+							"_type": "textarea",
+							"_range": "thiseval <= 150 && thiseval>=50",
+							"_docs": "BGM音调",
+							"_data": "当前层BGM的音调，留空默认100"
+						},
 						"ratio": {
 							"_leaf": true,
 							"_type": "textarea",
 							"_range": "thiseval <= Number.MAX_SAFE_INTEGER && thiseval>=0",
 							"_docs": "宝石血瓶效果",
 							"_data": "每一层的宝石/血瓶效果，即获得宝石和血瓶时框内\"ratio\"的值。"
+						},
+						"isDark": {
+							"_leaf": true,
+							"_type": "checkbox",
+							"_docs": "漆黑层",
+							"_data": "是否是漆黑层；如果该项为true则会显示为黑暗层。"
 						}
 					}
 				},

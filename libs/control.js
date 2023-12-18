@@ -836,6 +836,7 @@ control.prototype.drawHero = function (status, offset, frame) {
     }
 
     this._drawHero_draw(direction, x, y, status, offset, frame);
+    core.plugin.afterDrawHeroDarkMask();
 }
 
 control.prototype._drawHero_updateViewport = function (x, y, offset) {

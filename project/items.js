@@ -749,32 +749,32 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"cls": "constants",
 		"name": "攻击法杖",
 		"canUseItemEffect": null,
-		"text": "按角色等级战前增加角色攻击，不显示在状态栏上。（请按\"4\"查看详情）"
+		"text": "按角色等级战前增加角色攻击，不显示在状态栏上。（请按\"3\"查看详情）"
 	},
 	"I411": {
 		"cls": "constants",
 		"name": "防御法杖",
 		"canUseItemEffect": null,
-		"text": "按角色等级战前增加角色防御，不显示在状态栏上。（请按\"4\"查看详情）"
+		"text": "按角色等级战前增加角色防御，不显示在状态栏上。（请按\"3\"查看详情）"
 	},
 	"I412": {
 		"cls": "constants",
 		"name": "魔防法杖",
 		"canUseItemEffect": null,
-		"text": "按角色等级战前增加角色魔防，不显示在状态栏上。（请按\"4\"查看详情）"
+		"text": "按角色等级战前增加角色魔防，不显示在状态栏上。（请按\"3\"查看详情）"
 	},
 	"I413": {
 		"cls": "constants",
 		"name": "生命法杖",
 		"canUseItemEffect": null,
-		"text": "按角色等级战后回复角色生命（请按\"4\"查看详情）"
+		"text": "按角色等级战后回复角色生命（请按\"3\"查看详情）"
 	},
 	"I414": {
 		"cls": "constants",
 		"name": "连击法杖",
 		"canUseItemEffect": null,
 		"itemEffect": "",
-		"text": "按角色等级给予角色额外的连击次数。（请按\"4\"查看详情）"
+		"text": "按角色等级给予角色额外的连击次数。（请按\"3\"查看详情）"
 	},
 	"I436": {
 		"cls": "tools",
@@ -961,5 +961,17 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 			},
 			"percentage": {}
 		}
+	},
+	"candle": {
+		"cls": "constants",
+		"name": "蜡烛",
+		"canUseItemEffect": null,
+		"text": "照亮勇士的周围",
+		"useItemEvent": [
+			{
+				"type": "function",
+				"function": "function(){\ncore.updateDarkMask(core.status.heroCenter.px, core.status.heroCenter.py);\n}"
+			}
+		]
 	}
 }

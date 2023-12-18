@@ -423,5 +423,6 @@ main.floors.MTn28=
     [428,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,428],
     [429,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,429]
 ],
-    "underGround": true
+    "underGround": true,
+    "isDark": false
 }

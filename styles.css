@@ -327,6 +327,10 @@ p#name {
     z-index: 70;
 }
 
+#darkmask {
+    z-index: 80;
+}
+
 #curtain {
     z-index: 125;
 }

@@ -977,5 +977,6 @@ main.floors.MT85=
 ],
     "fgmap": [
 
-]
+],
+    "pitch": 150
 }
