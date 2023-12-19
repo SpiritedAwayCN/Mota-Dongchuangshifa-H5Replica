@@ -2008,11 +2008,15 @@ ui.prototype._drawNotes = function () {
 }
 
 ////// 绘制快捷商店选择栏 //////
-ui.prototype._drawQuickShop = function () {
+ui.prototype._drawQuickShop = function (secondaryType) {
     core.status.event.id = 'selectShop';
-    var shopList = core.status.shops, keys = core.listShopIds();
+    if(secondaryType)
+        core.setFlag('Shop@Secondary', secondaryType)
+    else
+        core.removeFlag('Shop@Secondary')
+    var shopList = core.status.shops, keys = core.listShopIds(secondaryType);
     var choices = keys.map(function (shopId) {
-        return { "text": shopList[shopId].textInList, "color": core.isShopVisited(shopId) ? null : "#999999" };
+        return { "text": shopList[shopId].textInList.split('@')[0], "color": core.isShopVisited(shopId) ? null : "#999999" };
     });
     choices.push("返回游戏");
     this.drawChoices(null, choices);

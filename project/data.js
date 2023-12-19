@@ -956,7 +956,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			{
 				"id": "Fm18ExpShop",
 				"text": "\t[商人,trader]本商店需当面购买！\n无限收购钥匙！",
-				"textInList": "-18F钥匙收购商人",
+				"textInList": "-18F钥匙收购商人@道具",
 				"mustEnable": true,
 				"disablePreview": false,
 				"choices": [
@@ -1017,7 +1017,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			{
 				"id": "Fm17ExpShop",
 				"text": "\t[老人,man]本商店需当面购买！\n-17F所需经验: ${flag:Fm17ShopVisited?\"700\":\"???\"}\n-27F所需经验: ${flag:Fm27ShopVisited?\"600\":\"???\"}",
-				"textInList": "-17/-27F经验老人",
+				"textInList": "-17/-27F经验老人@经验",
 				"mustEnable": true,
 				"disablePreview": false,
 				"choices": [
@@ -1145,7 +1145,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			},
 			{
 				"id": "Fm3m4GoldShop",
-				"textInList": "-3/-4/-5F金币商店",
+				"textInList": "-3/-4/-5F金币商店@金币",
 				"mustEnable": true,
 				"commonEvent": "OtherShops",
 				"args": [
@@ -1154,7 +1154,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			},
 			{
 				"id": "F0KeyShop",
-				"textInList": "0F钥匙商店",
+				"textInList": "0F钥匙商店@道具",
 				"mustEnable": true,
 				"commonEvent": "OtherShops",
 				"args": [
@@ -1164,7 +1164,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			{
 				"id": "Expshop7F",
 				"text": "\t[经验商店,expShop]花${100+45*flag:Expshop7F}经验就可以：",
-				"textInList": "7F经验商店",
+				"textInList": "7F经验商店@经验",
 				"mustEnable": true,
 				"disablePreview": false,
 				"choices": [
@@ -1329,7 +1329,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			{
 				"id": "GoldShop9F",
 				"text": "\t[奸商,trader]我是奸商！100魔塔币你可以(剩余购买次数：${8-flag:GoldShop9F})",
-				"textInList": "9F奸商",
+				"textInList": "9F奸商@金币",
 				"mustEnable": true,
 				"disablePreview": false,
 				"choices": [
@@ -1402,7 +1402,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			{
 				"id": "GoldShop9F2",
 				"text": "\t[奸商的朋友,trader]我是奸商的朋友！85魔塔币，你可解除一次购买。\n（当前剩余可购买次数：${8-flag:GoldShop9F}）",
-				"textInList": "9F奸商朋友",
+				"textInList": "9F奸商朋友@金币",
 				"mustEnable": true,
 				"disablePreview": false,
 				"choices": [
@@ -1434,14 +1434,14 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			},
 			{
 				"id": "F12KeyShop",
-				"textInList": "12F钥匙商人",
+				"textInList": "12F钥匙商人@道具",
 				"mustEnable": true,
 				"commonEvent": "F12KeyShop"
 			},
 			{
 				"id": "F15EnhanceShop",
 				"text": "\t[强化商店,N396]${flag:F15EnhanceShop===0 ? \"600点经验你可以提升红药瓶的功效\" : \nflag:F15EnhanceShop===1 ? \"3000点塔币你可以提升蓝药瓶的功效\" : \nflag:F15EnhanceShop===2 ? \"4500点塔币以及400点经验你可以提升黄药瓶的功效，不过要有钱\" : \nflag:F15EnhanceShop===3 ? \"10000点金钱提升红、蓝宝石效果\" : \"本商店已过期\"}",
-				"textInList": "15F强化商店",
+				"textInList": "15F强化商店@道具",
 				"mustEnable": true,
 				"disablePreview": false,
 				"choices": [
@@ -1599,7 +1599,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			{
 				"id": "F22WineShop",
 				"text": "\t[商人,youngMan]我是商人，请挑选您要购买的物品",
-				"textInList": "22/-27F药水商店",
+				"textInList": "22/-27F药水商店@道具",
 				"mustEnable": true,
 				"disablePreview": false,
 				"choices": [
@@ -1683,7 +1683,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			{
 				"id": "F25IncrementalShop",
 				"text": "\t[金币商店,N417](本商店需当面购买)\n当前价格${20+flag:F25IncrementalShop}，每次购买增加1",
-				"textInList": "25F金币商店",
+				"textInList": "25F金币商店@金币",
 				"mustEnable": true,
 				"disablePreview": false,
 				"choices": [
@@ -1743,7 +1743,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			},
 			{
 				"id": "F29SuperShop",
-				"textInList": "29F超级商店",
+				"textInList": "29F超级商店@经验",
 				"mustEnable": true,
 				"commonEvent": "OtherShops",
 				"args": [
@@ -1752,7 +1752,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			},
 			{
 				"id": "F35TSWShop",
-				"textInList": "35/48/59F商店",
+				"textInList": "35/48/59F商店@金币",
 				"mustEnable": true,
 				"commonEvent": "OtherShops",
 				"args": [
@@ -1762,7 +1762,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			},
 			{
 				"id": "F49GoldShop",
-				"textInList": "49F金币商人",
+				"textInList": "49F金币商人@金币",
 				"mustEnable": true,
 				"commonEvent": "OtherShops",
 				"args": [
@@ -1771,7 +1771,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			},
 			{
 				"id": "F59ExpShop",
-				"textInList": "59F经验商人",
+				"textInList": "59F经验商人@经验",
 				"mustEnable": true,
 				"commonEvent": "OtherShops",
 				"args": [

@@ -218,9 +218,10 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 	}
 
 	/// 当前应当显示的快捷商店列表
-	this.listShopIds = function () {
+	this.listShopIds = function (secondaryType) {
 		return Object.keys(core.status.shops).filter(function (id) {
-			return core.isShopVisited(id) || !core.status.shops[id].mustEnable;
+			return (core.isShopVisited(id) || !core.status.shops[id].mustEnable) && 
+				(!secondaryType || core.status.shops[id].textInList.split("@")[1] === secondaryType);
 		});
 	}
 

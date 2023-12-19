@@ -2882,8 +2882,13 @@ events.prototype.openQuickShop = function (fromUserAction) {
         return;
     }
 
-    if (!this._checkStatus('selectShop', fromUserAction)) return;
-    core.ui._drawQuickShop();
+    if(core.listShopIds().length >= 12){
+        // 商店数量过多，打开二级分类
+        core.insertCommonEvent('全局商店二级分类');
+    }else{
+        if (!this._checkStatus('selectShop', fromUserAction)) return;
+        core.ui._drawQuickShop();
+    }
 }
 
 events.prototype.openKeyBoard = function (fromUserAction) {

@@ -1499,30 +1499,30 @@ actions.prototype._keyUpViewMaps = function (keycode) {
 
 ////// 快捷商店界面时的点击操作 //////
 actions.prototype._clickQuickShop = function (x, y) {
-    var shopIds = core.listShopIds();
+    var shopIds = core.listShopIds(core.getFlag('Shop@Secondary', null));
     if (this._out(x)) return;
-        var topIndex = this._HY_ - parseInt(shopIds.length / 2) + (core.status.event.ui.offset || 0);
-        if (y >= topIndex && y < topIndex + shopIds.length) {
-            var shopId = shopIds[y - topIndex];
-            if (!core.canOpenShop(shopId)) {
-                core.playSound('操作失败');
-                core.drawTip('当前项尚未开启');
-                return;
-            }
-            var message = core.canUseQuickShop(shopId);
-            if (message == null) {
-                // core.ui.closePanel();
-                core.openShop(shopIds[y - topIndex], false);
-            } else {
-                core.playSound('操作失败');
-                core.drawTip(message);
-            }
+    var topIndex = this._HY_ - parseInt(shopIds.length / 2) + (core.status.event.ui.offset || 0);
+    if (y >= topIndex && y < topIndex + shopIds.length) {
+        var shopId = shopIds[y - topIndex];
+        if (!core.canOpenShop(shopId)) {
+            core.playSound('操作失败');
+            core.drawTip('当前项尚未开启');
+            return;
         }
-        // 离开
-        else if (y == topIndex + shopIds.length) {
-            core.playSound('取消');
-            core.ui.closePanel();
+        var message = core.canUseQuickShop(shopId);
+        if (message == null) {
+            // core.ui.closePanel();
+            core.openShop(shopIds[y - topIndex], false);
+        } else {
+            core.playSound('操作失败');
+            core.drawTip(message);
         }
+    }
+    // 离开
+    else if (y == topIndex + shopIds.length) {
+        core.playSound('取消');
+        core.ui.closePanel();
+    }
 }
 
 ////// 快捷商店界面时，放开某个键的操作 //////
@@ -1532,7 +1532,7 @@ actions.prototype._keyUpQuickShop = function (keycode) {
         core.ui.closePanel();
         return;
     }
-    this._selectChoices(core.listShopIds().length + 1, keycode, this._clickQuickShop);
+    this._selectChoices(core.listShopIds(core.getFlag('Shop@Secondary', null)).length + 1, keycode, this._clickQuickShop);
     return;
 }
 

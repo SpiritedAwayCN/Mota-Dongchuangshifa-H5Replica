@@ -2779,6 +2779,48 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 				]
 			}
 		],
-		"漆黑层处理": []
+		"全局商店二级分类": [
+			{
+				"type": "choices",
+				"text": "\t[快捷商店]可用的快捷商店已较多，\n请先选择您要购买的商店类别：",
+				"choices": [
+					{
+						"text": "金币能力商店",
+						"icon": "money",
+						"action": [
+							{
+								"type": "function",
+								"function": "function(){\nif (!core.events._checkStatus('selectShop', false)) {\n\treturn;\n}\ncore.ui._drawQuickShop(\"金币\");\n}"
+							}
+						]
+					},
+					{
+						"text": "经验能力商店",
+						"icon": "exp",
+						"action": [
+							{
+								"type": "function",
+								"function": "function(){\nif (!core.events._checkStatus('selectShop', false)) return;\ncore.ui._drawQuickShop(\"经验\");\n}"
+							}
+						]
+					},
+					{
+						"text": "道具商店",
+						"icon": "toolbox",
+						"action": [
+							{
+								"type": "function",
+								"function": "function(){\nif (!core.events._checkStatus('selectShop', false)) return;\ncore.ui._drawQuickShop(\"道具\");\n}"
+							}
+						]
+					},
+					{
+						"text": "返回游戏",
+						"icon": "speedDown",
+						"action": []
+					}
+				]
+			}
+		]
 	}
 }
