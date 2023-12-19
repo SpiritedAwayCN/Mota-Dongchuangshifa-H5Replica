@@ -19,9 +19,9 @@ main.floors.MT35=
     "parallelDo": "",
     "events": {
         "6,1": [
-            "\t[老人,man]\b[this]退化怪物战斗后，勇士攻、防减2点、3点",
-            "\t[老人,man]\b[this]神偷怪物战斗前，所持的4种血瓶数量减半，并夺走20%的金钱。",
-            "\t[老人,man]\b[this]这两种属性会变化的。",
+            "\t[老人,man]\b[this]退化怪物战斗后，勇士攻、防减2点、3点@clue",
+            "\t[老人,man]\b[this]神偷怪物战斗前，所持的4种血瓶数量减半，并夺走20%的金钱。@clue",
+            "\t[老人,man]\b[this]这两种属性会变化的。@clue",
             {
                 "type": "setValue",
                 "name": "flag:v116_Chat",

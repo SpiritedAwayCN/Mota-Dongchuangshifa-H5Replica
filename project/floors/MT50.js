@@ -30,7 +30,7 @@ main.floors.MT50=
             ]
         },
         "\t[Black devil,blackKing]\b[this,6,3]欢迎到来！勇士。",
-        "\t[hero,hero]\b[hero]......",
+        "\t[hero]\b[hero]......",
         "\t[Black devil,blackKing]\b[this,6,3]来认识魔王吧！",
         {
             "type": "setBlock",
@@ -63,7 +63,7 @@ main.floors.MT50=
             ]
         },
         "\t[Black devil,blackKing]\b[this,6,3]红衣魔王、Magic Master、魔王·布鲁斯都在。",
-        "\t[hero,hero]\b[hero]你......你想干嘛！",
+        "\t[hero]\b[hero]你......你想干嘛！",
         {
             "type": "setBlock",
             "number": "A510",
@@ -158,7 +158,7 @@ main.floors.MT50=
             "remove": true
         },
         "\t[炫彩の魔王,A510]\b[this,7,3]魔族是靠吸收能量而强大的，这次，就让高级士兵吸收吧！",
-        "\t[hero,hero]\b[hero]你......（惨了！@#￥%……&*）",
+        "\t[hero]\b[hero]你......（惨了！@#￥%……&*）",
         {
             "type": "move",
             "loc": [
@@ -323,7 +323,7 @@ main.floors.MT50=
             "name": "flag:s186_F49NoSale",
             "value": "1"
         },
-        "\t[hero,hero]\b[hero]受不了......",
+        "\t[hero]\b[hero]受不了......",
         "\t[炫彩の魔王,A510]\b[this,7,3]打入地牢！",
         {
             "type": "setCurtain",
@@ -336,7 +336,7 @@ main.floors.MT50=
             "time": 500,
             "keep": true
         },
-        "\t[hero,hero]扑通......又被揍了......",
+        "\t[hero]扑通......又被揍了......",
         "\t[捷克,N512]喂！醒醒！",
         {
             "type": "changeFloor",

@@ -19,8 +19,8 @@ main.floors.MT43=
     "parallelDo": "",
     "events": {
         "7,7": [
-            "\t[商人,trader]\b[this]在8层有个商店。",
-            "\t[商人,trader]\b[this]在最左上角，有一个怪物，PK后，右上怪物会变成老人。",
+            "\t[商人,trader]\b[this]在8层有个商店。@clue",
+            "\t[商人,trader]\b[this]在最左上角，有一个怪物，PK后，右上怪物会变成老人。@clue",
             {
                 "type": "show",
                 "loc": [

@@ -19,8 +19,8 @@ main.floors.MT52=
     "parallelDo": "",
     "events": {
         "11,11": [
-            "\t[老人,man]\b[this]一些墙里会有血瓶或宝石。",
-            "\t[老人,man]\b[this]我身后就有。",
+            "\t[老人,man]\b[this]一些墙里会有血瓶或宝石。@clue",
+            "\t[老人,man]\b[this]我身后就有。@clue",
             {
                 "type": "hide",
                 "remove": true

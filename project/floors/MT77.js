@@ -144,9 +144,9 @@ main.floors.MT77=
             }
         ],
         "1,2": [
-            "\t[老人,man]\b[this]在这个时候，加攻击比较好，不过你要确定能防杀暗黑蝙蝠。",
-            "\t[老人,man]\b[this]防杀指勇士DEF≥敌人ATK。",
-            "\t[老人,man]\b[this]当你的生命无法再攻击怪物,周围的往往就是虚墙。",
+            "\t[老人,man]\b[this]在这个时候，加攻击比较好，不过你要确定能防杀暗黑蝙蝠。@clue",
+            "\t[老人,man]\b[this]防杀指勇士DEF≥敌人ATK。@clue",
+            "\t[老人,man]\b[this]当你的生命无法再攻击怪物,周围的往往就是虚墙。@clue",
             {
                 "type": "hide",
                 "remove": true

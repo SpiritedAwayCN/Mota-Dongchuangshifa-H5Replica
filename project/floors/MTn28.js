@@ -89,9 +89,9 @@ main.floors.MTn28=
                 "shadow": 0
             },
             "data": [
-                "\t[hero,hero]\b[hero]你也在啊。",
+                "\t[hero]\b[hero]你也在啊。",
                 "\t[绿色史莱姆,greenSlime]\b[this]不行啊。",
-                "\t[hero,hero]\b[hero]打你挣钱太少。",
+                "\t[hero]\b[hero]打你挣钱太少。",
                 "\t[绿色史莱姆,greenSlime]\b[this]好，我让开。别打我。",
                 {
                     "type": "move",

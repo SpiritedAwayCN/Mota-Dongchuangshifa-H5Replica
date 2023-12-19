@@ -174,9 +174,7 @@ main.floors.MT8=
             ]
         },
         "8,7": [
-            "\t[老人,man]\b[this]无论怎样，都会严格按正向和箭头方向前进。",
-            "\t[老人,man]\b[this]在踩转换正向方向这个功能上，踩一下转换箭头，传送出去，再回来就有区别了。",
-            "\t[老人,man]\b[this]如果不懂，请到箭头空间，传送带在0层",
+            "\t[老人,man]\b[this]无论怎样，都会严格按正向和箭头方向前进。@clue",
             {
                 "type": "setValue",
                 "name": "flag:v116_Chat",
@@ -229,10 +227,10 @@ main.floors.MT8=
                     {
                         "case": "1",
                         "action": [
-                            "\t[老人,man]\b[this]魔防可有效的防止，可是......",
-                            "\t[hero,hero]\b[hero]怎么了？",
-                            "\t[老人,man]\b[this]这样吧，我对魔防也有点了解，当你升级时，来找我，我试试看，能不能帮你恢复魔防使用权！",
-                            "\t[hero,hero]\b[hero]我尽力吧！",
+                            "\t[老人,man]\b[this]魔防可有效的防止，可是......@clue",
+                            "\t[hero]\b[hero]怎么了？",
+                            "\t[老人,man]\b[this]这样吧，我对魔防也有点了解，当你升级时，来找我，我试试看，能不能帮你恢复魔防使用权！@clue",
+                            "\t[hero]\b[hero]我尽力吧！",
                             {
                                 "type": "setValue",
                                 "name": "flag:m8FLog",
@@ -244,7 +242,7 @@ main.floors.MT8=
                     {
                         "case": "default",
                         "action": [
-                            "\t[老人,man]\b[this]魔攻怪物的攻击无视角色防御*1。",
+                            "\t[老人,man]\b[this]魔攻怪物的攻击无视角色防御*1。@clue",
                             {
                                 "type": "setValue",
                                 "name": "flag:v116_Chat",

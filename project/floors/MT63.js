@@ -289,7 +289,7 @@ main.floors.MT63=
             "data": []
         },
         "5,13": [
-            "\t[老人,man]\b[this]65层有个boss，要小心！",
+            "\t[老人,man]\b[this]65层有个boss，要小心！@clue",
             {
                 "type": "hide",
                 "remove": true

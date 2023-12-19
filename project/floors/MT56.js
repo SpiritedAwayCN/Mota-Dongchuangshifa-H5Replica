@@ -19,14 +19,14 @@ main.floors.MT56=
     "parallelDo": "",
     "events": {
         "13,3": [
-            "\t[老人,man]\b[this]没有足够的药水,你是去不了陷阱沼泽的.",
+            "\t[老人,man]\b[this]没有足够的药水,你是去不了陷阱沼泽的.@clue",
             {
                 "type": "hide",
                 "remove": true
             }
         ],
         "1,3": [
-            "\t[老人,man]\b[this]这里有个地方可通向陷阱沼泽，你可拿到自然之靴。",
+            "\t[老人,man]\b[this]这里有个地方可通向陷阱沼泽，你可拿到自然之靴。@clue",
             {
                 "type": "hide",
                 "remove": true

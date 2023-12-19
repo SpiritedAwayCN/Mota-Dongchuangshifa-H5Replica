@@ -17,7 +17,7 @@ main.floors.MT2=
     "parallelDo": "",
     "events": {
         "4,10": [
-            "\t[老人,man]魔塔里有很多隐藏层。",
+            "\t[老人,man]魔塔里有很多隐藏层。@clue",
             {
                 "type": "setValue",
                 "name": "flag:v116_Chat",

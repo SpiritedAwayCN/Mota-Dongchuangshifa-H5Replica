@@ -19,7 +19,7 @@ main.floors.MT64=
     "parallelDo": "",
     "events": {
         "6,1": [
-            "\t[老人,man]\b[this]假若你攻击高于1100，魔防高于580，那你是有可能战胜boss的。",
+            "\t[老人,man]\b[this]假若你攻击高于1100，魔防高于580，那你是有可能战胜boss的。@clue",
             {
                 "type": "hide",
                 "remove": true

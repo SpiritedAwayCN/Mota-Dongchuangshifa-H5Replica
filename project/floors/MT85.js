@@ -27,11 +27,11 @@ main.floors.MT85=
                 ],
                 "false": [
                     "\t[公主,N549]\b[this]你终于来了！",
-                    "\t[hero,hero]\b[hero]为了救你，费了很大劲呢！",
+                    "\t[hero]\b[hero]为了救你，费了很大劲呢！",
                     "\t[公主,N549]\b[this]我们快回去吧！至少先给国人报个喜！我们离开这么久了，他们可能现在可能已经开始恐慌了，赶快回去安抚他们一下！",
                     {
                         "type": "choices",
-                        "text": "\t[hero,hero]这样的话......",
+                        "text": "\t[hero]这样的话......",
                         "choices": [
                             {
                                 "text": "我还没救出国王呢！",
@@ -58,7 +58,7 @@ main.floors.MT85=
                                     1
                                 ],
                                 "action": [
-                                    "\t[hero,hero]\b[hero]我还没救出国王呢！"
+                                    "\t[hero]\b[hero]我还没救出国王呢！"
                                 ]
                             }
                         ]
@@ -80,15 +80,15 @@ main.floors.MT85=
                         "name": "A06",
                         "loc": "hero"
                     },
-                    "\t[hero,hero]\b[hero]哇！你好厉害！",
+                    "\t[hero]\b[hero]哇！你好厉害！",
                     "\t[公主,N549]\b[this]我是公主嘛！改进属性物品功能！",
                     {
                         "type": "function",
                         "function": "function(){\ncore.values.redGem = 6;\ncore.values.blueGem = 6;\ncore.values.greenGem = 5;\ncore.values.yellowGem = 4;\ncore.values.redPotion = 800;\ncore.values.bluePotion = 1500;\ncore.values.yellowPotion = 2400;\ncore.values.greenPotion = 3800;\n}"
                     },
                     "\t[公主,N549]\b[this]红、蓝宝石效果变为+6，黄宝石加点数变为+4！红血瓶效果变为+800、蓝血瓶效果变为+1500、黄血瓶效果变为+2400、绿血瓶效果变为+3800！！",
-                    "\t[hero,hero]\b[hero]$_$！",
-                    "\t[hero,hero]\b[hero]不过这些给我了，你怎么办？",
+                    "\t[hero]\b[hero]$_$！",
+                    "\t[hero]\b[hero]不过这些给我了，你怎么办？",
                     "\t[公主,N549]\b[this]哦...也对，给我你的35级！",
                     {
                         "type": "setValue",
@@ -96,11 +96,11 @@ main.floors.MT85=
                         "operator": "-=",
                         "value": "35"
                     },
-                    "\t[hero,hero]\b[hero]哎哎哎！",
+                    "\t[hero]\b[hero]哎哎哎！",
                     "\t[公主,N549]\b[this]救出我的父王！",
-                    "\t[hero,hero]\b[hero]那你......",
+                    "\t[hero]\b[hero]那你......",
                     "\t[公主,N549]\b[this]听我的，去！",
-                    "\t[hero,hero]\b[hero]那你......保重！",
+                    "\t[hero]\b[hero]那你......保重！",
                     {
                         "type": "setValue",
                         "name": "switch:A",

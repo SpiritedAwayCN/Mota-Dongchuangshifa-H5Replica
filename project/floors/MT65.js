@@ -15,7 +15,7 @@ main.floors.MT65=
     "defaultGround": "ground",
     "bgm": "mtboss.mp3",
     "firstArrive": [
-        "\t[hero,hero]\b[hero]大...大...大...大法师？",
+        "\t[hero]\b[hero]大...大...大...大法师？",
         "\t[魔法大法师,magicMaster]\b[this,7,11]正是在下。我会看着你慢慢死去。",
         {
             "type": "move",

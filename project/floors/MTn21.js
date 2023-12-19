@@ -18,7 +18,7 @@ main.floors.MTn21=
     "parallelDo": "",
     "events": {
         "5,13": [
-            "\t[老人,man]\b[this]下一层到了，就可完成\"任务\"了！",
+            "\t[老人,man]\b[this]下一层到了，就可完成\"任务\"了！@clue",
             {
                 "type": "hide",
                 "remove": true

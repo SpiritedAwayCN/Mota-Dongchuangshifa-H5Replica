@@ -45,7 +45,7 @@ main.floors.MT5=
             }
         ],
         "1,7": [
-            "\t[老人,man]\b[this]有些墙可能不是那么坚固。",
+            "\t[老人,man]\b[this]有些墙可能不是那么坚固。@clue",
             {
                 "type": "setValue",
                 "name": "flag:v116_Chat",

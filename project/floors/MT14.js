@@ -37,12 +37,12 @@ main.floors.MT14=
             }
         ],
         "1,2": [
-            "\t[老人,man]\b[this]重击怪物攻击等于勇士血、防御、魔防之和。",
+            "\t[老人,man]\b[this]重击怪物攻击等于勇士血、防御、魔防之和。@clue",
             {
                 "type": "if",
                 "condition": "(flag:s150_UseMAG!==1)",
                 "true": [
-                    "\t[老人,man]\b[this]你还没有魔防很幸运。"
+                    "\t[老人,man]\b[this]你还没有魔防很幸运。@clue"
                 ]
             },
             {
@@ -58,8 +58,8 @@ main.floors.MT14=
             }
         ],
         "1,12": [
-            "\t[老人,man]\b[this]注意到了么，这一层几乎对称。",
-            "\t[老人,man]\b[this]一般对称层的一些现实怪物在特殊手段下可变为别的东西。",
+            "\t[老人,man]\b[this]注意到了么，这一层几乎对称。@clue",
+            "\t[老人,man]\b[this]一般对称层的一些现实怪物在特殊手段下可变为别的东西。@clue",
             {
                 "type": "setValue",
                 "name": "flag:v116_Chat",

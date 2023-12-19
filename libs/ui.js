@@ -1081,7 +1081,7 @@ ui.prototype._buildFont = function (fontSize, bold, italic, font) {
 
 ////// 绘制一段文字到某个画布上面
 // ctx：要绘制到的画布
-// content：要绘制的内容；转义字符目前只允许留 \n, \r[...], \i[...], \c[...], \d, \e
+// content：要绘制的内容；转义字符目前只允许留 \n, \r[...], \i[...], \c[...], \d, \e, @clue
 // config：绘制配置项，目前暂时包含如下内容（均为可选）
 //         left, top：起始点位置；maxWidth：单行最大宽度；color：默认颜色；align：左中右
 //         fontSize：字体大小；lineHeight：行高；time：打字机间隔；font：字体类型；letterSpacing：字符间距
@@ -1405,7 +1405,7 @@ ui.prototype.getTextContentHeight = function (content, config) {
 }
 
 ui.prototype._getRealContent = function (content) {
-    return content.replace(/(\r|\\(r|c|d|e|g|z))(\[.*?])?/g, "").replace(/(\\i)(\[.*?])?/g, "占1");
+    return content.replace(/(\r|\\(r|c|d|e|g|z))(\[.*?])?/g, "").replace(/(\\i)(\[.*?])?/g, "占1").replace(/@clue$/g, "");
 }
 
 ui.prototype._animateUI = function (type, ctx, callback) {

@@ -183,9 +183,9 @@ main.floors.MT55=
                         "value": "1"
                     },
                     "\t[神秘老人,wizard]\b[this]唔......你有攻击法杖！",
-                    "\t[hero,hero]\b[hero]有什么不对么？",
+                    "\t[hero]\b[hero]有什么不对么？",
                     "\t[神秘老人,wizard]\b[this]它在50级时效果最好！",
-                    "\t[hero,hero]\b[hero]有什么功能？",
+                    "\t[hero]\b[hero]有什么功能？",
                     "\t[神秘老人,wizard]\b[this]当你的ATK＞怪物DEF,每局附加30%的攻击力攻击，\n当你的ATK＜怪物DEF，提升30%攻击力再攻击。",
                     {
                         "type": "function",
@@ -249,9 +249,9 @@ main.floors.MT55=
                         "value": "1"
                     },
                     "\t[神秘老人,wizard]\b[this]唔......你有防御法杖！",
-                    "\t[hero,hero]\b[hero]有什么不对么？",
+                    "\t[hero]\b[hero]有什么不对么？",
                     "\t[神秘老人,wizard]\b[this]它在50级时效果最好！",
-                    "\t[hero,hero]\b[hero]有什么功能？",
+                    "\t[hero]\b[hero]有什么功能？",
                     "\t[神秘老人,wizard]\b[this]当你防御敌人时，它会辅助你防御。\n也就是说在战斗时你是DEF+DEF×30%防御。",
                     {
                         "type": "function",
@@ -315,9 +315,9 @@ main.floors.MT55=
                         "value": "1"
                     },
                     "\t[神秘老人,wizard]\b[this]唔......你有生命法杖！",
-                    "\t[hero,hero]\b[hero]有什么不对么？",
+                    "\t[hero]\b[hero]有什么不对么？",
                     "\t[神秘老人,wizard]\b[this]它在50级时效果最好！",
-                    "\t[hero,hero]\b[hero]有什么功能？",
+                    "\t[hero]\b[hero]有什么功能？",
                     "\t[神秘老人,wizard]\b[this]作弊！可以去重生怪物那每次刷121点HP，多刷几次你就无敌了。希望你不要这样！",
                     {
                         "type": "function",
@@ -379,9 +379,9 @@ main.floors.MT55=
                         "value": "1"
                     },
                     "\t[神秘老人,wizard]\b[this]唔......你有魔防法杖！",
-                    "\t[hero,hero]\b[hero]有什么不对么？",
+                    "\t[hero]\b[hero]有什么不对么？",
                     "\t[神秘老人,wizard]\b[this]它在50级时效果最好！",
-                    "\t[hero,hero]\b[hero]有什么功能？",
+                    "\t[hero]\b[hero]有什么功能？",
                     "\t[神秘老人,wizard]\b[this]它可辅助你30%MAG防御魔攻。真不知道你这一路怎么过来的，靠这个最次的法杖。",
                     {
                         "type": "function",

@@ -20,14 +20,14 @@ main.floors.MT69=
     "events": {
         "7,12": [
             "\t[杰克,thief]\b[this]咦？你还没死？",
-            "\t[hero,hero]\b[hero]欠扁！我能死么？",
+            "\t[hero]\b[hero]欠扁！我能死么？",
             "\t[杰克,thief]\b[this]不说这个了,晦气.你看见我的弟弟了么？",
-            "\t[hero,hero]\b[hero]不知道，偷走了我的幸运金币后就没看见他。",
+            "\t[hero]\b[hero]不知道，偷走了我的幸运金币后就没看见他。",
             "\t[杰克,thief]\b[this]哎，小偷就是小偷。",
-            "\t[hero,hero]\b[hero](想)你还不是一样.....",
+            "\t[hero]\b[hero](想)你还不是一样.....",
             "\t[杰克,thief]\b[this]我偷来了2个武器，送你用吧。",
             "\t[杰克,thief]\b[this]至于幸运金币......以后再说吧。",
-            "\t[hero,hero]\b[hero]喂...算了。",
+            "\t[hero]\b[hero]喂...算了。",
             {
                 "type": "setValue",
                 "name": "item:I546",

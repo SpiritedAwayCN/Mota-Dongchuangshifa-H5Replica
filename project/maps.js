@@ -241,7 +241,7 @@ var maps_90f36752_8815_4be8_b32b_d7fad1d0542e =
 	"341": {"cls":"items","id":"I341"},
 	"342": {"cls":"items","id":"I342"},
 	"343": {"cls":"items","id":"book"},
-	"344": {"cls":"items","id":"I344"},
+	"344": {"cls":"items","id":"notebook"},
 	"345": {"cls":"items","id":"fly"},
 	"346": {"cls":"enemys","id":"E346"},
 	"347": {"cls":"items","id":"I347"},

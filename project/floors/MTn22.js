@@ -46,7 +46,7 @@ main.floors.MTn22=
                             1
                         ],
                         "action": [
-                            "\t[hero,hero]\b[hero]再等等"
+                            "\t[hero]\b[hero]再等等"
                         ]
                     }
                 ]

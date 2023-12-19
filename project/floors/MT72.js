@@ -19,11 +19,11 @@ main.floors.MT72=
     "parallelDo": "",
     "events": {
         "12,13": [
-            "\t[老人,man]\b[this]这一块的怪物都很强大,所以你不要硬拼.",
-            "\t[老人,man]\b[this]你最好选择加防御力。",
-            "\t[老人,man]\b[this]一点防御相当于40点HP左右。",
-            "\t[老人,man]\b[this]至于攻击，由于你的连击还不够多，所以最好不要加攻击。尽量防杀。",
-            "\t[老人,man]\b[this]你的攻击如果接近=怪物HP+DEF÷勇士连击，那你最好选择加攻击。",
+            "\t[老人,man]\b[this]这一块的怪物都很强大,所以你不要硬拼.@clue",
+            "\t[老人,man]\b[this]你最好选择加防御力。@clue",
+            "\t[老人,man]\b[this]一点防御相当于40点HP左右。@clue",
+            "\t[老人,man]\b[this]至于攻击，由于你的连击还不够多，所以最好不要加攻击。尽量防杀。@clue",
+            "\t[老人,man]\b[this]你的攻击如果接近=怪物HP+DEF÷勇士连击，那你最好选择加攻击。@clue",
             {
                 "type": "hide",
                 "remove": true

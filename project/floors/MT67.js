@@ -170,7 +170,7 @@ main.floors.MT67=
             ]
         },
         "6,12": [
-            "\t[老人,man]\b[this]48层有个商店。",
+            "\t[老人,man]\b[this]48层有个商店。@clue",
             {
                 "type": "setBlock",
                 "number": "blueShopLeft",
@@ -210,8 +210,8 @@ main.floors.MT67=
             }
         ],
         "8,12": [
-            "\t[老人,man]\b[this]当要扣你的能力时，可先衰弱一下。你可以试一试。",
-            "\t[H5复刻作者]注：这个方法在部分难度下无效。",
+            "\t[老人,man]\b[this]当要扣你的能力时，可先衰弱一下。你可以试一试。@clue",
+            "\t[H5复刻作者]注：这个方法在部分难度下无效。@clue",
             {
                 "type": "hide",
                 "remove": true

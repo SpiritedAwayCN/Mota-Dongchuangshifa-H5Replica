@@ -438,7 +438,6 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"I340": 37,
 		"I341": 38,
 		"I342": 39,
-		"I344": 63,
 		"book_old": 9,
 		"book": 62,
 		"I347": 65,
@@ -483,7 +482,8 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"I546": 101,
 		"I547": 102,
 		"I548": 103,
-		"candle": 104
+		"candle": 104,
+		"notebook": 63
 	},
 	"autotile": {
 		"autotile": 0,

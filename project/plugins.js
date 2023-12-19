@@ -1582,8 +1582,164 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		return basicCombo + core.getBuff("combo") - 1;
 	}
 
-	this.notebookRecord = function (titleInfo, content) {
+	var oldDrawText = core.ui._drawTextContent_draw;
+	core.ui._drawTextContent_draw = function (ctx, tempCtx, content, config) {
+		if (content.endsWith("@clue")) {
+			content = content.substr(0, content.length - 5);
+			var floorId = core.status.floorId;
+			if (floorId && core.hasItem("notebook")) {
+				if (!core.hasFlag("notebook@record")) {
+					core.setFlag("notebook@record", {});
+				}
+				var rec = core.getFlag("notebook@record");
+				if (rec[floorId]) {
+					if (rec[floorId].indexOf(content) < 0) {
+						// 						console.log(rec[floorId].indexOf(content), content);
+						rec[floorId].push(content);
+					}
+				} else {
+					// 					console.log(content);
+					rec[floorId] = [content];
+				}
+			}
+		}
+		return oldDrawText.call(core.ui, ctx, tempCtx, content, config);
+	}
 
+	////// 点击对话记录本的打开操作 //////
+	events.prototype.openNotebook = function (fromUserAction) {
+		if (core.isReplaying()) return;
+		if (!this._checkStatus('notebook', fromUserAction, true)) return;
+		core.playSound('打开界面');
+		core.ui.drawNotebook(core.floorIds.indexOf(core.status.floorId || 'MT0'));
+	}
+
+	////// 绘制对话记录本 //////
+	ui.prototype.drawNotebook = function (page) {
+		core.status.event.data = page;
+		var floorId = core.floorIds[page];
+		var title = core.status.maps[floorId].title;
+		core.clearMap('ui');
+		core.setAlpha('ui', 0.85);
+		core.fillRect('ui', 0, 0, core._PX_, core._PY_, '#000000');
+		core.setAlpha('ui', 1);
+		core.setTextAlign('ui', 'center');
+		core.fillText('ui', '对话记录本', core._PX_ / 2, 48, '#FFFFFF', this._buildFont(28, true));
+		core.fillText('ui', '返回游戏', core._PX_ / 2, core._PY_ - 13, null, this._buildFont(15, true))
+		core.setTextAlign('ui', 'center');
+
+		var middle = core._PY_ / 2 + 39;
+		const lastWidth = 0.25 * core._PX_ - 16;
+
+		// 换行
+		var lines = core.splitLines('ui', title, lastWidth, this._buildFont(19, true));
+		var start_y = middle - (lines.length - 1) * 11;
+		for (var i in lines) {
+			core.fillText('ui', lines[i], core._PX_ - lastWidth * 0.5, start_y, '#FFFFFF');
+			start_y += 22;
+		}
+		if (core.actions._getNextNotebookFloor(1) != page) {
+			core.fillText('ui', '▲', core._PX_ - lastWidth * 0.5, middle - 64, null, this._buildFont(17, false));
+			core.fillText('ui', '▲', core._PX_ - lastWidth * 0.5, middle - 96);
+			core.fillText('ui', '▲', core._PX_ - lastWidth * 0.5, middle - 96 - 7);
+		}
+		if (core.actions._getNextNotebookFloor(-1) != page) {
+			core.fillText('ui', '▼', core._PX_ - lastWidth * 0.5, middle + 64, null, this._buildFont(17, false));
+			core.fillText('ui', '▼', core._PX_ - lastWidth * 0.5, middle + 96);
+			core.fillText('ui', '▼', core._PX_ - lastWidth * 0.5, middle + 96 + 7);
+		}
+		var size = 0.75;
+		core.strokeRect('ui', 16, 64, size * core._PX_, size * core._PY_, '#FFFFFF', 2);
+
+		var data = core.getFlag("notebook@record", {})[floorId];
+		if (data) {
+			var config = {
+				"left": 24,
+				"top": 72,
+				"maxWidth": size * core._PX_ - 16
+			}
+			config = core.drawTextContent('ui', "\\r[orange]来自" + core.status.maps[floorId].name + "的对话记录：\\r", config);
+			data.forEach(function (content) {
+				config.top += 6 + (config.offsetY || 0);
+				config = core.drawTextContent('ui', " - " + content, config);
+				console.log(content, config);
+			});
+		}
+	}
+
+	actions.prototype._getNextNotebookFloor = function (delta, index) {
+		if (index == null) index = core.status.event.data;
+		if (delta == 0) return index;
+		var sign = Math.sign(delta);
+		delta = Math.abs(delta);
+		var ans = index;
+		while (true) {
+			index += sign;
+			if (index < 0 || index >= core.floorIds.length) break;
+			var floorId = core.floorIds[index];
+			if (core.getFlag("notebook@record", {})[floorId]) {
+				delta--;
+				ans = index;
+			}
+			if (delta == 0) break;
+		}
+		return ans;
+	}
+
+	////// 对话记录本界面时，按下某个键的操作 //////
+	actions.prototype._keyDownNotebook = function (keycode) {
+		if (keycode == 37) {
+			core.playSound('光标移动');
+			core.ui.drawNotebook(this._getNextNotebookFloor(-5));
+		} else if (keycode == 38) {
+			core.playSound('光标移动');
+			core.ui.drawNotebook(this._getNextNotebookFloor(1));
+		} else if (keycode == 39) {
+			core.playSound('光标移动');
+			core.ui.drawNotebook(this._getNextNotebookFloor(5));
+		} else if (keycode == 40) {
+			core.playSound('光标移动');
+			core.ui.drawNotebook(this._getNextNotebookFloor(-1));
+		}
+		return;
+	}
+
+	////// 对话记录本界面时，放开某个键的操作 //////
+	actions.prototype._keyUpNotebook = function (keycode) {
+		if (keycode == 71 || keycode == 27 || keycode == 88 || keycode == 13 || keycode == 32 || keycode == 67) {
+			core.playSound('取消');
+			core.ui.closePanel();
+		}
+		return;
+	}
+
+	////// 对话记录本界面时的点击操作 //////
+	actions.prototype._clickNotebook = function (x, y) {
+		if ((x == core._WIDTH_ - 2 || x == core._WIDTH_ - 3) && y == this._HY_ + 3) {
+			core.playSound('光标移动');
+			core.ui.drawNotebook(this._getNextNotebookFloor(-1));
+		}
+		if ((x == core._WIDTH_ - 2 || x == core._WIDTH_ - 3) && y == this._HY_ - 1) {
+			core.playSound('光标移动');
+			core.ui.drawNotebook(this._getNextNotebookFloor(1));
+		}
+		if ((x == core._WIDTH_ - 2 || x == core._WIDTH_ - 3) && y == this._HY_ + 4) {
+			core.playSound('光标移动');
+			core.ui.drawNotebook(this._getNextNotebookFloor(-5));
+		}
+		if ((x == core._WIDTH_ - 2 || x == core._WIDTH_ - 3) && y == this._HY_ - 2) {
+			core.playSound('光标移动');
+			core.ui.drawNotebook(this._getNextNotebookFloor(5));
+		}
+		if (x >= this._HX_ - 1 && x <= this._HX_ + 1 && y === core._HEIGHT_ - 1) {
+			core.playSound('取消');
+			core.ui.closePanel();
+		}
+		if (x >= 0 && x <= this._HX_ + 3 && y >= 3 && y <= core._HEIGHT_ - 1 - 1) {
+			core.playSound('取消');
+			core.ui.closePanel();
+		}
+		return;
 	}
 }
 }

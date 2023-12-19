@@ -18,7 +18,7 @@ main.floors.MTn15=
     "parallelDo": "",
     "events": {
         "13,9": [
-            "\t[老人,man]\b[this]激光怪物是领域加强，同一行同一列受到攻击100点。",
+            "\t[老人,man]\b[this]激光怪物是领域加强，同一行同一列受到攻击100点。@clue",
             {
                 "type": "setValue",
                 "name": "flag:v116_Chat",

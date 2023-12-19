@@ -43,15 +43,15 @@ main.floors.MTn29=
                     "time": 1000
                 },
                 "\t[魔头守灵,E507]\b[this]……",
-                "\t[hero,hero]\b[hero]为什么？为什么你不死！",
+                "\t[hero]\b[hero]为什么？为什么你不死！",
                 "\t[魔头守灵,E507]\b[this]......你打败了我。",
-                "\t[hero,hero]\b[hero]......",
+                "\t[hero]\b[hero]......",
                 "\t[魔头守灵,E507]\b[this]有些事情，你不懂。",
-                "\t[hero,hero]\b[hero]......",
+                "\t[hero]\b[hero]......",
                 "\t[魔头守灵,E507]\b[this]你就算救出国王和公主，国家还是毁灭的。",
                 {
                     "type": "choices",
-                    "text": "\t[hero,hero]......",
+                    "text": "\t[hero]......",
                     "choices": [
                         {
                             "text": "......毁灭？......",
@@ -79,7 +79,7 @@ main.floors.MTn29=
                     ]
                 },
                 "\t[魔头守灵,E507]\b[this]只有一个魔塔么？",
-                "\t[hero,hero]\b[hero]......我不明白",
+                "\t[hero]\b[hero]......我不明白",
                 "\t[魔头守灵,E507]\b[this]再见勇士。祝你挽回国家的命运。\n——一个被魔化的勇士留",
                 {
                     "type": "hide",

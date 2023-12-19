@@ -556,7 +556,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[31, "潜伏", "地图上不显示该怪物，除非角色持有物种探测器（复刻版上此效果无效）", [140, 140, 140, 255]],
 		[32, "神偷", "战斗前，偷取角色" + (core.values.godThief || 0) * 100 + "%的塔币，与所持有的各种类血瓶数量的一半。", [100, 255, 200, 255]],
 		[33, "遗忘", "战斗前，偷取角色" + (core.values.expThief || 0) * 100 + "%的经验。", [130, 155, 10, 255]],
-		[34, "劲敌", "怪物生命=角色生命+135，怪物攻击=角色攻击+12，怪物防御=角色防御+1。", [130, 155, 10, 255]]
+		[34, "劲敌", "怪物生命=角色生命+135，怪物攻击=角色攻击+15，怪物防御=角色防御+1。", [130, 155, 10, 255]]
 	];
 },
         "getEnemyInfo": function (enemy, hero, x, y, floorId, wand_lv) {
@@ -984,6 +984,9 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	case 72: // H：打开帮助页面
 		core.ui._drawHelp();
 		break;
+	case 73: // I: 打开对话记录本
+		core.events.openNotebook(true);
+		break
 	case 77: // M：打开存档笔记
 		core.actions._clickNotes_show();
 		break;

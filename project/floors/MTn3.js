@@ -82,7 +82,7 @@ main.floors.MTn3=
             "name": "A12",
             "loc": "hero"
         },
-        "\t[hero,hero]\b[hero]啊......",
+        "\t[hero]\b[hero]啊......",
         {
             "type": "hide",
             "loc": [
@@ -209,8 +209,8 @@ main.floors.MTn3=
             "name": "item:redKey",
             "value": "0"
         },
-        "\t[hero,hero]到天堂了么？......还没有......",
-        "\t[hero,hero]......能力好像有点问题......",
+        "\t[hero]到天堂了么？......还没有......",
+        "\t[hero]......能力好像有点问题......",
         {
             "type": "switch",
             "condition": "flag:hard",
@@ -372,7 +372,7 @@ main.floors.MTn3=
             }
         ],
         "5,13": [
-            "\t[老人,man]\b[this]爆破怪物斗时，先给角色造成一个固定伤害。（可被魔防防御）",
+            "\t[老人,man]\b[this]爆破怪物斗时，先给角色造成一个固定伤害。（可被魔防防御）@clue",
             {
                 "type": "setValue",
                 "name": "flag:v116_Chat",

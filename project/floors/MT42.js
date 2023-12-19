@@ -50,7 +50,7 @@ main.floors.MT42=
                     "removeLast": true
                 },
                 "\t[邪恶仙子,evilFairy]\b[this]哼哼，你死定的。",
-                "\t[hero,hero]\b[hero]......无语。",
+                "\t[hero]\b[hero]......无语。",
                 {
                     "type": "choices",
                     "text": "\t[邪恶仙子,evilFairy]你还有机会，做我的手下吧！",
@@ -77,7 +77,7 @@ main.floors.MT42=
                                 1
                             ],
                             "action": [
-                                "\t[hero,hero]\b[hero]不可能"
+                                "\t[hero]\b[hero]不可能"
                             ]
                         }
                     ]
@@ -109,7 +109,7 @@ main.floors.MT42=
                                 1
                             ],
                             "action": [
-                                "\t[hero,hero]\b[hero]又来了......"
+                                "\t[hero]\b[hero]又来了......"
                             ]
                         }
                     ]

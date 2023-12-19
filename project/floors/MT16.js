@@ -42,7 +42,7 @@ main.floors.MT16=
                 "type": "if",
                 "condition": "(flag:v116_Chat>=11)",
                 "true": [
-                    "\t[神秘老人,wizard]\b[this]以后陷阱会变多，你可以去陷阱国度去学习一下。",
+                    "\t[神秘老人,wizard]\b[this]以后陷阱会变多，你可以去陷阱国度去学习一下。@clue",
                     {
                         "type": "setBlock",
                         "number": "portal",

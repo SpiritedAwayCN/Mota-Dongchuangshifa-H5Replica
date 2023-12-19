@@ -18,8 +18,8 @@ main.floors.MTn5=
     "parallelDo": "",
     "events": {
         "8,13": [
-            "\t[老人,man]\b[this]重生怪物被击败后，角色转换楼层怪物再次出现。",
-            "\t[老人,man]\b[this]以后物品用途不再介绍（反正都是好的）",
+            "\t[老人,man]\b[this]重生怪物被击败后，角色转换楼层怪物再次出现。@clue",
+            "\t[老人,man]\b[this]以后物品用途不再介绍（反正都是好的）@clue",
             {
                 "type": "setValue",
                 "name": "flag:v116_Chat",

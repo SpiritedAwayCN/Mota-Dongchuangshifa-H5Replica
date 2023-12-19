@@ -18,8 +18,8 @@ main.floors.MT10=
     "parallelDo": "",
     "events": {
         "13,2": [
-            "\t[老人,man]\b[this]连击怪物每回合攻击n次。使勇士N倍承受怪物的单项攻击。",
-            "\t[老人,man]\b[this]对于连击抑制方法，最好一次性解决。",
+            "\t[老人,man]\b[this]连击怪物每回合攻击n次。使勇士N倍承受怪物的单项攻击。@clue",
+            "\t[老人,man]\b[this]对于连击抑制方法，最好一次性解决。@clue",
             {
                 "type": "setValue",
                 "name": "flag:v116_Chat",
@@ -75,7 +75,7 @@ main.floors.MT10=
                 "shadow": 0
             },
             "data": [
-                "\t[神秘老人,wizard]\b[this]控制着机关门的怪物你只能用这个特殊手段对它攻击",
+                "\t[神秘老人,wizard]\b[this]控制着机关门的怪物你只能用这个特殊手段对它攻击。@clue",
                 {
                     "type": "setValue",
                     "name": "item:dagger",

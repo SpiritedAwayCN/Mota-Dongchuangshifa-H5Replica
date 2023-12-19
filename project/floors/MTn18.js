@@ -52,7 +52,7 @@ main.floors.MTn18=
                 "shadow": 0
             },
             "data": [
-                "\t[老人,wizard]\b[this]这是绿钥匙，要节约使用。",
+                "\t[老人,wizard]\b[this]这是绿钥匙，要节约使用。@clue",
                 {
                     "type": "setValue",
                     "name": "item:greenKey",

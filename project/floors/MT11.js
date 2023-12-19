@@ -628,8 +628,8 @@ main.floors.MT11=
             }
         ],
         "7,7": [
-            "\t[老人,man]\b[this]角色处于夹击怪物上下或左右包围时扣一半血。",
-            "\t[老人,man]\b[this]但持有护符时，可完全防御。",
+            "\t[老人,man]\b[this]角色处于夹击怪物上下或左右包围时扣一半血。@clue",
+            "\t[老人,man]\b[this]但持有护符时，可完全防御。@clue",
             {
                 "type": "setValue",
                 "name": "flag:v116_Chat",

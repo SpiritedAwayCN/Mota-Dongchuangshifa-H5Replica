@@ -18,9 +18,9 @@ main.floors.MTn19=
     "parallelDo": "",
     "events": {
         "13,2": [
-            "\t[老人,man]\b[this]暗墙不要错过！",
-            "\t[老人,man]\b[this]第-8层有一个，-17层有一个，-18层有一个。",
-            "\t[老人,man]\b[this]你能来到这，说明你一定过了-17层的。魔塔不会难为任何人，这种暗墙自有提示。",
+            "\t[老人,man]\b[this]暗墙不要错过！@clue",
+            "\t[老人,man]\b[this]第-8层有一个，-17层有一个，-18层有一个。@clue",
+            "\t[老人,man]\b[this]你能来到这，说明你一定过了-17层的。魔塔不会难为任何人，这种暗墙自有提示。@clue",
             {
                 "type": "setValue",
                 "name": "flag:v116_Chat",

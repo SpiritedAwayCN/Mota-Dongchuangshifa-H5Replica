@@ -64,7 +64,7 @@ main.floors.MT62=
             "data": []
         },
         "3,1": [
-            "\t[老人,man]\b[this]我旁边的墙可凿开。",
+            "\t[老人,man]\b[this]我旁边的墙可凿开。@clue",
             {
                 "type": "hide",
                 "remove": true

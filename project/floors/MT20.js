@@ -247,7 +247,7 @@ main.floors.MT20=
             }
         ],
         "2,13": [
-            "\t[老人,man]\b[this]与吸血鬼PK后，怪物先攻2次。",
+            "\t[老人,man]\b[this]与吸血鬼PK后，怪物先攻2次。@clue",
             {
                 "type": "setValue",
                 "name": "flag:v116_Chat",
@@ -261,7 +261,7 @@ main.floors.MT20=
             }
         ],
         "8,13": [
-            "\t[老人,man]\b[this]打败头目及守卫最好一次必杀或让它们无法伤害你。",
+            "\t[老人,man]\b[this]打败头目及守卫最好一次必杀或让它们无法伤害你。@clue",
             {
                 "type": "setValue",
                 "name": "flag:v116_Chat",
@@ -288,13 +288,13 @@ main.floors.MT20=
     "beforeBattle": {
         "7,1": [
             "\t[吸血鬼,vampire]\b[this]很好，你的确很强，你来的目的是什么？",
-            "\t[hero,hero]\b[hero]破灭你们的计划！",
+            "\t[hero]\b[hero]破灭你们的计划！",
             "\t[吸血鬼,vampire]\b[this]哈哈哈哈......那个国家派来了一个军团都没打过我们，何况你？哈哈哈哈......",
-            "\t[hero,hero]\b[hero]什么？......一个军团，我？他们明明是派勇士来啊！不会的，你在骗我！",
+            "\t[hero]\b[hero]什么？......一个军团，我？他们明明是派勇士来啊！不会的，你在骗我！",
             "\t[吸血鬼,vampire]\b[this]哼，一个那么强大的国家会派一个人么？他们只不过认为你也是怪物而已！",
             {
                 "type": "choices",
-                "text": "\t[hero,hero]不，不...不可能！",
+                "text": "\t[hero]不，不...不可能！",
                 "choices": [
                     {
                         "text": "我要杀了你！",
@@ -320,7 +320,7 @@ main.floors.MT20=
                             1
                         ],
                         "action": [
-                            "\t[hero,hero]\b[hero]我要杀了你！",
+                            "\t[hero]\b[hero]我要杀了你！",
                             "\t[吸血鬼,vampire]\b[this]勇气可嘉，不过你要相信你的身份。"
                         ]
                     }

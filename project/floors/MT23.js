@@ -18,10 +18,10 @@ main.floors.MT23=
     "parallelDo": "",
     "events": {
         "7,8": [
-            "\t[老人,man]\b[this]这些都是法杖。对你有帮助。",
-            "\t[老人,man]\b[this]它们分别是生命，连击，攻击，防御，魔防。各有各的用处。",
-            "\t[老人,man]\b[this]它们分3级，但是攻、防、魔在能力值上不显示。",
-            "\t[老人,man]\b[this]快去选一个吧。",
+            "\t[老人,man]\b[this]这些都是法杖。对你有帮助。@clue",
+            "\t[老人,man]\b[this]它们分别是生命，连击，攻击，防御，魔防。各有各的用处。@clue",
+            "\t[老人,man]\b[this]它们分3级，但是攻、防、魔在能力值上不显示。@clue",
+            "\t[老人,man]\b[this]快去选一个吧。@clue",
             {
                 "type": "hide",
                 "remove": true

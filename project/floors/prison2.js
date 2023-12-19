@@ -53,7 +53,7 @@ main.floors.prison2=
                                     "type": "if",
                                     "condition": "(item:coin>=7)",
                                     "true": [
-                                        "\t[hero,hero]\b[hero]只有6个。",
+                                        "\t[hero]\b[hero]只有6个。",
                                         "\t[捷克,N512]\b[this]我还有1个，你也有一个！OK，我来试试！",
                                         {
                                             "type": "setValue",
@@ -85,9 +85,9 @@ main.floors.prison2=
                         {
                             "case": "default",
                             "action": [
-                                "\t[hero,hero]\b[hero]你是......",
+                                "\t[hero]\b[hero]你是......",
                                 "\t[捷克,N512]\b[this]杰克的弟弟。",
-                                "\t[hero,hero]\b[hero]你的不透明度好高！",
+                                "\t[hero]\b[hero]你的不透明度好高！",
                                 "\t[捷克,N512]\b[this]杰克给我的。在430帧内可穿墙！",
                                 "\t[捷克,N512]\b[this]......",
                                 {
@@ -95,7 +95,7 @@ main.floors.prison2=
                                     "opacity": 1
                                 },
                                 "\t[捷克,N512]\b[this]......完了，我们被困住了！",
-                                "\t[hero,hero]\b[hero]！@#￥%^&*……就没别的办法么？",
+                                "\t[hero]\b[hero]！@#￥%^&*……就没别的办法么？",
                                 "\t[捷克,N512]\b[this]......",
                                 {
                                     "type": "move",

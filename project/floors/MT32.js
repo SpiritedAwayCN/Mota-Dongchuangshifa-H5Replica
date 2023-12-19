@@ -29,7 +29,7 @@ main.floors.MT32=
             }
         ],
         "3,1": [
-            "\t[老人,man]\b[this]领域怪物周围x格时自动减生命y,当然x和y只是个任意数。",
+            "\t[老人,man]\b[this]领域怪物周围x格时自动减生命y,当然x和y只是个任意数。@clue",
             {
                 "type": "setValue",
                 "name": "flag:v116_Chat",
@@ -89,13 +89,13 @@ main.floors.MT32=
                             "up:1"
                         ]
                     },
-                    "\t[hero,hero]\b[this]你怎么在这？",
+                    "\t[hero]\b[this]你怎么在这？",
                     "\t[杰克,thief]\b[this,3,12]呵呵,隐藏层里好多你们国家的好东西啊!",
-                    "\t[hero,hero]\b[this]里面有什么？",
+                    "\t[hero]\b[this]里面有什么？",
                     "\t[杰克,thief]\b[this,3,12]去隐藏层要打N只怪，我帮你K了！",
-                    "\t[hero,hero]\b[this]哦，你拿到什么了？",
+                    "\t[hero]\b[this]哦，你拿到什么了？",
                     "\t[杰克,thief]\b[this,3,12]给你一个吧。",
-                    "\t[hero,hero]\b[this]才一个？小气！",
+                    "\t[hero]\b[this]才一个？小气！",
                     "\t[杰克,thief]\b[this,3,12]我都用完了，就这样，88",
                     {
                         "type": "setValue",
@@ -155,7 +155,7 @@ main.floors.MT32=
                     1
                 ]
             },
-            "\t[hero,hero]\b[hero]切，说大话。......等等，除了经验和金钱，没礼物么......小气......"
+            "\t[hero]\b[hero]切，说大话。......等等，除了经验和金钱，没礼物么......小气......"
         ]
     },
     "afterGetItem": {},

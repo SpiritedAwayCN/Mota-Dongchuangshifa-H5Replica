@@ -268,6 +268,9 @@ actions.prototype._sys_keyDown_lockControl = function (keyCode) {
         case 'book':
             this._keyDownBook(keyCode);
             break;
+        case 'notebook':
+            this._keyDownNotebook(keyCode);
+            break;
         case 'fly':
             this._keyDownFly(keyCode);
             break;
@@ -367,6 +370,9 @@ actions.prototype._sys_keyUp_lockControl = function (keyCode, altKey) {
             break;
         case 'book-detail':
             ok() && this._clickBookDetail();
+            break;
+        case 'notebook':
+            this._keyUpNotebook(keyCode);
             break;
         case 'fly':
             this._keyUpFly(keyCode);
@@ -469,6 +475,9 @@ actions.prototype._sys_ondown_lockControl = function (x, y, px, py) {
             break;
         case 'book-detail':
             this._clickBookDetail(x, y, px, py);
+            break;
+        case 'notebook':
+            this._clickNotebook(x, y, px, py);
             break;
         case 'fly':
             this._clickFly(x, y, px, py);
@@ -775,6 +784,13 @@ actions.prototype._sys_onmousewheel = function (direct) {
         return;
     }
 
+    // 对话记录本
+    if (core.status.lockControl && core.status.event.id == 'notebook') {
+        if (direct == 1) core.ui.drawNotebook(this._getNextNotebookFloor(1));
+        if (direct == -1) core.ui.drawNotebook(this._getNextNotebookFloor(-1));
+        return;
+    }
+
     // 怪物手册
     if (core.status.lockControl && core.status.event.id == 'book') {
         var pageinfo = core.ui._drawBook_pageinfo();
@@ -862,6 +878,13 @@ actions.prototype._sys_longClick_lockControl = function (x, y, px, py) {
     if (core.status.event.id == 'fly') {
         if ((x == core._WIDTH_ - 2 || x == core._WIDTH_ - 3) && (y == this._HY_ - 1 || y == this._HY_ + 3)) {
             this._clickFly(x, y);
+            return true;
+        }
+    }
+    // 长按对话记录本的箭头可以快速翻页
+    if (core.status.event.id == 'notebook') {
+        if ((x == core._WIDTH_ - 2 || x == core._WIDTH_ - 3) && (y == this._HY_ - 1 || y == this._HY_ + 3)) {
+            this._clickNotebook(x, y);
             return true;
         }
     }

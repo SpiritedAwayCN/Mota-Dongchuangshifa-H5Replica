@@ -19,9 +19,9 @@ main.floors.MT84=
     "parallelDo": "",
     "events": {
         "7,2": [
-            "\t[老人,man]\b[this]85是最后一层，请你一定要救出公主！",
-            "\t[hero,hero]\b[hero]我会的。",
-            "\t[老人,man]\b[this]一个小偷给我了10颗红蓝钻,10个黄药水,送你吧！",
+            "\t[老人,man]\b[this]85是最后一层，请你一定要救出公主！@clue",
+            "\t[hero]\b[hero]我会的。",
+            "\t[老人,man]\b[this]一个小偷给我了10颗红蓝钻,10个黄药水,送你吧！@clue",
             {
                 "type": "setValue",
                 "name": "item:redGem",
@@ -40,17 +40,17 @@ main.floors.MT84=
                 "operator": "+=",
                 "value": "10"
             },
-            "\t[老人,man]\b[this]对了，他说要还给你一个物品。",
-            "\t[hero,hero]\b[hero]什么？",
-            "\t[老人,man]\b[this]这个。幸运金币！",
+            "\t[老人,man]\b[this]对了，他说要还给你一个物品。@clue",
+            "\t[hero]\b[hero]什么？",
+            "\t[老人,man]\b[this]这个。幸运金币！@clue",
             {
                 "type": "setValue",
                 "name": "item:coin",
                 "operator": "+=",
                 "value": "1"
             },
-            "\t[hero,hero]\b[hero]杰克的弟弟？......",
-            "\t[老人,man]\b[this]祝你好运！",
+            "\t[hero]\b[hero]杰克的弟弟？......",
+            "\t[老人,man]\b[this]祝你好运！@clue",
             {
                 "type": "hide",
                 "remove": true

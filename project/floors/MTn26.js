@@ -18,7 +18,7 @@ main.floors.MTn26=
     "parallelDo": "",
     "events": {
         "12,13": [
-            "\t[老人,man]\b[this]硬碰硬吧！",
+            "\t[老人,man]\b[this]硬碰硬吧！@clue",
             {
                 "type": "hide",
                 "remove": true

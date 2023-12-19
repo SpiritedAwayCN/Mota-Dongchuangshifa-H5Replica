@@ -18,7 +18,7 @@ main.floors.MTn11=
     "parallelDo": "",
     "events": {
         "7,2": [
-            "\t[老人,man]\b[this]开启一个机关可能与上下2层有关。",
+            "\t[老人,man]\b[this]开启一个机关可能与上下2层有关。@clue",
             {
                 "type": "setValue",
                 "name": "flag:v116_Chat",

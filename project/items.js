@@ -571,11 +571,6 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"name": "新物品",
 		"canUseItemEffect": "true"
 	},
-	"I344": {
-		"cls": "constants",
-		"name": "对话手册",
-		"canUseItemEffect": "true"
-	},
 	"book_old": {
 		"cls": "constants",
 		"name": "怪物手册",
@@ -973,5 +968,13 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 				"function": "function(){\ncore.updateDarkMask(core.status.heroCenter.px, core.status.heroCenter.py);\n}"
 			}
 		]
+	},
+	"notebook": {
+		"cls": "constants",
+		"name": "对话手册",
+		"canUseItemEffect": "true",
+		"useItemEffect": "core.events.openNotebook(true);",
+		"hideInReplay": true,
+		"text": "显示与魔塔老人的对话（快捷键I）"
 	}
 }

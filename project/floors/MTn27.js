@@ -140,7 +140,7 @@ main.floors.MTn27=
             }
         ],
         "4,3": [
-            "\t[商人,trader]\b[this]0层有个商人，专卖钥匙。",
+            "\t[商人,trader]\b[this]0层有个商人，专卖钥匙。@clue",
             {
                 "type": "show",
                 "loc": [

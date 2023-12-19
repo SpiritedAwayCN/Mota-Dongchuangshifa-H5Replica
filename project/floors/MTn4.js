@@ -18,7 +18,7 @@ main.floors.MTn4=
     "parallelDo": "",
     "events": {
         "13,7": [
-            "\t[老人,man]\b[this]本层的商店只能给\\i[N448]女子增加能力，给\\i[N331]增加能力的商店在前一层。",
+            "\t[老人,man]\b[this]本层的商店只能给\\i[N448]女子增加能力，给\\i[N331]增加能力的商店在前一层。@clue",
             {
                 "type": "setValue",
                 "name": "flag:v116_Chat",

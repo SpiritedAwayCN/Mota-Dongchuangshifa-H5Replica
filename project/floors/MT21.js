@@ -18,7 +18,7 @@ main.floors.MT21=
     "parallelDo": "",
     "events": {
         "13,11": [
-            "\t[老人,man]\b[this]令人头疼的属性出现了。",
+            "\t[老人,man]\b[this]令人头疼的属性出现了。@clue",
             {
                 "type": "setValue",
                 "name": "flag:v116_Chat",

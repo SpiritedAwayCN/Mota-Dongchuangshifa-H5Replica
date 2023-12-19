@@ -20,9 +20,9 @@ main.floors.prison=
     "events": {
         "4,7": [
             "\t[杰克,thief]\b[this]zzzzzz~zzzzzz~",
-            "\t[hero,hero]\b[hero]醒醒！！",
+            "\t[hero]\b[hero]醒醒！！",
             "\t[杰克,thief]\b[this]你啊，找我有事么？",
-            "\t[hero,hero]\b[hero]......我们怎么出去啊？",
+            "\t[hero]\b[hero]......我们怎么出去啊？",
             "\t[杰克,thief]\b[this]好吧，我送你出去。给你这个。",
             {
                 "type": "setValue",

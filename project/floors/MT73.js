@@ -19,7 +19,7 @@ main.floors.MT73=
     "parallelDo": "",
     "events": {
         "8,3": [
-            "\t[老人,man]\b[this]魔塔小了一圈，发现了么？",
+            "\t[老人,man]\b[this]魔塔小了一圈，发现了么？@clue",
             {
                 "type": "hide",
                 "remove": true

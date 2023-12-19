@@ -22,7 +22,7 @@ main.floors.MTn25=
                 "type": "autoSave"
             },
             "\t[杰克,thief]\b[this]咦，怎么是你？",
-            "\t[hero,hero]\b[hero]......怎么是你，你还没走啊！",
+            "\t[hero]\b[hero]......怎么是你，你还没走啊！",
             {
                 "type": "choices",
                 "text": "\t[杰克,thief]O(∩_∩)O~偷了一大堆宝石和血瓶，我好高兴，对了，宝石怎么用啊！",

@@ -19,7 +19,7 @@ main.floors.MT34=
     "parallelDo": "",
     "events": {
         "6,12": [
-            "\t[老人,man]\b[this]这一层不像以前的风格了，这说明这一层很可能与隐藏层有关。",
+            "\t[老人,man]\b[this]这一层不像以前的风格了，这说明这一层很可能与隐藏层有关。@clue",
             {
                 "type": "setValue",
                 "name": "flag:v116_Chat",

@@ -18,8 +18,8 @@ main.floors.MTn6=
     "parallelDo": "",
     "events": {
         "2,9": [
-            "\t[老人,this]\b[this]净化怪物战斗前，附加勇士魔防的3倍作为伤害。",
-            "\t[老人,this]\b[this]左上角的勇士是你要救的人。",
+            "\t[老人,this]\b[this]净化怪物战斗前，附加勇士魔防的3倍作为伤害。@clue",
+            "\t[老人,this]\b[this]左上角的勇士是你要救的人。@clue",
             {
                 "type": "setValue",
                 "name": "flag:v116_Chat",
@@ -46,7 +46,7 @@ main.floors.MTn6=
             },
             "data": [
                 "\t[女子,N448]\b[this]谢谢你救了我！",
-                "\t[hero,hero]\b[hero]你就是那位女战士？",
+                "\t[hero]\b[hero]你就是那位女战士？",
                 "\t[女子,N448]\b[this]对。按U就可以交换人物了。",
                 {
                     "type": "function",
@@ -202,9 +202,9 @@ main.floors.MTn6=
     "beforeBattle": {
         "12,8": [
             "\t[奥尼斯姆,E439]\b[this]死去吧！愚蠢的勇士！",
-            "\t[hero,hero]\b[hero]你是Boss么？",
+            "\t[hero]\b[hero]你是Boss么？",
             "\t[奥尼斯姆,E439]\b[this]哼，你将死无葬身之地！",
-            "\t[hero,hero]\b[hero]试试吧！"
+            "\t[hero]\b[hero]试试吧！"
         ]
     },
     "afterBattle": {
@@ -213,7 +213,7 @@ main.floors.MTn6=
                 "type": "sleep",
                 "time": 500
             },
-            "\t[hero,hero]\b[hero]还以为你有多强呢。"
+            "\t[hero]\b[hero]还以为你有多强呢。"
         ],
         "6,2": [
             {

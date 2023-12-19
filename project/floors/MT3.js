@@ -18,14 +18,14 @@ main.floors.MT3=
     "parallelDo": "",
     "events": {
         "1,12": [
-            "\t[老人,man]不要多拿药瓶！",
+            "\t[老人,man]不要多拿药瓶！@clue",
             {
                 "type": "hide",
                 "remove": true
             }
         ],
         "12,8": [
-            "\t[老人,man]先攻怪物率先攻击勇士一次，当你和某种怪物战斗后，先攻2次。",
+            "\t[老人,man]先攻怪物率先攻击勇士一次，当你和某种怪物战斗后，先攻2次。@clue",
             {
                 "type": "setValue",
                 "name": "flag:v116_Chat",
