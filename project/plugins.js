@@ -1652,17 +1652,17 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		core.strokeRect('ui', 16, 64, size * core._PX_, size * core._PY_, '#FFFFFF', 2);
 
 		var data = core.getFlag("notebook@record", {})[floorId];
+		var config = {
+			"left": 24,
+			"top": 72,
+			"maxWidth": size * core._PX_ - 16
+		}
+		config = core.drawTextContent('ui', "\\r[orange]来自" + core.status.maps[floorId].name + "的对话记录：\\r", config);
 		if (data) {
-			var config = {
-				"left": 24,
-				"top": 72,
-				"maxWidth": size * core._PX_ - 16
-			}
-			config = core.drawTextContent('ui', "\\r[orange]来自" + core.status.maps[floorId].name + "的对话记录：\\r", config);
 			data.forEach(function (content) {
 				config.top += 6 + (config.offsetY || 0);
 				config = core.drawTextContent('ui', " - " + content, config);
-				console.log(content, config);
+				// console.log(content, config);
 			});
 		}
 	}
