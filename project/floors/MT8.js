@@ -206,8 +206,9 @@ main.floors.MT8=
                                     "\t[老人,man]\b[this]你升级了！",
                                     "\t[老人,man]\b[this]赋予你魔防！",
                                     {
-                                        "type": "comment",
-                                        "text": "TODO-动画"
+                                        "type": "animate",
+                                        "name": "A05",
+                                        "loc": "hero"
                                     },
                                     {
                                         "type": "function",

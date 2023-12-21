@@ -914,6 +914,416 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 				"condition": "flag:arg1",
 				"caseList": [
 					{
+						"case": "\"MTCastle4\"",
+						"action": [
+							{
+								"type": "while",
+								"condition": "1",
+								"data": [
+									{
+										"type": "choices",
+										"text": "\t[比例商店,trader]5000塔币，回复全体角色2500生命，\n并选择一项：",
+										"choices": [
+											{
+												"text": "0.6%攻,0.3%防,0.1%魔防",
+												"color": [
+													255,
+													128,
+													128,
+													1
+												],
+												"need": "status:money>=5000",
+												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
+														"type": "function",
+														"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n[0, 1].forEach(id => {\n\tvar hero = hero_id === id ? core.status.hero : core.getFlag(\"hero\" + id);\n\thero.atk = Math.floor(hero.atk * 1.006);\n\thero.def = Math.floor(hero.def * 1.003);\n\thero.mdef = Math.floor(hero.mdef * 1.001);\n});\ncore.updateStatusBar(true);\n}"
+													},
+													{
+														"type": "setValue",
+														"name": "status:money",
+														"operator": "-=",
+														"value": "5000"
+													}
+												]
+											},
+											{
+												"text": "0.3%攻,0.6%防,0.1%魔防",
+												"color": [
+													128,
+													255,
+													255,
+													1
+												],
+												"need": "status:money>=5000",
+												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
+														"type": "function",
+														"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n[0, 1].forEach(id => {\n\tvar hero = hero_id === id ? core.status.hero : core.getFlag(\"hero\" + id);\n\thero.atk = Math.floor(hero.atk * 1.003);\n\thero.def = Math.floor(hero.def * 1.006);\n\thero.mdef = Math.floor(hero.mdef * 1.001);\n});\ncore.updateStatusBar(true);\n}"
+													},
+													{
+														"type": "setValue",
+														"name": "status:money",
+														"operator": "-=",
+														"value": "5000"
+													}
+												]
+											},
+											{
+												"text": "0.4%攻,0.4%防,0.4%魔防",
+												"color": [
+													128,
+													255,
+													128,
+													1
+												],
+												"need": "status:money>=5000",
+												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
+														"type": "function",
+														"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n[0, 1].forEach(id => {\n\tvar hero = hero_id === id ? core.status.hero : core.getFlag(\"hero\" + id);\n\thero.atk = Math.floor(hero.atk * 1.004);\n\thero.def = Math.floor(hero.def * 1.004);\n\thero.mdef = Math.floor(hero.mdef * 1.004);\n});\ncore.updateStatusBar(true);\n}"
+													},
+													{
+														"type": "setValue",
+														"name": "status:money",
+														"operator": "-=",
+														"value": "5000"
+													}
+												]
+											},
+											{
+												"text": "离开",
+												"action": [
+													{
+														"type": "break",
+														"n": 1
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					},
+					{
+						"case": "\"MTn32\"",
+						"action": [
+							{
+								"type": "while",
+								"condition": "1",
+								"data": [
+									{
+										"type": "setValue",
+										"name": "temp:price",
+										"value": "20+7*flag:Fm3m4Shop+20*flag:Fm32Shop1+flag:Fm32Shop2"
+									},
+									{
+										"type": "choices",
+										"text": "\t[金币商店,expShop]花${temp:price}枚金币，为所有角色提升：",
+										"choices": [
+											{
+												"text": "加20攻击",
+												"icon": "redGem",
+												"color": [
+													255,
+													128,
+													128,
+													1
+												],
+												"need": "status:money>=temp:price",
+												"condition": "flag:s110_Fm57boss!==1",
+												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
+														"type": "function",
+														"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n[0, 1].forEach(id => {\n\tvar hero = hero_id === id ? core.status.hero : core.getFlag(\"hero\" + id);\n\thero.atk += 20;\n});\ncore.updateStatusBar(true);\n}"
+													},
+													{
+														"type": "setValue",
+														"name": "status:money",
+														"operator": "-=",
+														"value": "temp:price"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:Fm32Shop1",
+														"operator": "+=",
+														"value": "1"
+													}
+												]
+											},
+											{
+												"text": "加10攻击",
+												"icon": "redGem",
+												"color": [
+													255,
+													128,
+													128,
+													1
+												],
+												"need": "status:money>=temp:price",
+												"condition": "flag:s110_Fm57boss===1",
+												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
+														"type": "function",
+														"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n[0, 1].forEach(id => {\n\tvar hero = hero_id === id ? core.status.hero : core.getFlag(\"hero\" + id);\n\thero.atk += 10;\n});\ncore.updateStatusBar(true);\n}"
+													},
+													{
+														"type": "setValue",
+														"name": "status:money",
+														"operator": "-=",
+														"value": "temp:price"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:Fm32Shop1",
+														"operator": "+=",
+														"value": "1"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:Fm32Shop2",
+														"operator": "+=",
+														"value": "1"
+													}
+												]
+											},
+											{
+												"text": "加30防御",
+												"icon": "blueGem",
+												"color": [
+													128,
+													255,
+													255,
+													1
+												],
+												"need": "status:money>=temp:price",
+												"condition": "flag:s110_Fm57boss!==1",
+												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
+														"type": "function",
+														"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n[0, 1].forEach(id => {\n\tvar hero = hero_id === id ? core.status.hero : core.getFlag(\"hero\" + id);\n\thero.def += 30;\n});\ncore.updateStatusBar(true);\n}"
+													},
+													{
+														"type": "setValue",
+														"name": "status:money",
+														"operator": "-=",
+														"value": "temp:price"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:Fm32Shop1",
+														"operator": "+=",
+														"value": "1"
+													}
+												]
+											},
+											{
+												"text": "加10防御",
+												"icon": "blueGem",
+												"color": [
+													128,
+													255,
+													255,
+													1
+												],
+												"need": "status:money>=temp:price",
+												"condition": "flag:s110_Fm57boss===1",
+												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
+														"type": "function",
+														"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n[0, 1].forEach(id => {\n\tvar hero = hero_id === id ? core.status.hero : core.getFlag(\"hero\" + id);\n\thero.def += 10;\n});\ncore.updateStatusBar(true);\n}"
+													},
+													{
+														"type": "setValue",
+														"name": "status:money",
+														"operator": "-=",
+														"value": "temp:price"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:Fm32Shop1",
+														"operator": "+=",
+														"value": "1"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:Fm32Shop2",
+														"operator": "+=",
+														"value": "1"
+													}
+												]
+											},
+											{
+												"text": "加12000生命",
+												"icon": "greenPotion",
+												"color": [
+													192,
+													192,
+													192,
+													1
+												],
+												"need": "status:money>=temp:price",
+												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
+														"type": "function",
+														"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n[0, 1].forEach(id => {\n\tvar hero = hero_id === id ? core.status.hero : core.getFlag(\"hero\" + id);\n\thero.hp += 12000;\n});\ncore.updateStatusBar(true);\n}"
+													},
+													{
+														"type": "setValue",
+														"name": "status:money",
+														"operator": "-=",
+														"value": "temp:price"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:Fm32Shop1",
+														"operator": "+=",
+														"value": "1"
+													},
+													{
+														"type": "if",
+														"condition": "(flag:s110_Fm57boss===1)",
+														"true": [
+															{
+																"type": "setValue",
+																"name": "flag:Fm32Shop2",
+																"operator": "+=",
+																"value": "1"
+															}
+														]
+													}
+												]
+											},
+											{
+												"text": "6k血10攻15防5魔防",
+												"color": [
+													255,
+													255,
+													128,
+													1
+												],
+												"need": "status:money>=temp:price",
+												"condition": "flag:s110_Fm57boss!==1",
+												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
+														"type": "function",
+														"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n[0, 1].forEach(id => {\n\tvar hero = hero_id === id ? core.status.hero : core.getFlag(\"hero\" + id);\n\thero.hp += 6000;\n\thero.atk += 10;\n\thero.def += 15;\n\thero.mdef += 5;\n});\ncore.updateStatusBar(true);\n}"
+													},
+													{
+														"type": "setValue",
+														"name": "status:money",
+														"operator": "-=",
+														"value": "temp:price"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:Fm32Shop1",
+														"operator": "+=",
+														"value": "1"
+													}
+												]
+											},
+											{
+												"text": "6k血5攻5防5魔防",
+												"color": [
+													255,
+													255,
+													128,
+													1
+												],
+												"need": "status:money>=temp:price",
+												"condition": "flag:s110_Fm57boss===1",
+												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
+														"type": "function",
+														"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n[0, 1].forEach(id => {\n\tvar hero = hero_id === id ? core.status.hero : core.getFlag(\"hero\" + id);\n\thero.hp += 6000;\n\thero.atk += 5;\n\thero.def += 5;\n\thero.mdef += 5;\n});\ncore.updateStatusBar(true);\n}"
+													},
+													{
+														"type": "setValue",
+														"name": "status:money",
+														"operator": "-=",
+														"value": "temp:price"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:Fm32Shop1",
+														"operator": "+=",
+														"value": "1"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:Fm32Shop2",
+														"operator": "+=",
+														"value": "1"
+													}
+												]
+											},
+											{
+												"text": "离开",
+												"action": [
+													{
+														"type": "break",
+														"n": 1
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					},
+					{
 						"case": "\"MT29\"",
 						"action": [
 							{
@@ -1291,8 +1701,13 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 								"condition": "1",
 								"data": [
 									{
+										"type": "setValue",
+										"name": "temp:price",
+										"value": "20+7*flag:Fm3m4Shop+20*flag:Fm32Shop1+flag:Fm32Shop2"
+									},
+									{
 										"type": "choices",
-										"text": "\t[金币商店,N446]本商店仅供\\i[N331]使用！\n花${20+7*flag:Fm3m4Shop}枚金币，您可以：",
+										"text": "\t[金币商店,N446]本商店仅供\\i[N331]使用！\n花${temp:price}枚金币，您可以：",
 										"choices": [
 											{
 												"text": "加3攻击",
@@ -1303,7 +1718,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 													128,
 													1
 												],
-												"need": "status:money>=20+7*flag:Fm3m4Shop",
+												"need": "status:money>=temp:price",
 												"action": [
 													{
 														"type": "playSound",
@@ -1318,7 +1733,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 														"type": "setValue",
 														"name": "status:money",
 														"operator": "-=",
-														"value": "20+7*flag:Fm3m4Shop"
+														"value": "temp:price"
 													},
 													{
 														"type": "setValue",
@@ -1337,7 +1752,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 													255,
 													1
 												],
-												"need": "status:money>=20+7*flag:Fm3m4Shop",
+												"need": "status:money>=temp:price",
 												"action": [
 													{
 														"type": "playSound",
@@ -1352,7 +1767,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 														"type": "setValue",
 														"name": "status:money",
 														"operator": "-=",
-														"value": "20+7*flag:Fm3m4Shop"
+														"value": "temp:price"
 													},
 													{
 														"type": "setValue",
@@ -1371,7 +1786,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 													192,
 													1
 												],
-												"need": "status:money>=20+7*flag:Fm3m4Shop",
+												"need": "status:money>=temp:price",
 												"action": [
 													{
 														"type": "playSound",
@@ -1386,7 +1801,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 														"type": "setValue",
 														"name": "status:money",
 														"operator": "-=",
-														"value": "20+7*flag:Fm3m4Shop"
+														"value": "temp:price"
 													},
 													{
 														"type": "setValue",
@@ -1419,6 +1834,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 								"condition": "1",
 								"data": [
 									{
+										"type": "setValue",
+										"name": "temp:price",
+										"value": "20+7*flag:Fm3m4Shop+20*flag:Fm32Shop1+flag:Fm32Shop2"
+									},
+									{
 										"type": "choices",
 										"text": "\t[金币商店,N447]本商店仅供\\i[N448]使用！\n花${20+7*flag:Fm3m4Shop}枚金币，您可以：",
 										"choices": [
@@ -1431,7 +1851,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 													128,
 													1
 												],
-												"need": "status:money>=20+7*flag:Fm3m4Shop",
+												"need": "status:money>=temp:price",
 												"action": [
 													{
 														"type": "playSound",
@@ -1446,7 +1866,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 														"type": "setValue",
 														"name": "status:money",
 														"operator": "-=",
-														"value": "20+7*flag:Fm3m4Shop"
+														"value": "temp:price"
 													},
 													{
 														"type": "setValue",
@@ -1465,7 +1885,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 													255,
 													1
 												],
-												"need": "status:money>=20+7*flag:Fm3m4Shop",
+												"need": "status:money>=temp:price",
 												"action": [
 													{
 														"type": "playSound",
@@ -1480,7 +1900,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 														"type": "setValue",
 														"name": "status:money",
 														"operator": "-=",
-														"value": "20+7*flag:Fm3m4Shop"
+														"value": "temp:price"
 													},
 													{
 														"type": "setValue",
@@ -1499,7 +1919,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 													192,
 													1
 												],
-												"need": "status:money>=20+7*flag:Fm3m4Shop",
+												"need": "status:money>=temp:price",
 												"action": [
 													{
 														"type": "playSound",
@@ -1514,7 +1934,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 														"type": "setValue",
 														"name": "status:money",
 														"operator": "-=",
-														"value": "20+7*flag:Fm3m4Shop"
+														"value": "temp:price"
 													},
 													{
 														"type": "setValue",
@@ -1548,7 +1968,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 								"data": [
 									{
 										"type": "choices",
-										"text": "\t[老人,man]本商店需当面购买！\n600点经验，可以同时提升所有角色。\n购买扣除所有玩家600经验，\n但当前角色经验足够即可购买。",
+										"text": "\t[老人,man]本商店需当面购买！\n600点经验，可以同时提升所有角色。\n购买扣除所有玩家600经验，\n但当前角色经验足够即可购买。\n每1级额外包含：1k血2攻3防",
 										"choices": [
 											{
 												"text": "加一级",
@@ -1662,7 +2082,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 								"data": [
 									{
 										"type": "choices",
-										"text": "\t[老人,man]本商店需当面购买！\n700点经验，可以同时提升所有角色。\n购买扣除所有玩家700经验，\n但当前角色经验足够即可购买。",
+										"text": "\t[老人,man]本商店需当面购买！\n700点经验，可以同时提升所有角色。\n购买扣除所有玩家700经验，\n但当前角色经验足够即可购买。\n每1级额外包含：1k血2攻3防",
 										"choices": [
 											{
 												"text": "加一级",
@@ -2377,7 +2797,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 								"data": [
 									{
 										"type": "choices",
-										"text": "\t[商人,trader]只要有足够的经验，你就可以交换。\n为当前角色增加：",
+										"text": "\t[商人,trader]只要有足够的经验，当前角色可增加能力。\n每1级额外包含：\n2580血6攻6防3魔防",
 										"choices": [
 											{
 												"text": "400经验升1级",
@@ -2520,6 +2940,416 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 														"name": "status:mdef",
 														"operator": "+=",
 														"value": "4"
+													}
+												]
+											},
+											{
+												"text": "离开",
+												"action": [
+													{
+														"type": "break",
+														"n": 1
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					},
+					{
+						"case": "\"MTn34\"",
+						"action": [
+							{
+								"type": "while",
+								"condition": "1",
+								"data": [
+									{
+										"type": "choices",
+										"text": "\t[经验商店,N417]只要有足够的经验，当前角色可增加能力。",
+										"choices": [
+											{
+												"text": "5000血10攻15防5魔防/500exp",
+												"color": [
+													255,
+													255,
+													128,
+													1
+												],
+												"need": "status:exp>=500",
+												"condition": "flag:s110_Fm57boss!==1",
+												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
+														"type": "setValue",
+														"name": "status:exp",
+														"operator": "-=",
+														"value": "500"
+													},
+													{
+														"type": "setValue",
+														"name": "status:hp",
+														"operator": "+=",
+														"value": "5000"
+													},
+													{
+														"type": "setValue",
+														"name": "status:atk",
+														"operator": "+=",
+														"value": "10"
+													},
+													{
+														"type": "setValue",
+														"name": "status:def",
+														"operator": "+=",
+														"value": "15"
+													},
+													{
+														"type": "setValue",
+														"name": "status:mdef",
+														"operator": "+=",
+														"value": "5"
+													}
+												]
+											},
+											{
+												"text": "5000血8攻防5魔防/500exp",
+												"color": [
+													255,
+													255,
+													128,
+													1
+												],
+												"need": "status:exp>=500",
+												"condition": "flag:s110_Fm57boss!==0",
+												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
+														"type": "setValue",
+														"name": "status:exp",
+														"operator": "-=",
+														"value": "500"
+													},
+													{
+														"type": "setValue",
+														"name": "status:hp",
+														"operator": "+=",
+														"value": "5000"
+													},
+													{
+														"type": "setValue",
+														"name": "status:atk",
+														"operator": "+=",
+														"value": "8"
+													},
+													{
+														"type": "setValue",
+														"name": "status:def",
+														"operator": "+=",
+														"value": "8"
+													},
+													{
+														"type": "setValue",
+														"name": "status:mdef",
+														"operator": "+=",
+														"value": "5"
+													}
+												]
+											},
+											{
+												"text": "7000血20攻30防10魔防/590exp",
+												"color": [
+													255,
+													255,
+													128,
+													1
+												],
+												"need": "status:exp>=590",
+												"condition": "flag:s110_Fm57boss!==1",
+												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
+														"type": "setValue",
+														"name": "status:exp",
+														"operator": "-=",
+														"value": "590"
+													},
+													{
+														"type": "setValue",
+														"name": "status:hp",
+														"operator": "+=",
+														"value": "7000"
+													},
+													{
+														"type": "setValue",
+														"name": "status:atk",
+														"operator": "+=",
+														"value": "20"
+													},
+													{
+														"type": "setValue",
+														"name": "status:def",
+														"operator": "+=",
+														"value": "30"
+													},
+													{
+														"type": "setValue",
+														"name": "status:mdef",
+														"operator": "+=",
+														"value": "10"
+													}
+												]
+											},
+											{
+												"text": "7000血18攻防8魔防/590exp",
+												"color": [
+													255,
+													255,
+													128,
+													1
+												],
+												"need": "status:exp>=590",
+												"condition": "flag:s110_Fm57boss!==0",
+												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
+														"type": "setValue",
+														"name": "status:exp",
+														"operator": "-=",
+														"value": "590"
+													},
+													{
+														"type": "setValue",
+														"name": "status:hp",
+														"operator": "+=",
+														"value": "7000"
+													},
+													{
+														"type": "setValue",
+														"name": "status:atk",
+														"operator": "+=",
+														"value": "18"
+													},
+													{
+														"type": "setValue",
+														"name": "status:def",
+														"operator": "+=",
+														"value": "18"
+													},
+													{
+														"type": "setValue",
+														"name": "status:mdef",
+														"operator": "+=",
+														"value": "8"
+													}
+												]
+											},
+											{
+												"text": "9000血30攻45防15魔防/670exp",
+												"color": [
+													255,
+													255,
+													128,
+													1
+												],
+												"need": "status:exp>=670",
+												"condition": "flag:s110_Fm57boss!==1",
+												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
+														"type": "setValue",
+														"name": "status:exp",
+														"operator": "-=",
+														"value": "670"
+													},
+													{
+														"type": "setValue",
+														"name": "status:hp",
+														"operator": "+=",
+														"value": "9000"
+													},
+													{
+														"type": "setValue",
+														"name": "status:atk",
+														"operator": "+=",
+														"value": "30"
+													},
+													{
+														"type": "setValue",
+														"name": "status:def",
+														"operator": "+=",
+														"value": "45"
+													},
+													{
+														"type": "setValue",
+														"name": "status:mdef",
+														"operator": "+=",
+														"value": "15"
+													}
+												]
+											},
+											{
+												"text": "9000血20攻防15魔防/670exp",
+												"color": [
+													255,
+													255,
+													128,
+													1
+												],
+												"need": "status:exp>=670",
+												"condition": "flag:s110_Fm57boss!==0",
+												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
+														"type": "setValue",
+														"name": "status:exp",
+														"operator": "-=",
+														"value": "670"
+													},
+													{
+														"type": "setValue",
+														"name": "status:hp",
+														"operator": "+=",
+														"value": "9000"
+													},
+													{
+														"type": "setValue",
+														"name": "status:atk",
+														"operator": "+=",
+														"value": "20"
+													},
+													{
+														"type": "setValue",
+														"name": "status:def",
+														"operator": "+=",
+														"value": "20"
+													},
+													{
+														"type": "setValue",
+														"name": "status:mdef",
+														"operator": "+=",
+														"value": "15"
+													}
+												]
+											},
+											{
+												"text": "11110血40攻60防20魔防/850exp",
+												"color": [
+													255,
+													255,
+													128,
+													1
+												],
+												"need": "status:exp>=850",
+												"condition": "flag:s110_Fm57boss!==1",
+												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
+														"type": "setValue",
+														"name": "status:exp",
+														"operator": "-=",
+														"value": "850"
+													},
+													{
+														"type": "setValue",
+														"name": "status:hp",
+														"operator": "+=",
+														"value": "11110"
+													},
+													{
+														"type": "setValue",
+														"name": "status:atk",
+														"operator": "+=",
+														"value": "40"
+													},
+													{
+														"type": "setValue",
+														"name": "status:def",
+														"operator": "+=",
+														"value": "60"
+													},
+													{
+														"type": "setValue",
+														"name": "status:mdef",
+														"operator": "+=",
+														"value": "20"
+													}
+												]
+											},
+											{
+												"text": "11110血30攻防10魔防/850exp",
+												"color": [
+													255,
+													255,
+													128,
+													1
+												],
+												"need": "status:exp>=850",
+												"condition": "flag:s110_Fm57boss!==0",
+												"action": [
+													{
+														"type": "playSound",
+														"name": "shop.mp3",
+														"stop": true
+													},
+													{
+														"type": "setValue",
+														"name": "status:exp",
+														"operator": "-=",
+														"value": "850"
+													},
+													{
+														"type": "setValue",
+														"name": "status:hp",
+														"operator": "+=",
+														"value": "11110"
+													},
+													{
+														"type": "setValue",
+														"name": "status:atk",
+														"operator": "+=",
+														"value": "30"
+													},
+													{
+														"type": "setValue",
+														"name": "status:def",
+														"operator": "+=",
+														"value": "30"
+													},
+													{
+														"type": "setValue",
+														"name": "status:mdef",
+														"operator": "+=",
+														"value": "10"
 													}
 												]
 											},

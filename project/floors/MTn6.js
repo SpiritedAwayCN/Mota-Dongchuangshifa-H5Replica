@@ -108,7 +108,7 @@ main.floors.MTn6=
                                 "operator": "-=",
                                 "value": "1"
                             },
-                            "\t[神秘老人,wizard]\b[this]感谢，拜拜~\n我在\"进，甲\"等你。",
+                            "\t[神秘老人,wizard]\b[this]感谢，拜拜~。我在\"进，甲\"等你。@clue",
                             {
                                 "type": "show",
                                 "loc": [

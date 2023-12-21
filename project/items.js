@@ -4,19 +4,22 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"cls": "tools",
 		"name": "黄钥匙",
 		"text": "可以打开一扇黄门",
-		"hideInToolbox": true
+		"hideInToolbox": true,
+		"defaultPrice": 20
 	},
 	"blueKey": {
 		"cls": "tools",
 		"name": "蓝钥匙",
 		"text": "可以打开一扇蓝门",
-		"hideInToolbox": true
+		"hideInToolbox": true,
+		"defaultPrice": 100
 	},
 	"redKey": {
 		"cls": "tools",
 		"name": "红钥匙",
 		"text": "可以打开一扇红门",
-		"hideInToolbox": true
+		"hideInToolbox": true,
+		"defaultPrice": 200
 	},
 	"redGem": {
 		"cls": "tools",
@@ -26,7 +29,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"itemEffectTip": "，攻击+${core.values.redGem * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.atk += core.values.redGem",
 		"canUseItemEffect": "true",
-		"hideInToolbox": true
+		"hideInToolbox": true,
+		"defaultPrice": 1000
 	},
 	"blueGem": {
 		"cls": "tools",
@@ -36,7 +40,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"itemEffectTip": "，防御+${core.values.blueGem * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.def += core.values.blueGem",
 		"canUseItemEffect": "true",
-		"hideInToolbox": true
+		"hideInToolbox": true,
+		"defaultPrice": 1000
 	},
 	"greenGem": {
 		"cls": "tools",
@@ -46,7 +51,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"itemEffectTip": "，护盾+${core.values.greenGem * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.mdef += core.values.greenGem",
 		"canUseItemEffect": "true",
-		"hideInToolbox": true
+		"hideInToolbox": true,
+		"defaultPrice": 1000
 	},
 	"yellowGem": {
 		"cls": "items",
@@ -62,7 +68,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		],
 		"canUseItemEffect": "true",
 		"useItemEffect": "core.values.levelupPoint += core.values.yellowGem;\ncore.status.hero.lv += 1;\ncore.plugin.refreshComboWand();",
-		"hideInToolbox": true
+		"hideInToolbox": true,
+		"defaultPrice": 6000
 	},
 	"redPotion": {
 		"cls": "tools",
@@ -72,7 +79,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"itemEffectTip": "，生命+${core.values.redPotion * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.hp += core.values.redPotion",
 		"canUseItemEffect": "true",
-		"hideInToolbox": true
+		"hideInToolbox": true,
+		"defaultPrice": 1000
 	},
 	"bluePotion": {
 		"cls": "tools",
@@ -82,7 +90,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"itemEffectTip": "，生命+${core.values.bluePotion * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.hp += core.values.bluePotion",
 		"canUseItemEffect": "true",
-		"hideInToolbox": true
+		"hideInToolbox": true,
+		"defaultPrice": 2000
 	},
 	"yellowPotion": {
 		"cls": "tools",
@@ -92,7 +101,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"itemEffectTip": "，生命+${core.values.yellowPotion * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.hp += core.values.yellowPotion",
 		"canUseItemEffect": "true",
-		"hideInToolbox": true
+		"hideInToolbox": true,
+		"defaultPrice": 4000
 	},
 	"greenPotion": {
 		"cls": "tools",
@@ -102,7 +112,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"itemEffectTip": "，生命+${core.values.greenPotion * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.hp += core.values.greenPotion",
 		"canUseItemEffect": "true",
-		"hideInToolbox": true
+		"hideInToolbox": true,
+		"defaultPrice": 6000
 	},
 	"sword0": {
 		"cls": "items",
@@ -132,7 +143,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"itemEffect": "core.status.hero.atk += 10",
 		"itemEffectTip": "，攻击+10",
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "true",
+		"defaultPrice": 50
 	},
 	"sword2": {
 		"cls": "equips",
@@ -149,7 +161,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"itemEffect": "core.status.hero.atk += 30",
 		"itemEffectTip": "，攻击+30",
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "true",
+		"defaultPrice": 200
 	},
 	"sword3": {
 		"cls": "equips",
@@ -166,7 +179,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"itemEffect": "core.status.hero.atk += 100",
 		"itemEffectTip": "，攻击+100",
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "true",
+		"defaultPrice": 800
 	},
 	"sword4": {
 		"cls": "equips",
@@ -183,21 +197,26 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 			"percentage": {}
 		},
 		"itemEffect": "core.status.hero.atk += 80",
-		"itemEffectTip": "，攻击+80"
+		"itemEffectTip": "，攻击+80",
+		"defaultPrice": 1000
 	},
 	"sword5": {
-		"cls": "items",
+		"cls": "equips",
 		"name": "神圣剑",
-		"text": "一把很普通的神圣剑",
+		"text": "装备力强的剑(装备物品)",
 		"equip": {
 			"type": 0,
-			"animate": "sword",
+			"animate": "A17",
 			"value": {
-				"atk": 160
-			}
+				"atk": 250,
+				"def": 10,
+				"mdef": 10
+			},
+			"percentage": {}
 		},
 		"itemEffect": "core.status.hero.atk += 100",
-		"itemEffectTip": "，攻击+100"
+		"itemEffectTip": "，攻击+100",
+		"defaultPrice": 10000
 	},
 	"shield0": {
 		"cls": "items",
@@ -226,7 +245,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"itemEffect": "core.status.hero.def += 5",
 		"itemEffectTip": "，防御+5",
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "true",
+		"defaultPrice": 50
 	},
 	"shield2": {
 		"cls": "equips",
@@ -240,7 +260,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"itemEffect": "core.status.hero.def += 25",
 		"itemEffectTip": "，防御+25",
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "true",
+		"defaultPrice": 200
 	},
 	"shield3": {
 		"cls": "equips",
@@ -256,7 +277,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"itemEffect": "core.status.hero.def += 60\ncore.status.hero.mdef += 10",
 		"itemEffectTip": "",
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "true",
+		"defaultPrice": 800
 	},
 	"shield4": {
 		"cls": "equips",
@@ -273,21 +295,25 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		},
 		"itemEffect": "core.status.hero.def += 80",
 		"itemEffectTip": "，防御+80",
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "true",
+		"defaultPrice": 1000
 	},
 	"shield5": {
-		"cls": "items",
+		"cls": "equips",
 		"name": "神圣盾",
-		"text": "一个很普通的神圣盾",
+		"text": "装备力强的盾(装备物品)",
 		"equip": {
 			"type": 1,
 			"value": {
-				"def": 100,
-				"mdef": 100
-			}
+				"mdef": 40,
+				"def": 250,
+				"atk": 10
+			},
+			"percentage": {}
 		},
 		"itemEffect": "core.status.hero.def += 100;core.status.hero.mdef += 100",
-		"itemEffectTip": "，防御+100，护盾+100"
+		"itemEffectTip": "，防御+100，护盾+100",
+		"defaultPrice": 10000
 	},
 	"superPotion": {
 		"cls": "tools",
@@ -296,36 +322,42 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"itemEffectTip": "，生命值翻倍",
 		"useItemEffect": "core.status.hero.hp *= 2;core.playSound('回血');",
 		"canUseItemEffect": "true",
-		"text": "用后生命翻倍（消耗物品）"
+		"text": "用后生命翻倍（消耗物品）",
+		"defaultPrice": 8000
 	},
 	"coin": {
 		"cls": "tools",
 		"name": "幸运金币",
-		"text": "持有时打败怪物可得双倍金币（不叠加）"
+		"text": "持有时打败怪物可得双倍金币（不叠加）",
+		"defaultPrice": 8000
 	},
 	"freezeBadge": {
 		"cls": "tools",
 		"name": "冰冻徽章",
-		"text": "可以将面前的熔岩变成平地",
+		"text": "消去一块熔岩地面",
 		"useItemEffect": "(function () {\n\tvar success = false;\n\n\tvar snowFourDirections = false; // 是否多方向雪花；如果是将其改成true\n\tif (snowFourDirections) {\n\t\t// 多方向雪花\n\t\tfor (var direction in core.utils.scan) { // 多方向雪花默认四方向，如需改为八方向请将这两个scan改为scan2\n\t\t\tvar delta = core.utils.scan[direction];\n\t\t\tvar nx = core.getHeroLoc('x') + delta.x,\n\t\t\t\tny = core.getHeroLoc('y') + delta.y;\n\t\t\tvar next_id = core.getBlockId(nx, ny);\n\t\t\tif (next_id == 'lava' || next_id == 'A366') {\n\t\t\t\tcore.removeBlock(nx, ny);\n\t\t\t\tsuccess = true;\n\t\t\t}\n\t\t}\n\t} else {\n\t\tvar next_id = core.getBlockId(core.nextX(), core.nextY());\n\t\tif (next_id == 'lava' || next_id == 'A366') {\n\t\t\tcore.removeBlock(core.nextX(), core.nextY());\n\t\t\tsuccess = true;\n\t\t}\n\t}\n\n\tif (success) {\n\t\tcore.playSound('打开界面');\n\t\tcore.drawTip(core.material.items[itemId].name + '使用成功', itemId);\n\t} else {\n\t\tcore.playSound('操作失败');\n\t\tcore.drawTip(\"当前无法使用\" + core.material.items[itemId].name, itemId);\n\t\tcore.addItem(itemId, 1);\n\t\treturn;\n\t}\n})();",
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "true",
+		"defaultPrice": 4000
 	},
 	"cross": {
 		"cls": "constants",
-		"name": "十字架",
-		"text": "持有后无视怪物的无敌属性"
+		"name": "圣十字架",
+		"text": "持有后无视怪物的无敌属性",
+		"defaultPrice": 12000
 	},
 	"dagger": {
 		"cls": "tools",
 		"name": "神者之剑",
 		"text": "将面前的怪物变成噬菌体（消耗物品）",
 		"canUseItemEffect": "true",
-		"useItemEffect": "(function () {\n\tvar bombList = []; // 炸掉的怪物坐标列表\n\tvar todo = []; // 炸弹后事件\n\tvar money = 0,\n\t\texp = 0; // 炸弹获得的金币和经验\n\n\tvar canBomb = function (x, y) {\n\t\tvar block = core.getBlock(x, y);\n\t\tif (block == null || block.disable || block.event.cls.indexOf('enemy') != 0) return false;\n\t\tvar enemy = core.material.enemys[block.event.id];\n\t\treturn enemy && !enemy.notBomb;\n\t};\n\n\tvar bomb = function (x, y) {\n\t\tif (!canBomb(x, y)) return;\n\t\tbombList.push([x, y]);\n\t\tvar id = core.getBlockId(x, y),\n\t\t\tenemy = core.material.enemys[id];\n\t\tmoney += core.getEnemyValue(enemy, 'money', x, y) || 0;\n\t\texp += core.getEnemyValue(enemy, 'exp', x, y) || 0;\n\t\tcore.setBlock(\"E374\", x, y);\n\t}\n\n\t// 如果要多方向可炸，把这里的false改成true\n\tif (false) {\n\t\tvar scan = core.utils.scan; // 多方向炸时默认四方向，如果要改成八方向炸可以改成 core.utils.scan2\n\t\tfor (var direction in scan) {\n\t\t\tvar delta = scan[direction];\n\t\t\tbomb(core.getHeroLoc('x') + delta.x, core.getHeroLoc('y') + delta.y);\n\t\t}\n\t} else {\n\t\t// 仅炸当前\n\t\tbomb(core.nextX(), core.nextY());\n\t}\n\n\tif (bombList.length == 0) {\n\t\tcore.playSound('操作失败');\n\t\tcore.drawTip('当前无法使用' + core.material.items[itemId].name, itemId);\n\t\tcore.addItem(itemId, 1);\n\t\treturn;\n\t}\n\n\tcore.playSound('recovery.mp3');\n\tcore.drawTip(core.material.items[itemId].name + '使用成功', itemId);\n\n\t// 取消这里的注释可以炸弹后获得金币和经验\n\t// core.status.hero.money += money;\n\t// core.status.hero.exp += exp;\n\n\t// 取消这里的注释可以炸弹引发战后事件\n\t// if (todo.length > 0) core.insertAction(todo);\n\n})();"
+		"useItemEffect": "(function () {\n\tvar bombList = []; // 炸掉的怪物坐标列表\n\tvar todo = []; // 炸弹后事件\n\tvar money = 0,\n\t\texp = 0; // 炸弹获得的金币和经验\n\n\tvar canBomb = function (x, y) {\n\t\tvar block = core.getBlock(x, y);\n\t\tif (block == null || block.disable || block.event.cls.indexOf('enemy') != 0) return false;\n\t\tvar enemy = core.material.enemys[block.event.id];\n\t\treturn enemy && !enemy.notBomb;\n\t};\n\n\tvar bomb = function (x, y) {\n\t\tif (!canBomb(x, y)) return;\n\t\tbombList.push([x, y]);\n\t\tvar id = core.getBlockId(x, y),\n\t\t\tenemy = core.material.enemys[id];\n\t\tmoney += core.getEnemyValue(enemy, 'money', x, y) || 0;\n\t\texp += core.getEnemyValue(enemy, 'exp', x, y) || 0;\n\t\tcore.setBlock(\"E374\", x, y);\n\t}\n\n\t// 如果要多方向可炸，把这里的false改成true\n\tif (false) {\n\t\tvar scan = core.utils.scan; // 多方向炸时默认四方向，如果要改成八方向炸可以改成 core.utils.scan2\n\t\tfor (var direction in scan) {\n\t\t\tvar delta = scan[direction];\n\t\t\tbomb(core.getHeroLoc('x') + delta.x, core.getHeroLoc('y') + delta.y);\n\t\t}\n\t} else {\n\t\t// 仅炸当前\n\t\tbomb(core.nextX(), core.nextY());\n\t}\n\n\tif (bombList.length == 0) {\n\t\tcore.playSound('操作失败');\n\t\tcore.drawTip('当前无法使用' + core.material.items[itemId].name, itemId);\n\t\tcore.addItem(itemId, 1);\n\t\treturn;\n\t}\n\n\tcore.playSound('recovery.mp3');\n\tcore.drawTip(core.material.items[itemId].name + '使用成功', itemId);\n\n\t// 取消这里的注释可以炸弹后获得金币和经验\n\t// core.status.hero.money += money;\n\t// core.status.hero.exp += exp;\n\n\t// 取消这里的注释可以炸弹引发战后事件\n\t// if (todo.length > 0) core.insertAction(todo);\n\n})();",
+		"defaultPrice": 6000
 	},
 	"amulet": {
 		"cls": "constants",
 		"name": "自然之靴",
-		"text": "持有时无视负面地形"
+		"text": "持有时无视负面地形",
+		"defaultPrice": 8000
 	},
 	"bigKey": {
 		"cls": "tools",
@@ -334,101 +366,118 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"itemEffect": "core.addItem('yellowKey', 1);\ncore.addItem('blueKey', 1);\ncore.addItem('redKey', 1);",
 		"itemEffectTip": "，全钥匙+1",
 		"useItemEffect": "(function () {\n\tcore.setFlag(\"noDoorSound\", 1);\n\tvar actions = core.searchBlock(\"yellowDoor\\\\d*\").map(function (block) {\n\t\treturn { \"type\": \"openDoor\", \"loc\": [block.x, block.y], \"async\": true };\n\t});\n\tactions.push({ \"type\": \"waitAsync\" });\n\tactions.push({ \"type\": \"tip\", \"text\": core.material.items[itemId].name + \"使用成功\" });\n\tactions.push({ \"type\": \"function\", \"function\": \"function(){\\ncore.removeFlag(\\\"noDoorSound\\\");\\n}\" });\n\tcore.insertAction(actions);\n})();",
-		"canUseItemEffect": "(function () {\n\treturn core.searchBlock(\"yellowDoor\\\\d*\").length > 0;\n})();"
+		"canUseItemEffect": "(function () {\n\treturn core.searchBlock(\"yellowDoor\\\\d*\").length > 0;\n})();",
+		"defaultPrice": 6000
 	},
 	"greenKey": {
 		"cls": "tools",
 		"name": "绿钥匙",
 		"text": "可以打开一扇绿门",
-		"hideInToolbox": true
+		"hideInToolbox": true,
+		"defaultPrice": 1200
 	},
 	"steelKey": {
 		"cls": "tools",
 		"name": "铁门钥匙",
 		"text": "可以打开一扇铁门",
-		"hideInToolbox": false
+		"hideInToolbox": false,
+		"defaultPrice": 1500
 	},
 	"pickaxe": {
 		"cls": "tools",
 		"name": "破墙镐",
 		"text": "可以破坏勇士面前的墙",
 		"useItemEffect": "(function () {\n\tvar canBreak = function (x, y) {\n\t\tvar block = core.getBlock(x, y);\n\t\tif (block == null || block.disable) return false;\n\t\treturn block.event.canBreak;\n\t};\n\n\tvar success = false;\n\tvar pickaxeFourDirections = false; // 是否多方向破；如果是将其改成true\n\tif (pickaxeFourDirections) {\n\t\t// 多方向破\n\t\tfor (var direction in core.utils.scan) { // 多方向破默认四方向，如需改成八方向请将这两个scan改为scan2\n\t\t\tvar delta = core.utils.scan[direction];\n\t\t\tvar nx = core.getHeroLoc('x') + delta.x,\n\t\t\t\tny = core.getHeroLoc('y') + delta.y;\n\t\t\tif (canBreak(nx, ny)) {\n\t\t\t\tcore.removeBlock(nx, ny);\n\t\t\t\tsuccess = true;\n\t\t\t}\n\t\t}\n\t} else {\n\t\t// 仅破当前\n\t\tif (canBreak(core.nextX(), core.nextY())) {\n\t\t\tcore.removeBlock(core.nextX(), core.nextY());\n\t\t\tsuccess = true;\n\t\t}\n\t}\n\n\tif (success) {\n\t\tcore.playSound('破墙镐');\n\t\tcore.drawTip(core.material.items[itemId].name + '使用成功', itemId);\n\t} else {\n\t\t// 无法使用\n\t\tcore.playSound('操作失败');\n\t\tcore.drawTip(\"当前无法使用\" + core.material.items[itemId].name, itemId);\n\t\tcore.addItem(itemId, 1);\n\t\treturn;\n\t}\n})();",
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "true",
+		"defaultPrice": 5000
 	},
 	"icePickaxe": {
 		"cls": "tools",
 		"name": "破冰镐",
 		"text": "可以破坏勇士面前的一堵冰墙",
-		"useItemEffect": "(function () {\n\tcore.drawTip(core.material.items[itemId].name + '使用成功', itemId);\n\tcore.insertAction({ \"type\": \"openDoor\", \"loc\": [\"core.nextX()\", \"core.nextY()\"] });\n})();",
-		"canUseItemEffect": "(function () {\n\tvar next_id = core.getBlockId(core.nextX(), core.nextY());\n\treturn next_id == 'Ice' || next_id == 'A456';\n})();"
+		"useItemEffect": "(function () {\n\tcore.drawTip(core.material.items[itemId].name + '使用成功', itemId);\n\tvar next_id = core.getBlockId(core.nextX(), core.nextY());\n\tif (next_id === \"IceWall\") {\n\t\tcore.insertAction({ \"type\": \"setBlock\", \"name\": \"yellowWall\", \"loc\": [\"core.nextX()\", \"core.nextY()\"] })\n\t} else {\n\t\tcore.insertAction({ \"type\": \"openDoor\", \"loc\": [\"core.nextX()\", \"core.nextY()\"] });\n\t}\n})();",
+		"canUseItemEffect": "(function () {\n\tvar next_id = core.getBlockId(core.nextX(), core.nextY());\n\treturn next_id == 'Ice' || next_id == 'A456' || next_id == 'IceWall';\n})();",
+		"defaultPrice": 5000
 	},
 	"bomb": {
 		"cls": "tools",
 		"name": "炸弹",
-		"text": "可以炸掉勇士面前的怪物",
+		"text": "消灭玩家面对的单个非Boss怪物（消耗物品）",
 		"useItemEffect": "(function () {\n\tvar bombList = []; // 炸掉的怪物坐标列表\n\tvar todo = []; // 炸弹后事件\n\tvar money = 0,\n\t\texp = 0; // 炸弹获得的金币和经验\n\n\tvar canBomb = function (x, y) {\n\t\tvar block = core.getBlock(x, y);\n\t\tif (block == null || block.disable || block.event.cls.indexOf('enemy') != 0) return false;\n\t\tvar enemy = core.material.enemys[block.event.id];\n\t\treturn enemy && !enemy.notBomb;\n\t};\n\n\tvar bomb = function (x, y) {\n\t\tif (!canBomb(x, y)) return;\n\t\tbombList.push([x, y]);\n\t\tvar id = core.getBlockId(x, y),\n\t\t\tenemy = core.material.enemys[id];\n\t\tmoney += core.getEnemyValue(enemy, 'money', x, y) || 0;\n\t\texp += core.getEnemyValue(enemy, 'exp', x, y) || 0;\n\t\tcore.push(todo, core.floors[core.status.floorId].afterBattle[x + \",\" + y]);\n\t\tcore.push(todo, enemy.afterBattle);\n\t\tcore.removeBlock(x, y);\n\t}\n\n\t// 如果要多方向可炸，把这里的false改成true\n\tif (false) {\n\t\tvar scan = core.utils.scan; // 多方向炸时默认四方向，如果要改成八方向炸可以改成 core.utils.scan2\n\t\tfor (var direction in scan) {\n\t\t\tvar delta = scan[direction];\n\t\t\tbomb(core.getHeroLoc('x') + delta.x, core.getHeroLoc('y') + delta.y);\n\t\t}\n\t} else {\n\t\t// 仅炸当前\n\t\tbomb(core.nextX(), core.nextY());\n\t}\n\n\tif (bombList.length == 0) {\n\t\tcore.playSound('操作失败');\n\t\tcore.drawTip('当前无法使用' + core.material.items[itemId].name, itemId);\n\t\tcore.addItem(itemId, 1);\n\t\treturn;\n\t}\n\n\tcore.playSound('炸弹');\n\tcore.drawTip(core.material.items[itemId].name + '使用成功', itemId);\n\n\t// 取消这里的注释可以炸弹后获得金币和经验\n\t// core.status.hero.money += money;\n\t// core.status.hero.exp += exp;\n\n\t// 取消这里的注释可以炸弹引发战后事件\n\t// if (todo.length > 0) core.insertAction(todo);\n\n})();",
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "true",
+		"defaultPrice": 10000
 	},
 	"centerFly": {
 		"cls": "tools",
 		"name": "中心对称飞行器",
-		"text": "可以飞向当前楼层中心对称的位置",
+		"text": "飞到勇士当前位置的中心对称点（消耗物品）",
 		"useItemEffect": "core.playSound('centerFly.mp3');\ncore.clearMap('hero');\ncore.setHeroLoc('x', core.bigmap.width - 1 - core.getHeroLoc('x'));\ncore.setHeroLoc('y', core.bigmap.height - 1 - core.getHeroLoc('y'));\ncore.drawHero();\ncore.drawTip(core.material.items[itemId].name + '使用成功');",
-		"canUseItemEffect": "(function () {\n\tvar toX = core.bigmap.width - 1 - core.getHeroLoc('x'),\n\t\ttoY = core.bigmap.height - 1 - core.getHeroLoc('y');\n\tvar id = core.getBlockId(toX, toY);\n\treturn id == null;\n})();"
+		"canUseItemEffect": "(function () {\n\tvar toX = core.bigmap.width - 1 - core.getHeroLoc('x'),\n\t\ttoY = core.bigmap.height - 1 - core.getHeroLoc('y');\n\tvar id = core.getBlockId(toX, toY);\n\treturn id == null;\n})();",
+		"defaultPrice": 3000
 	},
 	"upFly": {
 		"cls": "tools",
-		"name": "上楼器",
-		"text": "可以飞往楼上的相同位置",
+		"name": "升飞羽",
+		"text": "去到当前楼层的上一层（消耗物品）",
 		"useItemEffect": "(function () {\n\tvar floorId = core.floorIds[core.floorIds.indexOf(core.status.floorId) + 1];\n\tif (core.status.event.id == 'action') {\n\t\tcore.insertAction([\n\t\t\t{ \"type\": \"changeFloor\", \"stair\": \"downFloor\", \"floorId\": floorId },\n\t\t\t{ \"type\": \"tip\", \"text\": core.material.items[itemId].name + '使用成功' }\n\t\t]);\n\t} else {\n\t\tcore.changeFloor(floorId, \"downFloor\", null, null, function () {\n\t\t\tcore.drawTip(core.material.items[itemId].name + '使用成功');\n\t\t\tcore.replay();\n\t\t});\n\t}\n})();",
-		"canUseItemEffect": "(function () {\n\tvar floorId = core.status.floorId,\n\t\tindex = core.floorIds.indexOf(floorId);\n\tif (index < core.floorIds.length - 1) {\n\t\tvar toId = core.floorIds[index + 1],\n\t\t\ttoX = core.getHeroLoc('x'),\n\t\t\ttoY = core.getHeroLoc('y');\n\t\tvar mw = core.floors[toId].width,\n\t\t\tmh = core.floors[toId].height;\n\t\tif (toX >= 0 && toX < mw && toY >= 0 && toY < mh) {\n\t\t\treturn true;\n\t\t}\n\t}\n\treturn false;\n})();"
+		"canUseItemEffect": "(function () {\n\tvar floorId = core.status.floorId,\n\t\tindex = core.floorIds.indexOf(floorId);\n\tif (index < core.floorIds.length - 1) {\n\t\tvar toId = core.floorIds[index + 1],\n\t\t\ttoX = core.getHeroLoc('x'),\n\t\t\ttoY = core.getHeroLoc('y');\n\t\tvar mw = core.floors[toId].width,\n\t\t\tmh = core.floors[toId].height;\n\t\tif (toX >= 0 && toX < mw && toY >= 0 && toY < mh) {\n\t\t\treturn true;\n\t\t}\n\t}\n\treturn false;\n})();",
+		"defaultPrice": 4000
 	},
 	"downFly": {
 		"cls": "tools",
-		"name": "下楼器",
-		"text": "可以飞往楼下的相同位置",
+		"name": "降飞羽",
+		"text": "去到当前楼层的下一层（消耗物品）",
 		"useItemEffect": "(function () {\n\tvar floorId = core.floorIds[core.floorIds.indexOf(core.status.floorId) - 1];\n\tif (core.status.event.id == 'action') {\n\t\tcore.insertAction([\n\t\t\t{ \"type\": \"changeFloor\", \"stair\": \"upFloor\", \"floorId\": floorId },\n\t\t\t{ \"type\": \"tip\", \"text\": core.material.items[itemId].name + '使用成功' }\n\t\t]);\n\t} else {\n\t\tcore.changeFloor(floorId, \"upFloor\", null, null, function () {\n\t\t\tcore.drawTip(core.material.items[itemId].name + '使用成功');\n\t\t\tcore.replay();\n\t\t});\n\t}\n})();",
-		"canUseItemEffect": "(function () {\n\tvar floorId = core.status.floorId,\n\t\tindex = core.floorIds.indexOf(floorId);\n\tif (index > 0) {\n\t\tvar toId = core.floorIds[index - 1],\n\t\t\ttoX = core.getHeroLoc('x'),\n\t\t\ttoY = core.getHeroLoc('y');\n\t\tvar mw = core.floors[toId].width,\n\t\t\tmh = core.floors[toId].height;\n\t\tif (toX >= 0 && toX < mw && toY >= 0 && toY < mh) {\n\t\t\treturn true;\n\t\t}\n\t}\n\treturn false;\n})();"
+		"canUseItemEffect": "(function () {\n\tvar floorId = core.status.floorId,\n\t\tindex = core.floorIds.indexOf(floorId);\n\tif (index > 0) {\n\t\tvar toId = core.floorIds[index - 1],\n\t\t\ttoX = core.getHeroLoc('x'),\n\t\t\ttoY = core.getHeroLoc('y');\n\t\tvar mw = core.floors[toId].width,\n\t\t\tmh = core.floors[toId].height;\n\t\tif (toX >= 0 && toX < mw && toY >= 0 && toY < mh) {\n\t\t\treturn true;\n\t\t}\n\t}\n\treturn false;\n})();",
+		"defaultPrice": 4000
 	},
 	"earthquake": {
 		"cls": "tools",
 		"name": "地震卷轴",
 		"text": "可以破坏当前层的所有墙",
 		"useItemEffect": "(function () {\n\tvar indexes = [];\n\tfor (var index in core.status.thisMap.blocks) {\n\t\tvar block = core.status.thisMap.blocks[index];\n\t\tif (!block.disable && block.event.canBreak) {\n\t\t\tindexes.push(index);\n\t\t}\n\t}\n\tcore.removeBlockByIndexes(indexes);\n\tcore.redrawMap();\n\tcore.playSound('炸弹');\n\tcore.drawTip(core.material.items[itemId].name + '使用成功');\n})();",
-		"canUseItemEffect": "(function () {\n\treturn core.status.thisMap.blocks.filter(function (block) {\n\t\treturn !block.disable && block.event.canBreak;\n\t}).length > 0;\n})();"
+		"canUseItemEffect": "(function () {\n\treturn core.status.thisMap.blocks.filter(function (block) {\n\t\treturn !block.disable && block.event.canBreak;\n\t}).length > 0;\n})();",
+		"defaultPrice": 9000
 	},
 	"poisonWine": {
 		"cls": "tools",
 		"name": "解毒药水",
 		"text": "可以解除中毒状态",
 		"useItemEffect": "core.triggerDebuff('remove', 'poison');",
-		"canUseItemEffect": "core.hasFlag('poison');"
+		"canUseItemEffect": "core.hasFlag('poison');",
+		"defaultPrice": 500
 	},
 	"weakWine": {
 		"cls": "tools",
 		"name": "解衰药水",
 		"text": "可以解除衰弱状态",
 		"useItemEffect": "core.triggerDebuff('remove', 'weak');",
-		"canUseItemEffect": "core.hasFlag('weak');"
+		"canUseItemEffect": "core.hasFlag('weak');",
+		"defaultPrice": 400
 	},
 	"curseWine": {
 		"cls": "tools",
 		"name": "解咒药水",
 		"text": "可以解除诅咒状态",
 		"useItemEffect": "core.triggerDebuff('remove', 'curse');",
-		"canUseItemEffect": "core.hasFlag('curse');"
+		"canUseItemEffect": "core.hasFlag('curse');",
+		"defaultPrice": 400
 	},
 	"superWine": {
 		"cls": "tools",
 		"name": "解百纳",
 		"text": "可以解除所有不良状态",
 		"useItemEffect": "core.triggerDebuff('remove', ['poison', 'weak', 'curse']);",
-		"canUseItemEffect": "(function() {\n\treturn core.hasFlag('poison') || core.hasFlag('weak') || core.hasFlag('curse');\n})();"
+		"canUseItemEffect": "(function() {\n\treturn core.hasFlag('poison') || core.hasFlag('weak') || core.hasFlag('curse');\n})();",
+		"defaultPrice": 800
 	},
 	"hammer": {
 		"cls": "tools",
 		"name": "圣锤",
-		"text": "该道具尚未被定义"
+		"text": "直接消灭玩家四周的非boss级怪物（消耗物品）",
+		"useItemEffect": "(function () {\n\tvar bombList = []; // 炸掉的怪物坐标列表\n\tvar todo = []; // 炸弹后事件\n\tvar money = 0,\n\t\texp = 0; // 炸弹获得的金币和经验\n\n\tvar canBomb = function (x, y) {\n\t\tvar block = core.getBlock(x, y);\n\t\tif (block == null || block.disable || block.event.cls.indexOf('enemy') != 0) return false;\n\t\tvar enemy = core.material.enemys[block.event.id];\n\t\treturn enemy && !enemy.notBomb;\n\t};\n\n\tvar bomb = function (x, y) {\n\t\tif (!canBomb(x, y)) return;\n\t\tbombList.push([x, y]);\n\t\tvar id = core.getBlockId(x, y),\n\t\t\tenemy = core.material.enemys[id];\n\t\tmoney += core.getEnemyValue(enemy, 'money', x, y) || 0;\n\t\texp += core.getEnemyValue(enemy, 'exp', x, y) || 0;\n\t\tcore.push(todo, core.floors[core.status.floorId].afterBattle[x + \",\" + y]);\n\t\tcore.push(todo, enemy.afterBattle);\n\t\tcore.removeBlock(x, y);\n\t}\n\n\t// 如果要多方向可炸，把这里的false改成true\n\tif (true) {\n\t\tvar scan = core.utils.scan; // 多方向炸时默认四方向，如果要改成八方向炸可以改成 core.utils.scan2\n\t\tfor (var direction in scan) {\n\t\t\tvar delta = scan[direction];\n\t\t\tbomb(core.getHeroLoc('x') + delta.x, core.getHeroLoc('y') + delta.y);\n\t\t}\n\t} else {\n\t\t// 仅炸当前\n\t\tbomb(core.nextX(), core.nextY());\n\t}\n\n\tif (bombList.length == 0) {\n\t\tcore.playSound('操作失败');\n\t\tcore.drawTip('当前无法使用' + core.material.items[itemId].name, itemId);\n\t\tcore.addItem(itemId, 1);\n\t\treturn;\n\t}\n\n\tcore.playSound('炸弹');\n\tcore.drawTip(core.material.items[itemId].name + '使用成功', itemId);\n\n\t// 取消这里的注释可以炸弹后获得金币和经验\n\t// core.status.hero.money += money;\n\t// core.status.hero.exp += exp;\n\n\t// 取消这里的注释可以炸弹引发战后事件\n\t// if (todo.length > 0) core.insertAction(todo);\n\n})();",
+		"canUseItemEffect": "true",
+		"defaultPrice": 10000
 	},
 	"lifeWand": {
 		"cls": "tools",
@@ -493,7 +542,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"name": "穿毹鞋",
 		"text": "可穿过怪物或墙及其他东东",
 		"useItemEffect": "core.playSound(\"跳跃\");\ncore.insertAction({ \"type\": \"jumpHero\", \"loc\": [core.nextX(2), core.nextY(2)] });",
-		"canUseItemEffect": "(function () {\n\tvar nx = core.nextX(2),\n\t\tny = core.nextY(2);\n\treturn nx >= 0 && nx < core.bigmap.width && ny >= 0 && ny < core.bigmap.height && !core.noPass(nx, ny); // && core.getBlockId(nx, ny) == null;\n})();"
+		"canUseItemEffect": "(function () {\n\tvar nx = core.nextX(2),\n\t\tny = core.nextY(2);\n\treturn nx >= 0 && nx < core.bigmap.width && ny >= 0 && ny < core.bigmap.height && !core.noPass(nx, ny); // && core.getBlockId(nx, ny) == null;\n})();",
+		"defaultPrice": 5000
 	},
 	"skill1": {
 		"cls": "constants",
@@ -514,20 +564,23 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"itemEffectTip": "，金币+500",
 		"text": "可得到一些血瓶(4红3蓝2黄1绿)、宝石(1红1蓝1绿)、钥匙(5黄3蓝1红)，和1个大金币（消耗物品）",
 		"canUseItemEffect": "true",
-		"useItemEffect": "core.insertCommonEvent(\"DynamicPotion\", [\"brocade\"]);"
+		"useItemEffect": "core.insertCommonEvent(\"DynamicPotion\", [\"brocade\"]);",
+		"defaultPrice": 12000
 	},
 	"I333": {
-		"cls": "items",
+		"cls": "tools",
 		"name": "毁灭卷轴",
 		"canUseItemEffect": "(function () {\n\treturn core.status.thisMap.blocks.filter(function (block) {\n\t\treturn !block.disable && block.event.canDestoriedByReels;\n\t}).length > 0;\n})();",
 		"useItemEffect": "(function () {\n\tvar indexes = [];\n\tfor (var index in core.status.thisMap.blocks) {\n\t\tvar block = core.status.thisMap.blocks[index];\n\t\tif (!block.disable && block.event.canDestoriedByReels) {\n\t\t\tindexes.push(index);\n\t\t}\n\t}\n\tcore.removeBlockByIndexes(indexes);\n\tcore.redrawMap();\n\tcore.playSound('炸弹');\n\tcore.drawTip(core.material.items[itemId].name + '使用成功');\n})();",
-		"text": "用于摧毁一层中所有的墙和黄门（消耗物品）"
+		"text": "用于摧毁一层中所有的墙和黄门（消耗物品）",
+		"defaultPrice": 16000
 	},
 	"I334": {
-		"cls": "items",
+		"cls": "tools",
 		"name": "解慢药水",
-		"canUseItemEffect": "true",
-		"text": "可以解除缓慢状态（H5版本中无效果）"
+		"canUseItemEffect": null,
+		"text": "可以解除缓慢状态（H5版本中无效果）",
+		"defaultPrice": 300
 	},
 	"I335": {
 		"cls": "items",
@@ -554,7 +607,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"name": "大金币",
 		"canUseItemEffect": "true",
 		"text": "加1000点金钱，200点经验（消耗物品）",
-		"useItemEffect": "core.status.hero.money += 1000;\ncore.status.hero.exp += 200;"
+		"useItemEffect": "core.status.hero.money += 1000;\ncore.status.hero.exp += 200;",
+		"defaultPrice": 1400
 	},
 	"I340": {
 		"cls": "items",
@@ -585,7 +639,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"text": "可以查看当前楼层各怪物属性",
 		"hideInToolbox": true,
 		"useItemEffect": "core.ui.drawBook(0);",
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "true",
+		"defaultPrice": null
 	},
 	"I347": {
 		"cls": "items",
@@ -610,7 +665,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"hideInReplay": true,
 		"hideInToolbox": true,
 		"useItemEffect": "core.ui.drawFly(core.floorIds.indexOf(core.status.floorId));",
-		"canUseItemEffect": "(function () {\n\tif (core.flags.flyNearStair && !core.nearStair()) return false;\n\treturn core.status.maps[core.status.floorId].canFlyFrom;\n})();"
+		"canUseItemEffect": "(function () {\n\tif (core.flags.flyNearStair && !core.nearStair()) return false;\n\treturn core.status.maps[core.status.floorId].canFlyFrom;\n})();",
+		"defaultPrice": 20
 	},
 	"I388": {
 		"cls": "equips",
@@ -623,7 +679,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 			},
 			"percentage": {}
 		},
-		"text": "提升攻击20点（装饰品）"
+		"text": "提升攻击20点（装饰品）",
+		"defaultPrice": 1500
 	},
 	"I389": {
 		"cls": "equips",
@@ -636,7 +693,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 				"def": 20
 			},
 			"percentage": {}
-		}
+		},
+		"defaultPrice": 1500
 	},
 	"I390": {
 		"cls": "equips",
@@ -649,7 +707,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 				"mdef": 20
 			},
 			"percentage": {}
-		}
+		},
+		"defaultPrice": 1500
 	},
 	"I391": {
 		"cls": "equips",
@@ -664,7 +723,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 				"mdef": 15
 			},
 			"percentage": {}
-		}
+		},
+		"defaultPrice": 4000
 	},
 	"I392": {
 		"cls": "equips",
@@ -677,7 +737,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 			},
 			"percentage": {}
 		},
-		"text": "提升攻击30点（装饰品）"
+		"text": "提升攻击30点（装饰品）",
+		"defaultPrice": 6000
 	},
 	"I393": {
 		"cls": "equips",
@@ -690,7 +751,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 			},
 			"percentage": {}
 		},
-		"text": "提升防御30点（装饰品）"
+		"text": "提升防御30点（装饰品）",
+		"defaultPrice": 6000
 	},
 	"I394": {
 		"cls": "equips",
@@ -703,12 +765,24 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 			},
 			"percentage": {}
 		},
-		"text": "提升魔防30点（装饰品）"
+		"text": "提升魔防30点（装饰品）",
+		"defaultPrice": 6000
 	},
 	"I395": {
-		"cls": "items",
-		"name": "新物品",
-		"canUseItemEffect": "true"
+		"cls": "equips",
+		"name": "万能钻戒LV2",
+		"canUseItemEffect": "true",
+		"defaultPrice": 8000,
+		"text": "提升攻击、防御、魔防各20点（装饰品）",
+		"equip": {
+			"type": 4,
+			"value": {
+				"mdef": 20,
+				"def": 20,
+				"atk": 20
+			},
+			"percentage": {}
+		}
 	},
 	"I402": {
 		"cls": "equips",
@@ -723,7 +797,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 				"mdef": 25
 			},
 			"percentage": {}
-		}
+		},
+		"defaultPrice": 4000
 	},
 	"I403": {
 		"cls": "equips",
@@ -738,7 +813,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 				"atk": 3
 			},
 			"percentage": {}
-		}
+		},
+		"defaultPrice": 4000
 	},
 	"I409": {
 		"cls": "constants",
@@ -775,7 +851,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"cls": "tools",
 		"name": "通行证",
 		"canUseItemEffect": "",
-		"text": "可通行一些路"
+		"text": "可通行一些路",
+		"defaultPrice": 1200
 	},
 	"I454": {
 		"cls": "items",
@@ -794,25 +871,29 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"name": "珍贵钥匙",
 		"canUseItemEffect": "(function () {\n\treturn core.searchBlock(\"(yellow|blue|red|green|steel)Door\\\\d*\").length > 0;\n})();",
 		"useItemEffect": "(function () {\n\tcore.setFlag(\"noDoorSound\", 1);\n\tvar actions = core.searchBlock(\"(yellow|blue|red|green|steel)Door\\\\d*\").map(function (block) {\n\t\treturn { \"type\": \"openDoor\", \"loc\": [block.x, block.y], \"async\": true };\n\t});\n\tactions.push({ \"type\": \"waitAsync\" });\n\tactions.push({ \"type\": \"tip\", \"text\": core.material.items[itemId].name + \"使用成功\" });\n\tactions.push({ \"type\": \"function\", \"function\": \"function(){\\ncore.removeFlag(\\\"noDoorSound\\\");\\n}\" });\n\tcore.insertAction(actions);\n})();",
-		"text": "抵消一层中所有门（消耗物品）"
+		"text": "抵消一层中所有门（消耗物品）",
+		"defaultPrice": 16000
 	},
 	"BSpecialKey": {
 		"cls": "tools",
 		"name": "B-特殊钥匙",
 		"text": "用来开特殊的门",
-		"hideInToolbox": true
+		"hideInToolbox": true,
+		"defaultPrice": 6660
 	},
 	"HSpecialKey": {
 		"cls": "tools",
 		"name": "H-特殊钥匙",
 		"text": "用来开特殊的门",
-		"hideInToolbox": true
+		"hideInToolbox": true,
+		"defaultPrice": 6660
 	},
 	"LSpecialKey": {
 		"cls": "tools",
 		"name": "L-特殊钥匙",
 		"text": "用来开特殊的门",
-		"hideInToolbox": true
+		"hideInToolbox": true,
+		"defaultPrice": 6660
 	},
 	"I494": {
 		"cls": "items",
@@ -841,14 +922,16 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"cls": "constants",
 		"name": "万能铁门钥匙",
 		"canUseItemEffect": null,
-		"text": "用来开所有的铁门"
+		"text": "用来开所有的铁门",
+		"defaultPrice": 10000
 	},
 	"I526": {
-		"cls": "items",
+		"cls": "constants",
 		"name": "物种探知器",
 		"canUseItemEffect": "true",
 		"text": "用来侦测潜伏的怪物（复刻版无效果）",
-		"itemEffectTip": "，用来侦测潜伏的怪物（复刻版无效果）"
+		"itemEffectTip": "，用来侦测潜伏的怪物（复刻版无效果）",
+		"defaultPrice": 5000
 	},
 	"bAtkGem": {
 		"cls": "items",
@@ -882,7 +965,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"cls": "constants",
 		"name": "护符",
 		"canUseItemEffect": null,
-		"text": "持有后不受怪物领域、夹击的伤害"
+		"text": "持有后不受怪物领域、夹击的伤害",
+		"defaultPrice": 8000
 	},
 	"I542": {
 		"cls": "items",
@@ -925,7 +1009,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 				"atk": 10
 			},
 			"percentage": {}
-		}
+		},
+		"defaultPrice": 500
 	},
 	"I547": {
 		"cls": "equips",
@@ -940,7 +1025,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 				"atk": 5
 			},
 			"percentage": {}
-		}
+		},
+		"defaultPrice": 500
 	},
 	"I548": {
 		"cls": "equips",
@@ -955,7 +1041,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 				"atk": 20
 			},
 			"percentage": {}
-		}
+		},
+		"defaultPrice": 1000
 	},
 	"candle": {
 		"cls": "constants",
@@ -967,7 +1054,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 				"type": "function",
 				"function": "function(){\ncore.updateDarkMask(core.status.heroCenter.px, core.status.heroCenter.py);\n}"
 			}
-		]
+		],
+		"defaultPrice": 4000
 	},
 	"notebook": {
 		"cls": "constants",
@@ -975,6 +1063,33 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"canUseItemEffect": "true",
 		"useItemEffect": "core.events.openNotebook(true);",
 		"hideInReplay": true,
-		"text": "显示与魔塔老人的对话（快捷键I）"
+		"text": "显示与魔塔老人的对话（快捷键I）",
+		"defaultPrice": 2000
+	},
+	"I576": {
+		"cls": "equips",
+		"name": "高级头盔",
+		"canUseItemEffect": "true",
+		"text": "防御力较好的头盔啦(装备物品)",
+		"equip": {
+			"type": 2,
+			"value": {
+				"mdef": 7,
+				"def": 20,
+				"atk": 10
+			},
+			"percentage": {}
+		},
+		"defaultPrice": 1000
+	},
+	"I584": {
+		"cls": "items",
+		"name": "冰十字架",
+		"canUseItemEffect": null
+	},
+	"I585": {
+		"cls": "items",
+		"name": "十字架",
+		"canUseItemEffect": null
 	}
 }

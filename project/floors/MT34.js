@@ -27,6 +27,13 @@ main.floors.MT34=
                 "value": "1"
             },
             {
+                "type": "if",
+                "condition": "flag:VerboseHint",
+                "true": [
+                    "\t[H5复刻作者]提示：魔塔世界中解锁了新的隐藏层。"
+                ]
+            },
+            {
                 "type": "show",
                 "loc": [
                     [

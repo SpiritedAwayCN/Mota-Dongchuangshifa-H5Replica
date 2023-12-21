@@ -821,7 +821,7 @@ main.floors.MT6=
                         ]
                     },
                     {
-                        "case": "4",
+                        "case": "6",
                         "action": [
                             {
                                 "type": "openDoor",
@@ -871,7 +871,7 @@ main.floors.MT6=
                         ]
                     },
                     {
-                        "case": "4",
+                        "case": "6",
                         "action": [
                             {
                                 "type": "openDoor",
@@ -921,7 +921,7 @@ main.floors.MT6=
                         ]
                     },
                     {
-                        "case": "4",
+                        "case": "6",
                         "action": [
                             {
                                 "type": "openDoor",
@@ -971,7 +971,7 @@ main.floors.MT6=
                         ]
                     },
                     {
-                        "case": "4",
+                        "case": "6",
                         "action": [
                             {
                                 "type": "openDoor",
@@ -1021,7 +1021,7 @@ main.floors.MT6=
                         ]
                     },
                     {
-                        "case": "4",
+                        "case": "6",
                         "action": [
                             {
                                 "type": "openDoor",
@@ -1071,7 +1071,7 @@ main.floors.MT6=
                         ]
                     },
                     {
-                        "case": "4",
+                        "case": "6",
                         "action": [
                             {
                                 "type": "openDoor",

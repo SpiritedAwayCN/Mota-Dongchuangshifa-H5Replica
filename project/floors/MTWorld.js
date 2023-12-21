@@ -294,6 +294,52 @@ main.floors.MTWorld=
                     ]
                 }
             ]
+        },
+        "9,8": {
+            "trigger": null,
+            "enable": false,
+            "noPass": null,
+            "displayDamage": true,
+            "opacity": 1,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": [
+                "\t[神秘老人,wizard]\b[this]你又打开一个机关。在左上角。",
+                {
+                    "type": "hide",
+                    "remove": true
+                }
+            ]
+        },
+        "3,4": {
+            "trigger": null,
+            "enable": false,
+            "noPass": null,
+            "displayDamage": true,
+            "opacity": 1,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": [
+                {
+                    "type": "changeFloor",
+                    "floorId": "MTCastle0",
+                    "loc": [
+                        10,
+                        19
+                    ],
+                    "direction": "up"
+                }
+            ]
         }
     },
     "changeFloor": {},

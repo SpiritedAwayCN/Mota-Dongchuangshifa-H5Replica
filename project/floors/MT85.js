@@ -41,8 +41,17 @@ main.floors.MT85=
                                 "text": "好，我们回去吧！",
                                 "action": [
                                     {
-                                        "type": "lose",
-                                        "reason": "结局9"
+                                        "type": "follow",
+                                        "name": "043-Queen01.png"
+                                    },
+                                    {
+                                        "type": "changeFloor",
+                                        "floorId": "Scene0",
+                                        "loc": [
+                                            12,
+                                            15
+                                        ],
+                                        "direction": "up"
                                     },
                                     {
                                         "type": "exit"

@@ -33,7 +33,38 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"TrapSwamp3",
 			"SuperSpace1",
 			"SuperSpace2",
+			"MTCastle0",
+			"MTCastle1",
+			"MTCastle2",
+			"MTCastle3",
+			"MTCastle4",
+			"MTCastle5",
 			"MTWorld",
+			"MTn57",
+			"MTn56",
+			"MTn55",
+			"MTn54",
+			"MTn53",
+			"MTn52",
+			"MTn51",
+			"MTn50",
+			"MTn49",
+			"MTn48",
+			"MTn47",
+			"MTn46",
+			"MTn45",
+			"MTn44",
+			"MTn43",
+			"MTn42",
+			"MTn41",
+			"MTn40",
+			"MTn39",
+			"MTn38",
+			"MTn37",
+			"MTn36",
+			"MTn35",
+			"MTn34",
+			"MTn33",
 			"MTn32",
 			"MTn31",
 			"MTn30",
@@ -155,8 +186,11 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 		],
 		"floorPartitions": [],
 		"images": [
+			"001-Sky01.jpg",
 			"016-Braver06.png",
+			"043-Queen01.png",
 			"047-Monster17.png",
+			"196-Support04.png",
 			"F.png",
 			"bear.png",
 			"bg.jpg",
@@ -169,7 +203,8 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 		],
 		"tilesets": [
 			"magictower.png",
-			"magictower2.png"
+			"magictower2.png",
+			"032-Heaven01.png"
 		],
 		"animates": [
 			"A01",
@@ -201,13 +236,17 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"009LastBoss01.mp3",
 			"011LastBoss03.mp3",
 			"012Theme01.mp3",
+			"013Theme02.mp3",
 			"014Theme03.mp3",
+			"020Field03.mp3",
 			"031Castle01.mp3",
 			"037Dungeon03.mp3",
 			"040Dungeon06.mp3",
 			"045Positive03.mp3",
+			"054Negative03.mp3",
 			"055Negative04.mp3",
 			"060Slow03.mp3",
+			"061Slow04.mp3",
 			"CastleinSky.mp3",
 			"bgm.mp3",
 			"guitar.mp3",
@@ -418,6 +457,12 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"width": 180,
 				"height": 40,
 				"prefix": "047-Monster17_"
+			},
+			{
+				"name": "196-Support04.png",
+				"width": 384,
+				"height": 96,
+				"prefix": "196-Support04_"
 			}
 		]
 	},
@@ -935,15 +980,45 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			{
 				"id": "itemShop",
 				"item": true,
-				"textInList": "道具商店",
+				"textInList": "-50F道具买卖商店@道具",
 				"use": "money",
 				"mustEnable": true,
 				"choices": [
 					{
-						"id": "yellowKey",
-						"number": 10,
-						"money": "10",
-						"sell": "5"
+						"id": "redPotion",
+						"money": "1000"
+					},
+					{
+						"id": "bluePotion",
+						"money": "2000"
+					},
+					{
+						"id": "yellowPotion",
+						"money": "4000"
+					},
+					{
+						"id": "greenPotion",
+						"money": "6000"
+					},
+					{
+						"id": "redGem",
+						"money": "1000"
+					},
+					{
+						"id": "blueGem",
+						"money": "1000"
+					},
+					{
+						"id": "greenGem",
+						"money": "1000"
+					},
+					{
+						"id": "yellowGem",
+						"money": "6000"
+					},
+					{
+						"id": "I395",
+						"money": "8000"
 					}
 				]
 			},
@@ -952,6 +1027,33 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"textInList": "回收钥匙商店",
 				"mustEnable": true,
 				"commonEvent": "回收钥匙商店"
+			},
+			{
+				"id": "CastleRatioShop",
+				"textInList": "魔塔城堡比例商店@金币",
+				"mustEnable": true,
+				"commonEvent": "OtherShops",
+				"args": [
+					"MTCastle4"
+				]
+			},
+			{
+				"id": "Fm34ExpShop",
+				"textInList": "-34F经验商店@经验",
+				"mustEnable": true,
+				"commonEvent": "OtherShops",
+				"args": [
+					"MTn34"
+				]
+			},
+			{
+				"id": "Fm32GoldShop",
+				"textInList": "-32F金币商店@金币",
+				"mustEnable": true,
+				"commonEvent": "OtherShops",
+				"args": [
+					"MTn32"
+				]
 			},
 			{
 				"id": "Fm18ExpShop",
@@ -1870,7 +1972,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 		"flyRecordPosition": false,
 		"itemFirstText": true,
 		"equipboxButton": false,
-		"enableAddPoint": true,
+		"enableAddPoint": false,
 		"enableNegativeDamage": false,
 		"betweenAttackMax": false,
 		"useLoop": true,

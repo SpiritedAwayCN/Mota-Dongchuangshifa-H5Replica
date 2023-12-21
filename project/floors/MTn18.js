@@ -122,6 +122,10 @@ main.floors.MTn18=
         ],
         "1,5": [
             {
+                "type": "openShop",
+                "id": "Fm18ExpShop"
+            },
+            {
                 "type": "insert",
                 "name": "回收钥匙商店"
             }

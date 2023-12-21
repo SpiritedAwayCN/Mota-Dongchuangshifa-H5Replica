@@ -99,6 +99,12 @@ var comment_c456ea59_6018_45ef_8bcc_211a24c627dc = {
 					"_lint": true,
 					"_docs": "能否使用或装备",
 					"_data": "当前能否使用或装备该道具，仅对cls不为items有效。null表示始终不可使用但可装备"
+				},
+				"defaultPrice": {
+					"_leaf": true,
+					"_type": "textarea",
+					"_docs": "默认价格",
+					"_data": "出售时获得的金币为该值除以2"
 				}
 			}
 		},

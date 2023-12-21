@@ -85,7 +85,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		if (current_px === px && current_py === py && !forceUpdate)
 			return;
 		core.drawLight("darkmask", 1, [
-			[px, py, r || core.hasItem("candle") ? 112 : 48]
+			[px, py, r || (core.hasItem("candle") ? 112 : 48)]
 		]);
 		current_px = px;
 		current_py = py;
@@ -220,7 +220,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 	/// 当前应当显示的快捷商店列表
 	this.listShopIds = function (secondaryType) {
 		return Object.keys(core.status.shops).filter(function (id) {
-			return (core.isShopVisited(id) || !core.status.shops[id].mustEnable) && 
+			return (core.isShopVisited(id) || !core.status.shops[id].mustEnable) &&
 				(!secondaryType || core.status.shops[id].textInList.split("@")[1] === secondaryType);
 		});
 	}
@@ -246,6 +246,10 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 	this.canUseQuickShop = function (id) {
 		// 如果返回一个字符串，表示不能，字符串为不能使用的提示
 		// 返回null代表可以使用
+
+		if (!core.hasItem('fly')) {
+			return '持有楼层传送器才能使用快捷商店。';
+		}
 
 		// 检查当前楼层的canUseQuickShop选项是否为false
 		if (core.status.thisMap.canUseQuickShop === false)
@@ -556,295 +560,304 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		}
 	},
     "itemShop": function () {
-		// 道具商店相关的插件
-		// 可在全塔属性-全局商店中使用「道具商店」事件块进行编辑（如果找不到可以在入口方块中找）
+	// 道具商店相关的插件
+	// 可在全塔属性-全局商店中使用「道具商店」事件块进行编辑（如果找不到可以在入口方块中找）
 
-		var shopId = null; // 当前商店ID
-		var type = 0; // 当前正在选中的类型，0买入1卖出
-		var selectItem = 0; // 当前正在选中的道具
-		var selectCount = 0; // 当前已经选中的数量
-		var page = 0;
-		var totalPage = 0;
-		var totalMoney = 0;
-		var list = [];
-		var shopInfo = null; // 商店信息
-		var choices = []; // 商店选项
-		var use = 'money';
-		var useText = '金币';
+	var shopId = null; // 当前商店ID
+	var type = 0; // 当前正在选中的类型，0买入1卖出
+	var selectItem = 0; // 当前正在选中的道具
+	var selectCount = 0; // 当前已经选中的数量
+	var page = 0;
+	var totalPage = 0;
+	var totalMoney = 0;
+	var list = [];
+	var shopInfo = null; // 商店信息
+	var choices = []; // 商店选项
+	var use = 'money';
+	var useText = '塔币';
+	var window_style = "winskin.png";
 
-		var bigFont = core.ui._buildFont(20, false),
-			middleFont = core.ui._buildFont(18, false);
+	var bigFont = core.ui._buildFont(20, false),
+		middleFont = core.ui._buildFont(18, false);
 
-		this._drawItemShop = function () {
-			// 绘制道具商店
+	this._drawItemShop = function () {
+		// 绘制道具商店
 
-			// Step 1: 背景和固定的几个文字
-			core.ui._createUIEvent();
-			core.clearMap('uievent');
-			core.ui.clearUIEventSelector();
-			core.setTextAlign('uievent', 'left');
-			core.setTextBaseline('uievent', 'top');
-			core.fillRect('uievent', 0, 0, 416, 416, 'black');
-			core.drawWindowSkin('winskin.png', 'uievent', 0, 0, 416, 56);
-			core.drawWindowSkin('winskin.png', 'uievent', 0, 56, 312, 56);
-			core.drawWindowSkin('winskin.png', 'uievent', 0, 112, 312, 304);
-			core.drawWindowSkin('winskin.png', 'uievent', 312, 56, 104, 56);
-			core.drawWindowSkin('winskin.png', 'uievent', 312, 112, 104, 304);
-			core.setFillStyle('uievent', 'white');
-			core.setStrokeStyle('uievent', 'white');
-			core.fillText("uievent", "购买", 32, 74, 'white', bigFont);
-			core.fillText("uievent", "卖出", 132, 74);
-			core.fillText("uievent", "离开", 232, 74);
-			core.fillText("uievent", "当前" + useText, 324, 66, null, middleFont);
-			core.setTextAlign("uievent", "right");
-			core.fillText("uievent", core.formatBigNumber(core.status.hero[use]), 405, 89);
-			core.setTextAlign("uievent", "left");
-			core.ui.drawUIEventSelector(1, "winskin.png", 22 + 100 * type, 66, 60, 33);
-			if (selectItem != null) {
-				core.setTextAlign('uievent', 'center');
-				core.fillText("uievent", type == 0 ? "买入个数" : "卖出个数", 364, 320, null, bigFont);
-				core.fillText("uievent", "<   " + selectCount + "   >", 364, 350);
-				core.fillText("uievent", "确定", 364, 380);
-			}
+		// Step 1: 背景和固定的几个文字
+		core.ui._createUIEvent();
+		core.clearMap('uievent');
+		core.ui.clearUIEventSelector();
+		core.setTextAlign('uievent', 'left');
+		core.setTextBaseline('uievent', 'top');
+		core.fillRect('uievent', 0, 0, 480, 480, 'black');
+		core.drawWindowSkin(window_style, 'uievent', 0, 0, 480, 56);
+		core.drawWindowSkin(window_style, 'uievent', 0, 56, 344, 56);
+		core.drawWindowSkin(window_style, 'uievent', 0, 112, 344, 368);
+		core.drawWindowSkin(window_style, 'uievent', 344, 56, 136, 56);
+		core.drawWindowSkin(window_style, 'uievent', 344, 112, 136, 368);
+		core.setFillStyle('uievent', 'white');
+		core.setStrokeStyle('uievent', 'white');
+		core.fillText("uievent", "购买", 32, 74, 'white', bigFont);
+		core.fillText("uievent", "卖出", 142, 74);
+		core.fillText("uievent", "离开", 252, 74);
+		core.fillText("uievent", "当前" + useText, 356, 66, null, middleFont);
+		core.setTextAlign("uievent", "right");
+		core.fillText("uievent", core.formatBigNumber(core.status.hero[use]), 469, 89);
+		core.setTextAlign("uievent", "left");
+		core.ui.drawUIEventSelector(1, window_style, 22 + 110 * type, 66, 60, 33);
+		if (selectItem != null) {
+			core.setTextAlign('uievent', 'center');
+			core.fillText("uievent", type == 0 ? "买入个数" : "卖出个数", 396, 320, null, bigFont);
+			core.fillText("uievent", "<   " + selectCount + "   >", 396, 350);
+			core.fillText("uievent", "确定", 396, 380);
+		}
 
-			// Step 2：获得列表并展示
+		// Step 2：获得列表并展示
+		if (type == 0) {
 			list = choices.filter(function (one) {
 				if (one.condition != null && one.condition != '') {
-					try { if (!core.calValue(one.condition)) return false; } catch (e) { }
+					try { if (!core.calValue(one.condition)) return false; } catch (e) {}
 				}
-				return (type == 0 && one.money != null) || (type == 1 && one.sell != null);
+				return one.money != null;
 			});
-			var per_page = 6;
-			totalPage = Math.ceil(list.length / per_page);
-			page = Math.floor((selectItem || 0) / per_page) + 1;
+		} else {
+			// 卖出
+			list = Object.keys(core.getItems()).filter(item => core.hasItem(item) && core.material.items[item].defaultPrice).map(item => {
+				return { "id": item, "sell": Math.floor(core.material.items[item].defaultPrice / 2) };
+			});
+			console.log(list);
+		}
+		var per_page = 8;
+		totalPage = Math.ceil(list.length / per_page);
+		page = Math.floor((selectItem || 0) / per_page) + 1;
 
-			// 绘制分页
-			if (totalPage > 1) {
-				var half = 156;
-				core.setTextAlign('uievent', 'center');
-				core.fillText('uievent', page + " / " + totalPage, half, 388, null, middleFont);
-				if (page > 1) core.fillText('uievent', '上一页', half - 80, 388);
-				if (page < totalPage) core.fillText('uievent', '下一页', half + 80, 388);
-			}
+		// 绘制分页
+		if (totalPage > 1) {
+			var half = 156;
+			core.setTextAlign('uievent', 'center');
+			core.fillText('uievent', page + " / " + totalPage, half, 452, null, middleFont);
+			if (page > 1) core.fillText('uievent', '上一页', half - 80, 452);
+			if (page < totalPage) core.fillText('uievent', '下一页', half + 80, 452);
+		}
+		core.setTextAlign('uievent', 'left');
+
+		// 绘制每一项
+		var start = (page - 1) * per_page;
+		for (var i = 0; i < per_page; ++i) {
+			var curr = start + i;
+			if (curr >= list.length) break;
+			// 			console.log(curr);
+			var item = list[curr];
+			core.drawIcon('uievent', item.id, 10, 125 + i * 40);
 			core.setTextAlign('uievent', 'left');
-
-			// 绘制每一项
-			var start = (page - 1) * per_page;
-			for (var i = 0; i < per_page; ++i) {
-				var curr = start + i;
-				if (curr >= list.length) break;
-				var item = list[curr];
-				core.drawIcon('uievent', item.id, 10, 125 + i * 40);
-				core.setTextAlign('uievent', 'left');
-				core.fillText('uievent', core.material.items[item.id].name, 50, 132 + i * 40, null, bigFont);
-				core.setTextAlign('uievent', 'right');
-				core.fillText('uievent', (type == 0 ? core.calValue(item.money) : core.calValue(item.sell)) + useText + "/个", 300, 133 + i * 40, null, middleFont);
+			core.fillText('uievent', core.material.items[item.id].name, 50, 132 + i * 40, null, bigFont);
+			core.setTextAlign('uievent', 'right');
+			core.fillText('uievent', (type == 0 ? core.calValue(item.money) : core.calValue(item.sell)) + useText + "/个", 316, 133 + i * 40, null, middleFont);
+			core.setTextAlign("uievent", "left");
+			if (curr == selectItem) {
+				// 绘制描述，文字自动放缩
+				var text = core.material.items[item.id].text || "该道具暂无描述";
+				try { text = core.replaceText(text); } catch (e) {}
+				for (var fontSize = 20; fontSize >= 8; fontSize -= 2) {
+					var config = { left: 10, fontSize: fontSize, maxWidth: 403 };
+					var height = core.getTextContentHeight(text, config);
+					if (height <= 50) {
+						config.top = (56 - height) / 2;
+						core.drawTextContent("uievent", text, config);
+						break;
+					}
+				}
+				core.ui.drawUIEventSelector(2, window_style, 8, 120 + i * 40, 327, 40);
+				if (type == 0 && item.number != null) {
+					core.fillText("uievent", "存货", 356, 132, null, bigFont);
+					core.setTextAlign("uievent", "right");
+					core.fillText("uievent", item.number, 438, 132, null, null, 40);
+				} else if (type == 1) {
+					core.fillText("uievent", "数量", 356, 132, null, bigFont);
+					core.setTextAlign("uievent", "right");
+					core.fillText("uievent", core.itemCount(item.id), 438, 132, null, null, 40);
+				}
 				core.setTextAlign("uievent", "left");
-				if (curr == selectItem) {
-					// 绘制描述，文字自动放缩
-					var text = core.material.items[item.id].text || "该道具暂无描述";
-					try { text = core.replaceText(text); } catch (e) { }
-					for (var fontSize = 20; fontSize >= 8; fontSize -= 2) {
-						var config = { left: 10, fontSize: fontSize, maxWidth: 403 };
-						var height = core.getTextContentHeight(text, config);
-						if (height <= 50) {
-							config.top = (56 - height) / 2;
-							core.drawTextContent("uievent", text, config);
-							break;
-						}
-					}
-					core.ui.drawUIEventSelector(2, "winskin.png", 8, 120 + i * 40, 295, 40);
-					if (type == 0 && item.number != null) {
-						core.fillText("uievent", "存货", 324, 132, null, bigFont);
-						core.setTextAlign("uievent", "right");
-						core.fillText("uievent", item.number, 406, 132, null, null, 40);
-					} else if (type == 1) {
-						core.fillText("uievent", "数量", 324, 132, null, bigFont);
-						core.setTextAlign("uievent", "right");
-						core.fillText("uievent", core.itemCount(item.id), 406, 132, null, null, 40);
-					}
-					core.setTextAlign("uievent", "left");
-					core.fillText("uievent", "预计" + useText, 324, 250);
-					core.setTextAlign("uievent", "right");
-					totalMoney = selectCount * (type == 0 ? core.calValue(item.money) : core.calValue(item.sell));
-					core.fillText("uievent", core.formatBigNumber(totalMoney), 405, 280);
+				core.fillText("uievent", "预计" + useText, 356, 250);
+				core.setTextAlign("uievent", "right");
+				totalMoney = selectCount * (type == 0 ? core.calValue(item.money) : core.calValue(item.sell));
+				core.fillText("uievent", core.formatBigNumber(totalMoney), 453, 280);
 
-					core.setTextAlign("uievent", "left");
-					core.fillText("uievent", type == 0 ? "已购次数" : "已卖次数", 324, 170);
-					core.setTextAlign("uievent", "right");
-					core.fillText("uievent", (type == 0 ? item.money_count : item.sell_count) || 0, 405, 200);
-				}
+				core.setTextAlign("uievent", "left");
+				core.fillText("uievent", type == 0 ? "已购次数" : "已购次数", 356, 170);
+				core.setTextAlign("uievent", "right");
+				// 				core.fillText("uievent", (type == 0 ? item.money_count : item.sell_count) || 0, 453, 200);
+				core.fillText("uievent", item.money_count || 0, 453, 200);
 			}
-
-			core.setTextAlign('uievent', 'left');
-			core.setTextBaseline('uievent', 'alphabetic');
 		}
 
-		var _add = function (item, delta) {
-			if (item == null) return;
-			selectCount = core.clamp(
-				selectCount + delta, 0,
-				Math.min(type == 0 ? Math.floor(core.status.hero[use] / core.calValue(item.money)) : core.itemCount(item.id),
-					type == 0 && item.number != null ? item.number : Number.MAX_SAFE_INTEGER)
-			);
-		}
+		core.setTextAlign('uievent', 'left');
+		core.setTextBaseline('uievent', 'alphabetic');
+	}
 
-		var _confirm = function (item) {
-			if (item == null || selectCount == 0) return;
-			if (type == 0) {
-				core.status.hero[use] -= totalMoney;
-				core.getItem(item.id, selectCount);
-				core.stopSound();
-				core.playSound('确定');
-				if (item.number != null) item.number -= selectCount;
-				item.money_count = (item.money_count || 0) + selectCount;
-			} else {
-				core.status.hero[use] += totalMoney;
-				core.removeItem(item.id, selectCount);
-				core.playSound('确定');
-				core.drawTip("成功卖出" + selectCount + "个" + core.material.items[item.id].name, item.id);
-				if (item.number != null) item.number += selectCount;
-				item.sell_count = (item.sell_count || 0) + selectCount;
-			}
+	var _add = function (item, delta) {
+		if (item == null) return;
+		var upper_bound = Math.min(type == 0 ? Math.floor(core.status.hero[use] / core.calValue(item.money)) : core.itemCount(item.id),
+			type == 0 && item.number != null ? item.number : Number.MAX_SAFE_INTEGER);
+		selectCount = (selectCount + delta + upper_bound + 1) % (upper_bound + 1);
+	}
+
+	var _confirm = function (item) {
+		if (item == null || selectCount == 0) return;
+		if (type == 0) {
+			core.status.hero[use] -= totalMoney;
+			core.getItem(item.id, selectCount);
+			core.stopSound();
+			core.playSound('确定');
+			if (item.number != null) item.number -= selectCount;
+			item.money_count = (item.money_count || 0) + selectCount;
+		} else {
+			core.status.hero[use] += totalMoney;
+			core.removeItem(item.id, selectCount);
+			core.playSound('确定');
+			core.drawTip("成功卖出" + selectCount + "个" + core.material.items[item.id].name, item.id);
+			if (item.number != null) item.number += selectCount;
+			// 			item.sell_count = (item.sell_count || 0) + selectCount;
+		}
+		selectCount = 0;
+	}
+
+	this._performItemShopKeyBoard = function (keycode) {
+		var item = list[selectItem] || null;
+		// 键盘操作
+		switch (keycode) {
+		case 38: // up
+			if (selectItem == null) break;
+			if (selectItem == 0) selectItem = null;
+			else selectItem--;
 			selectCount = 0;
-		}
-
-		this._performItemShopKeyBoard = function (keycode) {
-			var item = list[selectItem] || null;
-			// 键盘操作
-			switch (keycode) {
-				case 38: // up
-					if (selectItem == null) break;
-					if (selectItem == 0) selectItem = null;
-					else selectItem--;
-					selectCount = 0;
-					break;
-				case 37: // left
-					if (selectItem == null) {
-						if (type > 0) type--;
-						break;
-					}
-					_add(item, -1);
-					break;
-				case 39: // right
-					if (selectItem == null) {
-						if (type < 2) type++;
-						break;
-					}
-					_add(item, 1);
-					break;
-				case 40: // down
-					if (selectItem == null) {
-						if (list.length > 0) selectItem = 0;
-						break;
-					}
-					if (list.length == 0) break;
-					selectItem = Math.min(selectItem + 1, list.length - 1);
-					selectCount = 0;
-					break;
-				case 13:
-				case 32: // Enter/Space
-					if (selectItem == null) {
-						if (type == 2)
-							core.insertAction({ "type": "break" });
-						else if (list.length > 0)
-							selectItem = 0;
-						break;
-					}
-					_confirm(item);
-					break;
-				case 27: // ESC
-					if (selectItem == null) {
-						core.insertAction({ "type": "break" });
-						break;
-					}
-					selectItem = null;
-					break;
+			break;
+		case 37: // left
+			if (selectItem == null) {
+				if (type > 0) type--;
+				break;
 			}
-		}
-
-		this._performItemShopClick = function (px, py) {
-			var item = list[selectItem] || null;
-			// 鼠标操作
-			if (px >= 22 && px <= 82 && py >= 71 && py <= 102) {
-				// 买
-				if (type != 0) {
-					type = 0;
-					selectItem = null;
-					selectCount = 0;
-				}
-				return;
+			_add(item, -1);
+			break;
+		case 39: // right
+			if (selectItem == null) {
+				if (type < 2) type++;
+				break;
 			}
-			if (px >= 122 && px <= 182 && py >= 71 && py <= 102) {
-				// 卖
-				if (type != 1) {
-					type = 1;
-					selectItem = null;
-					selectCount = 0;
-				}
-				return;
+			_add(item, 1);
+			break;
+		case 40: // down
+			if (selectItem == null) {
+				if (list.length > 0) selectItem = 0;
+				break;
 			}
-			if (px >= 222 && px <= 282 && py >= 71 && py <= 102) // 离开
-				return core.insertAction({ "type": "break" });
-			// < >
-			if (px >= 318 && px <= 341 && py >= 348 && py <= 376)
-				return _add(item, -1);
-			if (px >= 388 && px <= 416 && py >= 348 && py <= 376)
-				return _add(item, 1);
-			// 确定
-			if (px >= 341 && px <= 387 && py >= 380 && py <= 407)
-				return _confirm(item);
-
-			// 上一页/下一页
-			if (px >= 45 && px <= 105 && py >= 388) {
-				if (page > 1) {
-					selectItem -= 6;
-					selectCount = 0;
-				}
-				return;
+			if (list.length == 0) break;
+			selectItem = Math.min(selectItem + 1, list.length - 1);
+			selectCount = 0;
+			break;
+		case 13:
+		case 32: // Enter/Space
+			if (selectItem == null) {
+				if (type == 2)
+					core.insertAction({ "type": "break" });
+				else if (list.length > 0)
+					selectItem = 0;
+				break;
 			}
-			if (px >= 208 && px <= 268 && py >= 388) {
-				if (page < totalPage) {
-					selectItem = Math.min(selectItem + 6, list.length - 1);
-					selectCount = 0;
-				}
-				return;
+			_confirm(item);
+			break;
+		case 27: // ESC
+			if (selectItem == null) {
+				core.insertAction({ "type": "break" });
+				break;
 			}
-
-			// 实际区域
-			if (px >= 9 && px <= 300 && py >= 120 && py < 360) {
-				if (list.length == 0) return;
-				var index = parseInt((py - 120) / 40);
-				var newItem = 6 * (page - 1) + index;
-				if (newItem >= list.length) newItem = list.length - 1;
-				if (newItem != selectItem) {
-					selectItem = newItem;
-					selectCount = 0;
-				}
-				return;
-			}
-		}
-
-		this._performItemShopAction = function () {
-			if (flags.type == 0) return this._performItemShopKeyBoard(flags.keycode);
-			else return this._performItemShopClick(flags.px, flags.py);
-		}
-
-		this.openItemShop = function (itemShopId) {
-			shopId = itemShopId;
-			type = 0;
-			page = 0;
 			selectItem = null;
-			selectCount = 0;
-			core.isShopVisited(itemShopId);
-			shopInfo = flags.__shops__[shopId];
-			if (shopInfo.choices == null) shopInfo.choices = core.clone(core.status.shops[shopId].choices);
-			choices = shopInfo.choices;
-			use = core.status.shops[shopId].use;
-			if (use != 'exp') use = 'money';
-			useText = use == 'money' ? '金币' : '经验';
+			break;
+		}
+	}
 
-			core.insertAction([{
+	this._performItemShopClick = function (px, py) {
+		var item = list[selectItem] || null;
+		// 鼠标操作
+		if (px >= 22 && px <= 82 && py >= 71 && py <= 102) {
+			// 买
+			if (type != 0) {
+				type = 0;
+				selectItem = null;
+				selectCount = 0;
+			}
+			return;
+		}
+		if (px >= 132 && px <= 192 && py >= 71 && py <= 102) {
+			// 卖
+			if (type != 1) {
+				type = 1;
+				selectItem = null;
+				selectCount = 0;
+			}
+			return;
+		}
+		if (px >= 242 && px <= 302 && py >= 71 && py <= 102) // 离开
+			return core.insertAction({ "type": "break" });
+		// < >
+		if (px >= 350 && px <= 373 && py >= 348 && py <= 376)
+			return _add(item, -1);
+		if (px >= 420 && px <= 448 && py >= 348 && py <= 376)
+			return _add(item, 1);
+		// 确定
+		if (px >= 373 && px <= 439 && py >= 380 && py <= 407)
+			return _confirm(item);
+
+		// 上一页/下一页
+		if (px >= 45 && px <= 105 && py >= 452) {
+			if (page > 1) {
+				selectItem -= 8;
+				selectCount = 0;
+			}
+			return;
+		}
+		if (px >= 208 && px <= 268 && py >= 452) {
+			if (page < totalPage) {
+				selectItem = Math.min(selectItem + 8, list.length - 1);
+				selectCount = 0;
+			}
+			return;
+		}
+
+		// 实际区域
+		if (px >= 9 && px <= 300 && py >= 120 && py < 452) {
+			if (list.length == 0) return;
+			var index = parseInt((py - 120) / 40);
+			var newItem = 8 * (page - 1) + index;
+			if (newItem >= list.length) newItem = list.length - 1;
+			if (newItem != selectItem) {
+				selectItem = newItem;
+				selectCount = 0;
+			}
+			return;
+		}
+	}
+
+	this._performItemShopAction = function () {
+		if (flags.type == 0) return this._performItemShopKeyBoard(flags.keycode);
+		else return this._performItemShopClick(flags.px, flags.py);
+	}
+
+	this.openItemShop = function (itemShopId) {
+		shopId = itemShopId;
+		type = 0;
+		page = 0;
+		selectItem = null;
+		selectCount = 0;
+		core.isShopVisited(itemShopId);
+		shopInfo = flags.__shops__[shopId];
+		if (shopInfo.choices == null) shopInfo.choices = core.clone(core.status.shops[shopId].choices);
+		choices = shopInfo.choices;
+		use = core.status.shops[shopId].use;
+		if (use != 'exp') use = 'money';
+		useText = use == 'money' ? '塔币' : '经验';
+
+		core.insertAction([{
 				"type": "while",
 				"condition": "true",
 				"data": [
@@ -856,11 +869,12 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 			{
 				"type": "function",
 				"function": "function () { core.deleteCanvas('uievent'); core.ui.clearUIEventSelector(); }"
-			}
-			]);
-		}
+			},
+			{ "type": "update" }
+		]);
+	}
 
-	},
+},
     "enemyLevel": function () {
 		// 此插件将提供怪物手册中的怪物境界显示
 		// 使用此插件需要先给每个怪物定义境界，方法如下：
