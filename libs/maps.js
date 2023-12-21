@@ -1715,16 +1715,20 @@ maps.prototype.drawThumbnail = function (floorId, blocks, options) {
     options = options || {};
     if (typeof options == 'string' || options.canvas) options = { ctx: options };
 
-    if(core.shouldDrawDarkMask(floorId)){
+    var ctx = options.ctx;
+    if(ctx && core.shouldDrawDarkMask(floorId)){
         // 漆黑层不绘制
-        core.fillText(options.ctx, '当前楼层是漆黑层', 
-            options.size < 1 ? 200 : 240, 240, '#CFCFCF', 'bold 18px Verdana');
-        core.fillText(options.ctx, '在设置中禁用漆黑层即可绘制缩略图', 
-            options.size < 1 ? 200 : 240, 270, '#CFCFCF', 'bold 18px Verdana');
+        var x = options.x || 0, y = options.y || 0, size = options.size || 1;
+        var w = Math.ceil(size * core._PX_), h = Math.ceil(size * core._PY_);
+        var centerX = x + w / 2, centerY = y + h / 2;
+        var font_size = Math.ceil(size * 24);
+        core.fillText(ctx, '当前楼层是漆黑层', 
+            centerX, centerY - font_size / 1.8, '#CFCFCF', 'bold ' + font_size + 'px Verdana');
+        core.fillText(ctx, '在设置中禁用漆黑层即可绘制缩略图', 
+            centerX, centerY + font_size / 1.8, '#CFCFCF', 'bold ' + font_size + 'px Verdana');
         return;
     }
 
-    var ctx = options.ctx;
     // Step1：绘制到tempCanvas上
     this._drawThumbnail_drawTempCanvas(floorId, blocks, options);
     options.ctx = ctx;
