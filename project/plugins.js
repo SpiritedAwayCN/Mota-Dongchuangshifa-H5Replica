@@ -625,7 +625,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 			list = Object.keys(core.getItems()).filter(item => core.hasItem(item) && core.material.items[item].defaultPrice).map(item => {
 				return { "id": item, "sell": Math.floor(core.material.items[item].defaultPrice / 2) };
 			});
-			console.log(list);
+			// 			console.log(list);
 		}
 		var per_page = 8;
 		totalPage = Math.ceil(list.length / per_page);

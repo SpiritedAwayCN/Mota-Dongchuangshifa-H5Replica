@@ -570,7 +570,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 	"I333": {
 		"cls": "tools",
 		"name": "毁灭卷轴",
-		"canUseItemEffect": "(function () {\n\treturn core.status.thisMap.blocks.filter(function (block) {\n\t\treturn !block.disable && block.event.canDestoriedByReels;\n\t}).length > 0;\n})();",
+		"canUseItemEffect": "(function () {\n\tif (core.status.floorId === \"MTn75\") return false;\n\treturn core.status.thisMap.blocks.filter(function (block) {\n\t\treturn !block.disable && block.event.canDestoriedByReels;\n\t}).length > 0;\n})();",
 		"useItemEffect": "(function () {\n\tvar indexes = [];\n\tfor (var index in core.status.thisMap.blocks) {\n\t\tvar block = core.status.thisMap.blocks[index];\n\t\tif (!block.disable && block.event.canDestoriedByReels) {\n\t\t\tindexes.push(index);\n\t\t}\n\t}\n\tcore.removeBlockByIndexes(indexes);\n\tcore.redrawMap();\n\tcore.playSound('炸弹');\n\tcore.drawTip(core.material.items[itemId].name + '使用成功');\n})();",
 		"text": "用于摧毁一层中所有的墙和黄门（消耗物品）",
 		"defaultPrice": 16000
@@ -1091,5 +1091,55 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"cls": "items",
 		"name": "十字架",
 		"canUseItemEffect": null
+	},
+	"I596": {
+		"cls": "equips",
+		"name": "新物品",
+		"canUseItemEffect": "true",
+		"text": "纯黄金打造的头盔而已啦(装备物品)",
+		"equip": {
+			"type": 2,
+			"value": {
+				"mdef": 18,
+				"def": 70,
+				"atk": 20
+			},
+			"percentage": {}
+		},
+		"defaultPrice": 2200
+	},
+	"I597": {
+		"cls": "equips",
+		"name": "魂魄剑",
+		"text": "充满神圣意义的剑，纯金打造(装备物品)",
+		"equip": {
+			"type": 0,
+			"animate": "A16",
+			"value": {
+				"mdef": 25,
+				"def": 50,
+				"atk": 550
+			},
+			"percentage": {}
+		},
+		"itemEffect": "core.status.hero.atk += 100",
+		"itemEffectTip": "，攻击+100",
+		"defaultPrice": 15000
+	},
+	"I598": {
+		"cls": "equips",
+		"name": "魂魄盾",
+		"canUseItemEffect": "true",
+		"text": "国王遗留下的盾(装备物品)",
+		"equip": {
+			"type": 1,
+			"value": {
+				"mdef": 50,
+				"def": 550,
+				"atk": 25
+			},
+			"percentage": {}
+		},
+		"defaultPrice": 12000
 	}
 }

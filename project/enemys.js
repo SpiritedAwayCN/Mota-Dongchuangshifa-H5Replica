@@ -28,7 +28,7 @@ var enemys_fcae963b_31c9_42b4_b48c_bb48d09f3f80 =
 	"skeletonPriest": {"name":"骷髅の巫师","hp":2555,"atk":550,"def":488,"money":103,"exp":11,"point":0,"special":[2]},
 	"skeletonKing": {"name":"骷髅¤魔王","hp":886500,"atk":10000,"def":6000,"money":440,"exp":30,"point":0,"special":[6,15],"n":5,"zoneSquare":true,"zone":1000,"notBomb":true},
 	"evilHero": {"name":"邪恶勇士","hp":3789,"atk":930,"def":785,"money":104,"exp":10,"point":0,"special":[8]},
-	"demonPriest": {"name":"魔神法师","hp":0,"atk":0,"def":0,"money":0,"exp":0,"point":0,"special":0},
+	"demonPriest": {"name":"灵魂￡尊者","hp":14000,"atk":15500,"def":7200,"money":540,"exp":32,"point":0,"special":[6,14],"n":4},
 	"goldHornSlime": {"name":"小魔鬼","hp":1000,"atk":0,"def":0,"money":41,"exp":8,"point":0,"special":[10]},
 	"silverSlime": {"name":"史莱姆武帝","hp":1000,"atk":500,"def":444,"money":50,"exp":8,"point":0,"special":0},
 	"whiteHornSlime": {"name":"魔头怪","hp":1400,"atk":700,"def":300,"money":55,"exp":8,"point":0,"special":[32]},
@@ -49,7 +49,7 @@ var enemys_fcae963b_31c9_42b4_b48c_bb48d09f3f80 =
 	"blueGateKeeper": {"name":"中级卫士","hp":1000,"atk":360,"def":280,"money":46,"exp":8,"point":0,"special":[21]},
 	"redGateKeeper": {"name":"高级卫兵","hp":0,"atk":0,"def":0,"money":0,"exp":0,"point":0,"special":0},
 	"magicMaster": {"name":"魔法大法师","hp":8000,"atk":1000,"def":1200,"money":0,"exp":0,"point":0,"special":[2,5],"value":null,"add":false,"notBomb":true},
-	"devilWarrior": {"name":"魔神武士","hp":0,"atk":0,"def":0,"money":0,"exp":0,"point":0,"special":0},
+	"devilWarrior": {"name":"嗜血の翼者","hp":10000,"atk":15000,"def":7200,"money":525,"exp":32,"point":0,"special":[6,7],"n":4},
 	"fairyEnemy": {"name":"仙子","hp":0,"atk":0,"def":0,"money":0,"exp":0,"point":0,"special":0},
 	"dragon": {"name":"巨大の魔龍","hp":12350,"atk":4000,"def":2000,"money":850,"exp":40,"point":0,"special":[7,12],"bigImage":"dragon_0.png","notBomb":true},
 	"skeletonKnight": {"name":"骷髅武士","hp":3250,"atk":890,"def":760,"money":100,"exp":10,"point":0,"special":[7]},
@@ -184,5 +184,14 @@ var enemys_fcae963b_31c9_42b4_b48c_bb48d09f3f80 =
 	"E573": {"name":"◎绿盾战士‖","hp":15000,"atk":7900,"def":5900,"money":350,"exp":26,"point":0,"special":[8]},
 	"E574": {"name":"&地狱莲兵Ю","hp":25000,"atk":8900,"def":4750,"money":330,"exp":26,"point":0,"special":[4]},
 	"E575": {"name":"㊣宗暴击士□","hp":50000,"atk":28000,"def":100,"money":0,"exp":0,"point":0,"special":[6],"n":4},
-	"E578": {"name":"忠实守卫-火鬼","hp":885900,"atk":400000,"def":356000,"money":99500,"exp":8550,"point":0,"special":[6],"n":16}
+	"E578": {"name":"忠实守卫-火鬼","hp":885900,"atk":400000,"def":356000,"money":99500,"exp":8550,"point":0,"special":[6],"n":16},
+	"E587": {"name":"暗黑の骑士","hp":9900,"atk":9340,"def":7340,"money":440,"exp":30,"point":0,"special":[6],"n":4},
+	"E588": {"name":"卍高级ぁ巫师","hp":10000,"atk":5000,"def":7650,"money":460,"exp":30,"point":0,"special":[1,2]},
+	"E589": {"name":"地狱╬冥兵","hp":9900,"atk":9800,"def":7400,"money":480,"exp":30,"point":0,"special":[6],"n":4},
+	"E590": {"name":"未来士兵长","hp":11000,"atk":15000,"def":7550,"money":500,"exp":30,"point":0,"special":[8]},
+	"E591": {"name":"尚高╋章鱼","hp":80000,"atk":16000,"def":6000,"money":0,"exp":0,"point":0,"special":[1,6],"n":24,"bigImage":"dragonColor_2.png"},
+	"E592": {"name":"魔尊╋魔龙","hp":250000,"atk":8000,"def":6000,"money":0,"exp":0,"point":0,"special":[2,6],"n":24,"bigImage":"dragonColor_0.png"},
+	"E593": {"name":"Magic Master","hp":32000,"atk":28850,"def":8500,"money":4000,"exp":100,"point":0,"special":[4,15],"notBomb":true,"zoneSquare":true,"zone":5000},
+	"E594": {"name":"Magic Master","hp":26000,"atk":20000,"def":9500,"money":4000,"exp":100,"point":0,"special":[6,15],"n":4,"zoneSquare":true,"notBomb":true,"zone":5000},
+	"E595": {"name":"Magic Master","hp":95000,"atk":20250,"def":9000,"money":8000,"exp":200,"point":0,"special":[6,15],"n":4,"zone":5000,"zoneSquare":true,"notBomb":true}
 }

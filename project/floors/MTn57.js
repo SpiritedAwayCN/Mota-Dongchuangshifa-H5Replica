@@ -444,6 +444,10 @@ main.floors.MTn57=
                 "floorId": "MTCastle0"
             },
             {
+                "type": "disableShop",
+                "id": "CastleRatioShop"
+            },
+            {
                 "type": "waitAsync"
             }
         ],
