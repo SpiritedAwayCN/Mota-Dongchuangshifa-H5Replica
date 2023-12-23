@@ -5,7 +5,7 @@ main.floors.Extra1=
     "name": "异次元空间",
     "width": 15,
     "height": 15,
-    "canFlyTo": true,
+    "canFlyTo": false,
     "canFlyFrom": false,
     "canUseQuickShop": false,
     "cannotViewMap": true,

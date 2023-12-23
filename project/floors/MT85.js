@@ -21,6 +21,25 @@ main.floors.MT85=
         "7,1": [
             {
                 "type": "if",
+                "condition": "(flag:s201_King===1)",
+                "true": [
+                    {
+                        "type": "follow",
+                        "name": "043-Queen01.png"
+                    },
+                    {
+                        "type": "setValue",
+                        "name": "flag:getQueen",
+                        "value": "1"
+                    },
+                    {
+                        "type": "hide",
+                        "remove": true
+                    }
+                ]
+            },
+            {
+                "type": "if",
                 "condition": "(switch:A===1)",
                 "true": [
                     "\t[公主,N549]\b[this]快去救！我父王在地下！"

@@ -82,6 +82,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 	var current_px, current_py;
 	this.updateDarkMask = function (px, py, r, forceUpdate) {
 		// only call when need draw
+		console.log(px, py);
 		if (current_px === px && current_py === py && !forceUpdate)
 			return;
 		core.drawLight("darkmask", 1, [
@@ -105,7 +106,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 
 	this.afterDrawHeroDarkMask = function () {
 		if (core.shouldDrawDarkMask())
-			core.updateDarkMask(core.status.heroCenter.px, core.status.heroCenter.py);
+			core.updateDarkMask(core.status.heroCenter.px - (core.bigmap.offsetX || 0), core.status.heroCenter.py - (core.bigmap.offsetY || 0));
 	}
 },
     "shop": function () {
@@ -1146,49 +1147,55 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		var toFloorId = data.floorId || core.status.floorId;
 		var toLoc = data.loc || core.status.hero.loc;
 
-		core.insertAction([
-			{ "type": "setHeroIcon", "name": data.image || "hero.png" }, // 改变行走图
-			// 同层则用changePos，不同层则用changeFloor；这是为了避免共用楼层造成触发eachArrive
-			toFloorId != core.status.floorId ? {
-				"type": "changeFloor",
-				"floorId": toFloorId,
-				"loc": [toLoc.x, toLoc.y],
-				"direction": toLoc.direction,
-				"time": 0 // 可以在这里设置切换时间
-			} : { "type": "changePos", "loc": [toLoc.x, toLoc.y], "direction": toLoc.direction },
-			{
-				"type": "setBgFgBlock",
-				"name": "fg",
-				"number": "X20103",
-				"loc": [
-					[toLoc.x, toLoc.y]
-				],
-				"floorId": toFloorId
-			},
-			{
-				"type": "setBgFgBlock",
-				"name": "fg",
-				"number": "hero" + currHeroId + "inactive",
-				"loc": [
-					[toSave.loc.x, toSave.loc.y]
-				],
-				"floorId": toSave.floorId
-			},
-			{
-				"type": "setBgFgBlock",
-				"name": "fg",
-				"number": 0,
-				"loc": [
-					[toLoc.x, toLoc.y]
-				],
-				"floorId": toFloorId
-			}
-			// 你还可以在这里执行其他事件，比如增加或取消跟随效果
-		]);
-
-		// 		core.setBgFgBlock('fg', "hero" + currHeroId + "inactive", toSave.loc.x, toSave.loc.y, toSave.floorId);
-		// 		core.setBgFgBlock('fg', 0, toLoc.x, toLoc.y, toFloorId);
-
+		var actions = [{ "type": "setHeroIcon", "name": data.image || "hero.png" }]; // 改变行走图
+		if (!core.getFlag("s201_King", 0)) {
+			actions.push.apply(actions, [
+				// 同层则用changePos，不同层则用changeFloor；这是为了避免共用楼层造成触发eachArrive
+				toFloorId != core.status.floorId ? {
+					"type": "changeFloor",
+					"floorId": toFloorId,
+					"loc": [toLoc.x, toLoc.y],
+					"direction": toLoc.direction,
+					"time": 0 // 可以在这里设置切换时间
+				} : { "type": "changePos", "loc": [toLoc.x, toLoc.y], "direction": toLoc.direction },
+				{
+					"type": "setBgFgBlock",
+					"name": "fg",
+					"number": "X20103",
+					"loc": [
+						[toLoc.x, toLoc.y]
+					],
+					"floorId": toFloorId
+				},
+				{
+					"type": "setBgFgBlock",
+					"name": "fg",
+					"number": "hero" + currHeroId + "inactive",
+					"loc": [
+						[toSave.loc.x, toSave.loc.y]
+					],
+					"floorId": toSave.floorId
+				},
+				{
+					"type": "setBgFgBlock",
+					"name": "fg",
+					"number": 0,
+					"loc": [
+						[toLoc.x, toLoc.y]
+					],
+					"floorId": toFloorId
+				}
+				// 你还可以在这里执行其他事件，比如增加或取消跟随效果
+			]);
+		} else {
+			actions.push.apply(actions, [
+				{ "type": "changePos", "loc": [toSave.loc.x, toSave.loc.y], "direction": toSave.loc.direction },
+				{ "type": "unfollow", "name": data.image || "hero.png" },
+				{ "type": "follow", "name": toSave.image || "hero.png" }
+			]);
+		}
+		console.log(actions);
+		core.insertAction(actions);
 		core.setFlag("heroId", toHeroId); // 保存切换到的角色ID
 	}
 

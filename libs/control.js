@@ -1130,9 +1130,11 @@ control.prototype.checkBlock = function () {
         core.drawTip("受到" + text + damage + "点");
         if(text.search(/(领域)|(夹击)|(激光)|(阻击)/) >= 0)
             core.drawHeroAnimate("A03");
+        else
+            core.drawHeroAnimate("zone");
         this._checkBlock_disableQuickShop();
         core.status.hero.statistics.extraDamage += damage;
-        if (core.status.hero.hp <= 0) {
+        if (core.status.hero.hp <= 0 || (core.hasFlag('dying') && damage > 0)) {
             core.status.hero.hp = 0;
             core.updateStatusBar(false, true);
             core.events.lose();

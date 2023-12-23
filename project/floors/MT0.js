@@ -211,6 +211,81 @@ main.floors.MT0=
                 ],
                 "remove": true
             }
+        ],
+        "7,0": [
+            {
+                "type": "if",
+                "condition": "(blockId:7,0===\"T621\")",
+                "true": [
+                    "\t[hero]\b[hero]好像堵住了……",
+                    {
+                        "type": "if",
+                        "condition": "(flag:getQueen===1)",
+                        "true": [
+                            "\t[国王,N617]\b[hero]有一个暗道，我们快去！",
+                            "\t[hero]\b[hero]在哪？",
+                            "\t[国王,N617]\b[hero]-69层！快",
+                            {
+                                "type": "if",
+                                "condition": "(switch:A!==1)",
+                                "true": [
+                                    {
+                                        "type": "setBlock",
+                                        "number": "upPortal",
+                                        "loc": [
+                                            [
+                                                4,
+                                                0
+                                            ]
+                                        ],
+                                        "floorId": "MTn69"
+                                    },
+                                    {
+                                        "type": "show",
+                                        "loc": [
+                                            [
+                                                6,
+                                                6
+                                            ]
+                                        ],
+                                        "floorId": "MTn69"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "switch:A",
+                                        "value": "1"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "false": [
+                    {
+                        "type": "confirm",
+                        "text": "确认要离开魔塔吗?",
+                        "yes": [
+                            {
+                                "type": "if",
+                                "condition": "((status:money>=2000 )&&((item:greenKey>0 )&& core.values.isMAGValid))",
+                                "true": [
+                                    {
+                                        "type": "lose",
+                                        "reason": "5"
+                                    }
+                                ],
+                                "false": [
+                                    {
+                                        "type": "lose",
+                                        "reason": "3"
+                                    }
+                                ]
+                            }
+                        ],
+                        "no": []
+                    }
+                ]
+            }
         ]
     },
     "changeFloor": {

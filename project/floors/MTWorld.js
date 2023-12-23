@@ -5,7 +5,7 @@ main.floors.MTWorld=
     "name": "魔塔世界",
     "width": 20,
     "height": 20,
-    "canFlyTo": true,
+    "canFlyTo": false,
     "canFlyFrom": false,
     "canUseQuickShop": false,
     "cannotViewMap": true,

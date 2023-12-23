@@ -195,7 +195,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 									128,
 									1
 								],
-								"need": "core.hasItem(\"redKey\")",
+								"need": "core.hasItem(\"greenKey\")",
 								"action": [
 									{
 										"type": "setValue",
@@ -849,7 +849,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 											{
 												"text": "红血瓶(x${item:redPotion})：+${core.values.redPotion}HP",
 												"icon": "redPotion",
-												"need": "item:redPotion>0",
+												"need": "core.canUseItem('redPotion')",
 												"action": [
 													{
 														"type": "useItem",
@@ -860,7 +860,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 											{
 												"text": "蓝血瓶(x${item:bluePotion})：+${core.values.bluePotion}HP",
 												"icon": "bluePotion",
-												"need": "item:bluePotion>0",
+												"need": "core.canUseItem('bluePotion')",
 												"action": [
 													{
 														"type": "useItem",
@@ -871,7 +871,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 											{
 												"text": "黄血瓶(x${item:yellowPotion})：+${core.values.yellowPotion}HP",
 												"icon": "yellowPotion",
-												"need": "item:yellowPotion>0",
+												"need": "core.canUseItem('yellowPotion')",
 												"action": [
 													{
 														"type": "useItem",
@@ -882,7 +882,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 											{
 												"text": "绿血瓶(x${item:greenPotion})：+${core.values.greenPotion}HP",
 												"icon": "greenPotion",
-												"need": "item:greenPotion>0",
+												"need": "core.canUseItem('greenPotion')",
 												"action": [
 													{
 														"type": "useItem",
@@ -913,6 +913,36 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 				"type": "switch",
 				"condition": "flag:arg1",
 				"caseList": [
+					{
+						"case": "\"MTn81\"",
+						"action": [
+							{
+								"type": "choices",
+								"text": "\t[仙子,fairy]本商店被分类为“其他商店”！\n全部角色的3攻3防，解除死亡状态。\n要解除死亡状态么？",
+								"choices": [
+									{
+										"text": "好的",
+										"need": "core.hasFlag(\"dying\")",
+										"action": [
+											{
+												"type": "playSound",
+												"name": "shop.mp3",
+												"stop": true
+											},
+											{
+												"type": "function",
+												"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n[0, 1].forEach(id => {\n\tvar hero = hero_id === id ? core.status.hero : core.getFlag(\"hero\" + id);\n\tcore.decreaseStatusWithBuffer(\"atk\", 3, id);\n\tcore.decreaseStatusWithBuffer(\"def\", 3, id);\n});\ncore.triggerDebuff(\"remove\", \"dying\");\ncore.updateStatusBar(true);\n}"
+											}
+										]
+									},
+									{
+										"text": "不要",
+										"action": []
+									}
+								]
+							}
+						]
+					},
 					{
 						"case": "\"MTCastle4\"",
 						"action": [
@@ -3463,6 +3493,59 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 						]
 					},
 					{
+						"case": "\"potionDouble\"",
+						"action": [
+							{
+								"type": "choices",
+								"text": "\t[获得血瓶,I454]选择一名角色：生命翻倍！\n（实际生命回复量受难度影响）",
+								"choices": [
+									{
+										"text": "当前行动角色",
+										"color": [
+											0,
+											255,
+											0,
+											1
+										],
+										"action": [
+											{
+												"type": "setValue",
+												"name": "status:hp",
+												"operator": "*=",
+												"value": "2"
+											}
+										]
+									},
+									{
+										"text": "${(core.getFlag('hero0') || core.status.hero).name}",
+										"icon": "N331",
+										"action": [
+											{
+												"type": "function",
+												"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n(hero_id == 0 ? core.status.hero : core.getFlag(\"hero0\")).hp *= 2;\ncore.updateStatusBar(true);\n}"
+											}
+										]
+									},
+									{
+										"text": "${(core.getFlag('hero1') || core.status.hero).name}",
+										"icon": "N448",
+										"need": "flag:FoundWoman===1",
+										"action": [
+											{
+												"type": "function",
+												"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n(hero_id == 1 ? core.status.hero : core.getFlag(\"hero1\")).hp *= 2;\ncore.updateStatusBar(true);\n}"
+											}
+										]
+									}
+								]
+							},
+							{
+								"type": "playSound",
+								"name": "recovery.mp3"
+							}
+						]
+					},
+					{
 						"case": "\"gem\"",
 						"action": [
 							{
@@ -3635,7 +3718,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 						]
 					},
 					{
-						"text": "道具商店",
+						"text": "其他商店",
 						"icon": "toolbox",
 						"action": [
 							{

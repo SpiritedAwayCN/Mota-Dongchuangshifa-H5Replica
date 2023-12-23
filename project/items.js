@@ -75,10 +75,10 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"cls": "tools",
 		"name": "红血瓶",
 		"text": "\t生命+${core.values.redPotion}",
-		"itemEffect": "core.status.hero.hp += core.values.redPotion * core.status.thisMap.ratio;",
+		"itemEffect": "if (core.hasFlag('dying')) core.events.lose();\ncore.status.hero.hp += core.values.redPotion * core.status.thisMap.ratio;",
 		"itemEffectTip": "，生命+${core.values.redPotion * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.hp += core.values.redPotion",
-		"canUseItemEffect": "true",
+		"canUseItemEffect": "!core.hasFlag('dying')",
 		"hideInToolbox": true,
 		"defaultPrice": 1000
 	},
@@ -86,10 +86,10 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"cls": "tools",
 		"name": "蓝血瓶",
 		"text": "生命+${core.values.bluePotion}",
-		"itemEffect": "core.status.hero.hp += core.values.bluePotion * core.status.thisMap.ratio",
+		"itemEffect": "if (core.hasFlag('dying')) core.events.lose();\ncore.status.hero.hp += core.values.bluePotion * core.status.thisMap.ratio",
 		"itemEffectTip": "，生命+${core.values.bluePotion * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.hp += core.values.bluePotion",
-		"canUseItemEffect": "true",
+		"canUseItemEffect": "!core.hasFlag('dying')",
 		"hideInToolbox": true,
 		"defaultPrice": 2000
 	},
@@ -97,10 +97,10 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"cls": "tools",
 		"name": "黄血瓶",
 		"text": "生命+${core.values.yellowPotion}",
-		"itemEffect": "core.status.hero.hp += core.values.yellowPotion * core.status.thisMap.ratio",
+		"itemEffect": "if (core.hasFlag('dying')) core.events.lose();\ncore.status.hero.hp += core.values.yellowPotion * core.status.thisMap.ratio",
 		"itemEffectTip": "，生命+${core.values.yellowPotion * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.hp += core.values.yellowPotion",
-		"canUseItemEffect": "true",
+		"canUseItemEffect": "!core.hasFlag('dying')",
 		"hideInToolbox": true,
 		"defaultPrice": 4000
 	},
@@ -108,10 +108,10 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"cls": "tools",
 		"name": "绿血瓶",
 		"text": "生命+${core.values.greenPotion}",
-		"itemEffect": "core.status.hero.hp += core.values.greenPotion * core.status.thisMap.ratio",
+		"itemEffect": "if (core.hasFlag('dying')) core.events.lose();\ncore.status.hero.hp += core.values.greenPotion * core.status.thisMap.ratio",
 		"itemEffectTip": "，生命+${core.values.greenPotion * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.hp += core.values.greenPotion",
-		"canUseItemEffect": "true",
+		"canUseItemEffect": "!core.hasFlag('dying')",
 		"hideInToolbox": true,
 		"defaultPrice": 6000
 	},
@@ -571,7 +571,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"cls": "tools",
 		"name": "毁灭卷轴",
 		"canUseItemEffect": "(function () {\n\tif (core.status.floorId === \"MTn75\") return false;\n\treturn core.status.thisMap.blocks.filter(function (block) {\n\t\treturn !block.disable && block.event.canDestoriedByReels;\n\t}).length > 0;\n})();",
-		"useItemEffect": "(function () {\n\tvar indexes = [];\n\tfor (var index in core.status.thisMap.blocks) {\n\t\tvar block = core.status.thisMap.blocks[index];\n\t\tif (!block.disable && block.event.canDestoriedByReels) {\n\t\t\tindexes.push(index);\n\t\t}\n\t}\n\tcore.removeBlockByIndexes(indexes);\n\tcore.redrawMap();\n\tcore.playSound('炸弹');\n\tcore.drawTip(core.material.items[itemId].name + '使用成功');\n})();",
+		"useItemEffect": "(function () {\n\tvar blocks = [];\n\tfor (var index in core.status.thisMap.blocks) {\n\t\tvar block = core.status.thisMap.blocks[index];\n\t\tif (!block.disable && block.event.canDestoriedByReels) {\n\t\t\tblocks.push(block);\n\t\t}\n\t}\n\t// \tcore.removeBlockByIndexes(indexes);\n\tblocks.forEach(block => {\n\t\tcore.removeBlock(block.x, block.y);\n\t});\n\tcore.redrawMap();\n\tcore.playSound('炸弹');\n\tcore.drawTip(core.material.items[itemId].name + '使用成功');\n})();",
 		"text": "用于摧毁一层中所有的墙和黄门（消耗物品）",
 		"defaultPrice": 16000
 	},
@@ -878,21 +878,21 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"cls": "tools",
 		"name": "B-特殊钥匙",
 		"text": "用来开特殊的门",
-		"hideInToolbox": true,
+		"hideInToolbox": false,
 		"defaultPrice": 6660
 	},
 	"HSpecialKey": {
 		"cls": "tools",
 		"name": "H-特殊钥匙",
 		"text": "用来开特殊的门",
-		"hideInToolbox": true,
+		"hideInToolbox": false,
 		"defaultPrice": 6660
 	},
 	"LSpecialKey": {
 		"cls": "tools",
 		"name": "L-特殊钥匙",
 		"text": "用来开特殊的门",
-		"hideInToolbox": true,
+		"hideInToolbox": false,
 		"defaultPrice": 6660
 	},
 	"I494": {
@@ -1141,5 +1141,118 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 			"percentage": {}
 		},
 		"defaultPrice": 12000
+	},
+	"I604": {
+		"cls": "equips",
+		"name": "光職盾",
+		"canUseItemEffect": "true",
+		"text": "充满光芒的盾，永存的力量(装备物品)",
+		"equip": {
+			"type": 1,
+			"value": {
+				"mdef": 100,
+				"def": 960,
+				"atk": 100
+			},
+			"percentage": {}
+		},
+		"defaultPrice": 20000
+	},
+	"I610": {
+		"cls": "equips",
+		"name": "裂爆铠甲",
+		"canUseItemEffect": "true",
+		"text": "最强的的盔甲(装备物品)",
+		"equip": {
+			"type": 3,
+			"value": {
+				"mdef": 80,
+				"def": 900,
+				"atk": 80
+			},
+			"percentage": {}
+		},
+		"defaultPrice": 2500
+	},
+	"I612": {
+		"cls": "items",
+		"name": "？？？",
+		"canUseItemEffect": "true",
+		"text": "离获得十字架更近了一步",
+		"itemEffectTip": "离获得十字架更近了一步",
+		"useItemEvent": [
+			{
+				"type": "setValue",
+				"name": "flag:F880_Crossing",
+				"operator": "+=",
+				"value": "1"
+			},
+			{
+				"type": "if",
+				"condition": "(flag:F880_Crossing===2)",
+				"true": [
+					{
+						"type": "openDoor",
+						"loc": [
+							7,
+							5
+						],
+						"floorId": "MT880"
+					}
+				]
+			}
+		]
+	},
+	"I613": {
+		"cls": "equips",
+		"name": "光職剑",
+		"text": "充满神圣意义的剑，纯金打造(装备物品)",
+		"equip": {
+			"type": 0,
+			"animate": "A08",
+			"value": {
+				"mdef": 100,
+				"def": 100,
+				"atk": 960
+			},
+			"percentage": {}
+		},
+		"itemEffect": "core.status.hero.atk += 100",
+		"itemEffectTip": "，攻击+100",
+		"defaultPrice": 20000
+	},
+	"I614": {
+		"cls": "equips",
+		"name": "神者の剑",
+		"text": "最终的装备物品，最强的装备(装备物品)",
+		"equip": {
+			"type": 0,
+			"animate": "A17",
+			"value": {
+				"mdef": 999,
+				"def": 999,
+				"atk": 999
+			},
+			"percentage": {}
+		},
+		"itemEffect": "core.status.hero.atk += 100",
+		"itemEffectTip": "，攻击+100",
+		"defaultPrice": 400000
+	},
+	"I615": {
+		"cls": "equips",
+		"name": "神者の盾",
+		"canUseItemEffect": "true",
+		"text": "最终的装备物品，最强的装备(装备物品)",
+		"equip": {
+			"type": 1,
+			"value": {
+				"mdef": 999,
+				"def": 999,
+				"atk": 999
+			},
+			"percentage": {}
+		},
+		"defaultPrice": 400000
 	}
 }

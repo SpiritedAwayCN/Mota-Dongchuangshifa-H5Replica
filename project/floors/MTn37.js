@@ -38,10 +38,7 @@ main.floors.MTn37=
                         "\t[冰十字架,I584]\b[this]为当前角色的攻击、防御、魔防提升10%！",
                         {
                             "type": "function",
-                            "function": "function(){\n['atk', 'def', 'mdef'].forEach(prop => {\n\tcore.hero.status[prop] = Math.floor(core.hero.status[prop] * 1.1);\n});\n}"
-                        },
-                        {
-                            "type": "update"
+                            "function": "function(){\n['atk', 'def', 'mdef'].forEach(prop => {\n\tcore.status.hero[prop] = Math.floor(core.status.hero[prop] * 1.1);\n});\ncore.updateStatusBar(true);\n}"
                         }
                     ],
                     "false": [

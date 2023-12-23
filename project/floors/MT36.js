@@ -65,7 +65,7 @@ main.floors.MT36=
             },
             {
                 "type": "if",
-                "condition": "flag:v137_F36Shield===4",
+                "condition": "(flag:v137_F36Shield===4)",
                 "true": [
                     {
                         "type": "openDoor",
@@ -76,7 +76,13 @@ main.floors.MT36=
                     },
                     {
                         "type": "setBlock",
-                        "number": "shield3"
+                        "number": "shield3",
+                        "loc": [
+                            [
+                                7,
+                                7
+                            ]
+                        ]
                     }
                 ]
             }
@@ -90,7 +96,7 @@ main.floors.MT36=
             },
             {
                 "type": "if",
-                "condition": "flag:v137_F36Shield===4",
+                "condition": "(flag:v137_F36Shield===4)",
                 "true": [
                     {
                         "type": "openDoor",
@@ -101,7 +107,13 @@ main.floors.MT36=
                     },
                     {
                         "type": "setBlock",
-                        "number": "shield3"
+                        "number": "shield3",
+                        "loc": [
+                            [
+                                7,
+                                7
+                            ]
+                        ]
                     }
                 ]
             }
@@ -115,7 +127,7 @@ main.floors.MT36=
             },
             {
                 "type": "if",
-                "condition": "flag:v137_F36Shield===4",
+                "condition": "(flag:v137_F36Shield===4)",
                 "true": [
                     {
                         "type": "openDoor",
@@ -126,7 +138,13 @@ main.floors.MT36=
                     },
                     {
                         "type": "setBlock",
-                        "number": "shield3"
+                        "number": "shield3",
+                        "loc": [
+                            [
+                                7,
+                                7
+                            ]
+                        ]
                     }
                 ]
             }
@@ -140,7 +158,7 @@ main.floors.MT36=
             },
             {
                 "type": "if",
-                "condition": "flag:v137_F36Shield===4",
+                "condition": "(flag:v137_F36Shield===4)",
                 "true": [
                     {
                         "type": "openDoor",
@@ -151,7 +169,13 @@ main.floors.MT36=
                     },
                     {
                         "type": "setBlock",
-                        "number": "shield3"
+                        "number": "shield3",
+                        "loc": [
+                            [
+                                7,
+                                7
+                            ]
+                        ]
                     }
                 ]
             }

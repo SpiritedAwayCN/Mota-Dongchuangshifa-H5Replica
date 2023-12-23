@@ -164,7 +164,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	// ...可以新增一些其他内容，比如创建个画布在右上角显示什么内容等等
 	// 漆黑层处理
 	if (core.shouldDrawDarkMask()) {
-		core.updateDarkMask(core.status.heroCenter.px, core.status.heroCenter.py, core.hasItem('candle') ? 112 : 48, true);
+		core.updateDarkMask(core.status.heroCenter.px - (core.bigmap.offsetX || 0), core.status.heroCenter.py - (core.bigmap.offsetY || 0),
+			core.hasItem('candle') ? 112 : 48, true);
 	}
 
 },
@@ -272,9 +273,9 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 	// 神偷
 	if (core.hasSpecial(special, 32)) {
-		['redPotion', 'bluePotion', 'yellowPotion', 'greenPotion'].forEach(id => {
-			core.addItem(id, -Math.floor(core.itemCount(id) / 2));
-		});
+		// 		['redPotion', 'bluePotion', 'yellowPotion', 'greenPotion'].forEach(id => {
+		// 			core.addItem(id, -Math.floor(core.itemCount(id) / 2));
+		// 		});
 		core.addStatus('money', -Math.floor(core.getStatus('money') * (core.values.godThief || 0)));
 	}
 
@@ -389,6 +390,11 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	}
 	// 增加仇恨值
 	core.setFlag('hatred', core.getFlag('hatred', 0) + core.values.hatred);
+
+	// 死亡
+	if (core.enemys.hasSpecial(special, 35)) {
+		core.triggerDebuff('get', 'dying');
+	}
 
 	// 战后的技能处理，比如扣除魔力值
 	if (core.flags.statusBarItems.indexOf('enableSkill') >= 0) {
@@ -554,9 +560,10 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		[29, "伪装", "怪物的各项属性在怪物手册上不可见（复刻版上此效果无效）。", [30, 30, 30, 165]],
 		[30, "缓慢", "战斗后，角色陷入缓慢状态（复刻版上此效果无效）。", "#8080ff"],
 		[31, "潜伏", "地图上不显示该怪物，除非角色持有物种探测器（复刻版上此效果无效）", [140, 140, 140, 255]],
-		[32, "神偷", "战斗前，偷取角色" + (core.values.godThief || 0) * 100 + "%的塔币，与所持有的各种类血瓶数量的一半。", [100, 255, 200, 255]],
+		[32, "神偷", "战斗前，偷取角色" + (core.values.godThief || 0) * 100 + "%的塔币。", [100, 255, 200, 255]],
 		[33, "遗忘", "战斗前，偷取角色" + (core.values.expThief || 0) * 100 + "%的经验。", [130, 155, 10, 255]],
-		[34, "劲敌", "怪物生命=角色生命+135，怪物攻击=角色攻击+15，怪物防御=角色防御+1。", [130, 155, 10, 255]]
+		[34, "劲敌", "怪物生命=角色生命+135，怪物攻击=角色攻击+15，怪物防御=角色防御+1。", [130, 155, 10, 255]],
+		[35, "死亡", "战斗后，角色陷入死亡状态，无法使用传统血瓶，无法承受场地伤害，无法与伤害超过0的怪物战斗（违反则判负）。", [155, 155, 155, 255]]
 	];
 },
         "getEnemyInfo": function (enemy, hero, x, y, floorId, wand_lv) {
@@ -896,6 +903,11 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	if (core.hasSpecial(mon_special, 23) && damage < 0) {
 		// 重生怪禁止负伤
 		damage = 0;
+	}
+
+	if (damage > 0 && core.hasFlag('dying')) {
+		// 死亡状态非0伤伤害不可攻击
+		return null;
 	}
 
 	return {
@@ -1259,6 +1271,10 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			// 获得咒效果
 			core.setFlag('curse', true);
 		}
+		if (core.inArray(type, 'dying') && !core.hasFlag("dying")) {
+			// 获得亡效果
+			core.setFlag('dying', true);
+		}
 	} else if (action == 'remove') {
 		var success = false;
 		if (core.inArray(type, "poison") && core.hasFlag("poison")) {
@@ -1290,6 +1306,11 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			success = true;
 			// 移除咒效果
 			core.setFlag("curse", false);
+		}
+		if (core.inArray(type, "dying") && core.hasFlag("dying")) {
+			success = true;
+			// 移除亡效果
+			core.setFlag("dying", false);
 		}
 		if (success) core.playSound('回血');
 	} else if (action == 'remove_switch') {
@@ -1630,7 +1651,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	if (core.hasFlag('poison')) {
 		core.status.hero.statistics.poisonDamage += core.values.poisonDamage;
 		core.status.hero.hp -= core.values.poisonDamage;
-		if (core.status.hero.hp <= 0) {
+		if (core.status.hero.hp <= 0 || (core.hasFlag('dying') && core.values.poisonDamage > 0)) {
 			core.status.hero.hp = 0;
 			core.updateStatusBar(false, true);
 			core.events.lose();
@@ -1677,43 +1698,43 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	// core.stopAutomaticRoute();
 },
         "moveDirectly": function (x, y, ignoreSteps) {
-			// 瞬间移动；x,y为要瞬间移动的点；ignoreSteps为减少的步数，可能之前已经被计算过
-			// 返回true代表成功瞬移，false代表没有成功瞬移
+	// 瞬间移动；x,y为要瞬间移动的点；ignoreSteps为减少的步数，可能之前已经被计算过
+	// 返回true代表成功瞬移，false代表没有成功瞬移
 
-			// 判定能否瞬移到该点
-			if (ignoreSteps == null) ignoreSteps = core.canMoveDirectly(x, y);
-			if (ignoreSteps >= 0) {
-				// 中毒也允许瞬移
-				if (core.hasFlag('poison')) {
-					var damage = ignoreSteps * core.values.poisonDamage;
-					if (damage >= core.status.hero.hp) return false;
-					core.status.hero.statistics.poisonDamage += damage;
-					core.status.hero.hp -= damage;
-				}
+	// 判定能否瞬移到该点
+	if (ignoreSteps == null) ignoreSteps = core.canMoveDirectly(x, y);
+	if (ignoreSteps >= 0) {
+		// 中毒也允许瞬移
+		if (core.hasFlag('poison')) {
+			var damage = ignoreSteps * core.values.poisonDamage;
+			if (damage >= core.status.hero.hp || (core.hasFlag('dying') && damage > 0)) return false;
+			core.status.hero.statistics.poisonDamage += damage;
+			core.status.hero.hp -= damage;
+		}
 
-				core.clearMap('hero');
-				// 获得勇士最后的朝向
-				var lastDirection = core.status.route[core.status.route.length - 1];
-				if (['left', 'right', 'up', 'down'].indexOf(lastDirection) >= 0)
-					core.setHeroLoc('direction', lastDirection);
-				// 设置坐标，并绘制
-				core.control._moveDirectyFollowers(x, y);
-				core.status.hero.loc.x = x;
-				core.status.hero.loc.y = y;
-				core.drawHero();
-				// 记录录像
-				core.status.route.push("move:" + x + ":" + y);
-				// 统计信息
-				core.status.hero.statistics.moveDirectly++;
-				core.status.hero.statistics.ignoreSteps += ignoreSteps;
-				if (core.hasFlag('poison')) {
-					core.updateStatusBar(false, true);
-				}
-				core.checkRouteFolding();
-				return true;
-			}
-			return false;
-		},
+		core.clearMap('hero');
+		// 获得勇士最后的朝向
+		var lastDirection = core.status.route[core.status.route.length - 1];
+		if (['left', 'right', 'up', 'down'].indexOf(lastDirection) >= 0)
+			core.setHeroLoc('direction', lastDirection);
+		// 设置坐标，并绘制
+		core.control._moveDirectyFollowers(x, y);
+		core.status.hero.loc.x = x;
+		core.status.hero.loc.y = y;
+		core.drawHero();
+		// 记录录像
+		core.status.route.push("move:" + x + ":" + y);
+		// 统计信息
+		core.status.hero.statistics.moveDirectly++;
+		core.status.hero.statistics.ignoreSteps += ignoreSteps;
+		if (core.hasFlag('poison')) {
+			core.updateStatusBar(false, true);
+		}
+		core.checkRouteFolding();
+		return true;
+	}
+	return false;
+},
         "parallelDo": function (timestamp) {
 			// 并行事件处理，可以在这里写任何需要并行处理的脚本或事件
 			// 该函数将被系统反复执行，每次执行间隔视浏览器或设备性能而定，一般约为16.6ms一次
@@ -1778,7 +1799,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		var y_interval = 28;
 		var is_poison = core.getFlag('poison'),
 			is_weak = core.getFlag('weak'),
-			is_curse = core.getFlag('curse');
+			is_curse = core.getFlag('curse'),
+			is_dying = core.getFlag('dying');
 
 		// 绘制楼层
 		core.drawImage(ctx, core.statusBar.icons.floor, 10, 9, 25, 25);
@@ -1793,7 +1815,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 		// 绘制生命
 		core.drawImage(ctx, core.statusBar.icons.hp, 10, 9 + y_interval * 2, 25, 25);
-		_fillBoldTextWithFontCheck(core.formatBigNumber(core.getRealStatus('hp')), 46, 29 + y_interval * 2, is_poison ? "#80FF80" : "#FFFFFF");
+		_fillBoldTextWithFontCheck(core.formatBigNumber(core.getRealStatus('hp')), 46, 29 + y_interval * 2, is_dying ? "C0C0C0" : (is_poison ? "#80FF80" : "#FFFFFF"));
 
 		// 绘制攻击
 		core.drawImage(ctx, core.statusBar.icons.atk, 10, 9 + y_interval * 3, 25, 25);
@@ -1827,13 +1849,16 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 		// 绘制状态
 		if (is_poison) {
-			_fillBoldTextWithFontCheck("[毒]", 15, 29 + y_interval * 10, "#80FF80");
+			_fillBoldTextWithFontCheck("毒", 12, 29 + y_interval * 10, "#80FF80");
 		}
 		if (is_weak) {
-			_fillBoldTextWithFontCheck("[衰]", 55, 29 + y_interval * 10, "#FF80FF");
+			_fillBoldTextWithFontCheck("衰", 42, 29 + y_interval * 10, "#FF80FF");
 		}
 		if (is_curse) {
-			_fillBoldTextWithFontCheck("[咒]", 95, 29 + y_interval * 10, "#80FFFF");
+			_fillBoldTextWithFontCheck("咒", 72, 29 + y_interval * 10, "#80FFFF");
+		}
+		if (is_dying) {
+			_fillBoldTextWithFontCheck("亡", 102, 29 + y_interval * 10, "#C0C0C0");
 		}
 
 	} else {

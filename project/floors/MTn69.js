@@ -29,6 +29,59 @@ main.floors.MTn69=
                 ],
                 "no": []
             }
+        ],
+        "6,6": {
+            "trigger": null,
+            "enable": false,
+            "noPass": null,
+            "displayDamage": true,
+            "opacity": 1,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": [
+                "\t[国王,N617]\b[this]这。",
+                "\t[hero]\b[hero]我没有卷轴。",
+                "\t[国王,N617]\b[this]我有！给你。",
+                {
+                    "type": "setValue",
+                    "name": "item:I333",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "hide",
+                    "remove": true
+                }
+            ]
+        },
+        "4,0": [
+            {
+                "type": "if",
+                "condition": "(blockId:4,0===\"upPortal\")",
+                "true": [
+                    {
+                        "type": "confirm",
+                        "text": "进入后将无法返回，是否前往？",
+                        "yes": [
+                            {
+                                "type": "changeFloor",
+                                "floorId": "SecretPath",
+                                "loc": [
+                                    12,
+                                    23
+                                ],
+                                "direction": "down"
+                            }
+                        ],
+                        "no": []
+                    }
+                ]
+            }
         ]
     },
     "changeFloor": {

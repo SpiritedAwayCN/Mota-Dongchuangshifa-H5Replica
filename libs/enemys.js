@@ -274,7 +274,8 @@ enemys.prototype._nextCriticals_overAtk = function (enemy, x, y, floorId) {
 }
 
 enemys.prototype._nextCriticals_special = function (enemy, number, x, y, floorId) {
-    if (this.hasSpecial(enemy.special, 10) || this.hasSpecial(enemy.special, 3) || this.hasSpecial(enemy.special, 34))
+    if (this.hasSpecial(enemy.special, 10) || this.hasSpecial(enemy.special, 3) ||
+        this.hasSpecial(enemy.special, 34))
         return []; // 模仿or坚固or劲敌临界
     return null;
 }

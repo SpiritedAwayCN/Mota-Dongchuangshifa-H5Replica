@@ -2,10 +2,10 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 {
 	"main": {
 		"floorIds": [
-			"sample0",
-			"sample1",
-			"sample2",
 			"Scene0",
+			"Scene1",
+			"SecretPath",
+			"Secret2",
 			"NM_FEK0",
 			"NM_FEX1",
 			"NM_FEX2",
@@ -40,6 +40,10 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"MTCastle4",
 			"MTCastle5",
 			"MTWorld",
+			"MTn90",
+			"MTn89",
+			"MTn88",
+			"MTn87",
 			"MTn86",
 			"MTn85",
 			"MTn84",
@@ -211,12 +215,14 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"MT82",
 			"MT83",
 			"MT84",
-			"MT85"
+			"MT85",
+			"MT880"
 		],
 		"floorPartitions": [],
 		"images": [
 			"001-Sky01.jpg",
 			"016-Braver06.png",
+			"037-Mage05.png",
 			"043-Queen01.png",
 			"047-Monster17.png",
 			"196-Support04.png",
@@ -227,6 +233,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"dragon.png",
 			"dragonColor.png",
 			"hero.png",
+			"slmhero.png",
 			"title.png",
 			"winskin.png"
 		],
@@ -493,6 +500,12 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"width": 384,
 				"height": 96,
 				"prefix": "196-Support04_"
+			},
+			{
+				"name": "slmhero.png",
+				"width": 144,
+				"height": 35,
+				"prefix": "slmhero_"
 			}
 		]
 	},
@@ -1005,6 +1018,15 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 							}
 						]
 					}
+				]
+			},
+			{
+				"id": "Fm81DyingShop",
+				"textInList": "-81F解除死亡状态@道具",
+				"mustEnable": true,
+				"commonEvent": "OtherShops",
+				"args": [
+					"MTn81"
 				]
 			},
 			{
