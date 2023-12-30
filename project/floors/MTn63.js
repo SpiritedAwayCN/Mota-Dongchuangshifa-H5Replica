@@ -24,6 +24,44 @@ main.floors.MTn63=
                 "type": "hide",
                 "remove": true
             }
+        ],
+        "7,14": [
+            {
+                "type": "if",
+                "condition": "(flag:NoDarkFloorValid===1)",
+                "true": [
+                    {
+                        "type": "confirm",
+                        "text": "确认要重新启用漆黑层吗?",
+                        "yes": [
+                            {
+                                "type": "setValue",
+                                "name": "flag:NoDarkFloorValid",
+                                "value": "0"
+                            }
+                        ],
+                        "no": []
+                    }
+                ],
+                "false": [
+                    {
+                        "type": "confirm",
+                        "text": "确认要禁用漆黑层效果吗?",
+                        "yes": [
+                            {
+                                "type": "setValue",
+                                "name": "flag:NoDarkFloorValid",
+                                "value": "1"
+                            }
+                        ],
+                        "no": []
+                    }
+                ]
+            },
+            {
+                "type": "function",
+                "function": "function(){\nif (core.shouldDrawDarkMask())\n\tcore.updateDarkMask(core.status.heroCenter.px - (core.bigmap.offsetX || 0), core.status.heroCenter.py - (core.bigmap.offsetY || 0));\nelse\n\tcore.cleanDarkMask();\n}"
+            }
         ]
     },
     "changeFloor": {
@@ -93,7 +131,7 @@ main.floors.MTn63=
     [20040,  0,589,589,  0,587,  1, 12,  1,  1, 34,  1, 12, 65,20042],
     [20040, 12,  1,  1,  1, 12,  1,  0,121,  1, 34,  1,588,  1,20042],
     [20040,589,  0,454,  0,587,  0, 87,  0, 12, 34, 12,  0,  1,20042],
-    [20048,20049,20049,20049,20049,20049,20049,20049,20049,20049,20049,20049,20049,20049,20050]
+    [20048,20049,20049,20049,20049,20049,20049,129,20049,20049,20049,20049,20049,20049,20050]
 ],
     "bgmap": [
 

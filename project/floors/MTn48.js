@@ -23,6 +23,44 @@ main.floors.MTn48=
                 "type": "hide",
                 "remove": true
             }
+        ],
+        "7,0": [
+            {
+                "type": "if",
+                "condition": "(flag:NoDarkFloorValid===1)",
+                "true": [
+                    {
+                        "type": "confirm",
+                        "text": "确认要重新启用漆黑层吗?",
+                        "yes": [
+                            {
+                                "type": "setValue",
+                                "name": "flag:NoDarkFloorValid",
+                                "value": "0"
+                            }
+                        ],
+                        "no": []
+                    }
+                ],
+                "false": [
+                    {
+                        "type": "confirm",
+                        "text": "确认要禁用漆黑层效果吗?",
+                        "yes": [
+                            {
+                                "type": "setValue",
+                                "name": "flag:NoDarkFloorValid",
+                                "value": "1"
+                            }
+                        ],
+                        "no": []
+                    }
+                ]
+            },
+            {
+                "type": "function",
+                "function": "function(){\nif (core.shouldDrawDarkMask())\n\tcore.updateDarkMask(core.status.heroCenter.px - (core.bigmap.offsetX || 0), core.status.heroCenter.py - (core.bigmap.offsetY || 0));\nelse\n\tcore.cleanDarkMask();\n}"
+            }
         ]
     },
     "changeFloor": {
@@ -74,7 +112,7 @@ main.floors.MTn48=
     "cannotMove": {},
     "cannotMoveIn": {},
     "map": [
-    [20040,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20042],
+    [20040,20041,20041,20041,20041,20041,20041,129,20041,20041,20041,20041,20041,20041,20042],
     [20040,454, 33, 33, 33,571,  0, 87,  0,571, 33, 33, 33,454,20042],
     [20040,  2,  2,  2,  2,  2,  2,431,  2,  2,  2,  2,  2,  2,20042],
     [20040,  2,573,572,571,  2,524,121,524,  2,339,339,339,  2,20042],

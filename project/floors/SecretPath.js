@@ -16,7 +16,46 @@ main.floors.SecretPath=
     "firstArrive": [],
     "eachArrive": [],
     "parallelDo": "",
-    "events": {},
+    "events": {
+        "13,23": [
+            {
+                "type": "if",
+                "condition": "(flag:NoDarkFloorValid===1)",
+                "true": [
+                    {
+                        "type": "confirm",
+                        "text": "确认要重新启用漆黑层吗?",
+                        "yes": [
+                            {
+                                "type": "setValue",
+                                "name": "flag:NoDarkFloorValid",
+                                "value": "0"
+                            }
+                        ],
+                        "no": []
+                    }
+                ],
+                "false": [
+                    {
+                        "type": "confirm",
+                        "text": "确认要禁用漆黑层效果吗?",
+                        "yes": [
+                            {
+                                "type": "setValue",
+                                "name": "flag:NoDarkFloorValid",
+                                "value": "1"
+                            }
+                        ],
+                        "no": []
+                    }
+                ]
+            },
+            {
+                "type": "function",
+                "function": "function(){\nif (core.shouldDrawDarkMask())\n\tcore.updateDarkMask(core.status.heroCenter.px - (core.bigmap.offsetX || 0), core.status.heroCenter.py - (core.bigmap.offsetY || 0));\nelse\n\tcore.cleanDarkMask();\n}"
+            }
+        ]
+    },
     "changeFloor": {
         "12,0": {
             "floorId": "Secret2",
@@ -57,7 +96,7 @@ main.floors.SecretPath=
     [20007,20007,  0,20007,  0,20007,20007,  0,20007,  0,20007,  0,20007,20007,  0,20007,  0,  0,  0,20007,  0,  0,20007,  0,20007],
     [20007,  0,  0,20007,  0,  0,  0,  0,  0,  0,20007,  0,  0,20007,  0,20007,  0,20007,20007,20007,20007,  0,  0,  0,20007],
     [20007,  0,20007,20007,20007,20007,20007,  0,20007,  0,20007,20007,  0,  0,  0,  0,20007,20007,  0,  0,  0,20007,20007,  0,20007],
-    [20007,20007,  0,  0,  0,  0,  0,  0,20007,  0,  0,  0,  0,20007,  0,20007,  0,  0,  0,  0,  0,  0,  0,  0,20007],
+    [20007,20007,  0,  0,  0,  0,  0,  0,20007,  0,  0,  0,  0,129,  0,20007,  0,  0,  0,  0,  0,  0,  0,  0,20007],
     [20007,20007,20007,20007,20007,20007,20007,20007,20007,20007,20007,20007,20007,20007,20007,20007,20007,20007,20007,20007,20007,20007,20007,20007,20007]
 ],
     "bgmap": [

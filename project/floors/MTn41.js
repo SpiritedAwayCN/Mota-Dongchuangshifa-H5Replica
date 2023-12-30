@@ -16,7 +16,46 @@ main.floors.MTn41=
     "firstArrive": [],
     "eachArrive": [],
     "parallelDo": "",
-    "events": {},
+    "events": {
+        "12,1": [
+            {
+                "type": "if",
+                "condition": "(flag:NoDarkFloorValid===1)",
+                "true": [
+                    {
+                        "type": "confirm",
+                        "text": "确认要重新启用漆黑层吗?",
+                        "yes": [
+                            {
+                                "type": "setValue",
+                                "name": "flag:NoDarkFloorValid",
+                                "value": "0"
+                            }
+                        ],
+                        "no": []
+                    }
+                ],
+                "false": [
+                    {
+                        "type": "confirm",
+                        "text": "确认要禁用漆黑层效果吗?",
+                        "yes": [
+                            {
+                                "type": "setValue",
+                                "name": "flag:NoDarkFloorValid",
+                                "value": "1"
+                            }
+                        ],
+                        "no": []
+                    }
+                ]
+            },
+            {
+                "type": "function",
+                "function": "function(){\nif (core.shouldDrawDarkMask())\n\tcore.updateDarkMask(core.status.heroCenter.px - (core.bigmap.offsetX || 0), core.status.heroCenter.py - (core.bigmap.offsetY || 0));\nelse\n\tcore.cleanDarkMask();\n}"
+            }
+        ]
+    },
     "changeFloor": {
         "13,1": {
             "floorId": ":next",
@@ -36,7 +75,7 @@ main.floors.MTn41=
     "cannotMoveIn": {},
     "map": [
     [20040,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20042],
-    [20040,  0,  2,  0,  2,  0,  0,  2,  0,  2,  0,  2,  2, 87,20042],
+    [20040,  0,  2,  0,  2,  0,  0,  2,  0,  2,  0,  2,129, 87,20042],
     [20040,  0,  2,  0,  0,  0,  2,  2,  0,  2,  0,  0,  0,  0,20042],
     [20040,  0,  2,  2,  2,  0,  2,  0,  0,  0,  0,  2,  0,  2,20042],
     [20040,  0,  0,  0,  0,  0,  2,  2,  2,  2,  0,  2,  0,  0,20042],

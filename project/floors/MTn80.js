@@ -34,7 +34,7 @@ main.floors.MTn80=
                             },
                             {
                                 "type": "function",
-                                "function": "function(){\ncore.values.redGem = 10;\ncore.values.blueGem = 10;\ncore.values.greenGem = 10;\ncore.values.yellowGem = 8;\ncore.values.redPotion = 1500;\ncore.values.bluePotion = 2500;\ncore.values.yellowPotion = 3500;\ncore.values.greenPotion = 4200;\n}"
+                                "function": "function(){\ncore.values.redGem = 10;\ncore.values.blueGem = 10;\ncore.values.greenGem = 10;\ncore.values.yellowGem = 8;\ncore.values.redPotion = core.getFlag(\"PotionLessValue\", 0) ? 900 : 1500;\ncore.values.bluePotion = core.getFlag(\"PotionLessValue\", 0) ? 1700 : 2500;\ncore.values.yellowPotion = core.getFlag(\"PotionLessValue\", 0) ? 2700 : 3500;\ncore.values.greenPotion = core.getFlag(\"PotionLessValue\", 0) ? 3550 : 4200;\n}"
                             }
                         ]
                     },
@@ -49,6 +49,21 @@ main.floors.MTn80=
                                 "type": "exit"
                             }
                         ]
+                    }
+                ]
+            },
+            {
+                "type": "if",
+                "condition": "(flag:PotionLessValueDisabled!==1)",
+                "true": [
+                    {
+                        "type": "tip",
+                        "text": "血瓶增益相关难度选项已生效，已锁定！"
+                    },
+                    {
+                        "type": "setValue",
+                        "name": "flag:PotionLessValueDisabled",
+                        "value": "1"
                     }
                 ]
             },

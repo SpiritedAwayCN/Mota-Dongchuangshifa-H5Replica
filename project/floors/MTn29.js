@@ -82,6 +82,15 @@ main.floors.MTn29=
                 "\t[hero]\b[hero]......我不明白",
                 "\t[魔头守灵,E507]\b[this]再见勇士。祝你挽回国家的命运。\n——一个被魔化的勇士留",
                 {
+                    "type": "show",
+                    "loc": [
+                        [
+                            7,
+                            13
+                        ]
+                    ]
+                },
+                {
                     "type": "hide",
                     "loc": [
                         [
@@ -112,6 +121,21 @@ main.floors.MTn29=
                     "name": "045Positive03.mp3"
                 }
             ]
+        },
+        "7,13": {
+            "trigger": null,
+            "enable": false,
+            "noPass": null,
+            "displayDamage": true,
+            "opacity": 1,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": []
         }
     },
     "changeFloor": {

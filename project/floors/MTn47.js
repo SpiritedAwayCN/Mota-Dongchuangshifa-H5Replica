@@ -16,7 +16,46 @@ main.floors.MTn47=
     "firstArrive": [],
     "eachArrive": [],
     "parallelDo": "",
-    "events": {},
+    "events": {
+        "7,14": [
+            {
+                "type": "if",
+                "condition": "(flag:NoDarkFloorValid===1)",
+                "true": [
+                    {
+                        "type": "confirm",
+                        "text": "确认要重新启用漆黑层吗?",
+                        "yes": [
+                            {
+                                "type": "setValue",
+                                "name": "flag:NoDarkFloorValid",
+                                "value": "0"
+                            }
+                        ],
+                        "no": []
+                    }
+                ],
+                "false": [
+                    {
+                        "type": "confirm",
+                        "text": "确认要禁用漆黑层效果吗?",
+                        "yes": [
+                            {
+                                "type": "setValue",
+                                "name": "flag:NoDarkFloorValid",
+                                "value": "1"
+                            }
+                        ],
+                        "no": []
+                    }
+                ]
+            },
+            {
+                "type": "function",
+                "function": "function(){\nif (core.shouldDrawDarkMask())\n\tcore.updateDarkMask(core.status.heroCenter.px - (core.bigmap.offsetX || 0), core.status.heroCenter.py - (core.bigmap.offsetY || 0));\nelse\n\tcore.cleanDarkMask();\n}"
+            }
+        ]
+    },
     "changeFloor": {
         "7,13": {
             "floorId": ":next",
@@ -154,7 +193,7 @@ main.floors.MTn47=
     [20040,  1,573,  1,  1,  1, 34,  3, 34,  1,  1,  1,573,  1,20042],
     [20040,  1,432, 28, 28,  1, 32,571, 32,  1, 28, 28,432,  1,20042],
     [20040,  1,  1,  1, 28,  1,571, 87,571,  1, 28,  1,  1,  1,20042],
-    [20048,20049,20049,20049,20049,20049,20049,20049,20049,20049,20049,20049,20049,20049,20050]
+    [20048,20049,20049,20049,20049,20049,20049,129,20049,20049,20049,20049,20049,20049,20050]
 ],
     "underGround": true,
     "bgmap": [

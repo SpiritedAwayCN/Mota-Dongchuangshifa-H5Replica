@@ -14,7 +14,24 @@ main.floors.MT85=
     "ratio": 1,
     "defaultGround": "autotile7",
     "bgm": "mtboss.mp3",
-    "firstArrive": [],
+    "firstArrive": [
+        {
+            "type": "if",
+            "condition": "(flag:F85promote===1)",
+            "true": [
+                "\t[H5难度系统]根据当前难度设置，非领袖敌人的生命/攻击额外+15%。\n相关难度选项已生效！并已锁定。",
+                {
+                    "type": "setValue",
+                    "name": "flag:diffPromoteRate",
+                    "operator": "+=",
+                    "value": "0.15"
+                }
+            ],
+            "false": [
+                "\t[H5难度系统]根据当前难度设置，85F起敌方属性无变化。\n\"85F起敌方属性提升\"相关难度选项已锁定。"
+            ]
+        }
+    ],
     "eachArrive": null,
     "parallelDo": "",
     "events": {
@@ -112,9 +129,31 @@ main.floors.MT85=
                     "\t[公主,N549]\b[this]我是公主嘛！改进属性物品功能！",
                     {
                         "type": "function",
-                        "function": "function(){\ncore.values.redGem = 6;\ncore.values.blueGem = 6;\ncore.values.greenGem = 5;\ncore.values.yellowGem = 4;\ncore.values.redPotion = 800;\ncore.values.bluePotion = 1500;\ncore.values.yellowPotion = 2400;\ncore.values.greenPotion = 3800;\n}"
+                        "function": "function(){\ncore.values.redGem = 6;\ncore.values.blueGem = 6;\ncore.values.greenGem = 5;\ncore.values.yellowGem = 4;\ncore.values.redPotion = core.getFlag(\"PotionLessValue\", 0) ? 500 : 800;\ncore.values.bluePotion = core.getFlag(\"PotionLessValue\", 0) ? 1000 : 1500;\ncore.values.yellowPotion = core.getFlag(\"PotionLessValue\", 0) ? 1750 : 2400;\ncore.values.greenPotion = core.getFlag(\"PotionLessValue\", 0) ? 2750 : 3800;\n}"
                     },
-                    "\t[公主,N549]\b[this]红、蓝宝石效果变为+6，黄宝石加点数变为+4！红血瓶效果变为+800、蓝血瓶效果变为+1500、黄血瓶效果变为+2400、绿血瓶效果变为+3800！！",
+                    {
+                        "type": "if",
+                        "condition": "(flag:PotionLessValue===1)",
+                        "true": [
+                            "\t[公主,N549]\b[this]红、蓝宝石效果变为+6，黄宝石加点数变为+4！红血瓶效果变为+500、蓝血瓶效果变为+800、黄血瓶效果变为+1750、绿血瓶效果变为+2750！！",
+                            {
+                                "type": "tip",
+                                "text": "血瓶增益降低难度效果已生效！"
+                            }
+                        ],
+                        "false": [
+                            "\t[公主,N549]\b[this]红、蓝宝石效果变为+6，黄宝石加点数变为+4！红血瓶效果变为+800、蓝血瓶效果变为+1500、黄血瓶效果变为+2400、绿血瓶效果变为+3800！！",
+                            {
+                                "type": "setValue",
+                                "name": "flag:PotionLessValueDisabled",
+                                "value": "1"
+                            },
+                            {
+                                "type": "tip",
+                                "text": "未选择血瓶增益效果降低难度选项，已禁用！"
+                            }
+                        ]
+                    },
                     "\t[hero]\b[hero]$_$！",
                     "\t[hero]\b[hero]不过这些给我了，你怎么办？",
                     "\t[公主,N549]\b[this]哦...也对，给我你的35级！",

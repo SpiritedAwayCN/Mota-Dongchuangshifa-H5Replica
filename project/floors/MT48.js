@@ -148,8 +148,14 @@ main.floors.MT48=
                 ]
             },
             {
-                "type": "hide",
-                "remove": true
+                "type": "if",
+                "condition": "(flag:noFixSevereBug!==1)",
+                "true": [
+                    {
+                        "type": "hide",
+                        "remove": true
+                    }
+                ]
             }
         ],
         "3,1": [

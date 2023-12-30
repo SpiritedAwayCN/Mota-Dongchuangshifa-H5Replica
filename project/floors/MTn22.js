@@ -29,7 +29,7 @@ main.floors.MTn22=
                         "action": [
                             {
                                 "type": "lose",
-                                "reason": "结局99"
+                                "reason": "结局8"
                             }
                         ]
                     },

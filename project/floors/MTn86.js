@@ -230,7 +230,22 @@ main.floors.MTn86=
                 "type": "hide",
                 "remove": true
             }
-        ]
+        ],
+        "7,0": {
+            "trigger": null,
+            "enable": false,
+            "noPass": null,
+            "displayDamage": true,
+            "opacity": 1,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": []
+        }
     },
     "changeFloor": {
         "7,13": {
@@ -428,6 +443,15 @@ main.floors.MTn86=
             {
                 "type": "resumeBgm",
                 "resume": true
+            },
+            {
+                "type": "show",
+                "loc": [
+                    [
+                        7,
+                        0
+                    ]
+                ]
             },
             {
                 "type": "setBlock",

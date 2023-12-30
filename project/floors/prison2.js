@@ -51,7 +51,7 @@ main.floors.prison2=
                             "action": [
                                 {
                                     "type": "if",
-                                    "condition": "(item:coin>=7)",
+                                    "condition": "((item:coin>=7)||((flag:noFixSevereBug===1)&&(flag:prison_coin>=6)))",
                                     "true": [
                                         "\t[hero]\b[hero]只有6个。",
                                         "\t[捷克,N512]\b[this]我还有1个，你也有一个！OK，我来试试！",
@@ -137,7 +137,56 @@ main.floors.prison2=
     "changeFloor": {},
     "beforeBattle": {},
     "afterBattle": {},
-    "afterGetItem": {},
+    "afterGetItem": {
+        "2,3": [
+            {
+                "type": "setValue",
+                "name": "flag:prison_coin",
+                "operator": "+=",
+                "value": "1"
+            }
+        ],
+        "2,7": [
+            {
+                "type": "setValue",
+                "name": "flag:prison_coin",
+                "operator": "+=",
+                "value": "1"
+            }
+        ],
+        "2,11": [
+            {
+                "type": "setValue",
+                "name": "flag:prison_coin",
+                "operator": "+=",
+                "value": "1"
+            }
+        ],
+        "12,7": [
+            {
+                "type": "setValue",
+                "name": "flag:prison_coin",
+                "operator": "+=",
+                "value": "1"
+            }
+        ],
+        "12,11": [
+            {
+                "type": "setValue",
+                "name": "flag:prison_coin",
+                "operator": "+=",
+                "value": "1"
+            }
+        ],
+        "12,3": [
+            {
+                "type": "setValue",
+                "name": "flag:prison_coin",
+                "operator": "+=",
+                "value": "1"
+            }
+        ]
+    },
     "afterOpenDoor": {},
     "autoEvent": {},
     "cannotMove": {},

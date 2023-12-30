@@ -16,7 +16,62 @@ main.floors.Treasure3=
     "firstArrive": [],
     "eachArrive": [],
     "parallelDo": "",
-    "events": {},
+    "events": {
+        "4,10": {
+            "trigger": "action",
+            "enable": true,
+            "noPass": true,
+            "displayDamage": true,
+            "opacity": 1,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": [
+                {
+                    "type": "if",
+                    "condition": "(flag:SuperSteelKeyInvalid!==1)",
+                    "true": [
+                        {
+                            "type": "confirm",
+                            "default": true,
+                            "text": "您可以获得万能铁灭钥匙，\n但相关难度选项将锁定，确认获得吗？",
+                            "yes": [],
+                            "no": [
+                                {
+                                    "type": "exit"
+                                }
+                            ]
+                        }
+                    ],
+                    "false": [
+                        "\t[H5难度系统]根据当前难度系统，您不可获得万能铁灭钥匙。\n若确需获得，请在难度页面中修改设置。",
+                        {
+                            "type": "exit"
+                        }
+                    ]
+                },
+                {
+                    "type": "setValue",
+                    "name": "flag:SuperSteelKeyAttained",
+                    "value": "1"
+                },
+                {
+                    "type": "setValue",
+                    "name": "item:allSteel",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "hide",
+                    "remove": true
+                }
+            ]
+        }
+    },
     "changeFloor": {
         "7,13": {
             "floorId": ":before",

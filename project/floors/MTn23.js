@@ -15,10 +15,16 @@ main.floors.MTn23=
     "bgm": "014Theme03.mp3",
     "firstArrive": [
         {
-            "type": "insert",
-            "loc": [
-                11,
-                1
+            "type": "if",
+            "condition": "(flag:noFixSevereBug!==1)",
+            "true": [
+                {
+                    "type": "insert",
+                    "loc": [
+                        11,
+                        1
+                    ]
+                }
             ]
         }
     ],

@@ -14,7 +14,24 @@ main.floors.MT51=
     "ratio": 1,
     "defaultGround": "ground",
     "bgm": "031Castle01.mp3",
-    "firstArrive": [],
+    "firstArrive": [
+        {
+            "type": "if",
+            "condition": "(flag:F51promote===1)",
+            "true": [
+                "\t[H5难度系统]根据当前难度设置，非领袖敌人的生命/攻击额外+10%。\n相关难度选项已生效！并已锁定。",
+                {
+                    "type": "setValue",
+                    "name": "flag:diffPromoteRate",
+                    "operator": "+=",
+                    "value": "0.1"
+                }
+            ],
+            "false": [
+                "\t[H5难度系统]根据当前难度设置，51F起敌方属性无变化。\n\"51F起敌方属性提升\"相关难度选项已锁定。"
+            ]
+        }
+    ],
     "eachArrive": [],
     "parallelDo": "",
     "events": {

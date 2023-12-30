@@ -139,10 +139,11 @@ main.floors.MT67=
             "data": [
                 {
                     "type": "choices",
-                    "text": "\t[血瓶,I454]从以后开始，将会非常难，\n是否加HP来满足要求？\n如果你是高手，请不要拿。\n此血瓶\r[red]影响难度评级\r。",
+                    "text": "\t[紫血瓶,I454]从以后开始，将会非常难，\n是否加HP来满足要求？\n如果你是高手，请不要拿。\n此血瓶\r[red]影响难度评级\r。",
                     "choices": [
                         {
                             "text": "我不是高手，要拿",
+                            "need": "flag:PotionLessRate!==1",
                             "action": []
                         },
                         {

@@ -136,6 +136,21 @@ main.floors.MT65=
                 "shadow": 0
             },
             "data": []
+        },
+        "7,1": {
+            "trigger": null,
+            "enable": false,
+            "noPass": null,
+            "displayDamage": true,
+            "opacity": 1,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": []
         }
     },
     "changeFloor": {
@@ -1043,6 +1058,15 @@ main.floors.MT65=
                             [
                                 7,
                                 13
+                            ]
+                        ]
+                    },
+                    {
+                        "type": "show",
+                        "loc": [
+                            [
+                                7,
+                                1
                             ]
                         ]
                     },

@@ -82,7 +82,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 	var current_px, current_py;
 	this.updateDarkMask = function (px, py, r, forceUpdate) {
 		// only call when need draw
-		console.log(px, py);
+		// 		console.log(px, py);
 		if (current_px === px && current_py === py && !forceUpdate)
 			return;
 		core.drawLight("darkmask", 1, [
@@ -312,7 +312,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		var data = core.status.event.data.current;
 		var choices = data.choices;
 		var topIndex = core.actions._getChoicesTopIndex(choices.length);
-		if (x >= core.actions.CHOICES_LEFT && x <= core.actions.CHOICES_RIGHT && y >= topIndex && y < topIndex + choices.length) {
+		if (!core.actions._out(x) && y >= topIndex && y < topIndex + choices.length) {
 			core.actions._clickAction(x, y);
 			return true;
 		}
@@ -623,9 +623,15 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 			});
 		} else {
 			// 卖出
-			list = Object.keys(core.getItems()).filter(item => core.hasItem(item) && core.material.items[item].defaultPrice).map(item => {
-				return { "id": item, "sell": Math.floor(core.material.items[item].defaultPrice / 2) };
-			});
+			if (!core.getFlag("noFixSevereBug", 0)) {
+				list = Object.keys(core.getItems()).filter(item => core.hasItem(item) && core.material.items[item].defaultPrice && core.material.items[item].cls == 'equips').map(item => {
+					return { "id": item, "sell": Math.floor(core.material.items[item].defaultPrice / 2) };
+				});
+			} else {
+				list = Object.keys(core.getItems()).filter(item => core.hasItem(item) && core.material.items[item].defaultPrice).map(item => {
+					return { "id": item, "sell": Math.floor(core.material.items[item].defaultPrice / 2) };
+				});
+			}
 			// 			console.log(list);
 		}
 		var per_page = 8;
@@ -1199,6 +1205,20 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		core.setFlag("heroId", toHeroId); // 保存切换到的角色ID
 	}
 
+	this.judgeDiffFunc = function (value) {
+		// 5, 20
+		if (value < 0) return true;
+		var weakTagLevel = core.getFlag("weakTagLevel", 0);
+		var weakTagLevelUb = core.getFlag("weakTagLevelUb", 0);
+		var tagLevel2val = x => [0, 5, 20, Number.MAX_SAFE_INTEGER][x];
+		if (tagLevel2val(weakTagLevel) < value && value <= tagLevel2val(weakTagLevelUb)) {
+			// 将要禁用难度
+			core.insertAction("\\t[H5难度系统]根据当前难度设置，本次能力降低将在解衰时恢复。对应更高难度的Tag已不再可用！");
+			core.setFlag("weakTagLevelUb", weakTagLevel);
+		}
+		return tagLevel2val(weakTagLevel) < value;
+	}
+
 	this.decreaseStatusWithBuffer = function (name, value, heroID) {
 		var currHeroId = core.getFlag("heroId", 0);
 
@@ -1213,7 +1233,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 			var hero = core.getFlag("hero" + heroID);
 			value = Math.min(hero[name], value);
 			hero[name] -= value;
-			if ((name !== "atk" && name !== "def") || !hero.debuff.weak) {
+			if ((name !== "atk" && name !== "def") || !hero.debuff.weak || !core.judgeDiffFunc(value)) {
 				return;
 			}
 			if (name === "atk")
@@ -1224,7 +1244,8 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 			value = Math.min(core.getStatus(name), value);
 			core.addStatus(name, -value);
 			// 			console.log(name);
-			if ((name !== "atk" && name !== "def") || !core.hasFlag("weak")) {
+			if ((name !== "atk" && name !== "def") || !core.hasFlag("weak") || !core.judgeDiffFunc(value)) {
+				core.updateStatusBar();
 				return;
 			}
 			if (name === "atk")

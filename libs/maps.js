@@ -1724,7 +1724,7 @@ maps.prototype.drawThumbnail = function (floorId, blocks, options) {
         var font_size = Math.ceil(size * 24);
         core.fillText(ctx, '当前楼层是漆黑层', 
             centerX, centerY - font_size / 1.8, '#CFCFCF', 'bold ' + font_size + 'px Verdana');
-        core.fillText(ctx, '在设置中禁用漆黑层即可绘制缩略图', 
+        core.fillText(ctx, '在木牌处禁用漆黑层即可绘制缩略图', 
             centerX, centerY + font_size / 1.8, '#CFCFCF', 'bold ' + font_size + 'px Verdana');
         return;
     }

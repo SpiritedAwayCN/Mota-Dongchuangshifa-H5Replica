@@ -95,7 +95,7 @@ main.floors.MT40=
             },
             {
                 "type": "if",
-                "condition": "flag:F40DoorLeft",
+                "condition": "(flag:F40DoorLeft===3)",
                 "true": [
                     {
                         "type": "openDoor",
@@ -179,7 +179,7 @@ main.floors.MT40=
             },
             {
                 "type": "if",
-                "condition": "flag:F40DoorRight",
+                "condition": "(flag:F40DoorRight===3)",
                 "true": [
                     {
                         "type": "openDoor",

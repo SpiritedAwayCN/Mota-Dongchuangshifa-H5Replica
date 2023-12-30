@@ -34,7 +34,7 @@ main.floors.MT50=
         "\t[Black devil,blackKing]\b[this,6,3]来认识魔王吧！",
         {
             "type": "setBlock",
-            "number": "redKing",
+            "number": "N622",
             "loc": [
                 [
                     7,
@@ -54,7 +54,7 @@ main.floors.MT50=
         },
         {
             "type": "setBlock",
-            "number": "yellowKing",
+            "number": "N623",
             "loc": [
                 [
                     7,

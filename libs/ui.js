@@ -3062,10 +3062,10 @@ ui.prototype._drawSLPanel_drawRecord = function (title, data, x, y, size, cho, h
             heroLoc: data.hero.loc, heroIcon: data.hero.image, flags: data.hero.flags,
             ctx: 'ui', x: x - w / 2, y: y + 15, size: size, centerX: data.hero.loc.x, centerY: data.hero.loc.y, noHD: true
         });
-        if (core.isPlaying() && core.getFlag("hard") != data.hero.flags.hard) {
-            core.fillRect('ui', x - w / 2, y + 15, w, h, [0, 0, 0, 0.4]);
-            core.fillText('ui', data.hard, x, parseInt(y + 22 + h / 2), data.hero.flags.__hardColor__ || 'white', this._buildFont(30, true));
-        }
+        // if (core.isPlaying() && core.getFlag("hard") != data.hero.flags.hard) {
+        //     core.fillRect('ui', x - w / 2, y + 15, w, h, [0, 0, 0, 0.4]);
+        //     core.fillText('ui', data.hard, x, parseInt(y + 22 + h / 2), data.hero.flags.__hardColor__ || 'white', this._buildFont(30, true));
+        // }
         // 绘制存档笔记
         if (data.hero.notes && data.hero.notes.length > 0) {
             core.setTextAlign('ui', 'left');

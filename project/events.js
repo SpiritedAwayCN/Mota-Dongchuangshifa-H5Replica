@@ -3,6 +3,10 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 	"commonEvent": {
 		"加点事件": [
 			{
+				"type": "function",
+				"function": "function(){\ncore.addFlag('@temp@shop', 1);\n}"
+			},
+			{
 				"type": "while",
 				"condition": "1",
 				"data": [
@@ -100,6 +104,10 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 						]
 					}
 				]
+			},
+			{
+				"type": "function",
+				"function": "function(){\ncore.addFlag('@temp@shop', -1);\n}"
 			}
 		],
 		"回收钥匙商店": [
@@ -618,6 +626,10 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 						"case": "\"Gem\"",
 						"action": [
 							{
+								"type": "function",
+								"function": "function(){\ncore.addFlag('@temp@shop', 1);\n}"
+							},
+							{
 								"type": "while",
 								"condition": "1",
 								"data": [
@@ -727,6 +739,10 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 										]
 									}
 								]
+							},
+							{
+								"type": "function",
+								"function": "function(){\ncore.addFlag('@temp@shop', -1);\n}"
 							}
 						]
 					},
@@ -824,6 +840,10 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 						"case": "default",
 						"action": [
 							{
+								"type": "function",
+								"function": "function(){\ncore.addFlag('@temp@shop', 1);\n}"
+							},
+							{
 								"type": "while",
 								"condition": "1",
 								"data": [
@@ -902,6 +922,10 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 										]
 									}
 								]
+							},
+							{
+								"type": "function",
+								"function": "function(){\ncore.addFlag('@temp@shop', -1);\n}"
 							}
 						]
 					}
@@ -909,6 +933,10 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 			}
 		],
 		"OtherShops": [
+			{
+				"type": "function",
+				"function": "function(){\ncore.addFlag('@temp@shop', 1);\n}"
+			},
 			{
 				"type": "switch",
 				"condition": "flag:arg1",
@@ -3399,6 +3427,10 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 						]
 					}
 				]
+			},
+			{
+				"type": "function",
+				"function": "function(){\ncore.addFlag('@temp@shop', -1);\n}"
 			}
 		],
 		"SwitchCharactor": [
@@ -3442,6 +3474,31 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 					{
 						"case": "\"potion\"",
 						"action": [
+							{
+								"type": "if",
+								"condition": "(flag:PotionLessRate===1)",
+								"true": [
+									{
+										"type": "setValue",
+										"name": "flag:arg2",
+										"value": "Math.floor(0.2*flag:arg2)"
+									}
+								],
+								"false": [
+									{
+										"type": "if",
+										"condition": "(flag:PotionLessRateHinted!==1)",
+										"true": [
+											"\t[H5难度系统]根据当前难度设置，紫血瓶按原效果增加生命值。\n紫血瓶弱化相关难度选项已失效。",
+											{
+												"type": "setValue",
+												"name": "flag:PotionLessRateHinted",
+												"value": "1"
+											}
+										]
+									}
+								]
+							},
 							{
 								"type": "choices",
 								"text": "\t[获得血瓶,I454]选择一名角色：\n+${flag:arg2}HP",
@@ -3733,6 +3790,918 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 						"action": []
 					}
 				]
+			}
+		],
+		"难度配置": [
+			{
+				"type": "while",
+				"condition": "1",
+				"data": [
+					{
+						"type": "setValue",
+						"name": "flag:realHard",
+						"value": "flag:noFixSevereBug?0:(flag:weakTagLevel+(flag:37FItemlevel<3?flag:37FItemlevel:4)+flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:F51promote+flag:F85promote+flag:Fm58promote)+flag:baseHard"
+					},
+					{
+						"type": "choices",
+						"text": "\t[H5复刻版难度系统]总难度10起，将单独计入排行榜\n\r[orange]当前总难度：${flag:realHard}/15\r[red]\n${flag:noFixSevereBug ? '启用\"恶性特性修复\"才可结算难度值' : \"\"}\n\r游戏过程中可随时呼出本界面",
+						"choices": [
+							{
+								"text": "原版难度：噩梦 (难度+${flag:baseHard})",
+								"color": [
+									255,
+									215,
+									0,
+									1
+								],
+								"need": "flag:arg1===\"title\"",
+								"action": [
+									{
+										"type": "choices",
+										"text": "\t[原版难度]请选择原版难度。\r[#FF4040]\n本项仅在游戏开始时可设置，\n游戏中不可修改",
+										"choices": [
+											{
+												"text": "原版简单",
+												"action": [
+													{
+														"type": "setValue",
+														"name": "status:hp",
+														"value": "1000"
+													},
+													{
+														"type": "setValue",
+														"name": "status:atk",
+														"value": "10"
+													},
+													{
+														"type": "setValue",
+														"name": "status:def",
+														"value": "10"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:s190_NoCheating",
+														"value": "0"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:baseHard",
+														"value": "0"
+													}
+												]
+											},
+											{
+												"text": "原版困难",
+												"action": [
+													{
+														"type": "setValue",
+														"name": "status:hp",
+														"value": "1000"
+													},
+													{
+														"type": "setValue",
+														"name": "status:atk",
+														"value": "8"
+													},
+													{
+														"type": "setValue",
+														"name": "status:def",
+														"value": "8"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:baseHard",
+														"value": "1"
+													}
+												]
+											},
+											{
+												"text": "原版噩梦",
+												"action": [
+													{
+														"type": "setValue",
+														"name": "flag:baseHard",
+														"value": "2"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:s190_NoCheating",
+														"value": "1"
+													}
+												]
+											},
+											{
+												"text": "返回上一级",
+												"action": []
+											}
+										]
+									}
+								]
+							},
+							{
+								"text": "使用预设(首次游玩推荐)",
+								"color": [
+									255,
+									215,
+									0,
+									1
+								],
+								"condition": "flag:arg1===\"title\"",
+								"action": [
+									{
+										"type": "choices",
+										"text": "\t[选择预设难度]以下是一些预设的难度选项，可选择后再\n进行细粒度修改。\n\r[orange]\n首次游玩推荐选择：体验优化[+5难]\r",
+										"choices": [
+											{
+												"text": "接近原版 [+0难]",
+												"action": [
+													{
+														"type": "setValue",
+														"name": "flag:noFixSevereBug",
+														"value": "1"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:weakTagLevel",
+														"value": "0"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:37FItemlevel",
+														"value": "0"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:PotionLessValue",
+														"value": "0"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:PotionLessRate",
+														"value": "0"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:SuperSteelKeyInvalid",
+														"value": "0"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:F51promote",
+														"value": "0"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:F85promote",
+														"value": "0"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:Fm58promote",
+														"value": "0"
+													}
+												]
+											},
+											{
+												"text": "体验优化 [+5难]",
+												"color": [
+													128,
+													255,
+													128
+												],
+												"action": [
+													{
+														"type": "setValue",
+														"name": "flag:noFixSevereBug",
+														"value": "0"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:weakTagLevel",
+														"value": "1"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:37FItemlevel",
+														"value": "1"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:PotionLessValue",
+														"value": "1"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:PotionLessRate",
+														"value": "0"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:SuperSteelKeyInvalid",
+														"value": "1"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:F51promote",
+														"value": "0"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:F85promote",
+														"value": "1"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:Fm58promote",
+														"value": "0"
+													}
+												]
+											},
+											{
+												"text": "难度上榜 [+9难]",
+												"action": [
+													{
+														"type": "setValue",
+														"name": "flag:noFixSevereBug",
+														"value": "0"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:weakTagLevel",
+														"value": "2"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:37FItemlevel",
+														"value": "2"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:PotionLessValue",
+														"value": "1"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:PotionLessRate",
+														"value": "1"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:SuperSteelKeyInvalid",
+														"value": "1"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:F51promote",
+														"value": "1"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:F85promote",
+														"value": "1"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:Fm58promote",
+														"value": "0"
+													}
+												]
+											},
+											{
+												"text": "最高难度 [+13难]",
+												"color": [
+													255,
+													0,
+													255
+												],
+												"action": [
+													{
+														"type": "setValue",
+														"name": "flag:noFixSevereBug",
+														"value": "0"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:weakTagLevel",
+														"value": "3"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:37FItemlevel",
+														"value": "3"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:PotionLessValue",
+														"value": "1"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:PotionLessRate",
+														"value": "1"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:SuperSteelKeyInvalid",
+														"value": "1"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:F51promote",
+														"value": "1"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:F85promote",
+														"value": "1"
+													},
+													{
+														"type": "setValue",
+														"name": "flag:Fm58promote",
+														"value": "1"
+													}
+												]
+											},
+											{
+												"text": "返回上一级",
+												"action": []
+											}
+										]
+									}
+								]
+							},
+							{
+								"text": "恶性特性修复 [${flag:noFixSevereBug?'OFF':'ON'}]",
+								"color": [
+									255,
+									96,
+									96
+								],
+								"need": "flag:arg1===\"title\"",
+								"action": [
+									{
+										"type": "choices",
+										"text": "\t[恶性特性修复]只有开启此项才可正常计算难度，确认${flag:noFixSevereBug?'启':'禁'}用吗？\n\r[orange]启用时，将影响：\r\n① -23/-59F控血NPC不可跳过\n② 领袖战斗楼层升/降飞羽不可用\n③ 48F宝石升级NPC仅可用一次\n④ 地牢捷克将要求持有幸运金币\n⑤ -50F商店将仅允许出售装备\n\r[#FF4040]本项仅在游戏开始时可设置，游戏中不可修改\r",
+										"choices": [
+											{
+												"text": "启用",
+												"action": [
+													{
+														"type": "setValue",
+														"name": "flag:noFixSevereBug",
+														"value": "0"
+													}
+												]
+											},
+											{
+												"text": "禁用",
+												"action": [
+													{
+														"type": "setValue",
+														"name": "flag:noFixSevereBug",
+														"value": "1"
+													}
+												]
+											}
+										]
+									}
+								]
+							},
+							{
+								"text": "衰弱相关 (难度+${flag:weakTagLevel})",
+								"action": [
+									{
+										"type": "while",
+										"condition": "1",
+										"data": [
+											{
+												"type": "setValue",
+												"name": "flag:realHard",
+												"value": "flag:noFixSevereBug?0:(flag:weakTagLevel+(flag:37FItemlevel<3?flag:37FItemlevel:4)+flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:F51promote+flag:F85promote+flag:Fm58promote)+flag:baseHard"
+											},
+											{
+												"type": "choices",
+												"text": "\t[附加难度：衰弱相关]\r[orange]当前总难度：${flag:realHard}/15\r\n原版中，多数在衰弱时触发的攻防扣减将在解衰时恢复\n如：退化、路障、NPC、剧情事件等。\n\n\r[#FF8080]难度Tag：请选择挑战项目\r\n\r[#80FF80]当前已选择：\r${['遵循原版','5以内扣减不可被衰弱避免','20以内扣减不可被衰弱避免','所有扣减不可被衰弱避免'][flag:weakTagLevel]}，+${flag:weakTagLevel}难",
+												"choices": [
+													{
+														"text": "遵循原版[+0难]",
+														"action": [
+															{
+																"type": "setValue",
+																"name": "flag:weakTagLevel",
+																"value": "0"
+															}
+														]
+													},
+													{
+														"text": "5以内扣减不可被衰弱避免[+1难]",
+														"need": "flag:weakTagLevelUb>=1",
+														"action": [
+															{
+																"type": "setValue",
+																"name": "flag:weakTagLevel",
+																"value": "1"
+															}
+														]
+													},
+													{
+														"text": "20以内扣减不可被衰弱避免[+2难]",
+														"need": "flag:weakTagLevelUb>=2",
+														"action": [
+															{
+																"type": "setValue",
+																"name": "flag:weakTagLevel",
+																"value": "2"
+															}
+														]
+													},
+													{
+														"text": "所有扣减不可被衰弱避免[+3难]",
+														"color": [
+															255,
+															0,
+															255
+														],
+														"need": "flag:weakTagLevelUb>=3",
+														"action": [
+															{
+																"type": "setValue",
+																"name": "flag:weakTagLevel",
+																"value": "3"
+															}
+														]
+													},
+													{
+														"text": "返回上一级",
+														"action": [
+															{
+																"type": "break",
+																"n": 1
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								]
+							},
+							{
+								"text": "37F宝物相关 (难度+${flag:noFixSevereBug? 0 : (flag:37FItemlevel<3?flag:37FItemlevel:4)})",
+								"action": [
+									{
+										"type": "while",
+										"condition": "1",
+										"data": [
+											{
+												"type": "setValue",
+												"name": "flag:realHard",
+												"value": "flag:noFixSevereBug?0:(flag:weakTagLevel+(flag:37FItemlevel<3?flag:37FItemlevel:4)+flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:F51promote+flag:F85promote+flag:Fm58promote)+flag:baseHard"
+											},
+											{
+												"type": "choices",
+												"text": "\t[附加难度：37F宝物相关]\r[orange]当前总难度：${flag:realHard}/15\r\n原版中，37F有12个高价值宝物可以全部获得\n\n\r[#FF8080]难度Tag：请选择挑战项目\r\n\r[#80FF80]当前已选择：\r${['遵循原版','至多只拾取6个宝物','至多只拾取3个宝物','至多只拾取1个宝物'][flag:37FItemlevel]}，+${flag:37FItemlevel<3?flag:37FItemlevel:4}难",
+												"choices": [
+													{
+														"text": "遵循原版[+0难]",
+														"action": [
+															{
+																"type": "setValue",
+																"name": "flag:37FItemlevel",
+																"value": "0"
+															}
+														]
+													},
+													{
+														"text": "至多只拾取6个宝物[+1难]",
+														"need": "flag:37FItemlevelUb>=1",
+														"action": [
+															{
+																"type": "setValue",
+																"name": "flag:37FItemlevel",
+																"value": "1"
+															}
+														]
+													},
+													{
+														"text": "至多只拾取3个宝物[+2难]",
+														"need": "flag:37FItemlevelUb>=2",
+														"action": [
+															{
+																"type": "setValue",
+																"name": "flag:37FItemlevel",
+																"value": "2"
+															}
+														]
+													},
+													{
+														"text": "至多只拾取1个宝物[+4难]",
+														"color": [
+															255,
+															0,
+															255
+														],
+														"need": "flag:37FItemlevelUb>=3",
+														"action": [
+															{
+																"type": "setValue",
+																"name": "flag:37FItemlevel",
+																"value": "3"
+															}
+														]
+													},
+													{
+														"text": "返回上一级",
+														"action": [
+															{
+																"type": "break",
+																"n": 1
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								]
+							},
+							{
+								"text": "血瓶宝物相关 (难度+${flag:noFixSevereBug? 0 : flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid})",
+								"action": [
+									{
+										"type": "while",
+										"condition": "1",
+										"data": [
+											{
+												"type": "setValue",
+												"name": "flag:realHard",
+												"value": "flag:noFixSevereBug?0:(flag:weakTagLevel+(flag:37FItemlevel<3?flag:37FItemlevel:4)+flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:F51promote+flag:F85promote+flag:Fm58promote)+flag:baseHard"
+											},
+											{
+												"type": "choices",
+												"text": "\t[附加难度：血瓶宝物相关]\r[orange]当前总难度：${flag:realHard}/15\r\n相比于原版，血瓶宝物可以效果有更多限制。\n\r[#FF8080]\n难度Tag：每项+1难可叠加，请选择挑战项目\r\n\r[#80FF80]当前已选择：+${flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid}难",
+												"choices": [
+													{
+														"text": "85/-80F血瓶增益效果降低[ON]",
+														"color": [
+															255,
+															215,
+															0,
+															1
+														],
+														"need": "flag:PotionLessValueDisabled!==1",
+														"condition": "flag:PotionLessValue===1",
+														"action": [
+															{
+																"type": "setValue",
+																"name": "flag:PotionLessValue",
+																"value": "0"
+															}
+														]
+													},
+													{
+														"text": "85/-80F血瓶增益效果降低[OFF]",
+														"need": "flag:PotionLessValueDisabled!==1",
+														"condition": "flag:PotionLessValue!==1",
+														"action": [
+															{
+																"type": "setValue",
+																"name": "flag:PotionLessValue",
+																"value": "1"
+															}
+														]
+													},
+													{
+														"text": "紫血瓶效果*0.2,且部分不可拾取[ON]",
+														"color": [
+															255,
+															215,
+															0,
+															1
+														],
+														"need": "flag:PotionLessRateHinted!==1",
+														"condition": "flag:PotionLessRate===1",
+														"action": [
+															{
+																"type": "setValue",
+																"name": "flag:PotionLessRate",
+																"value": "0"
+															}
+														]
+													},
+													{
+														"text": "紫血瓶效果*0.2,且部分不可拾取[OFF]",
+														"need": "flag:PotionLessRateHinted!==1",
+														"condition": "flag:PotionLessRate!==1",
+														"action": [
+															{
+																"type": "setValue",
+																"name": "flag:PotionLessRate",
+																"value": "1"
+															}
+														]
+													},
+													{
+														"text": "万能铁门钥匙不再出现[ON]",
+														"color": [
+															255,
+															215,
+															0,
+															1
+														],
+														"need": "flag:SuperSteelKeyAttained!==1",
+														"condition": "flag:SuperSteelKeyInvalid===1",
+														"action": [
+															{
+																"type": "setValue",
+																"name": "flag:SuperSteelKeyInvalid",
+																"value": "0"
+															},
+															{
+																"type": "hide",
+																"loc": [
+																	[
+																		4,
+																		10
+																	]
+																],
+																"floorId": "Treasure3"
+															}
+														]
+													},
+													{
+														"text": "万能铁门钥匙不再出现[OFF]",
+														"need": "flag:SuperSteelKeyAttained!==1",
+														"condition": "flag:SuperSteelKeyInvalid!==1",
+														"action": [
+															{
+																"type": "setValue",
+																"name": "flag:SuperSteelKeyInvalid",
+																"value": "1"
+															},
+															{
+																"type": "show",
+																"loc": [
+																	[
+																		4,
+																		10
+																	]
+																],
+																"floorId": "Treasure3"
+															}
+														]
+													},
+													{
+														"text": "返回上一级",
+														"action": [
+															{
+																"type": "break",
+																"n": 1
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								]
+							},
+							{
+								"text": "敌方属性相关 (难度+${flag:noFixSevereBug? 0 : flag:F51promote+flag:F85promote+flag:Fm58promote})",
+								"action": [
+									{
+										"type": "while",
+										"condition": "1",
+										"data": [
+											{
+												"type": "setValue",
+												"name": "flag:realHard",
+												"value": "flag:noFixSevereBug?0:(flag:weakTagLevel+(flag:37FItemlevel<3?flag:37FItemlevel:4)+flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:F51promote+flag:F85promote+flag:Fm58promote)+flag:baseHard"
+											},
+											{
+												"type": "choices",
+												"text": "\t[附加难度：敌方属性相关]\r[orange]当前总难度：${flag:realHard}/15\r\n相比于原版，敌方属性可以更高。\n\r[#FF8080]\n难度Tag：每项+1难可叠加，请选择挑战项目\r\n\r[#80FF80]当前已选择：+${flag:F51promote+flag:F85promote+flag:Fm58promote}难",
+												"choices": [
+													{
+														"text": "51F起非领袖敌人命/攻+10%[ON]",
+														"color": [
+															255,
+															215,
+															0,
+															1
+														],
+														"need": "!core.hasVisitedFloor('MT51')",
+														"condition": "flag:F51promote===1",
+														"action": [
+															{
+																"type": "setValue",
+																"name": "flag:F51promote",
+																"value": "0"
+															}
+														]
+													},
+													{
+														"text": "51F起非领袖敌人命/攻+10%[OFF]",
+														"need": "!core.hasVisitedFloor('MT51')",
+														"condition": "flag:F51promote!==1",
+														"action": [
+															{
+																"type": "setValue",
+																"name": "flag:F51promote",
+																"value": "1"
+															}
+														]
+													},
+													{
+														"text": "85F起非领袖敌人命/攻+15%[ON]",
+														"color": [
+															255,
+															215,
+															0,
+															1
+														],
+														"need": "!core.hasVisitedFloor('MT85')",
+														"condition": "flag:F85promote===1",
+														"action": [
+															{
+																"type": "setValue",
+																"name": "flag:F85promote",
+																"value": "0"
+															}
+														]
+													},
+													{
+														"text": "85F起非领袖敌人命/攻+15%[OFF]",
+														"need": "!core.hasVisitedFloor('MT85')",
+														"condition": "flag:F85promote!==1",
+														"action": [
+															{
+																"type": "setValue",
+																"name": "flag:F85promote",
+																"value": "1"
+															}
+														]
+													},
+													{
+														"text": "-58F起非领袖敌人命/攻+20%[ON]",
+														"color": [
+															255,
+															215,
+															0,
+															1
+														],
+														"need": "!core.hasVisitedFloor('MTn58')",
+														"condition": "flag:Fm58promote===1",
+														"action": [
+															{
+																"type": "setValue",
+																"name": "flag:Fm58promote",
+																"value": "0"
+															}
+														]
+													},
+													{
+														"text": "-58F起非领袖敌人命/攻+20%[OFF]",
+														"need": "!core.hasVisitedFloor('MTn58')",
+														"condition": "flag:Fm58promote!==1",
+														"action": [
+															{
+																"type": "setValue",
+																"name": "flag:Fm58promote",
+																"value": "1"
+															}
+														]
+													},
+													{
+														"text": "返回上一级",
+														"action": [
+															{
+																"type": "break",
+																"n": 1
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								]
+							},
+							{
+								"text": "完成配置",
+								"color": [
+									64,
+									255,
+									64,
+									1
+								],
+								"action": [
+									{
+										"type": "playSound",
+										"name": "confirm.mp3"
+									},
+									{
+										"type": "break",
+										"n": 1
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		],
+		"结局处理": [
+			{
+				"type": "setText",
+				"time": 50
+			},
+			{
+				"type": "pauseBgm"
+			},
+			{
+				"type": "playSound",
+				"name": "157-Skill01.ogg",
+				"stop": true,
+				"pitch": 70
+			},
+			{
+				"type": "setCurtain",
+				"color": [
+					0,
+					0,
+					0,
+					1
+				],
+				"time": 500,
+				"keep": true
+			},
+			{
+				"type": "switch",
+				"condition": "flag:arg1",
+				"caseList": [
+					{
+						"case": "\"结局2\"",
+						"action": [
+							"\r[#8080FF]结局二：中毒\n勇士因为未注意自己，使自己中毒身亡了。国家也因没了勇士，最终灭亡了......"
+						]
+					},
+					{
+						"case": "\"结局3\"",
+						"action": [
+							"\r[#80FF80]结局三：逃跑\n勇士逃了回来，虽然任务未完，但是人们并不责怪，新的勇士又进去了......"
+						]
+					},
+					{
+						"case": "\"结局4\"",
+						"action": [
+							"\r[#8080FF]结局四：失魂落魄\n勇士离开了了魔塔，但是魔塔和国家再也没看见勇士。发生了什么事情？谁也不知道......"
+						]
+					},
+					{
+						"case": "\"结局5\"",
+						"action": [
+							"\r[#80FF80]结局五：失魂落魄\n勇士离开了了魔塔，但是魔塔和国家再也没看见勇士。发生了什么事情？谁也不知道......"
+						]
+					},
+					{
+						"case": "\"结局6\"",
+						"action": [
+							"\r[#8080FF]结局六：跌落\n勇士终究没有成功，不小心失足跌落到了时空里，从此，没有了勇士，也没了国家......"
+						]
+					},
+					{
+						"case": "\"结局7\"",
+						"action": [
+							"\r[#8080FF]结局七：奈落\n勇士成了魔王的手下，帮助魔王一起毁灭了自己的国家，魔塔重新耸立起来，变得强盛了......"
+						]
+					},
+					{
+						"case": "\"结局8\"",
+						"action": [
+							"\r[#FF8080]结局八：灭亡\n勇士带着公主回去了,但是勇士忘了救出国王。在勇士再去魔塔的时候,国家不知不觉的灭亡了.....\n发生了什么？谁也不知道。",
+							"\r[#FF8080]在勇士又奔赴国家的时候，国家已经是废墟了。奇怪的是，公主也不见了，魔塔也不见了，一切想梦一样的过去了，勇士又奔赴到了别的国家，不过那些国家也已经成了废虚......",
+							"\r[#FF8080]魔塔呢？国家呢？公主呢？\n或许，勇士忽略了一个地方......"
+						]
+					},
+					{
+						"case": "\"结局9\"",
+						"action": [
+							"\r[#80FFFF]结局九：东窗事发\n勇士奔回了魔塔，可是剩下的只是废墟而已......\n在勇士又赶回国家时，国家也只是废墟而已......\n坏的角色真的永胜么？",
+							"\r[#80FFFF]总之，世界上在这一刻又少了个英雄......."
+						]
+					},
+					{
+						"case": "default",
+						"action": [
+							"\r[#8080FF]结局一：失败\n勇士和其他勇士一样，也再也没回到国家。一切都是那样平静，像没发生一样......"
+						]
+					}
+				]
+			},
+			{
+				"type": "function",
+				"function": "function(){\ncore.status.gameOver = true;\ncore.events.eventdata.lose(core.getStatus(\"arg1\", \"结局1\"));\n}"
 			}
 		]
 	}

@@ -37,6 +37,7 @@ main.floors.MTn56=
                     "choices": [
                         {
                             "text": "我不是高手，要拿",
+                            "need": "flag:PotionLessRate!==1",
                             "action": []
                         },
                         {

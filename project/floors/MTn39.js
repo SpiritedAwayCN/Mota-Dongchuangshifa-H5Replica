@@ -24,6 +24,44 @@ main.floors.MTn39=
                 "type": "hide",
                 "remove": true
             }
+        ],
+        "8,6": [
+            {
+                "type": "if",
+                "condition": "(flag:NoDarkFloorValid===1)",
+                "true": [
+                    {
+                        "type": "confirm",
+                        "text": "确认要重新启用漆黑层吗?",
+                        "yes": [
+                            {
+                                "type": "setValue",
+                                "name": "flag:NoDarkFloorValid",
+                                "value": "0"
+                            }
+                        ],
+                        "no": []
+                    }
+                ],
+                "false": [
+                    {
+                        "type": "confirm",
+                        "text": "确认要禁用漆黑层效果吗?",
+                        "yes": [
+                            {
+                                "type": "setValue",
+                                "name": "flag:NoDarkFloorValid",
+                                "value": "1"
+                            }
+                        ],
+                        "no": []
+                    }
+                ]
+            },
+            {
+                "type": "function",
+                "function": "function(){\nif (core.shouldDrawDarkMask())\n\tcore.updateDarkMask(core.status.heroCenter.px - (core.bigmap.offsetX || 0), core.status.heroCenter.py - (core.bigmap.offsetY || 0));\nelse\n\tcore.cleanDarkMask();\n}"
+            }
         ]
     },
     "changeFloor": {
@@ -50,7 +88,7 @@ main.floors.MTn39=
     [20040,  2,  0,  2,  2,  2,  2,  2,  2,  2,  2,  0,  0,  0,20042],
     [20040,  0,  0,  0,  2,  0,  0,  0,  0,  0,  2,  2,  0,  2,20042],
     [20040,  0,  2,  2,  2,  0,  2,  2,  2,  0,  2,  0,  0,  0,20042],
-    [20040,  0,  2, 27,  2,  0,121, 87,  2,  0,  2,  2,  2,  0,20042],
+    [20040,  0,  2, 27,  2,  0,121, 87,129,  0,  2,  2,  2,  0,20042],
     [20040,  0,  2, 28,  2,  2,  2,  2,  2,  0,  0,  0,  2,  0,20042],
     [20040,  0,  2,  0,  0,  0,  0,  0,  0,  0,  2,  0,  2,  0,20042],
     [20040,  0,  2,  2,  0,  2,  0,  2,  2,  2,  2,  0,  2,  0,20042],

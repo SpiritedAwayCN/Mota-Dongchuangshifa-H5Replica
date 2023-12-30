@@ -32,6 +32,966 @@ main.floors.MT37=
                 "shadow": 0
             },
             "data": []
+        },
+        "2,2": {
+            "trigger": "action",
+            "enable": true,
+            "noPass": true,
+            "displayDamage": true,
+            "opacity": 1,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": [
+                {
+                    "type": "if",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevel])",
+                    "true": [
+                        "\t[H5难度系统]根据当前的难度设置，您已无法获得此宝物。\n若确需获取，请按C修改\"37F宝物相关\"难度选项。",
+                        {
+                            "type": "exit"
+                        }
+                    ]
+                },
+                {
+                    "type": "if",
+                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "true": [
+                        {
+                            "type": "confirm",
+                            "default": true,
+                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                            "yes": [
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:F37_DisabledTag",
+                                    "value": "1"
+                                },
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:37FItemlevelUb",
+                                    "operator": "-=",
+                                    "value": "1"
+                                }
+                            ],
+                            "no": [
+                                {
+                                    "type": "exit"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "setValue",
+                    "name": "flag:F37_fetched",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "setValue",
+                    "name": "item:upFly",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "hide",
+                    "remove": true
+                },
+                {
+                    "type": "show",
+                    "loc": [
+                        [
+                            7,
+                            13
+                        ]
+                    ]
+                }
+            ]
+        },
+        "12,4": {
+            "trigger": "action",
+            "enable": true,
+            "noPass": true,
+            "displayDamage": true,
+            "opacity": 1,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": [
+                {
+                    "type": "if",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevel])",
+                    "true": [
+                        "\t[H5难度系统]根据当前的难度设置，您已无法获得此宝物。\n若确需获取，请按C修改\"37F宝物相关\"难度选项。",
+                        {
+                            "type": "exit"
+                        }
+                    ]
+                },
+                {
+                    "type": "if",
+                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "true": [
+                        {
+                            "type": "confirm",
+                            "default": true,
+                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                            "yes": [
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:F37_DisabledTag",
+                                    "value": "1"
+                                },
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:37FItemlevelUb",
+                                    "operator": "-=",
+                                    "value": "1"
+                                }
+                            ],
+                            "no": [
+                                {
+                                    "type": "exit"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "setValue",
+                    "name": "flag:F37_fetched",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "setValue",
+                    "name": "item:upFly",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "hide",
+                    "remove": true
+                },
+                {
+                    "type": "show",
+                    "loc": [
+                        [
+                            7,
+                            13
+                        ]
+                    ]
+                }
+            ]
+        },
+        "2,4": {
+            "trigger": "action",
+            "enable": true,
+            "noPass": true,
+            "displayDamage": true,
+            "opacity": 1,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": [
+                {
+                    "type": "if",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevel])",
+                    "true": [
+                        "\t[H5难度系统]根据当前的难度设置，您已无法获得此宝物。\n若确需获取，请按C修改\"37F宝物相关\"难度选项。",
+                        {
+                            "type": "exit"
+                        }
+                    ]
+                },
+                {
+                    "type": "if",
+                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "true": [
+                        {
+                            "type": "confirm",
+                            "default": true,
+                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                            "yes": [
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:F37_DisabledTag",
+                                    "value": "1"
+                                },
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:37FItemlevelUb",
+                                    "operator": "-=",
+                                    "value": "1"
+                                }
+                            ],
+                            "no": [
+                                {
+                                    "type": "exit"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "setValue",
+                    "name": "flag:F37_fetched",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "setValue",
+                    "name": "item:downFly",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "hide",
+                    "remove": true
+                },
+                {
+                    "type": "show",
+                    "loc": [
+                        [
+                            7,
+                            13
+                        ]
+                    ]
+                }
+            ]
+        },
+        "12,12": {
+            "trigger": "action",
+            "enable": true,
+            "noPass": true,
+            "displayDamage": true,
+            "opacity": 1,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": [
+                {
+                    "type": "if",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevel])",
+                    "true": [
+                        "\t[H5难度系统]根据当前的难度设置，您已无法获得此宝物。\n若确需获取，请按C修改\"37F宝物相关\"难度选项。",
+                        {
+                            "type": "exit"
+                        }
+                    ]
+                },
+                {
+                    "type": "if",
+                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "true": [
+                        {
+                            "type": "confirm",
+                            "default": true,
+                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                            "yes": [
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:F37_DisabledTag",
+                                    "value": "1"
+                                },
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:37FItemlevelUb",
+                                    "operator": "-=",
+                                    "value": "1"
+                                }
+                            ],
+                            "no": [
+                                {
+                                    "type": "exit"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "setValue",
+                    "name": "flag:F37_fetched",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "setValue",
+                    "name": "item:downFly",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "hide",
+                    "remove": true
+                },
+                {
+                    "type": "show",
+                    "loc": [
+                        [
+                            7,
+                            13
+                        ]
+                    ]
+                }
+            ]
+        },
+        "2,6": {
+            "trigger": "action",
+            "enable": true,
+            "noPass": true,
+            "displayDamage": true,
+            "opacity": 1,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": [
+                {
+                    "type": "if",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevel])",
+                    "true": [
+                        "\t[H5难度系统]根据当前的难度设置，您已无法获得此宝物。\n若确需获取，请按C修改\"37F宝物相关\"难度选项。",
+                        {
+                            "type": "exit"
+                        }
+                    ]
+                },
+                {
+                    "type": "if",
+                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "true": [
+                        {
+                            "type": "confirm",
+                            "default": true,
+                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                            "yes": [
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:F37_DisabledTag",
+                                    "value": "1"
+                                },
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:37FItemlevelUb",
+                                    "operator": "-=",
+                                    "value": "1"
+                                }
+                            ],
+                            "no": [
+                                {
+                                    "type": "exit"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "setValue",
+                    "name": "flag:F37_fetched",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "setValue",
+                    "name": "item:centerFly",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "hide",
+                    "remove": true
+                },
+                {
+                    "type": "show",
+                    "loc": [
+                        [
+                            7,
+                            13
+                        ]
+                    ]
+                }
+            ]
+        },
+        "12,2": {
+            "trigger": "action",
+            "enable": true,
+            "noPass": true,
+            "displayDamage": true,
+            "opacity": 1,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": [
+                {
+                    "type": "if",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevel])",
+                    "true": [
+                        "\t[H5难度系统]根据当前的难度设置，您已无法获得此宝物。\n若确需获取，请按C修改\"37F宝物相关\"难度选项。",
+                        {
+                            "type": "exit"
+                        }
+                    ]
+                },
+                {
+                    "type": "if",
+                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "true": [
+                        {
+                            "type": "confirm",
+                            "default": true,
+                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                            "yes": [
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:F37_DisabledTag",
+                                    "value": "1"
+                                },
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:37FItemlevelUb",
+                                    "operator": "-=",
+                                    "value": "1"
+                                }
+                            ],
+                            "no": [
+                                {
+                                    "type": "exit"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "setValue",
+                    "name": "flag:F37_fetched",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "setValue",
+                    "name": "item:centerFly",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "hide",
+                    "remove": true
+                },
+                {
+                    "type": "show",
+                    "loc": [
+                        [
+                            7,
+                            13
+                        ]
+                    ]
+                }
+            ]
+        },
+        "12,6": {
+            "trigger": "action",
+            "enable": true,
+            "noPass": true,
+            "displayDamage": true,
+            "opacity": 1,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": [
+                {
+                    "type": "if",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevel])",
+                    "true": [
+                        "\t[H5难度系统]根据当前的难度设置，您已无法获得此宝物。\n若确需获取，请按C修改\"37F宝物相关\"难度选项。",
+                        {
+                            "type": "exit"
+                        }
+                    ]
+                },
+                {
+                    "type": "if",
+                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "true": [
+                        {
+                            "type": "confirm",
+                            "default": true,
+                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                            "yes": [
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:F37_DisabledTag",
+                                    "value": "1"
+                                },
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:37FItemlevelUb",
+                                    "operator": "-=",
+                                    "value": "1"
+                                }
+                            ],
+                            "no": [
+                                {
+                                    "type": "exit"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "setValue",
+                    "name": "flag:F37_fetched",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "setValue",
+                    "name": "item:pickaxe",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "hide",
+                    "remove": true
+                },
+                {
+                    "type": "show",
+                    "loc": [
+                        [
+                            7,
+                            13
+                        ]
+                    ]
+                }
+            ]
+        },
+        "2,10": {
+            "trigger": "action",
+            "enable": true,
+            "noPass": true,
+            "displayDamage": true,
+            "opacity": 1,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": [
+                {
+                    "type": "if",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevel])",
+                    "true": [
+                        "\t[H5难度系统]根据当前的难度设置，您已无法获得此宝物。\n若确需获取，请按C修改\"37F宝物相关\"难度选项。",
+                        {
+                            "type": "exit"
+                        }
+                    ]
+                },
+                {
+                    "type": "if",
+                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "true": [
+                        {
+                            "type": "confirm",
+                            "default": true,
+                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                            "yes": [
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:F37_DisabledTag",
+                                    "value": "1"
+                                },
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:37FItemlevelUb",
+                                    "operator": "-=",
+                                    "value": "1"
+                                }
+                            ],
+                            "no": [
+                                {
+                                    "type": "exit"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "setValue",
+                    "name": "flag:F37_fetched",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "setValue",
+                    "name": "item:pickaxe",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "hide",
+                    "remove": true
+                },
+                {
+                    "type": "show",
+                    "loc": [
+                        [
+                            7,
+                            13
+                        ]
+                    ]
+                }
+            ]
+        },
+        "2,8": {
+            "trigger": "action",
+            "enable": true,
+            "noPass": true,
+            "displayDamage": true,
+            "opacity": 1,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": [
+                {
+                    "type": "if",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevel])",
+                    "true": [
+                        "\t[H5难度系统]根据当前的难度设置，您已无法获得此宝物。\n若确需获取，请按C修改\"37F宝物相关\"难度选项。",
+                        {
+                            "type": "exit"
+                        }
+                    ]
+                },
+                {
+                    "type": "if",
+                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "true": [
+                        {
+                            "type": "confirm",
+                            "default": true,
+                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                            "yes": [
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:F37_DisabledTag",
+                                    "value": "1"
+                                },
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:37FItemlevelUb",
+                                    "operator": "-=",
+                                    "value": "1"
+                                }
+                            ],
+                            "no": [
+                                {
+                                    "type": "exit"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "setValue",
+                    "name": "flag:F37_fetched",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "setValue",
+                    "name": "item:earthquake",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "hide",
+                    "remove": true
+                },
+                {
+                    "type": "show",
+                    "loc": [
+                        [
+                            7,
+                            13
+                        ]
+                    ]
+                }
+            ]
+        },
+        "12,10": {
+            "trigger": "action",
+            "enable": true,
+            "noPass": true,
+            "displayDamage": true,
+            "opacity": 1,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": [
+                {
+                    "type": "if",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevel])",
+                    "true": [
+                        "\t[H5难度系统]根据当前的难度设置，您已无法获得此宝物。\n若确需获取，请按C修改\"37F宝物相关\"难度选项。",
+                        {
+                            "type": "exit"
+                        }
+                    ]
+                },
+                {
+                    "type": "if",
+                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "true": [
+                        {
+                            "type": "confirm",
+                            "default": true,
+                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                            "yes": [
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:F37_DisabledTag",
+                                    "value": "1"
+                                },
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:37FItemlevelUb",
+                                    "operator": "-=",
+                                    "value": "1"
+                                }
+                            ],
+                            "no": [
+                                {
+                                    "type": "exit"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "setValue",
+                    "name": "flag:F37_fetched",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "setValue",
+                    "name": "item:earthquake",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "hide",
+                    "remove": true
+                },
+                {
+                    "type": "show",
+                    "loc": [
+                        [
+                            7,
+                            13
+                        ]
+                    ]
+                }
+            ]
+        },
+        "12,8": {
+            "trigger": "action",
+            "enable": true,
+            "noPass": true,
+            "displayDamage": true,
+            "opacity": 1,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": [
+                {
+                    "type": "if",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevel])",
+                    "true": [
+                        "\t[H5难度系统]根据当前的难度设置，您已无法获得此宝物。\n若确需获取，请按C修改\"37F宝物相关\"难度选项。",
+                        {
+                            "type": "exit"
+                        }
+                    ]
+                },
+                {
+                    "type": "if",
+                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "true": [
+                        {
+                            "type": "confirm",
+                            "default": true,
+                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                            "yes": [
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:F37_DisabledTag",
+                                    "value": "1"
+                                },
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:37FItemlevelUb",
+                                    "operator": "-=",
+                                    "value": "1"
+                                }
+                            ],
+                            "no": [
+                                {
+                                    "type": "exit"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "setValue",
+                    "name": "flag:F37_fetched",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "setValue",
+                    "name": "item:steelKey",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "hide",
+                    "remove": true
+                },
+                {
+                    "type": "show",
+                    "loc": [
+                        [
+                            7,
+                            13
+                        ]
+                    ]
+                }
+            ]
+        },
+        "2,12": {
+            "trigger": "action",
+            "enable": true,
+            "noPass": true,
+            "displayDamage": true,
+            "opacity": 1,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": [
+                {
+                    "type": "if",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevel])",
+                    "true": [
+                        "\t[H5难度系统]根据当前的难度设置，您已无法获得此宝物。\n若确需获取，请按C修改\"37F宝物相关\"难度选项。",
+                        {
+                            "type": "exit"
+                        }
+                    ]
+                },
+                {
+                    "type": "if",
+                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "true": [
+                        {
+                            "type": "confirm",
+                            "default": true,
+                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                            "yes": [
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:F37_DisabledTag",
+                                    "value": "1"
+                                },
+                                {
+                                    "type": "setValue",
+                                    "name": "flag:37FItemlevelUb",
+                                    "operator": "-=",
+                                    "value": "1"
+                                }
+                            ],
+                            "no": [
+                                {
+                                    "type": "exit"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "setValue",
+                    "name": "flag:F37_fetched",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "setValue",
+                    "name": "item:steelKey",
+                    "operator": "+=",
+                    "value": "1"
+                },
+                {
+                    "type": "hide",
+                    "remove": true
+                },
+                {
+                    "type": "show",
+                    "loc": [
+                        [
+                            7,
+                            13
+                        ]
+                    ]
+                }
+            ]
         }
     },
     "changeFloor": {
@@ -46,140 +1006,7 @@ main.floors.MT37=
     },
     "beforeBattle": {},
     "afterBattle": {},
-    "afterGetItem": {
-        "2,2": [
-            {
-                "type": "show",
-                "loc": [
-                    [
-                        7,
-                        13
-                    ]
-                ]
-            }
-        ],
-        "2,4": [
-            {
-                "type": "show",
-                "loc": [
-                    [
-                        7,
-                        13
-                    ]
-                ]
-            }
-        ],
-        "2,6": [
-            {
-                "type": "show",
-                "loc": [
-                    [
-                        7,
-                        13
-                    ]
-                ]
-            }
-        ],
-        "2,8": [
-            {
-                "type": "show",
-                "loc": [
-                    [
-                        7,
-                        13
-                    ]
-                ]
-            }
-        ],
-        "2,10": [
-            {
-                "type": "show",
-                "loc": [
-                    [
-                        7,
-                        13
-                    ]
-                ]
-            }
-        ],
-        "2,12": [
-            {
-                "type": "show",
-                "loc": [
-                    [
-                        7,
-                        13
-                    ]
-                ]
-            }
-        ],
-        "12,12": [
-            {
-                "type": "show",
-                "loc": [
-                    [
-                        7,
-                        13
-                    ]
-                ]
-            }
-        ],
-        "12,10": [
-            {
-                "type": "show",
-                "loc": [
-                    [
-                        7,
-                        13
-                    ]
-                ]
-            }
-        ],
-        "12,8": [
-            {
-                "type": "show",
-                "loc": [
-                    [
-                        7,
-                        13
-                    ]
-                ]
-            }
-        ],
-        "12,6": [
-            {
-                "type": "show",
-                "loc": [
-                    [
-                        7,
-                        13
-                    ]
-                ]
-            }
-        ],
-        "12,4": [
-            {
-                "type": "show",
-                "loc": [
-                    [
-                        7,
-                        13
-                    ]
-                ]
-            }
-        ],
-        "12,2": [
-            {
-                "type": "show",
-                "loc": [
-                    [
-                        7,
-                        13
-                    ]
-                ]
-            }
-        ]
-    },
+    "afterGetItem": {},
     "afterOpenDoor": {},
     "autoEvent": {},
     "cannotMove": {},

@@ -301,6 +301,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"112-Heal08.ogg",
 			"114-Remedy02.ogg",
 			"133-Wind02.ogg",
+			"157-Skill01.ogg",
 			"160-Skill04.ogg",
 			"163-Skill07.ogg",
 			"164-Skill08.ogg",
@@ -356,83 +357,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"商店": "shop.mp3",
 			"领域": "zone"
 		},
-		"levelChoose": [
-			{
-				"title": "简单",
-				"name": "Easy",
-				"hard": 1,
-				"color": [
-					64,
-					255,
-					85,
-					1
-				],
-				"action": [
-					{
-						"type": "setValue",
-						"name": "status:hp",
-						"value": "1000"
-					},
-					{
-						"type": "setValue",
-						"name": "status:atk",
-						"value": "10"
-					},
-					{
-						"type": "setValue",
-						"name": "status:def",
-						"value": "10"
-					}
-				]
-			},
-			{
-				"title": "困难",
-				"name": "Hard",
-				"hard": 2,
-				"color": [
-					255,
-					221,
-					32,
-					1
-				],
-				"action": [
-					{
-						"type": "setValue",
-						"name": "status:hp",
-						"value": "1000"
-					},
-					{
-						"type": "setValue",
-						"name": "status:atk",
-						"value": "8"
-					},
-					{
-						"type": "setValue",
-						"name": "status:def",
-						"value": "8"
-					}
-				]
-			},
-			{
-				"title": "噩梦",
-				"name": "Nightmare",
-				"hard": 3,
-				"color": [
-					255,
-					68,
-					64,
-					1
-				],
-				"action": [
-					{
-						"type": "setValue",
-						"name": "flag:s190_NoCheating",
-						"value": "1",
-						"norefresh": true
-					}
-				]
-			}
-		],
+		"levelChoose": [],
 		"equipName": [
 			"武器",
 			"盾牌",
@@ -917,8 +842,172 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"于是，国家想到了你，\n让你消灭怪物，救出国王，\n粉碎怪物的邪恶计划。",
 			"一切只寄托在勇士身上，\n勇士为这个国家出动，\n我们的故事从这里开始......",
 			{
+				"type": "choices",
+				"text": "\t[原版难度]请选择难度：",
+				"choices": [
+					{
+						"text": "赋予属性：简单",
+						"action": [
+							{
+								"type": "setValue",
+								"name": "status:hp",
+								"value": "1000"
+							},
+							{
+								"type": "setValue",
+								"name": "status:atk",
+								"value": "10"
+							},
+							{
+								"type": "setValue",
+								"name": "status:def",
+								"value": "10"
+							},
+							{
+								"type": "setValue",
+								"name": "flag:s190_NoCheating",
+								"value": "0"
+							},
+							{
+								"type": "setValue",
+								"name": "flag:baseHard",
+								"value": "0"
+							},
+							{
+								"type": "setValue",
+								"name": "flag:realHard",
+								"value": "0"
+							}
+						]
+					},
+					{
+						"text": "赋予属性：困难",
+						"action": [
+							{
+								"type": "setValue",
+								"name": "status:hp",
+								"value": "1000"
+							},
+							{
+								"type": "setValue",
+								"name": "status:atk",
+								"value": "8"
+							},
+							{
+								"type": "setValue",
+								"name": "status:def",
+								"value": "8"
+							},
+							{
+								"type": "setValue",
+								"name": "flag:baseHard",
+								"value": "1"
+							},
+							{
+								"type": "setValue",
+								"name": "flag:realHard",
+								"value": "1"
+							}
+						]
+					},
+					{
+						"text": "赋予属性：噩梦",
+						"action": [
+							{
+								"type": "setValue",
+								"name": "flag:baseHard",
+								"value": "2"
+							},
+							{
+								"type": "setValue",
+								"name": "flag:realHard",
+								"value": "2"
+							},
+							{
+								"type": "setValue",
+								"name": "flag:s190_NoCheating",
+								"value": "1"
+							}
+						]
+					}
+				]
+			},
+			{
 				"type": "setText",
 				"time": 0
+			},
+			{
+				"type": "setValue",
+				"name": "flag:weakTagLevelUb",
+				"value": "3",
+				"norefresh": true
+			},
+			{
+				"type": "setValue",
+				"name": "flag:37FItemlevelUb",
+				"value": "3",
+				"norefresh": true
+			},
+			"\t[H5复刻作者]本H5复刻版有专属难度系统，\n您可以选择各项难度tag获得相应的难度点数。",
+			"\t[H5复刻作者]最高的可能难度点数为15；\n从难度10起，您的分数将单独出现在对应的排行榜上。",
+			"\t[H5复刻作者]接下来将呼出本H5复刻版的专属难度系统页面。\n这些tag也可在游戏中更改，直到其效果实际生效。",
+			{
+				"type": "insert",
+				"name": "难度配置",
+				"args": [
+					"title"
+				]
+			},
+			{
+				"type": "setValue",
+				"name": "item:I338",
+				"operator": "+=",
+				"value": "1"
+			},
+			{
+				"type": "if",
+				"condition": "(flag:baseHard>=1)",
+				"true": [
+					{
+						"type": "setBlock",
+						"number": "yellowPotion",
+						"loc": [
+							[
+								8,
+								2
+							]
+						],
+						"floorId": "MT1"
+					},
+					{
+						"type": "setBlock",
+						"number": "yellowPotion",
+						"loc": [
+							[
+								11,
+								7
+							]
+						],
+						"floorId": "MT6"
+					},
+					{
+						"type": "if",
+						"condition": "(flag:baseHard>=2)",
+						"true": [
+							{
+								"type": "setBlock",
+								"number": "yellowPotion",
+								"loc": [
+									[
+										6,
+										2
+									]
+								],
+								"floorId": "MT1"
+							}
+						]
+					}
+				]
 			}
 		],
 		"shops": [

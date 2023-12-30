@@ -1088,24 +1088,7 @@ main.floors.MT6=
     },
     "afterGetItem": {},
     "afterOpenDoor": {},
-    "autoEvent": {
-        "11,7": {
-            "0": {
-                "condition": "flag:hard>=2",
-                "currentFloor": false,
-                "priority": 0,
-                "delayExecute": false,
-                "multiExecute": false,
-                "data": [
-                    {
-                        "type": "setBlock",
-                        "number": "yellowPotion"
-                    }
-                ]
-            },
-            "1": null
-        }
-    },
+    "autoEvent": {},
     "cannotMove": {},
     "cannotMoveIn": {},
     "map": [
