@@ -21,7 +21,7 @@ main.floors.MT50=
         },
         {
             "type": "setBlock",
-            "number": "blackKing",
+            "number": "N624",
             "loc": [
                 [
                     6,

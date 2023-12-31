@@ -42,6 +42,10 @@ main.floors.MTn5=
                 "value": "1"
             },
             {
+                "type": "function",
+                "function": "function(){\ncore.addFlag('@temp@shop', 1);\n}"
+            },
+            {
                 "type": "while",
                 "condition": "1",
                 "data": [
@@ -172,6 +176,10 @@ main.floors.MTn5=
                         ]
                     }
                 ]
+            },
+            {
+                "type": "function",
+                "function": "function(){\ncore.addFlag('@temp@shop', -1);\n}"
             }
         ],
         "12,9": [
@@ -183,6 +191,10 @@ main.floors.MTn5=
                 "type": "setValue",
                 "name": "flag:Fm5ShopVisited",
                 "value": "1"
+            },
+            {
+                "type": "function",
+                "function": "function(){\ncore.addFlag('@temp@shop', 1);\n}"
             },
             {
                 "type": "while",
@@ -315,6 +327,10 @@ main.floors.MTn5=
                         ]
                     }
                 ]
+            },
+            {
+                "type": "function",
+                "function": "function(){\ncore.addFlag('@temp@shop', -1);\n}"
             }
         ]
     },

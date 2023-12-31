@@ -28,14 +28,14 @@ main.floors.NM_FEK0=
         },
         {
             "type": "setBlock",
-            "number": "yellowPotion",
+            "number": "X20040",
             "loc": [
                 [
-                    6,
-                    2
+                    0,
+                    7
                 ]
             ],
-            "floorId": "MT1"
+            "floorId": "MT0"
         }
     ],
     "eachArrive": [],

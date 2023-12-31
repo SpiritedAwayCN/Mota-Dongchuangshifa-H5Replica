@@ -104,6 +104,10 @@ main.floors.MT25=
                 "id": "F25IncrementalShop"
             },
             {
+                "type": "function",
+                "function": "function(){\ncore.addFlag('@temp@shop', 1);\n}"
+            },
+            {
                 "type": "while",
                 "condition": "1",
                 "data": [
@@ -231,6 +235,10 @@ main.floors.MT25=
                         ]
                     }
                 ]
+            },
+            {
+                "type": "function",
+                "function": "function(){\ncore.addFlag('@temp@shop', -1);\n}"
             }
         ]
     },

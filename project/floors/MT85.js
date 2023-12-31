@@ -19,12 +19,18 @@ main.floors.MT85=
             "type": "if",
             "condition": "(flag:F85promote===1)",
             "true": [
-                "\t[H5难度系统]根据当前难度设置，非领袖敌人的生命/攻击额外+15%。\n相关难度选项已生效！并已锁定。",
+                "\t[H5难度系统]根据当前难度设置，全部敌人对角色的伤害增加。\n相关难度选项已生效！并已锁定。",
                 {
                     "type": "setValue",
-                    "name": "flag:diffPromoteRate",
+                    "name": "flag:diffVulnerable",
                     "operator": "+=",
-                    "value": "0.15"
+                    "value": "0.25"
+                },
+                {
+                    "type": "setValue",
+                    "name": "flag:diffPromoteRateHp",
+                    "operator": "+=",
+                    "value": "0.1"
                 }
             ],
             "false": [
@@ -52,6 +58,9 @@ main.floors.MT85=
                     {
                         "type": "hide",
                         "remove": true
+                    },
+                    {
+                        "type": "exit"
                     }
                 ]
             },

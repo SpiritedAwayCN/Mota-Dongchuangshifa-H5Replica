@@ -213,10 +213,10 @@ main.floors.MTn3=
         "\t[hero]......能力好像有点问题......",
         {
             "type": "switch",
-            "condition": "flag:hard",
+            "condition": "flag:baseHard",
             "caseList": [
                 {
-                    "case": "2",
+                    "case": "1",
                     "action": [
                         {
                             "type": "setValue",
@@ -232,11 +232,16 @@ main.floors.MTn3=
                             "type": "setValue",
                             "name": "status:def",
                             "value": "223"
+                        },
+                        {
+                            "type": "setValue",
+                            "name": "status:mdef",
+                            "value": "15"
                         }
                     ]
                 },
                 {
-                    "case": "3",
+                    "case": "2",
                     "action": [
                         {
                             "type": "setValue",
@@ -252,6 +257,11 @@ main.floors.MTn3=
                             "type": "setValue",
                             "name": "status:def",
                             "value": "220"
+                        },
+                        {
+                            "type": "setValue",
+                            "name": "status:mdef",
+                            "value": "10"
                         }
                     ]
                 },
@@ -272,6 +282,11 @@ main.floors.MTn3=
                             "type": "setValue",
                             "name": "status:def",
                             "value": "225"
+                        },
+                        {
+                            "type": "setValue",
+                            "name": "status:mdef",
+                            "value": "20"
                         }
                     ]
                 }

@@ -18,10 +18,16 @@ main.floors.MTn58=
             "type": "if",
             "condition": "(flag:Fm58promote===1)",
             "true": [
-                "\t[H5难度系统]根据当前难度设置，非领袖敌人的生命/攻击额外+20%。\n相关难度选项已生效！并已锁定。",
+                "\t[H5难度系统]根据当前难度设置，非领袖敌人的生命/攻击提升。\n相关难度选项已生效！并已锁定。",
                 {
                     "type": "setValue",
                     "name": "flag:diffPromoteRate",
+                    "operator": "+=",
+                    "value": "0.2"
+                },
+                {
+                    "type": "setValue",
+                    "name": "flag:diffPromoteRateHp",
                     "operator": "+=",
                     "value": "0.2"
                 }

@@ -584,6 +584,12 @@ var data_comment_c456ea59_6018_45ef_8bcc_211a24c627dc = {
 					"_type": "checkbox",
 					"_docs": "魔防是否有效",
 					"_data": "是否启用魔防"
+				},
+				"isGreenkeyValid": {
+					"_leaf": true,
+					"_type": "checkbox",
+					"_docs": "绿钥匙是否有效",
+					"_data": "是否启用绿钥"
 				}
 			}
 		},

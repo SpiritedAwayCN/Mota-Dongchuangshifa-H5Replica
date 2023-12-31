@@ -1037,33 +1037,93 @@ main.floors.Secret2=
                     "reason": "结局6"
                 }
             ]
-        }
-    },
-    "changeFloor": {
-        "7,1": {
-            "floorId": "Scene1",
-            "loc": [
-                9,
-                13
-            ],
-            "direction": "up"
-        }
-    },
-    "beforeBattle": {
-        "7,6": [
-            "\t[Black Devil,blackKing]\b[this]你死定了！再见！",
-            "\t[国王,N617]\b[hero]帮你把攻防变为10倍！",
+        },
+        "7,1": [
             {
-                "type": "setValue",
-                "name": "status:atk",
-                "operator": "*=",
-                "value": "10"
+                "type": "confirm",
+                "text": "进入后将进行通关结算，\n将按当前角色的攻防和计算分数，\n是否确认进入？",
+                "yes": [],
+                "no": [
+                    {
+                        "type": "exit"
+                    }
+                ]
             },
             {
-                "type": "setValue",
-                "name": "status:def",
-                "operator": "*=",
-                "value": "10"
+                "type": "changeFloor",
+                "floorId": "Scene1",
+                "loc": [
+                    9,
+                    13
+                ],
+                "direction": "up"
+            }
+        ]
+    },
+    "changeFloor": {},
+    "beforeBattle": {
+        "7,6": [
+            {
+                "type": "insert",
+                "name": "难度配置",
+                "args": [
+                    "final"
+                ]
+            },
+            {
+                "type": "choices",
+                "text": "\t[Black Devil,blackKing]最后一次，你真的要救这个不值得救的国家吗？",
+                "choices": [
+                    {
+                        "text": "犹疑(接受来自魔王的6倍攻防)",
+                        "color": [
+                            40,
+                            255,
+                            40
+                        ],
+                        "condition": "flag:realHard>=15&&flag:s172_PerfectEnding",
+                        "action": [
+                            "\t[Black Devil,blackKing]\b[this]你正在迟疑，来吧，给你一部分能力，我们进行公平的决斗。",
+                            "\t[国王,N617]\b[hero]……",
+                            {
+                                "type": "setValue",
+                                "name": "status:atk",
+                                "operator": "*=",
+                                "value": "6"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "status:def",
+                                "operator": "*=",
+                                "value": "6"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:GoodEnding",
+                                "value": "1"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "当然(接受来自国王的10倍攻防)",
+                        "action": [
+                            "\t[Black Devil,blackKing]\b[this]你死定了！再见！",
+                            "\t[国王,N617]\b[hero]帮你把攻防变为10倍！",
+                            {
+                                "type": "setValue",
+                                "name": "status:atk",
+                                "operator": "*=",
+                                "value": "10"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "status:def",
+                                "operator": "*=",
+                                "value": "10"
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 "type": "sleep",
@@ -1073,8 +1133,26 @@ main.floors.Secret2=
     },
     "afterBattle": {
         "7,6": [
-            "\t[Black devil,blackKing]\b[this]……魔塔完了……",
-            "\t[Black devil,blackKing]\b[this]你行……"
+            {
+                "type": "if",
+                "condition": "(flag:GoodEnding===1)",
+                "true": [
+                    {
+                        "type": "tip",
+                        "text": "已进入Good End"
+                    },
+                    "\t[hero]\b[hero]……为何要帮我？",
+                    {
+                        "type": "comment",
+                        "text": "TODO"
+                    },
+                    "\t[hero]\b[hero]作者没想好怎么写，先留空"
+                ],
+                "false": [
+                    "\t[Black devil,blackKing]\b[this]……魔塔完了……",
+                    "\t[Black devil,blackKing]\b[this]你行……"
+                ]
+            }
         ]
     },
     "afterGetItem": {},

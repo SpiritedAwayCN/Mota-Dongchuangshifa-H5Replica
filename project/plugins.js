@@ -1582,6 +1582,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 						isPotion ? "（血瓶类道具，按1可快捷使用）" :
 						isGem ? "（宝石类道具，按2可快捷使用）" :
 						id.endsWith('Wine') ? "（解药类道具，按E可快捷使用）" :
+						id === 'book' ? "（永久类道具，按X键可快捷使用）" :
 						itemCls == 'tools' ? "（消耗类道具，请按T在道具栏使用）" :
 						itemCls == 'constants' ? "（永久类道具，请按T在道具栏使用）" :
 						itemCls == 'equips' ? "（装备类道具，请按Q在装备栏进行装备）" : ""));

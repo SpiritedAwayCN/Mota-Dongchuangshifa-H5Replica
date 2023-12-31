@@ -18,7 +18,7 @@ main.floors.Scene1=
     "eachArrive": [
         {
             "type": "setText",
-            "time": 50
+            "time": 60
         },
         "\t[神父,N580]\b[this,9,11]欢迎回来！国家已经狂欢了，快去吧！",
         {
@@ -32,8 +32,14 @@ main.floors.Scene1=
                 0,
                 1
             ],
-            "time": 500,
+            "time": 1000,
             "keep": true
+        },
+        {
+            "type": "playSound",
+            "name": "157-Skill01.ogg",
+            "stop": true,
+            "pitch": 70
         },
         "\r[#ff8080]结局10：无奈的奈落\n国家保下来了，在人们狂欢的时候，国王确神秘失踪了……终于，在5天后，在乱草中找到国王的尸体……周围全是魔塔怪物的死尸……",
         "\r[#ff8080]国家又陷入一片恐慌……仿佛又听见了怪物的狞笑……国家……最终未能逃脱魔塔的魔抓……预言是真的，国家是保不住的……",
@@ -94,8 +100,7 @@ main.floors.Scene1=
         },
         {
             "type": "setCurtain",
-            "time": 500,
-            "async": true
+            "time": 2000
         },
         "\t[仙子,fairy]\b[this,4,13]国家不再存在了……",
         "\t[战争魔王,yellowKing]\b[this,4,14]就是这样。",
@@ -124,6 +129,13 @@ main.floors.Scene1=
             "type": "waitAsync"
         },
         {
+            "type": "insert",
+            "name": "难度配置",
+            "args": [
+                "final"
+            ]
+        },
+        {
             "type": "setCurtain",
             "color": [
                 0,
@@ -134,10 +146,50 @@ main.floors.Scene1=
             "time": 500,
             "keep": true
         },
-        "就是这样……\n扑朔迷离的国家，扑朔迷离魔塔，扑朔迷离圣人……\n\n\r[#80FF80]您已通关本游戏。",
+        "就是这样……\n扑朔迷离的国家，扑朔迷离魔塔，扑朔迷离圣人……\n\n\r[#80FF80]您已通关本游戏，难度${flag:realHard}。\n积分方式：当前角色攻防和",
         {
-            "type": "win",
-            "reason": "结局10"
+            "type": "if",
+            "condition": "(flag:realHard>=10)",
+            "true": [
+                {
+                    "type": "setValue",
+                    "name": "flag:hard",
+                    "value": "\"难度\"+flag:realHard"
+                },
+                {
+                    "type": "win",
+                    "reason": "结局10：无奈的奈落"
+                }
+            ],
+            "false": [
+                {
+                    "type": "if",
+                    "condition": "(flag:realHard>=0)",
+                    "true": [
+                        {
+                            "type": "setValue",
+                            "name": "flag:hard",
+                            "value": "\"难度0~9\""
+                        },
+                        {
+                            "type": "win",
+                            "reason": "结局10：无奈的奈落"
+                        }
+                    ],
+                    "false": [
+                        {
+                            "type": "setValue",
+                            "name": "flag:hard",
+                            "value": "\"作弊难度\""
+                        },
+                        {
+                            "type": "win",
+                            "reason": "结局10：无奈的奈落",
+                            "norank": 1
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "parallelDo": "",

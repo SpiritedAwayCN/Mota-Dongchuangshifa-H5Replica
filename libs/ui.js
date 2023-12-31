@@ -3197,9 +3197,8 @@ ui.prototype._drawStatistics = function (floorIds) {
         + (core.flags.statusBarItems.indexOf('enableDebuff') >= 0 ? ("，中毒伤害" + core.formatBigNumber(statistics.poisonDamage) + "点") : "")
         + "，领域/夹击/阻击/血网伤害" + core.formatBigNumber(statistics.extraDamage) + "点。",
         "\t[说明]1. 地图数据统计的效果仅模拟当前立刻获得该道具的效果。\n2. 不会计算“不可被浏览地图”的隐藏层的数据。\n" +
-        "3. 不会计算任何通过事件得到的道具（显示事件、改变图块、或直接增加道具等）。\n" +
-        "4. 在自定义道具（例如其他宝石）后，需在脚本编辑的drawStatistics中注册，不然不会进行统计。\n" +
-        "5. 道具不会统计通过插入事件或useItemEvent实现的效果。\n6. 所有统计信息仅供参考，如有错误，概不负责。"
+        "3. 不会计算任何通过事件得到的道具。\n" +
+        "4. 部分隐藏敌方单位与仅剧情演出用敌方单位可能被错误统计。\n5. 所有统计信息仅供参考，可能有误。"
     ])
     core.removeFlag("__replayText__");
 }
@@ -3260,7 +3259,7 @@ ui.prototype._drawStatistics_floorId = function (floorId, obj) {
             core.ui._drawStatistics_enemy(floorId, event.id, obj);
         }
         else {
-            var id = event.id;
+            var id = event.id.replace(/Door\d+$/, 'Door');
             if (obj.total.count[id] != null)
                 core.ui._drawStatistics_items(floorId, floor, id, obj);
         }
@@ -3277,7 +3276,7 @@ ui.prototype._drawStatistics_enemy = function (floorId, id, obj) {
 
 ui.prototype._drawStatistics_items = function (floorId, floor, id, obj) {
     var hp = 0, atk = 0, def = 0, mdef = 0;
-    if (obj.cls[id] == 'items' && id != 'superPotion') {
+    /*if (obj.cls[id] == 'items' && id != 'superPotion') {
         var temp = core.clone(core.status.hero);
         core.setFlag("__statistics__", true);
         var ratio = core.status.thisMap.ratio;
@@ -3293,7 +3292,7 @@ ui.prototype._drawStatistics_items = function (floorId, floor, id, obj) {
         window.hero = core.status.hero;
         window.flags = core.status.hero.flags;
     }
-    else if (obj.cls[id] == 'equips') {
+    else */if (obj.cls[id] == 'equips') {
         var values = core.material.items[id].equip || {};
         atk = values.atk || 0;
         def = values.def || 0;
@@ -3338,11 +3337,11 @@ ui.prototype._drawStatistics_generateText = function (obj, type, data) {
     })
     if (prev != "") text += "。";
 
-    text += "\n";
-    text += "共加生命值" + core.formatBigNumber(data.add.hp) + "点，攻击"
-        + core.formatBigNumber(data.add.atk) + "点，防御"
-        + core.formatBigNumber(data.add.def) + "点，护盾"
-        + core.formatBigNumber(data.add.mdef) + "点。";
+    // text += "\n";
+    // text += "共加生命值" + core.formatBigNumber(data.add.hp) + "点，攻击"
+    //     + core.formatBigNumber(data.add.atk) + "点，防御"
+    //     + core.formatBigNumber(data.add.def) + "点，护盾"
+    //     + core.formatBigNumber(data.add.mdef) + "点。";
     return text;
 }
 

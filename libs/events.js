@@ -551,7 +551,8 @@ events.prototype._openDoor_check = function (block, x, y, needKey) {
             } 
 
             // --- 如果是一个不存在的道具，则直接认为无法开启
-            if (!core.material.items[keyName] || core.itemCount(keyName) < keyValue) {
+            if (!core.material.items[keyName] || core.itemCount(keyName) < keyValue || 
+                (keyName == 'greenKey' && !core.values.isGreenkeyValid)) {
                 if(canOpen === null) canOpen = false;
             }else{
                 canOpen = true;

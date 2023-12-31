@@ -372,7 +372,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 	"greenKey": {
 		"cls": "tools",
 		"name": "绿钥匙",
-		"text": "可以打开一扇绿门",
+		"text": "可以打开一扇绿门，须经-18F NPC鉴定后才有效。",
 		"hideInToolbox": true,
 		"defaultPrice": 1200
 	},
@@ -870,7 +870,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 	},
 	"I455": {
 		"cls": "items",
-		"name": "新物品",
+		"name": "白宝石",
 		"canUseItemEffect": "true"
 	},
 	"I457": {
@@ -941,7 +941,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"defaultPrice": 5000
 	},
 	"bAtkGem": {
-		"cls": "items",
+		"cls": "tools",
 		"name": "攻击香蕉",
 		"canUseItemEffect": "true",
 		"text": "可增加使用者3点攻击（消耗物品）",
@@ -951,22 +951,24 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"hideInToolbox": true
 	},
 	"bDefGem": {
-		"cls": "items",
+		"cls": "tools",
 		"name": "防御香蕉",
 		"canUseItemEffect": "true",
 		"text": "可增加使用者3点攻击（消耗物品）",
 		"itemEffect": "core.addStatus(\"def\", 3);",
 		"itemEffectTip": "，防御+3",
-		"useItemEffect": "core.addStatus(\"def\", 3);"
+		"useItemEffect": "core.addStatus(\"def\", 3);",
+		"hideInToolbox": true
 	},
 	"bMdefGem": {
-		"cls": "items",
+		"cls": "tools",
 		"name": "魔防香蕉",
 		"canUseItemEffect": "true",
 		"text": "可增加使用者3点魔防（消耗物品）",
 		"itemEffect": "core.addStatus(\"mdef\", 3);",
 		"itemEffectTip": "，魔防+3",
-		"useItemEffect": "core.addStatus(\"mdef\", 3);"
+		"useItemEffect": "core.addStatus(\"mdef\", 3);",
+		"hideInToolbox": true
 	},
 	"I541": {
 		"cls": "constants",
@@ -1261,5 +1263,42 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 			"percentage": {}
 		},
 		"defaultPrice": 400000
+	},
+	"I625": {
+		"cls": "equips",
+		"name": "排枪",
+		"text": "作弊的(装备物品)",
+		"equip": {
+			"type": 0,
+			"animate": "A03",
+			"value": {
+				"mdef": 888,
+				"def": 888,
+				"atk": 888
+			},
+			"percentage": {}
+		},
+		"itemEffect": "core.status.hero.atk += 100",
+		"itemEffectTip": "，攻击+100",
+		"defaultPrice": null
+	},
+	"I626": {
+		"cls": "equips",
+		"name": "真·神者の剑",
+		"text": "作弊的(装备物品)",
+		"equip": {
+			"type": 0,
+			"animate": "A06",
+			"value": {
+				"mdef": 999,
+				"def": 999,
+				"combo": 5,
+				"atk": 999
+			},
+			"percentage": {}
+		},
+		"itemEffect": "core.status.hero.atk += 100",
+		"itemEffectTip": "，攻击+100",
+		"defaultPrice": null
 	}
 }
