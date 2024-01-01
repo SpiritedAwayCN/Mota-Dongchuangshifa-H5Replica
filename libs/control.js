@@ -2079,10 +2079,10 @@ control.prototype._doSL_load_afterGet = function (id, data) {
     var _replay = function () {
         core.startGame(data.hard, data.hero.flags.__seed__, core.decodeRoute(data.route));
     };
-    if (data.version != core.firstData.version) {
-        core.myconfirm("存档版本不匹配！\n你想回放此存档的录像吗？\n可以随时停止录像播放以继续游戏。", _replay);
-        return;
-    }
+    // if (data.version != core.firstData.version) {
+    //     core.myconfirm("存档版本不匹配！\n你想回放此存档的录像吗？\n可以随时停止录像播放以继续游戏。", _replay);
+    //     return;
+    // }
     if (data.hero.flags.__events__ && data.guid != core.getGuid()) {
         core.myconfirm("此存档可能存在风险，你想要播放录像么？", _replay);
         return;

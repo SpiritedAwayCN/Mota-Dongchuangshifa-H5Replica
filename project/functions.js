@@ -971,7 +971,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	case 68: // D：读档
 		core.load(true);
 		break;
-	case 69: // E：打开光标
+	case 52:
+	case 69: // E：使用解药
 		// core.ui._drawCursor();
 		// 		core.status.route.push("key:69");
 		core.useItem("I336");
@@ -1005,7 +1006,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		// 		core.insertCommonEvent("难度配置");
 		break;
 	case 66: // B：打开数据统计
-		// 		core.ui._drawStatistics();
+		core.ui._drawStatistics();
 		break;
 	case 72: // H：打开帮助页面
 		core.ui._drawHelp();
@@ -1050,25 +1051,19 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		// 			core.useItem('bomb', true); // 第二个参数true代表该次使用道具是被按键触发的，使用过程不计入录像
 		// 		}
 		break;
-	case 51: // 快捷键3: 飞
-		core.insertCommonEvent("SetPotionItemized", ["Wand"]);
-		// 		if (core.hasItem('centerFly')) {
-		// 			core.ui._drawCenterFly();
-		// 		}
-		break;
-	case 52: // 快捷键4：破冰/冰冻/地震/上下楼器/... 其他道具依次判断
+	case 51: // 快捷键3: 法杖
 	{
-		core.insertCommonEvent("SetPotionItemized", ["Wand"]);
-		// 		var list = ["icePickaxe", "freezeBadge", "earthquake", "upFly", "downFly", "jumpShoes", "lifeWand", "poisonWine", "weakWine", "curseWine", "superWine"];
-		// 		for (var i = 0; i < list.length; i++) {
-		// 			var itemId = list[i];
-		// 			if (core.canUseItem(itemId)) {
-		// 				core.status.route.push("key:52");
-		// 				core.useItem(itemId, true);
-		// 				break;
-		// 			}
-		// 		}
+		var wandList = ['I409', 'I411', 'I412', 'I413', 'I414'];
+		for (var item in wandList) {
+			if (core.hasItem(wandList[item])) {
+				core.useItem(wandList[item]);
+				break;
+			}
+		}
 	}
+	// 		if (core.hasItem('centerFly')) {
+	// 			core.ui._drawCenterFly();
+	// 		}
 	break;
 	case 53: // 5：读取自动存档（回退），方便手机版操作
 		core.doSL("autoSave", "load");
@@ -1083,13 +1078,13 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	case 119: // F8：由于F7与部分浏览器有冲突，故新增F8
 		core.debug();
 		break;
-	case 70: // F：开启技能“二倍斩”
-		// 检测是否拥有“二倍斩”这个技能道具
-		if (core.hasItem('skill1')) {
-			core.status.route.push("key:70");
-			core.useItem('skill1', true);
-		}
-		break;
+		// 	case 70: // F：开启技能“二倍斩”
+		// 		// 检测是否拥有“二倍斩”这个技能道具
+		// 		if (core.hasItem('skill1')) {
+		// 			core.status.route.push("key:70");
+		// 			core.useItem('skill1', true);
+		// 		}
+		// 		break;
 		// 在这里可以任意新增或编辑已有的快捷键内容
 		/*
 				case 0: // 使用该按键的keyCode
@@ -1784,7 +1779,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 	return Object.keys(core.status.hero.items[cls] || {})
 		.filter(function (id) { return !core.material.items[id].hideInToolbox; })
-		.sort( /*function (id1, id2) { return core.material.items[id1].name <= core.material.items[id2].name ? -1 : 1 }*/ );
+		.sort((a, b) => (core.material.icons.items[a] - core.material.icons.items[b]));
 },
         "drawStatusBar": function () {
 	// 自定义绘制状态栏，需要开启状态栏canvas化
@@ -1908,39 +1903,80 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 	} else {
 		// 竖屏模式
+		var y_interval = 32,
+			y_base = 26,
+			x_interval = 124,
+			x_base = 5,
+			x_subbase = 2;
+		var is_poison = core.getFlag('poison'),
+			is_weak = core.getFlag('weak'),
+			is_curse = core.getFlag('curse'),
+			is_dying = core.getFlag('dying');
 
 		// 绘制楼层
-		core.drawImage(ctx, core.statusBar.icons.floor, 10, 6, 25, 25);
-		_fillBoldTextWithFontCheck((core.status.thisMap || {}).name || "", 46, 26);
+		core.drawImage(ctx, core.status.hero.image || 'brave.png', 0, 0, 32, 32, 5, 6, 25, 25);
+		_fillBoldTextWithFontCheck((core.status.thisMap || {}).name || "", x_base + 30, y_base, '#FFFFFF', 16);
+
+
+		_fillBoldTextWithFontCheck(core.getStatusLabel('lv') || '等级', x_base, y_base + y_interval * 2, '#C0C0FF');
+		if (core.values.levelupPoint > 0) {
+			_fillBoldTextWithFontCheck(core.formatBigNumber(core.getRealStatus('lv')) + "(" + core.values.levelupPoint + ")", x_base + 40, y_base + y_interval * 2, '#20FF20', 16);
+		} else {
+			_fillBoldTextWithFontCheck(core.formatBigNumber(core.getRealStatus('lv')), x_base + 40, y_base + y_interval * 2, "#FFFFFF", 16);
+		}
 
 		// 绘制生命
-		core.drawImage(ctx, core.statusBar.icons.hp, 141, 6, 25, 25);
-		_fillBoldTextWithFontCheck(core.formatBigNumber(core.getRealStatus('hp')), 177, 26);
+		_fillBoldTextWithFontCheck(core.getStatusLabel('hp') || '生命', x_base, y_base + y_interval, is_dying ? "#808080" : (is_poison ? "#80FF80" : '#C0C0FF'));
+		_fillBoldTextWithFontCheck(core.formatBigNumber(core.getRealStatus('hp')), x_base + 40, y_base + y_interval, is_dying ? "#808080" : (is_poison ? "#80FF80" : "#FFFFFF"), 16);
 
 		// 绘制攻击
-		core.drawImage(ctx, core.statusBar.icons.atk, 272, 6, 25, 25);
-		_fillBoldTextWithFontCheck(core.formatBigNumber(core.getRealStatus('atk')), 308, 26);
+		_fillBoldTextWithFontCheck(core.getStatusLabel('atk') || '攻击', x_base + x_interval + x_subbase, y_base + y_interval, is_weak ? "#FF80FF" : '#C0C0FF');
+		_fillBoldTextWithFontCheck(core.formatBigNumber(core.getRealStatus('atk')), x_base + x_interval + 40 + x_subbase, y_base + y_interval, is_weak ? "#FF80FF" : "#FFFFFF", 16);
 
 		// 绘制防御
-		core.drawImage(ctx, core.statusBar.icons.def, 10, 38, 25, 25);
-		_fillBoldTextWithFontCheck(core.formatBigNumber(core.getRealStatus('def')), 46, 58);
-
-		// 绘制护盾
-		core.drawImage(ctx, core.statusBar.icons.mdef, 141, 38, 25, 25);
-		_fillBoldTextWithFontCheck(core.formatBigNumber(core.getRealStatus('mdef')), 177, 58);
+		_fillBoldTextWithFontCheck(core.getStatusLabel('def') || '防御', x_base + x_interval * 2 - x_subbase, y_base + y_interval, is_weak ? "#FF80FF" : '#C0C0FF');
+		_fillBoldTextWithFontCheck(core.formatBigNumber(core.getRealStatus('def')), x_base + x_interval * 2 + 40 - x_subbase, y_base + y_interval, is_weak ? "#FF80FF" : "#FFFFFF", 16);
 
 		// 绘制金币
-		core.drawImage(ctx, core.statusBar.icons.money, 272, 38, 25, 25);
-		_fillBoldTextWithFontCheck(core.formatBigNumber(core.status.hero.money), 308, 58);
+		_fillBoldTextWithFontCheck(core.getStatusLabel('money') || '塔币', x_base + x_interval + x_subbase, y_base, is_curse ? "#80FFFF" : '#C0C0C0');
+		_fillBoldTextWithFontCheck(core.formatBigNumber(core.status.hero.money), x_base + x_interval + 40 + x_subbase, y_base, is_curse ? "#80FFFF" : "#FFFFFF", 16);
 
 		// 绘制经验
-		core.drawImage(ctx, core.statusBar.icons.exp, 10, 70, 25, 25);
-		_fillBoldTextWithFontCheck(core.formatBigNumber(core.status.hero.exp), 46, 90);
+		_fillBoldTextWithFontCheck(core.getStatusLabel('exp') || '经验', x_base + x_interval * 2 - x_subbase, y_base, is_curse ? "#80FFFF" : '#C0C0C0');
+		_fillBoldTextWithFontCheck(core.formatBigNumber(core.status.hero.exp), x_base + x_interval * 2 + 40 - x_subbase, y_base, is_curse ? "#80FFFF" : "#FFFFFF", 16);
 
-		// 绘制三色钥匙
-		_fillBoldTextWithFontCheck(core.setTwoDigits(core.itemCount('yellowKey')), 146, 90, '#FFCCAA');
-		_fillBoldTextWithFontCheck(core.setTwoDigits(core.itemCount('blueKey')), 181, 90, '#AAAADD');
-		_fillBoldTextWithFontCheck(core.setTwoDigits(core.itemCount('redKey')), 216, 90, '#FF8888');
+		// 绘制护盾
+		_fillBoldTextWithFontCheck(core.getStatusLabel('mdef') || '魔防', x_base + x_interval + x_subbase, y_base + y_interval * 2, '#FFC0C0');
+		_fillBoldTextWithFontCheck(core.values.isMAGValid ? core.formatBigNumber(core.getRealStatus('mdef')) : 0, x_base + x_interval + x_subbase + 40, y_base + y_interval * 2, core.values.isMAGValid ? "#FFFFFF" : "#808080", 16);
+
+		var combo = core.formatBigNumber(core.plugin.getRealCombo(core.getStatusOrDefault(hero, 'combo')));
+		_fillBoldTextWithFontCheck(core.getStatusLabel('combo') || '连击', x_base + x_interval * 2 - x_subbase, y_base + y_interval * 2, '#FFC0C0');
+		_fillBoldTextWithFontCheck(combo, x_base + x_interval * 2 + 40 - x_subbase, y_base + y_interval * 2, combo > 1 ? "#FFFFFF" : "#808080", 16);
+
+
+		// 钥匙
+		x_base = x_base + x_interval * 3 - x_subbase * 2;
+		x_interval = 30;
+		y_base = 22;
+		_fillBoldTextWithFontCheck(core.setTwoDigits(core.itemCount('yellowKey')), x_base, y_base, '#FFCCAA', 16);
+		_fillBoldTextWithFontCheck(core.setTwoDigits(core.itemCount('blueKey')), x_base + x_interval, y_base, '#AAAADD', 16);
+		_fillBoldTextWithFontCheck(core.setTwoDigits(core.itemCount('redKey')), x_base + x_interval * 2, y_base, '#FF8888', 16);
+		_fillBoldTextWithFontCheck(core.values.isGreenkeyValid ? core.setTwoDigits(core.itemCount('greenKey')) : "00", x_base + x_interval * 0.5, y_base + 24, '#88FF88', 16);
+		_fillBoldTextWithFontCheck(core.setTwoDigits(core.itemCount('steelKey')), x_base + x_interval * 1.5, y_base + 24, '#C0C0C0', 16);
+
+		// 绘制状态
+		if (is_poison) {
+			_fillBoldTextWithFontCheck("[毒]", x_base, y_base + 48, "#80FF80", 16);
+		}
+		if (is_weak) {
+			_fillBoldTextWithFontCheck("[衰]", x_base + x_interval * 1.5, y_base + 48, "#FF80FF", 16);
+		}
+		if (is_curse) {
+			_fillBoldTextWithFontCheck("[咒]", x_base, y_base + 72, "#80FFFF", 16);
+		}
+		if (is_dying) {
+			_fillBoldTextWithFontCheck("[亡]", x_base + x_interval * 1.5, y_base + 72, "#C0C0C0", 16);
+		}
 	}
 },
         "drawStatistics": function () {
@@ -1958,32 +1994,38 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	];
 },
         "drawAbout": function () {
-			// 绘制“关于”界面
-			core.ui.closePanel();
-			core.lockControl();
-			core.status.event.id = 'about';
+	// 绘制“关于”界面
+	core.ui.closePanel();
+	core.lockControl();
+	core.status.event.id = 'about';
 
-			var left = 52,
-				top = 68,
-				right = core.__PIXELS__ - 2 * left,
-				bottom = core.__PIXELS__ - 2 * top;
+	var left = 52,
+		top = 68,
+		right = core.__PIXELS__ - 2 * left,
+		bottom = core.__PIXELS__ - 2 * top;
 
-			core.setAlpha('ui', 0.85);
-			core.fillRect('ui', left, top, right, bottom, '#000000');
-			core.setAlpha('ui', 1);
-			core.strokeRect('ui', left - 1, top - 1, right + 1, bottom + 1, '#FFFFFF', 2);
+	core.setAlpha('ui', 0.85);
+	core.fillRect('ui', left, top, right, bottom, '#000000');
+	core.setAlpha('ui', 1);
+	core.strokeRect('ui', left - 1, top - 1, right + 1, bottom + 1, '#FFFFFF', 2);
 
-			var text_start = left + 24;
-
-			// 名称
-			core.setTextAlign('ui', 'left');
-			var globalAttribute = core.status.globalAttribute || core.initStatus.globalAttribute;
-			core.fillText('ui', "HTML5 魔塔样板", text_start, top + 35, globalAttribute.selectColor, "bold 22px " + globalAttribute.font);
-			core.fillText('ui', "版本： " + main.__VERSION__, text_start, top + 80, "#FFFFFF", "bold 17px " + globalAttribute.font);
-			core.fillText('ui', "作者： 艾之葵", text_start, top + 112);
-			core.fillText('ui', 'HTML5魔塔交流群：539113091', text_start, top + 112 + 32);
-			// TODO: 写自己的“关于”页面，每次增加32像素即可
-			core.playSound('打开界面');
-		}
+	var text_start = left + 24;
+	var text_interval = 24;
+	// 名称
+	core.setTextAlign('ui', 'left');
+	var globalAttribute = core.status.globalAttribute || core.initStatus.globalAttribute;
+	core.fillText('ui', "魔塔-东窗事发（H5复刻版）", text_start, top + 35, globalAttribute.selectColor, "bold 20px " + globalAttribute.font);
+	core.fillText('ui', "原作者： Joey·Cooper（发布于2009年8月）", text_start, top + 76, "#FFFFFF", "bold 14px " + globalAttribute.font);
+	core.fillText('ui', "原版开发工具： 魔塔样板3975，RPG Maker 1.03", text_start, top + 76 + text_interval);
+	core.fillText('ui', "复刻作者： SpiritedAwayCN（完成于2024年1月）", text_start, top + 80 + text_interval * 2);
+	core.fillText('ui', "复刻版新增系统/剧情编写：SpiritedAwayCN", text_start, top + 80 + text_interval * 3);
+	core.fillText('ui', "复刻版测试：SpiritedAwayCN、Joey·Cooper等", text_start, top + 80 + text_interval * 4);
+	core.fillText('ui', "感谢原作者Joey·Cooper的复刻与改动授权！", text_start, top + 84 + text_interval * 5, "orange");
+	core.fillText('ui', "感谢HTML5造塔技术群所提供的技术帮助！", text_start, top + 84 + text_interval * 6);
+	core.fillText('ui', "样板版本： HTML5 魔塔样板" + main.__VERSION__, text_start, top + 90 + text_interval * 7, 'white');
+	core.fillText('ui', "样板作者： 艾之葵", text_start, top + 90 + text_interval * 8);
+	core.fillText('ui', 'HTML5魔塔交流群：539113091', text_start, top + 90 + text_interval * 9);
+	core.playSound('打开界面');
+}
     }
 }

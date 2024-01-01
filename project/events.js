@@ -4087,6 +4087,10 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																"type": "setValue",
 																"name": "flag:Fm58promote",
 																"value": "0"
+															},
+															{
+																"type": "playSound",
+																"name": "confirm.mp3"
 															}
 														]
 													},
@@ -4142,6 +4146,10 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																"type": "setValue",
 																"name": "flag:Fm58promote",
 																"value": "0"
+															},
+															{
+																"type": "playSound",
+																"name": "confirm.mp3"
 															}
 														]
 													},
@@ -4192,6 +4200,10 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																"type": "setValue",
 																"name": "flag:Fm58promote",
 																"value": "0"
+															},
+															{
+																"type": "playSound",
+																"name": "confirm.mp3"
 															}
 														]
 													},
@@ -4247,6 +4259,10 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																"type": "setValue",
 																"name": "flag:Fm58promote",
 																"value": "1"
+															},
+															{
+																"type": "playSound",
+																"name": "confirm.mp3"
 															}
 														]
 													},

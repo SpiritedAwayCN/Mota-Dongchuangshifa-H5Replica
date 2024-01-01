@@ -183,7 +183,7 @@ var enemys_fcae963b_31c9_42b4_b48c_bb48d09f3f80 =
 	"E572": {"name":"⊕必杀骑士⊕","hp":10900,"atk":11750,"def":4500,"money":340,"exp":26,"point":0,"special":[1,4]},
 	"E573": {"name":"◎绿盾战士‖","hp":15000,"atk":7900,"def":5900,"money":350,"exp":26,"point":0,"special":[8]},
 	"E574": {"name":"&地狱莲兵Ю","hp":25000,"atk":8900,"def":4750,"money":330,"exp":26,"point":0,"special":[4]},
-	"E575": {"name":"㊣宗暴击士□","hp":50000,"atk":28000,"def":100,"money":0,"exp":0,"point":0,"special":[6],"n":4,"notBomb":true},
+	"E575": {"name":"㊣宗暴击士□","hp":50000,"atk":28000,"def":100,"money":0,"exp":0,"point":0,"special":[6],"n":4,"notBomb":false},
 	"E578": {"name":"忠实守卫-火鬼","hp":885900,"atk":400000,"def":356000,"money":99500,"exp":8550,"point":0,"special":[6],"n":16},
 	"E587": {"name":"暗黑の骑士","hp":9900,"atk":9340,"def":7340,"money":440,"exp":30,"point":0,"special":[6],"n":4},
 	"E588": {"name":"卍高级ぁ巫师","hp":10000,"atk":5000,"def":7650,"money":460,"exp":30,"point":0,"special":[1,2]},

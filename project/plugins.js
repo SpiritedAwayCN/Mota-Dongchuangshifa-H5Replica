@@ -1585,7 +1585,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 						id === 'book' ? "（永久类道具，按X键可快捷使用）" :
 						itemCls == 'tools' ? "（消耗类道具，请按T在道具栏使用）" :
 						itemCls == 'constants' ? "（永久类道具，请按T在道具栏使用）" :
-						itemCls == 'equips' ? "（装备类道具，请按Q在装备栏进行装备）" : ""));
+						itemCls == 'equips' ? "（装备类道具，请按Q或双击状态栏背包按钮在装备栏进行装备）" : ""));
 			}
 			itemHint.push(id);
 		}
@@ -1595,9 +1595,9 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 
 		if (isPotion || isGem)
 			core.material.items[id].cls = "tools";
-		if (isPotion && !core.hasItem('skill1')) core.getItem("skill1");
-		if (isGem && !core.hasItem('I335')) core.getItem("I335");
-		if (id.endsWith('Wine') && !core.hasItem('I336')) core.getItem("I336");
+		if (isPotion && !core.hasItem('skill1')) core.insertAction({ "type": "setValue", "name": "item:skill1", "operator": "+=", "value": "1" });
+		if (isGem && !core.hasItem('I335')) core.insertAction({ "type": "setValue", "name": "item:I335", "operator": "+=", "value": "1" });
+		if (id.endsWith('Wine') && !core.hasItem('I336')) core.insertAction({ "type": "setValue", "name": "item:I336", "operator": "+=", "value": "1" });
 	}
 },
     "NoteBookRecord": function () {

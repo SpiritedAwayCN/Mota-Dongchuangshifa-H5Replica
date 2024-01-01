@@ -428,7 +428,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"name": "降飞羽",
 		"text": "去到当前楼层的下一层（消耗物品）",
 		"useItemEffect": "(function () {\n\tvar floorId = core.floorIds[core.floorIds.indexOf(core.status.floorId) - 1];\n\tif (core.status.event.id == 'action') {\n\t\tcore.insertAction([\n\t\t\t{ \"type\": \"changeFloor\", \"stair\": \"upFloor\", \"floorId\": floorId },\n\t\t\t{ \"type\": \"tip\", \"text\": core.material.items[itemId].name + '使用成功' }\n\t\t]);\n\t} else {\n\t\tcore.changeFloor(floorId, \"upFloor\", null, null, function () {\n\t\t\tcore.drawTip(core.material.items[itemId].name + '使用成功');\n\t\t\tcore.replay();\n\t\t});\n\t}\n})();",
-		"canUseItemEffect": "(function () {\n\tvar floorId = core.status.floorId,\n\t\tindex = core.floorIds.indexOf(floorId);\n\tif (!/MTn?\\d+/.test(floorId)) return false;\n\tif (core.inArray(['MTn29', 'MTn57', 'MTn75', 'MTn86', 'MTn90', 'MT65']))\n\t\treturn false;\n\tif (index > 0) {\n\t\tvar toId = core.floorIds[index - 1],\n\t\t\ttoX = core.getHeroLoc('x'),\n\t\t\ttoY = core.getHeroLoc('y');\n\t\tvar mw = core.floors[toId].width,\n\t\t\tmh = core.floors[toId].height;\n\t\tif (toX >= 0 && toX < mw && toY >= 0 && toY < mh) {\n\t\t\treturn true;\n\t\t}\n\t}\n\treturn false;\n})();",
+		"canUseItemEffect": "(function () {\n\tvar floorId = core.status.floorId,\n\t\tindex = core.floorIds.indexOf(floorId);\n\tif (!/MTn?\\d+/.test(floorId)) return false;\n\tif (core.inArray(['MTn29', 'MTn57', 'MTn75', 'MTn86', 'MTn90', 'MT65'], floorId))\n\t\treturn false;\n\tif (index > 0) {\n\t\tvar toId = core.floorIds[index - 1],\n\t\t\ttoX = core.getHeroLoc('x'),\n\t\t\ttoY = core.getHeroLoc('y');\n\t\tvar mw = core.floors[toId].width,\n\t\t\tmh = core.floors[toId].height;\n\t\tif (toX >= 0 && toX < mw && toY >= 0 && toY < mh) {\n\t\t\treturn true;\n\t\t}\n\t}\n\treturn false;\n})();",
 		"defaultPrice": 4000
 	},
 	"earthquake": {
@@ -445,7 +445,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"text": "可以解除中毒状态",
 		"useItemEffect": "core.triggerDebuff('remove', 'poison');",
 		"canUseItemEffect": "core.hasFlag('poison');",
-		"defaultPrice": 500
+		"defaultPrice": 500,
+		"hideInToolbox": true
 	},
 	"weakWine": {
 		"cls": "tools",
@@ -453,7 +454,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"text": "可以解除衰弱状态",
 		"useItemEffect": "core.triggerDebuff('remove', 'weak');",
 		"canUseItemEffect": "core.hasFlag('weak');",
-		"defaultPrice": 400
+		"defaultPrice": 400,
+		"hideInToolbox": true
 	},
 	"curseWine": {
 		"cls": "tools",
@@ -461,7 +463,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"text": "可以解除诅咒状态",
 		"useItemEffect": "core.triggerDebuff('remove', 'curse');",
 		"canUseItemEffect": "core.hasFlag('curse');",
-		"defaultPrice": 400
+		"defaultPrice": 400,
+		"hideInToolbox": true
 	},
 	"superWine": {
 		"cls": "tools",
@@ -469,7 +472,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"text": "可以解除所有不良状态",
 		"useItemEffect": "core.triggerDebuff('remove', ['poison', 'weak', 'curse']);",
 		"canUseItemEffect": "(function() {\n\treturn core.hasFlag('poison') || core.hasFlag('weak') || core.hasFlag('curse');\n})();",
-		"defaultPrice": 800
+		"defaultPrice": 800,
+		"hideInToolbox": true
 	},
 	"hammer": {
 		"cls": "tools",
@@ -580,7 +584,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"name": "解慢药水",
 		"canUseItemEffect": null,
 		"text": "可以解除缓慢状态（H5版本中无效果）",
-		"defaultPrice": 300
+		"defaultPrice": 300,
+		"hideInToolbox": true
 	},
 	"I335": {
 		"cls": "constants",
@@ -667,7 +672,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"cls": "constants",
 		"name": "角色切换",
 		"text": "可以切换所操作的角色（快捷键\"U\"）",
-		"hideInReplay": false,
+		"hideInReplay": true,
 		"hideInToolbox": false,
 		"useItemEffect": "core.insertCommonEvent(\"SwitchCharactor\");",
 		"canUseItemEffect": "true"
@@ -677,7 +682,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"name": "楼层传送器",
 		"text": "可以自由往来去过的楼层",
 		"hideInReplay": true,
-		"hideInToolbox": true,
+		"hideInToolbox": false,
 		"useItemEffect": "core.ui.drawFly(core.floorIds.indexOf(core.status.floorId));",
 		"canUseItemEffect": "(function () {\n\tif (core.flags.flyNearStair && !core.nearStair()) return false;\n\treturn core.status.maps[core.status.floorId].canFlyFrom;\n})();",
 		"defaultPrice": 20
@@ -833,33 +838,43 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 	"I409": {
 		"cls": "constants",
 		"name": "攻击法杖",
-		"canUseItemEffect": null,
-		"text": "按角色等级战前增加角色攻击，不显示在状态栏上。（请按\"3\"查看详情）"
+		"canUseItemEffect": "true",
+		"text": "按角色等级战前增加角色攻击，不显示在状态栏上。（请按\"3\"查看详情）",
+		"useItemEffect": "core.insertCommonEvent(\"SetPotionItemized\", [\"Wand\"]);",
+		"hideInReplay": true
 	},
 	"I411": {
 		"cls": "constants",
 		"name": "防御法杖",
-		"canUseItemEffect": null,
-		"text": "按角色等级战前增加角色防御，不显示在状态栏上。（请按\"3\"查看详情）"
+		"canUseItemEffect": "true",
+		"text": "按角色等级战前增加角色防御，不显示在状态栏上。（请按\"3\"查看详情）",
+		"useItemEffect": "core.insertCommonEvent(\"SetPotionItemized\", [\"Wand\"]);",
+		"hideInReplay": true
 	},
 	"I412": {
 		"cls": "constants",
 		"name": "魔防法杖",
-		"canUseItemEffect": null,
-		"text": "按角色等级战前增加角色魔防，不显示在状态栏上。（请按\"3\"查看详情）"
+		"canUseItemEffect": "true",
+		"text": "按角色等级战前增加角色魔防，不显示在状态栏上。（请按\"3\"查看详情）",
+		"useItemEffect": "core.insertCommonEvent(\"SetPotionItemized\", [\"Wand\"]);",
+		"hideInReplay": true
 	},
 	"I413": {
 		"cls": "constants",
 		"name": "生命法杖",
-		"canUseItemEffect": null,
-		"text": "按角色等级战后回复角色生命（请按\"3\"查看详情）"
+		"canUseItemEffect": "true",
+		"text": "按角色等级战后回复角色生命（请按\"3\"查看详情）",
+		"useItemEffect": "core.insertCommonEvent(\"SetPotionItemized\", [\"Wand\"]);",
+		"hideInReplay": true
 	},
 	"I414": {
 		"cls": "constants",
 		"name": "连击法杖",
-		"canUseItemEffect": null,
+		"canUseItemEffect": "true",
 		"itemEffect": "",
-		"text": "按角色等级给予角色额外的连击次数。（请按\"3\"查看详情）"
+		"text": "按角色等级给予角色额外的连击次数。（请按\"3\"查看详情）",
+		"useItemEffect": "core.insertCommonEvent(\"SetPotionItemized\", [\"Wand\"]);",
+		"hideInReplay": true
 	},
 	"I436": {
 		"cls": "tools",

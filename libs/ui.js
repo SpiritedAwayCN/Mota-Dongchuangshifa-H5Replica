@@ -2398,7 +2398,7 @@ ui.prototype._drawBookDetail_getTexts = function (enemy, floorId, texts) {
     // --- 原始数值
     this._drawBookDetail_origin(enemy, texts);
     // --- 模仿临界计算器
-    this._drawBookDetail_mofang(enemy, texts);
+    // this._drawBookDetail_mofang(enemy, texts);
     // --- 吸血怪最低生命值
     this._drawBookDetail_vampire(enemy, floorId, texts);
     // --- 仇恨伤害
@@ -3359,7 +3359,7 @@ ui.prototype._drawHelp = function () {
         core.lockControl();
         core.setAlpha('ui', 1);
         core.fillRect('ui', 0, 0, core._PX_, core._PY_, '#000000');
-        core.drawImage('ui', core.material.images.keyboard, 0, 0);
+        core.drawImage('ui', core.material.images.keyboard, 0, 0, 416, 416, 0, 0, core._PX_, core._PY_);
     }
     else {
         core.drawText([

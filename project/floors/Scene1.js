@@ -17,6 +17,13 @@ main.floors.Scene1=
     "firstArrive": [],
     "eachArrive": [
         {
+            "type": "insert",
+            "name": "难度配置",
+            "args": [
+                "final"
+            ]
+        },
+        {
             "type": "setText",
             "time": 60
         },
@@ -36,14 +43,48 @@ main.floors.Scene1=
             "keep": true
         },
         {
-            "type": "playSound",
-            "name": "157-Skill01.ogg",
-            "stop": true,
-            "pitch": 70
+            "type": "if",
+            "condition": "(!(flag:realHard>=15))",
+            "true": [
+                {
+                    "type": "setValue",
+                    "name": "flag:GoodEnding",
+                    "value": "0"
+                }
+            ]
         },
-        "\r[#ff8080]结局10：无奈的奈落\n国家保下来了，在人们狂欢的时候，国王确神秘失踪了……终于，在5天后，在乱草中找到国王的尸体……周围全是魔塔怪物的死尸……",
-        "\r[#ff8080]国家又陷入一片恐慌……仿佛又听见了怪物的狞笑……国家……最终未能逃脱魔塔的魔抓……预言是真的，国家是保不住的……",
-        "\r[#ff8080]几年后……",
+        {
+            "type": "if",
+            "condition": "(flag:GoodEnding===1)",
+            "true": [
+                "\r[#80ff80]结局12：灭亡与新生\n国家保下来了，在人们狂欢的时候，国王却神秘失踪了……终于，在5天后，在乱草中找到国王的尸体……周围全是魔塔怪物的死尸……",
+                "\r[#80ff80]国家又陷入一片恐慌……仿佛又听见了怪物的狞笑……而在此危难之际，魔塔却并没有向国家发起进攻。",
+                "\r[#80ff80]那位曾经将国王带出魔塔的勇者站了出来，凭借其战胜魔塔的威望、被魔王认可过的实力，开始以道德约束国民的行为，利用这种变数改革社会的生产关系……",
+                "\r[#80ff80]将国民们的精力从无休止的明争暗斗中，转换到了国家的重建上。国王呢？公主呢？或许这些已经不再重要了，曾经那充满恶行国家附带的产物，换一种存在的身份未尝不可。",
+                "\r[#80ff80]……预言是真的，国家是保不住的…………那个充满恶行的国家是保不住的。",
+                "\r[#80ff80]几年后……"
+            ],
+            "false": [
+                {
+                    "type": "playSound",
+                    "name": "157-Skill01.ogg",
+                    "stop": true,
+                    "pitch": 70
+                },
+                {
+                    "type": "if",
+                    "condition": "flag:s172_PerfectEnding",
+                    "true": [
+                        "\r[#ff8080]结局10：无奈的奈落\n国家保下来了，在人们狂欢的时候，国王却神秘失踪了……终于，在5天后，在乱草中找到国王的尸体……周围全是魔塔怪物的死尸……"
+                    ],
+                    "false": [
+                        "\r[#ff8080]结局11：无奈的奈落\n国家保下来了，在人们狂欢的时候，国王却神秘失踪了……终于，在5天后，在乱草中找到国王的尸体……周围全是魔塔怪物的死尸……"
+                    ]
+                },
+                "\r[#ff8080]国家又陷入一片恐慌……仿佛又听见了怪物的狞笑……国家……最终未能逃脱魔塔的魔抓……预言是真的，国家是保不住的……",
+                "\r[#ff8080]几年后……"
+            ]
+        },
         {
             "type": "setHeroOpacity",
             "opacity": 0,
@@ -107,33 +148,58 @@ main.floors.Scene1=
         "\t[仙子,fairy]\b[this,4,13]是的",
         {
             "type": "if",
-            "condition": "(flag:s172_PerfectEnding===1)",
+            "condition": "(flag:GoodEnding===1)",
             "true": [
-                "\t[战争魔王,yellowKing]\b[this,4,14]勇士太傻了……",
-                "\t[仙子,fairy]\b[this,4,13]一个不值得同情的国家……",
-                "\t[战争魔王,yellowKing]\b[this,4,14]是啊，所有恶习都降临到了这个国家上，勇士做的真不值。",
-                "\t[仙子,fairy]\b[this,4,13]为什么他要救这个国家？",
-                "\t[战争魔王,yellowKing]\b[this,4,14]出于人类的好心吧。"
+                "\t[战争魔王,yellowKing]\b[this,4,14]旧的国家不存在了，老国王也已经不在了。这个建立在旧国家上的新国家，包含的恶行会就此结束吗？",
+                "\t[仙子,fairy]\b[this,4,13]一个曾经不值得同情的国家……积累了几代人的横征暴敛，所包含的恶不会就因为一个人，在短短几年内就完全消散。",
+                "\t[战争魔王,yellowKing]\b[this,4,14]是啊，所有恶行都降临到了曾经的这个国家上，勇士当年想做的真不值。但他做到了。",
+                "\t[仙子,fairy]\b[this,4,13]好了，快回魔塔吧，我们毕竟是魔物，在人类的心中仍然是防备而敌对的存在……",
+                "\t[战争魔王,yellowKing]\b[this,4,14]我们的魔塔将继续充当守护人，如果曾经充满恶的国家再临，我仍会发起进攻。",
+                "\t[仙子,fairy]\b[this,4,13]拭目以待吧，比起屠龙者终成恶龙的发展，我更愿意相信希望。",
+                {
+                    "type": "setValue",
+                    "name": "flag:enddingName",
+                    "value": "\"结局12：毁灭与新生\""
+                }
             ],
             "false": [
-                "\t[战争魔王,yellowKing]\b[this,4,14]勇士没问你话么？",
-                "\t[仙子,fairy]\b[this,4,13]是啊！一个不值得同情的勇士……",
-                "\t[战争魔王,yellowKing]\b[this,4,14]是啊，所有恶习都降临到了这个国家上，勇士做的真不值。",
-                "\t[仙子,fairy]\b[this,4,13]不问我话，就敢进入魔塔……",
-                "\t[战争魔王,yellowKing]\b[this,4,14]是啊，早知道我杀了他算了。"
+                {
+                    "type": "if",
+                    "condition": "(flag:s172_PerfectEnding===1)",
+                    "true": [
+                        "\t[战争魔王,yellowKing]\b[this,4,14]勇士太傻了……",
+                        "\t[仙子,fairy]\b[this,4,13]一个不值得同情的国家……",
+                        "\t[战争魔王,yellowKing]\b[this,4,14]是啊，所有恶习都降临到了这个国家上，勇士做的真不值。",
+                        "\t[仙子,fairy]\b[this,4,13]为什么他要救这个国家？",
+                        "\t[战争魔王,yellowKing]\b[this,4,14]出于人类的好心吧。",
+                        {
+                            "type": "setValue",
+                            "name": "flag:enddingName",
+                            "value": "\"结局10：无奈的奈落\""
+                        }
+                    ],
+                    "false": [
+                        "\t[战争魔王,yellowKing]\b[this,4,14]勇士没问你话么？",
+                        "\t[仙子,fairy]\b[this,4,13]是啊！一个不值得同情的勇士……",
+                        "\t[战争魔王,yellowKing]\b[this,4,14]是啊，所有恶习都降临到了这个国家上，勇士做的真不值。",
+                        "\t[仙子,fairy]\b[this,4,13]不问我话，就敢进入魔塔……",
+                        "\t[战争魔王,yellowKing]\b[this,4,14]是啊，早知道我杀了他算了。",
+                        {
+                            "type": "setValue",
+                            "name": "flag:enddingName",
+                            "value": "\"结局11：无奈的奈落\""
+                        }
+                    ]
+                },
+                "\t[仙子,fairy]\b[this,4,13]也许他还有很多东西不明白。",
+                "\t[战争魔王,yellowKing]\b[this,4,14]是啊，重建这个国家吧。我会叫魔塔里的人帮忙……"
             ]
         },
-        "\t[仙子,fairy]\b[this,4,13]也许他还有很多东西不明白。",
-        "\t[战争魔王,yellowKing]\b[this,4,14]是啊，重建这个国家吧。我会叫魔塔里的人帮忙……",
         {
             "type": "waitAsync"
         },
         {
-            "type": "insert",
-            "name": "难度配置",
-            "args": [
-                "final"
-            ]
+            "type": "hideStatusBar"
         },
         {
             "type": "setCurtain",
@@ -146,19 +212,23 @@ main.floors.Scene1=
             "time": 500,
             "keep": true
         },
-        "就是这样……\n扑朔迷离的国家，扑朔迷离魔塔，扑朔迷离圣人……\n\n\r[#80FF80]您已通关本游戏，难度${flag:realHard}。\n积分方式：当前角色攻防和",
+        "就是这样……\n扑朔迷离的国家，扑朔迷离魔塔，扑朔迷离圣人……\n\n\r[#80FF80]您已通关${flag:enddingName}，难度${flag:realHard}。\n积分方式：当前角色攻防和",
+        {
+            "type": "setValue",
+            "name": "flag:hard",
+            "value": "flag:realHard"
+        },
+        {
+            "type": "function",
+            "function": "function(){\ncore.status.hard = \"难度\" + core.getFlag('hard') + '（' + core.getFlag('enddingName') + '）';\n}"
+        },
         {
             "type": "if",
             "condition": "(flag:realHard>=10)",
             "true": [
                 {
-                    "type": "setValue",
-                    "name": "flag:hard",
-                    "value": "\"难度\"+flag:realHard"
-                },
-                {
                     "type": "win",
-                    "reason": "结局10：无奈的奈落"
+                    "reason": "${flag:enddingName}"
                 }
             ],
             "false": [
@@ -173,7 +243,8 @@ main.floors.Scene1=
                         },
                         {
                             "type": "win",
-                            "reason": "结局10：无奈的奈落"
+                            "reason": "${flag:enddingName}",
+                            "norank": 1
                         }
                     ],
                     "false": [
@@ -184,7 +255,7 @@ main.floors.Scene1=
                         },
                         {
                             "type": "win",
-                            "reason": "结局10：无奈的奈落",
+                            "reason": "${flag:enddingName}",
                             "norank": 1
                         }
                     ]

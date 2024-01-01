@@ -1086,7 +1086,11 @@ main.floors.MT6=
             }
         ]
     },
-    "afterGetItem": {},
+    "afterGetItem": {
+        "11,1": [
+            "提示：双击状态栏中的背包按钮也可进入装备界面。"
+        ]
+    },
     "afterOpenDoor": {},
     "autoEvent": {},
     "cannotMove": {},

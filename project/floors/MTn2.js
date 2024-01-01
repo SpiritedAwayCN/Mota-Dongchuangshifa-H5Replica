@@ -34,17 +34,43 @@ main.floors.MTn2=
             }
         ],
         "7,0": [
-            "\t[H5复刻作者]本层拦路的墙会在击败42F领袖时自动打开，\n也可使用破墙工具提前破开。"
+            "\t[H5复刻作者]本层拦路的墙会在击败42F领袖时自动打开，\n也可使用破墙工具提前破开。",
+            "\t[H5复刻作者]到达-3F角色全部能力将被重设为固定值，\n且失去全部的黄蓝红钥匙、异常状态解药。\n请合理规划资源！"
+        ],
+        "1,13": [
+            {
+                "type": "if",
+                "condition": "(flag:VerboseHint&&(switch:A!==1))",
+                "true": [
+                    {
+                        "type": "confirm",
+                        "text": "下楼后角色的各项能力将设为固定值，\n且丢失所有的黄蓝红钥匙与异常状态解药。\n建议先卸下全部的装备，是否确认下楼？",
+                        "yes": [
+                            {
+                                "type": "setValue",
+                                "name": "switch:A",
+                                "value": "1"
+                            }
+                        ],
+                        "no": [
+                            {
+                                "type": "exit"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "changeFloor",
+                "floorId": ":before",
+                "stair": "upFloor"
+            }
         ]
     },
     "changeFloor": {
         "7,1": {
             "floorId": ":next",
             "stair": "downFloor"
-        },
-        "1,13": {
-            "floorId": ":before",
-            "stair": "upFloor"
         }
     },
     "beforeBattle": {},

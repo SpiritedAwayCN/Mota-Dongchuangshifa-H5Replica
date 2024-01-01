@@ -438,7 +438,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 	"firstData": {
 		"title": "魔塔-东窗事发",
 		"name": "Dongchuangshifa",
-		"version": "Ver 2.8.2",
+		"version": "Ver 0.8.0",
 		"floorId": "MT0",
 		"hero": {
 			"image": "brave.png",
