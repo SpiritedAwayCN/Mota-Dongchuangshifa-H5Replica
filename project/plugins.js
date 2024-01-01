@@ -1566,7 +1566,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		var text = '获得 ' + core.material.items[id].name;
 		if (num > 1) text += "x" + num;
 		if (itemCls === 'items' && num == 1) text += core.items.getItemEffectTip(id);
-		core.drawTip(text, id);
+		if (!core.inArray(['skill1', 'I335', 'I336', 'I338'], id)) core.drawTip(text, id);
 
 		// --- 首次获得道具的提示
 		if (!core.hasFlag("__itemHint__")) core.setFlag("__itemHint__", []);
@@ -1595,6 +1595,9 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 
 		if (isPotion || isGem)
 			core.material.items[id].cls = "tools";
+		if (isPotion && !core.hasItem('skill1')) core.getItem("skill1");
+		if (isGem && !core.hasItem('I335')) core.getItem("I335");
+		if (id.endsWith('Wine') && !core.hasItem('I336')) core.getItem("I336");
 	}
 },
     "NoteBookRecord": function () {

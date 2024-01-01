@@ -973,7 +973,9 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		break;
 	case 69: // E：打开光标
 		// core.ui._drawCursor();
-		core.insertCommonEvent("SetPotionItemized", ["Wine"]);
+		// 		core.status.route.push("key:69");
+		core.useItem("I336");
+		// 		core.insertCommonEvent("SetPotionItemized", ["Wine"]);
 		break;
 	case 84: // T：打开道具栏
 		core.openToolbox(true);
@@ -998,7 +1000,9 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		core.ui._drawViewMaps();
 		break;
 	case 67: // C: 难度系统
-		core.insertCommonEvent("难度配置");
+		// 		core.status.route.push("key:67");
+		core.useItem("I338");
+		// 		core.insertCommonEvent("难度配置");
 		break;
 	case 66: // B：打开数据统计
 		// 		core.ui._drawStatistics();
@@ -1022,7 +1026,9 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		core.actions._clickGameInfo_openComments();
 		break;
 	case 85: // U: 角色切换
-		core.insertCommonEvent("SwitchCharactor");
+		// 		core.status.route.push("key:85");
+		core.useItem("fly_old");
+		// 		core.insertCommonEvent("SwitchCharactor");
 		break;
 		// 	case 49: // 快捷键1: 破
 		// 		if (core.hasItem('pickaxe')) {
@@ -1031,10 +1037,14 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		// 		}
 		// 		break;
 	case 49: // 快捷键1: 血瓶道具化
-		core.insertCommonEvent("SetPotionItemized", ["Potion"]);
+		// 		core.status.route.push("key:49");
+		core.useItem("skill1");
+		// 		core.insertCommonEvent("SetPotionItemized", ["Potion"]);
 		break
 	case 50: // 快捷键2: 宝石道具化
-		core.insertCommonEvent("SetPotionItemized", ["Gem"]);
+		// 		core.status.route.push("key:50");
+		core.useItem("I335");
+		// 		core.insertCommonEvent("SetPotionItemized", ["Gem"]);
 		// 		if (core.hasItem('bomb')) {
 		// 			core.status.route.push("key:50"); // 将按键记在录像中
 		// 			core.useItem('bomb', true); // 第二个参数true代表该次使用道具是被按键触发的，使用过程不计入录像

@@ -3768,7 +3768,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 						"action": [
 							{
 								"type": "function",
-								"function": "function(){\nif (!core.events._checkStatus('selectShop', false)) {\n\treturn;\n}\ncore.ui._drawQuickShop(\"金币\");\n}"
+								"function": "function(){\ncore.status.route.pop();\nif (!core.events._checkStatus('selectShop', false)) {\n\treturn;\n}\ncore.ui._drawQuickShop(\"金币\");\n}"
 							}
 						]
 					},
@@ -3778,7 +3778,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 						"action": [
 							{
 								"type": "function",
-								"function": "function(){\nif (!core.events._checkStatus('selectShop', false)) return;\ncore.ui._drawQuickShop(\"经验\");\n}"
+								"function": "function(){\ncore.status.route.pop();\nif (!core.events._checkStatus('selectShop', false)) return;\ncore.ui._drawQuickShop(\"经验\");\n}"
 							}
 						]
 					},
@@ -3788,14 +3788,19 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 						"action": [
 							{
 								"type": "function",
-								"function": "function(){\nif (!core.events._checkStatus('selectShop', false)) return;\ncore.ui._drawQuickShop(\"道具\");\n}"
+								"function": "function(){\ncore.status.route.pop();\nif (!core.events._checkStatus('selectShop', false)) return;\ncore.ui._drawQuickShop(\"道具\");\n}"
 							}
 						]
 					},
 					{
 						"text": "返回游戏",
 						"icon": "speedDown",
-						"action": []
+						"action": [
+							{
+								"type": "function",
+								"function": "function(){\ncore.status.route.pop();\n}"
+							}
+						]
 					}
 				]
 			}

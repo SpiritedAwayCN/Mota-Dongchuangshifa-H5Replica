@@ -82,6 +82,40 @@ main.floors.NM_FEX1=
                                 1
                             ]
                         ]
+                    },
+                    {
+                        "type": "openDoor",
+                        "loc": [
+                            3,
+                            13
+                        ],
+                        "async": true
+                    },
+                    {
+                        "type": "openDoor",
+                        "loc": [
+                            6,
+                            12
+                        ],
+                        "async": true
+                    },
+                    {
+                        "type": "openDoor",
+                        "loc": [
+                            8,
+                            12
+                        ],
+                        "async": true
+                    },
+                    {
+                        "type": "openDoor",
+                        "loc": [
+                            11,
+                            13
+                        ]
+                    },
+                    {
+                        "type": "waitAsync"
                     }
                 ]
             }
@@ -119,6 +153,40 @@ main.floors.NM_FEX1=
                                 1
                             ]
                         ]
+                    },
+                    {
+                        "type": "openDoor",
+                        "loc": [
+                            3,
+                            13
+                        ],
+                        "async": true
+                    },
+                    {
+                        "type": "openDoor",
+                        "loc": [
+                            6,
+                            12
+                        ],
+                        "async": true
+                    },
+                    {
+                        "type": "openDoor",
+                        "loc": [
+                            8,
+                            12
+                        ],
+                        "async": true
+                    },
+                    {
+                        "type": "openDoor",
+                        "loc": [
+                            11,
+                            13
+                        ]
+                    },
+                    {
+                        "type": "waitAsync"
                     }
                 ]
             }
@@ -179,72 +247,7 @@ main.floors.NM_FEX1=
         ]
     },
     "afterOpenDoor": {},
-    "autoEvent": {
-        "3,13": {
-            "0": {
-                "condition": "flag:v148_BeatBoss===2",
-                "currentFloor": true,
-                "priority": 0,
-                "delayExecute": false,
-                "multiExecute": false,
-                "data": [
-                    {
-                        "type": "openDoor",
-                        "async": true
-                    }
-                ]
-            },
-            "1": null
-        },
-        "6,12": {
-            "0": {
-                "condition": "flag:v148_BeatBoss===2",
-                "currentFloor": true,
-                "priority": 0,
-                "delayExecute": false,
-                "multiExecute": false,
-                "data": [
-                    {
-                        "type": "openDoor",
-                        "async": true
-                    }
-                ]
-            },
-            "1": null
-        },
-        "8,12": {
-            "0": {
-                "condition": "flag:v148_BeatBoss===2",
-                "currentFloor": true,
-                "priority": 0,
-                "delayExecute": false,
-                "multiExecute": false,
-                "data": [
-                    {
-                        "type": "openDoor",
-                        "async": true
-                    }
-                ]
-            },
-            "1": null
-        },
-        "11,13": {
-            "0": {
-                "condition": "flag:v148_BeatBoss===2",
-                "currentFloor": true,
-                "priority": 0,
-                "delayExecute": false,
-                "multiExecute": false,
-                "data": [
-                    {
-                        "type": "openDoor",
-                        "async": true
-                    }
-                ]
-            },
-            "1": null
-        }
-    },
+    "autoEvent": {},
     "cannotMove": {},
     "cannotMoveIn": {},
     "map": [

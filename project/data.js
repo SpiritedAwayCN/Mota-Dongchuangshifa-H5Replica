@@ -2094,7 +2094,8 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 		"godThief": 0.2,
 		"expThief": 0.8,
 		"degradeAtk": 2,
-		"degradeDef": 3
+		"degradeDef": 3,
+		"isGreenkeyValid": null
 	},
 	"flags": {
 		"statusBarItems": [

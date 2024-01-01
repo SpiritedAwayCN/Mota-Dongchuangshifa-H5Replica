@@ -38,6 +38,9 @@ main.floors.MT0=
             "type": "setValue",
             "name": "flag:VerboseHint",
             "value": "1"
+        },
+        {
+            "type": "waitAsync"
         }
     ],
     "parallelDo": "",

@@ -380,7 +380,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"cls": "tools",
 		"name": "铁门钥匙",
 		"text": "可以打开一扇铁门",
-		"hideInToolbox": false,
+		"hideInToolbox": true,
 		"defaultPrice": 1500
 	},
 	"pickaxe": {
@@ -547,10 +547,10 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 	},
 	"skill1": {
 		"cls": "constants",
-		"name": "技能：二倍斩",
-		"text": "可以打开或关闭主动技能二倍斩",
+		"name": "血瓶道具化(快捷键1)",
+		"text": "血瓶可以设置直接使用或放入背包，快捷键1。手机玩家可通过物品栏使用本道具呼出界面。",
 		"hideInReplay": true,
-		"useItemEffect": "(function () {\n\tvar skillValue = 1; // 技能的flag:skill值，可用于当前开启技能的判定；对于新技能可以依次改成2，3等等\n\tvar skillNeed = 5; // 技能的需求\n\tvar skillName = '二倍斩'; // 技能的名称\n\n\tif (core.getFlag('skill', 0) != skillValue) { // 判断当前是否已经开了技能\n\t\tif (core.getStatus('mana') >= skillNeed) { // 这里要写当前能否开技能的条件判断，比如魔力值至少要多少\n\t\t\tcore.playSound('打开界面');\n\t\t\tcore.setFlag('skill', skillValue); // 开技能1\n\t\t\tcore.setFlag('skillName', skillName); // 设置技能名\n\t\t} else {\n\t\t\tcore.playSound('操作失败');\n\t\t\tcore.drawTip('魔力不足，无法开启技能');\n\t\t}\n\t} else { // 关闭技能\n\t\tcore.setFlag('skill', 0); // 关闭技能状态\n\t\tcore.setFlag('skillName', '无');\n\t}\n})();",
+		"useItemEffect": "core.insertCommonEvent(\"SetPotionItemized\", [\"Potion\"]);",
 		"canUseItemEffect": "true"
 	},
 	"wand": {
@@ -583,13 +583,19 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"defaultPrice": 300
 	},
 	"I335": {
-		"cls": "items",
-		"name": "新物品",
+		"cls": "constants",
+		"name": "宝石道具化(快捷键2)",
+		"text": "宝石可以设置直接使用或放入背包，快捷键2。手机玩家可通过物品栏使用本道具呼出界面。",
+		"hideInReplay": true,
+		"useItemEffect": "core.insertCommonEvent(\"SetPotionItemized\", [\"Gem\"]);",
 		"canUseItemEffect": "true"
 	},
 	"I336": {
-		"cls": "items",
-		"name": "新物品",
+		"cls": "constants",
+		"name": "药水快捷使用(快捷键E)",
+		"text": "药水可以快捷使用，快捷键E。手机玩家可通过物品栏使用本道具呼出界面。",
+		"hideInReplay": true,
+		"useItemEffect": "core.insertCommonEvent(\"SetPotionItemized\", [\"Wine\"]);",
 		"canUseItemEffect": "true"
 	},
 	"I337": {
@@ -599,7 +605,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 	},
 	"I338": {
 		"cls": "constants",
-		"name": "难度设置",
+		"name": "难度设置(快捷键C)",
 		"canUseItemEffect": "true",
 		"text": "游戏中，可使用本物品，或按下C，可以调整难度词条。",
 		"useItemEvent": [
@@ -607,7 +613,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 				"type": "insert",
 				"name": "难度配置"
 			}
-		]
+		],
+		"hideInReplay": true
 	},
 	"I339": {
 		"cls": "tools",
