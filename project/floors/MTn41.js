@@ -38,7 +38,7 @@ main.floors.MTn41=
                 "false": [
                     {
                         "type": "confirm",
-                        "text": "确认要禁用漆黑层效果吗?",
+                        "text": "确认要禁用漆黑层效果吗?\n（禁用后可能会失去探索的乐趣）",
                         "yes": [
                             {
                                 "type": "setValue",
