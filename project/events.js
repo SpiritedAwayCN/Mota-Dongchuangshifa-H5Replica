@@ -3971,7 +3971,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 							},
 							{
 								"type": "choices",
-								"text": "\t[H5复刻版难度系统]总难度10起，将单独计入排行榜\n\r[orange]当前总难度：${flag:realHard}/15\r[red]\n${flag:noFixSevereBug ? '启用\"恶性特性修复\"才可结算难度值' : \"\"}\n\r游戏过程中可随时呼出本界面",
+								"text": "\t[H5复刻版难度系统]总难度10以上方可计入排行榜\n\r[orange]当前总难度：${flag:realHard}/15\r[red]\n${flag:noFixSevereBug ? '启用\"恶性特性修复\"才可结算难度值' : \"\"}\n\r游戏过程中可随时呼出本界面",
 								"choices": [
 									{
 										"text": "原版难度：${['简单','困难','噩梦'][flag:baseHard]} (难度+${flag:baseHard})",
