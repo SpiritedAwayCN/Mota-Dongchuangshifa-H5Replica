@@ -24,6 +24,11 @@ main.floors.Scene1=
             ]
         },
         {
+            "type": "setValue",
+            "name": "flag:hard",
+            "value": "flag:realHard"
+        },
+        {
             "type": "setText",
             "time": 60
         },
@@ -150,19 +155,27 @@ main.floors.Scene1=
             "type": "if",
             "condition": "(flag:GoodEnding===1)",
             "true": [
+                {
+                    "type": "function",
+                    "function": "function(){\ncore.status.hard = \"难度\" + core.getFlag('hard') + '（结局12：灭亡与新生）';\n}"
+                },
                 "\t[战争魔王,yellowKing]\b[this,4,14]旧的国家不存在了，老国王也已经不在了。这个建立在旧国家上的新国家，包含的恶行会就此结束吗？",
                 "\t[仙子,fairy]\b[this,4,13]一个曾经不值得同情的国家……积累了几代人的横征暴敛，所包含的恶不会就因为一个人，在短短几年内就完全消散。",
                 "\t[战争魔王,yellowKing]\b[this,4,14]是啊，所有恶行都降临到了曾经的这个国家上，勇士当年想做的真不值。但他做到了。",
                 "\t[仙子,fairy]\b[this,4,13]好了，快回魔塔吧，我们毕竟是魔物，在人类的心中仍然是防备而敌对的存在……",
-                "\t[战争魔王,yellowKing]\b[this,4,14]我们的魔塔将继续充当守护人，如果曾经充满恶的国家再临，我仍会发起进攻。",
+                "\t[战争魔王,yellowKing]\b[this,4,14]魔塔将继续充当守护人，如果曾经充满恶的国家再临，魔塔的意志将促使我们再次发起进攻。",
                 "\t[仙子,fairy]\b[this,4,13]拭目以待吧，比起屠龙者终成恶龙的发展，我更愿意相信希望。",
                 {
                     "type": "setValue",
                     "name": "flag:enddingName",
-                    "value": "\"结局12：毁灭与新生\""
+                    "value": "\"结局12：灭亡与新生\""
                 }
             ],
             "false": [
+                {
+                    "type": "function",
+                    "function": "function(){\ncore.status.hard = \"难度\" + core.getFlag('hard') + '（结局10/11：无奈的奈落）';\n}"
+                },
                 {
                     "type": "if",
                     "condition": "(flag:s172_PerfectEnding===1)",
@@ -213,15 +226,6 @@ main.floors.Scene1=
             "keep": true
         },
         "就是这样……\n扑朔迷离的国家，扑朔迷离魔塔，扑朔迷离圣人……\n\n\r[#80FF80]您已通关${flag:enddingName}，难度${flag:realHard}。\n积分方式：当前角色攻防和",
-        {
-            "type": "setValue",
-            "name": "flag:hard",
-            "value": "flag:realHard"
-        },
-        {
-            "type": "function",
-            "function": "function(){\ncore.status.hard = \"难度\" + core.getFlag('hard') + '（' + core.getFlag('enddingName') + '）';\n}"
-        },
         {
             "type": "if",
             "condition": "(flag:realHard>=10)",

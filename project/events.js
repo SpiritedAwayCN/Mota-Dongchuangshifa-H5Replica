@@ -3562,7 +3562,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 						"action": [
 							{
 								"type": "choices",
-								"text": "\t[获得血瓶,I454]选择一名角色：生命翻倍！\n（实际生命回复量受难度影响）",
+								"text": "\t[获得血瓶,I454]选择一名角色：生命翻倍！\r[#FF40FF]\n(实际生命回复量受难度影响)\r",
 								"choices": [
 									{
 										"text": "当前行动角色",
@@ -3574,10 +3574,22 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 										],
 										"action": [
 											{
-												"type": "setValue",
-												"name": "status:hp",
-												"operator": "*=",
-												"value": "2"
+												"type": "if",
+												"condition": "(flag:PotionLessRate===1)",
+												"true": [
+													{
+														"type": "function",
+														"function": "function(){\ncore.status.hero.hp = Math.floor(core.status.hero.hp * 1.2);\n}"
+													}
+												],
+												"false": [
+													{
+														"type": "setValue",
+														"name": "status:hp",
+														"operator": "*=",
+														"value": "2"
+													}
+												]
 											}
 										]
 									},
@@ -3586,8 +3598,20 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 										"icon": "N331",
 										"action": [
 											{
-												"type": "function",
-												"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n(hero_id == 0 ? core.status.hero : core.getFlag(\"hero0\")).hp *= 2;\ncore.updateStatusBar(true);\n}"
+												"type": "if",
+												"condition": "(flag:PotionLessRate===1)",
+												"true": [
+													{
+														"type": "function",
+														"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\nvar hero = (hero_id == 0 ? core.status.hero : core.getFlag(\"hero0\"));\nhero.hp = Math.floor(hero.hp * 1.2);\n}"
+													}
+												],
+												"false": [
+													{
+														"type": "function",
+														"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\nvar hero = (hero_id == 0 ? core.status.hero : core.getFlag(\"hero0\"));\nhero.hp *= 2;\n}"
+													}
+												]
 											}
 										]
 									},
@@ -3597,12 +3621,27 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 										"need": "flag:FoundWoman===1",
 										"action": [
 											{
-												"type": "function",
-												"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n(hero_id == 1 ? core.status.hero : core.getFlag(\"hero1\")).hp *= 2;\ncore.updateStatusBar(true);\n}"
+												"type": "if",
+												"condition": "(flag:PotionLessRate===1)",
+												"true": [
+													{
+														"type": "function",
+														"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\nvar hero = (hero_id == 1 ? core.status.hero : core.getFlag(\"hero1\"));\nhero.hp = Math.floor(hero.hp * 1.2);\n}"
+													}
+												],
+												"false": [
+													{
+														"type": "function",
+														"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\nvar hero = (hero_id == 1 ? core.status.hero : core.getFlag(\"hero1\"));\nhero.hp *= 2;\n}"
+													}
+												]
 											}
 										]
 									}
 								]
+							},
+							{
+								"type": "update"
 							},
 							{
 								"type": "playSound",
