@@ -175,6 +175,8 @@ main.floors.MT8=
         },
         "8,7": [
             "\t[老人,man]\b[this]无论怎样，都会严格按正向和箭头方向前进。@clue",
+            "\t[老人,man]\b[this]在踩转换正向方向这个功能上，踩一下转换箭头，传送出去，再回来就有区别了。@clue",
+            "\t[老人,man]\b[this]如果不懂，请到箭头空间，传送带在0层@clue",
             {
                 "type": "setValue",
                 "name": "flag:v116_Chat",
@@ -183,8 +185,14 @@ main.floors.MT8=
                 "norefresh": true
             },
             {
-                "type": "comment",
-                "text": "TODO-箭头空间"
+                "type": "show",
+                "loc": [
+                    [
+                        7,
+                        7
+                    ]
+                ],
+                "floorId": "MT0"
             },
             {
                 "type": "hide",

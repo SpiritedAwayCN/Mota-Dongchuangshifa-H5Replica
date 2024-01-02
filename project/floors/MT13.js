@@ -40,7 +40,7 @@ main.floors.MT13=
                         "action": [
                             {
                                 "type": "setValue",
-                                "name": "item:blueGemGem",
+                                "name": "item:blueGem",
                                 "operator": "+=",
                                 "value": "5"
                             }

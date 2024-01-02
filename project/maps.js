@@ -85,7 +85,7 @@ var maps_90f36752_8815_4be8_b32b_d7fad1d0542e =
 	"101": {"cls":"animates","id":"crystalUp"},
 	"102": {"cls":"animates","id":"crystalBottom"},
 	"103": {"cls":"animates","id":"fire"},
-	"104": {"cls":"animates","id":"switch","canPass":true},
+	"104": {"cls":"animates","id":"switch","canPass":true,"script":"(function () {\n\tvar blockMapper = { 'X10222': 'X10230', 'X10230': 'X10222', 'X10236': 'X10237', 'X10237': 'X10236' };\n\tvar actions = core.searchBlock(\"X102(22|30|36|37)\").map(function (block) {\n\t\treturn {\n\t\t\t\"type\": \"setBlock\",\n\t\t\t\"number\": blockMapper[block.block.event.id],\n\t\t\t\"loc\": [\n\t\t\t\t[block.x, block.y]\n\t\t\t],\n\t\t\t\"async\": true\n\t\t};\n\t});\n\tactions.push({ \"type\": \"waitAsync\" });\n\tcore.insertAction(actions);\n})();"},
 	"109": {"cls":"animates","id":"magentaWall","canBreak":true,"animate":1,"doorInfo":{"time":160,"openSound":"door.mp3","closeSound":"door.mp3","keys":{}},"canDestoriedByReels":true},
 	"121": {"cls":"npcs","id":"man"},
 	"122": {"cls":"npcs","id":"trader"},

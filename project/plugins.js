@@ -1629,6 +1629,17 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		return basicCombo + core.getBuff("combo") - 1;
 	}
 
+	this.getNotebookInitPage = function (index) {
+		var record = core.getFlag("notebook@record", {});
+		var index_list = Object.keys(record).map(x => core.floorIds.indexOf(x));
+		index_list.sort((a, b) => a - b);
+		if (index_list.length === 0) return index;
+		var i = index_list.findIndex(x => x > index);
+		if (i < 0) return index_list[index_list.length - 1];
+		if (i === 0) return index_list[0];
+		return index_list[i - 1];
+	}
+
 	var oldDrawText = core.ui._drawTextContent_draw;
 	core.ui._drawTextContent_draw = function (ctx, tempCtx, content, config) {
 		if (content.endsWith("@clue")) {
@@ -1658,7 +1669,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		if (core.isReplaying()) return;
 		if (!this._checkStatus('notebook', fromUserAction, true)) return;
 		core.playSound('打开界面');
-		core.ui.drawNotebook(core.floorIds.indexOf(core.status.floorId || 'MT0'));
+		core.ui.drawNotebook(core.getNotebookInitPage(core.floorIds.indexOf(core.status.floorId || 'MT0')));
 	}
 
 	////// 绘制对话记录本 //////

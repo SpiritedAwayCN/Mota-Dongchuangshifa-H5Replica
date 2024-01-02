@@ -89,26 +89,6 @@ main.floors.MT30=
                         ]
                     }
                 ]
-            },
-            {
-                "type": "comment",
-                "text": "TODO-最终版删除以下"
-            },
-            {
-                "type": "if",
-                "condition": "flag:s68_F13RescuedThief",
-                "true": [
-                    {
-                        "type": "hide",
-                        "loc": [
-                            [
-                                10,
-                                8
-                            ]
-                        ],
-                        "remove": true
-                    }
-                ]
             }
         ],
         "2,12": {

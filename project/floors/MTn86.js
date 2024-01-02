@@ -578,14 +578,19 @@ main.floors.MTn86=
                 "loc": [
                     7,
                     9
-                ]
+                ],
+                "async": true
             },
             {
                 "type": "openDoor",
                 "loc": [
                     7,
                     12
-                ]
+                ],
+                "async": true
+            },
+            {
+                "type": "waitAsync"
             }
         ]
     },
