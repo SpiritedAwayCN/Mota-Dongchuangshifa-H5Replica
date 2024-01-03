@@ -81,8 +81,11 @@ main.floors.Scene0=
         "\t[hero]\b[hero]我马上赶回去！",
         "\t[神父,N580]\b[this,12,10]晚了..........",
         {
-            "type": "lose",
-            "reason": "结局9"
+            "type": "insert",
+            "name": "结局处理",
+            "args": [
+                "结局9"
+            ]
         }
     ],
     "parallelDo": "",

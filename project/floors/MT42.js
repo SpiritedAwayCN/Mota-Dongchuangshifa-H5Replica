@@ -59,8 +59,11 @@ main.floors.MT42=
                             "text": "好吧",
                             "action": [
                                 {
-                                    "type": "lose",
-                                    "reason": "结局7"
+                                    "type": "insert",
+                                    "name": "结局处理",
+                                    "args": [
+                                        "结局7"
+                                    ]
                                 }
                             ]
                         },
@@ -95,8 +98,11 @@ main.floors.MT42=
                             "action": [
                                 "\t[邪恶仙子,evilFairy]\b[this]好，愤怒到了极点，开始诅咒！",
                                 {
-                                    "type": "lose",
-                                    "reason": "结局4"
+                                    "type": "insert",
+                                    "name": "结局处理",
+                                    "args": [
+                                        "结局4"
+                                    ]
                                 }
                             ]
                         },

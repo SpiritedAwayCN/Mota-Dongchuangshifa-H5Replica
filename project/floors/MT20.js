@@ -306,8 +306,11 @@ main.floors.MT20=
                         "text": "我要回去看看！",
                         "action": [
                             {
-                                "type": "lose",
-                                "reason": "结局4"
+                                "type": "insert",
+                                "name": "结局处理",
+                                "args": [
+                                    "结局4"
+                                ]
                             }
                         ]
                     },

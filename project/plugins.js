@@ -248,7 +248,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		// 如果返回一个字符串，表示不能，字符串为不能使用的提示
 		// 返回null代表可以使用
 
-		if (!core.hasItem('fly')) {
+		if (core.status.floorId !== "Tutorial1" && !core.hasItem('fly')) {
 			return '持有楼层传送器才能使用快捷商店。';
 		}
 
@@ -261,7 +261,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		}
 
 		// 检查是否在楼梯边上
-		if (core.flags.flyNearStair && !core.nearStair()) {
+		if (core.status.floorId !== "Tutorial1" && core.flags.flyNearStair && !core.nearStair()) {
 			return '只有在楼梯边才能使用快捷商店。';
 		}
 
@@ -1583,6 +1583,8 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 						isGem ? "（宝石类道具，按2可快捷使用）" :
 						id.endsWith('Wine') ? "（解药类道具，按E可快捷使用）" :
 						id === 'book' ? "（永久类道具，按X键可快捷使用）" :
+						id === 'fly' ? "（永久类道具，按G键可快捷使用）" :
+						id === 'notebook' ? "（永久类道具，按F键可快捷使用）" :
 						itemCls == 'tools' ? "（消耗类道具，请按T在道具栏使用）" :
 						itemCls == 'constants' ? "（永久类道具，请按T在道具栏使用）" :
 						itemCls == 'equips' ? "（装备类道具，请按Q或双击状态栏背包按钮在装备栏进行装备）" : ""));
@@ -1597,7 +1599,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 			core.material.items[id].cls = "tools";
 		if (isPotion && !core.hasItem('skill1')) core.insertAction({ "type": "setValue", "name": "item:skill1", "operator": "+=", "value": "1" });
 		if (isGem && !core.hasItem('I335')) core.insertAction({ "type": "setValue", "name": "item:I335", "operator": "+=", "value": "1" });
-		if (id.endsWith('Wine') && !core.hasItem('I336')) core.insertAction({ "type": "setValue", "name": "item:I336", "operator": "+=", "value": "1" });
+		if (id.endsWith('Wine') && !core.hasItem('I336')) core.status.hero.items.constants.I336 = 1;
 	}
 },
     "NoteBookRecord": function () {

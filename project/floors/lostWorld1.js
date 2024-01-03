@@ -58,25 +58,25 @@ main.floors.lostWorld1=
             "data": [
                 {
                     "type": "if",
-                    "condition": "flag:VerboseHint===1",
+                    "condition": "(flag:VerboseHint===1)",
                     "true": [
                         {
                             "type": "confirm",
                             "text": "有种不好的预感，确认要进入吗?",
-                            "yes": [
+                            "yes": [],
+                            "no": [
                                 {
-                                    "type": "lose",
-                                    "reason": "结局6"
+                                    "type": "exit"
                                 }
-                            ],
-                            "no": []
+                            ]
                         }
-                    ],
-                    "false": [
-                        {
-                            "type": "lose",
-                            "reason": "结局6"
-                        }
+                    ]
+                },
+                {
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
                     ]
                 }
             ]

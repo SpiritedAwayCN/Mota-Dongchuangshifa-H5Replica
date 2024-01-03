@@ -1132,12 +1132,19 @@ control.prototype.checkBlock = function () {
             core.drawHeroAnimate("A03");
         else
             core.drawHeroAnimate("zone");
+        if(text.indexOf('血网') >= 0){
+			var lvl = core.getFlag('lavaNetLevel', 0), lvlUb = core.getFlag('lavaNetLevelUb', 0);
+            if (lvl < lvlUb) {
+				core.setFlag('lavaNetLevelUb', lvl);
+				core.insertAction('\t[H5难度系统]熔岩网伤害已按当前难度设置生效，\r[#FF40FF]相关的更高难度选项已不可用！\r');
+			}
+        }
         this._checkBlock_disableQuickShop();
         core.status.hero.statistics.extraDamage += damage;
         if (core.status.hero.hp <= 0 || (core.hasFlag('dying') && damage > 0)) {
             core.status.hero.hp = 0;
             core.updateStatusBar(false, true);
-            core.events.lose();
+            core.insertCommonEvent('结局处理', ['结局1'])
             return;
         } else {
             core.updateStatusBar(false, true);

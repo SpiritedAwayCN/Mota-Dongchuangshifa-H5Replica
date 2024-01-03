@@ -117,8 +117,11 @@ main.floors.MTn57=
                         "text": "好，我听懂你的意思。",
                         "action": [
                             {
-                                "type": "lose",
-                                "reason": "结局7"
+                                "type": "insert",
+                                "name": "结局处理",
+                                "args": [
+                                    "结局7"
+                                ]
                             }
                         ]
                     },

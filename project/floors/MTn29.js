@@ -61,8 +61,11 @@ main.floors.MTn29=
                             "text": "那我放弃了。",
                             "action": [
                                 {
-                                    "type": "lose",
-                                    "reason": "结局4"
+                                    "type": "insert",
+                                    "name": "结局处理",
+                                    "args": [
+                                        "结局4"
+                                    ]
                                 }
                             ]
                         },

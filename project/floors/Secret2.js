@@ -61,8 +61,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -97,8 +100,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -133,8 +139,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -169,8 +178,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -205,8 +217,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -241,8 +256,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -277,8 +295,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -313,8 +334,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -349,8 +373,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -385,8 +412,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -421,8 +451,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -457,8 +490,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -493,8 +529,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -529,8 +568,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -565,8 +607,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -601,8 +646,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -637,8 +685,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -673,8 +724,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -709,8 +763,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -745,8 +802,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -781,8 +841,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -817,8 +880,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -853,8 +919,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -889,8 +958,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -925,8 +997,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -961,8 +1036,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -997,8 +1075,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -1033,8 +1114,11 @@ main.floors.Secret2=
                     ]
                 },
                 {
-                    "type": "lose",
-                    "reason": "结局6"
+                    "type": "insert",
+                    "name": "结局处理",
+                    "args": [
+                        "结局6"
+                    ]
                 }
             ]
         },
@@ -1100,7 +1184,7 @@ main.floors.Secret2=
                                         40
                                     ],
                                     "action": [
-                                        "\t[Black Devil,blackKing]\b[this]你正在迟疑，来吧，给你一部分能力，我们进行公平的决斗。",
+                                        "\t[Black Devil,blackKing]\b[up]你正在迟疑，来吧，给你一部分能力，我们进行公平的决斗。",
                                         "\t[国王,N617]\b[hero]……",
                                         {
                                             "type": "setValue",
@@ -1124,7 +1208,7 @@ main.floors.Secret2=
                                 {
                                     "text": "当然(接受来自国王的10倍攻防)",
                                     "action": [
-                                        "\t[Black Devil,blackKing]\b[this]你死定了！再见！",
+                                        "\t[Black Devil,blackKing]\b[up]你死定了！再见！",
                                         "\t[国王,N617]\b[hero]帮你把攻防变为10倍！",
                                         {
                                             "type": "setValue",
@@ -1144,7 +1228,7 @@ main.floors.Secret2=
                         }
                     ],
                     "false": [
-                        "\t[Black Devil,blackKing]\b[this]你死定了！再见！",
+                        "\t[Black Devil,blackKing]\b[up]你死定了！再见！",
                         "\t[国王,N617]\b[hero]帮你把攻防变为10倍！",
                         {
                             "type": "setValue",
@@ -1177,29 +1261,29 @@ main.floors.Secret2=
                             "text": "已进入Good End"
                         },
                         "\t[hero]\b[hero]……为何要帮我？",
-                        "\t[Black Devil,blackKing]\b[this]一个充满恶行的国家，站在你身后的一国之君找到了我们，他主动选择了灭亡。",
+                        "\t[Black Devil,blackKing]\b[up]一个充满恶行的国家，站在你身后的一国之君找到了我们，他主动选择了灭亡。",
                         "\t[国王,N617]\b[hero]我放任了万千的恶在我的国土滋生，以此了扩大国家的威慑力，也增强了我自己的实力。",
                         "\t[国王,N617]\b[hero]我一次次将我的女儿送往魔塔，以拯救公主的幌子吸引我的国民前往魔塔挑战，为我筛选出强大的士兵，为我消除异己。",
                         "\t[国王,N617]\b[hero]但随着时间的推移，有志高尚之士在我这个恶贯满盈的国度，丧生于权术、争斗、阴谋……",
                         "\t[国王,N617]\b[hero]我们的国家已经变成了恶的代名词，这脱离了我的掌控。因此，我选择了灭亡。圣人不干预人类的选择。",
                         "\t[hero]\b[hero]……",
-                        "\t[Black Devil,blackKing]\b[this]勇者，你经受住了魔塔的考验，我代表魔塔为你让路。",
-                        "\t[Black Devil,blackKing]\b[this]前方便是你的国家，你名义上完满的完成了拯救国家的任务。但是，这个国家值得你拯救吗？",
+                        "\t[Black Devil,blackKing]\b[up]勇者，你经受住了魔塔的考验，我代表魔塔为你让路。",
+                        "\t[Black Devil,blackKing]\b[up]前方便是你的国家，你名义上完满的完成了拯救国家的任务。但是，这个国家值得你拯救吗？",
                         {
                             "type": "sleep",
                             "time": 500
                         },
                         "\t[hero]\b[hero]……",
-                        "\t[Black Devil,blackKing]\b[this]${status:name}，你接受了我的力量，同时也战胜了我，你的国家不该是恶意的化生。你有实力，有了战胜魔塔的名誉，你应该有所行动。",
-                        "\t[Black Devil,blackKing]\b[this]至于老头子，魔塔已经没有能力帮你实现国家的灭亡。你强行被这位勇者带回魔塔，准备如何面对你的人民？",
+                        "\t[Black Devil,blackKing]\b[up]${status:name}，你接受了我的力量，同时也战胜了我，你的国家不该是恶意的化生。你有实力，有了战胜魔塔的名誉，你应该有所行动。",
+                        "\t[Black Devil,blackKing]\b[up]至于老头子，魔塔已经没有能力帮你实现国家的灭亡。你强行被这位勇者带回魔塔，准备如何面对你的人民？",
                         "\t[国王,N617]\b[hero]我自有分寸。",
                         "\t[hero]\b[hero]……“有所行动”，我自出生起就被卷入了这台国家机器，我永远只是国家的剑，一把没有头脑与自由意志的剑。",
                         "\t[hero]\b[hero]……我要救的是国家的人民、国家的信仰，不只是国王与公主。",
                         "\t[国王,N617]\b[hero]先回国家吧，${status:name}。我已经被你从魔塔里拉出来了，魔塔将要倒塌，我也无法回去了，快走吧。"
                     ],
                     "false": [
-                        "\t[Black devil,blackKing]\b[this]……魔塔完了……",
-                        "\t[Black devil,blackKing]\b[this]你行……"
+                        "\t[Black devil,blackKing]\b[up]……魔塔完了……",
+                        "\t[Black devil,blackKing]\b[up]你行……"
                     ]
                 },
                 {

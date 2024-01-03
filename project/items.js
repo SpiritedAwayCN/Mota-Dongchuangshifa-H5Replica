@@ -29,7 +29,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"itemEffectTip": "，攻击+${core.values.redGem * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.atk += core.values.redGem",
 		"canUseItemEffect": "true",
-		"hideInToolbox": true,
+		"hideInToolbox": false,
 		"defaultPrice": 1000
 	},
 	"blueGem": {
@@ -40,18 +40,18 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"itemEffectTip": "，防御+${core.values.blueGem * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.def += core.values.blueGem",
 		"canUseItemEffect": "true",
-		"hideInToolbox": true,
+		"hideInToolbox": false,
 		"defaultPrice": 1000
 	},
 	"greenGem": {
 		"cls": "tools",
 		"name": "绿宝石",
-		"text": "护盾+${core.values.greenGem}",
+		"text": "魔防+${core.values.greenGem}",
 		"itemEffect": "core.status.hero.mdef += core.values.greenGem * core.status.thisMap.ratio",
-		"itemEffectTip": "，护盾+${core.values.greenGem * core.status.thisMap.ratio}",
+		"itemEffectTip": "，魔防+${core.values.greenGem * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.mdef += core.values.greenGem",
 		"canUseItemEffect": "true",
-		"hideInToolbox": true,
+		"hideInToolbox": false,
 		"defaultPrice": 1000
 	},
 	"yellowGem": {
@@ -68,51 +68,51 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		],
 		"canUseItemEffect": "true",
 		"useItemEffect": "core.values.levelupPoint += core.values.yellowGem;\ncore.status.hero.lv += 1;\ncore.plugin.refreshComboWand();",
-		"hideInToolbox": true,
+		"hideInToolbox": false,
 		"defaultPrice": 6000
 	},
 	"redPotion": {
 		"cls": "tools",
 		"name": "红血瓶",
 		"text": "\t生命+${core.values.redPotion}",
-		"itemEffect": "if (core.hasFlag('dying')) core.events.lose();\ncore.status.hero.hp += core.values.redPotion * core.status.thisMap.ratio;",
+		"itemEffect": "if (core.hasFlag('dying')) core.insertCommonEvent('结局处理', ['结局1']);\ncore.status.hero.hp += core.values.redPotion * core.status.thisMap.ratio;",
 		"itemEffectTip": "，生命+${core.values.redPotion * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.hp += core.values.redPotion",
 		"canUseItemEffect": "!core.hasFlag('dying')",
-		"hideInToolbox": true,
+		"hideInToolbox": false,
 		"defaultPrice": 1000
 	},
 	"bluePotion": {
 		"cls": "tools",
 		"name": "蓝血瓶",
 		"text": "生命+${core.values.bluePotion}",
-		"itemEffect": "if (core.hasFlag('dying')) core.events.lose();\ncore.status.hero.hp += core.values.bluePotion * core.status.thisMap.ratio",
+		"itemEffect": "if (core.hasFlag('dying')) core.insertCommonEvent('结局处理', ['结局1']);\ncore.status.hero.hp += core.values.bluePotion * core.status.thisMap.ratio",
 		"itemEffectTip": "，生命+${core.values.bluePotion * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.hp += core.values.bluePotion",
 		"canUseItemEffect": "!core.hasFlag('dying')",
-		"hideInToolbox": true,
+		"hideInToolbox": false,
 		"defaultPrice": 2000
 	},
 	"yellowPotion": {
 		"cls": "tools",
 		"name": "黄血瓶",
 		"text": "生命+${core.values.yellowPotion}",
-		"itemEffect": "if (core.hasFlag('dying')) core.events.lose();\ncore.status.hero.hp += core.values.yellowPotion * core.status.thisMap.ratio",
+		"itemEffect": "if (core.hasFlag('dying')) core.insertCommonEvent('结局处理', ['结局1']);\ncore.status.hero.hp += core.values.yellowPotion * core.status.thisMap.ratio",
 		"itemEffectTip": "，生命+${core.values.yellowPotion * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.hp += core.values.yellowPotion",
 		"canUseItemEffect": "!core.hasFlag('dying')",
-		"hideInToolbox": true,
+		"hideInToolbox": false,
 		"defaultPrice": 4000
 	},
 	"greenPotion": {
 		"cls": "tools",
 		"name": "绿血瓶",
 		"text": "生命+${core.values.greenPotion}",
-		"itemEffect": "if (core.hasFlag('dying')) core.events.lose();\ncore.status.hero.hp += core.values.greenPotion * core.status.thisMap.ratio",
+		"itemEffect": "if (core.hasFlag('dying')) core.insertCommonEvent('结局处理', ['结局1']);\ncore.status.hero.hp += core.values.greenPotion * core.status.thisMap.ratio",
 		"itemEffectTip": "，生命+${core.values.greenPotion * core.status.thisMap.ratio}",
 		"useItemEffect": "core.status.hero.hp += core.values.greenPotion",
 		"canUseItemEffect": "!core.hasFlag('dying')",
-		"hideInToolbox": true,
+		"hideInToolbox": false,
 		"defaultPrice": 6000
 	},
 	"sword0": {
@@ -446,7 +446,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"useItemEffect": "core.triggerDebuff('remove', 'poison');",
 		"canUseItemEffect": "core.hasFlag('poison');",
 		"defaultPrice": 500,
-		"hideInToolbox": true
+		"hideInToolbox": false
 	},
 	"weakWine": {
 		"cls": "tools",
@@ -455,7 +455,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"useItemEffect": "core.triggerDebuff('remove', 'weak');",
 		"canUseItemEffect": "core.hasFlag('weak');",
 		"defaultPrice": 400,
-		"hideInToolbox": true
+		"hideInToolbox": false
 	},
 	"curseWine": {
 		"cls": "tools",
@@ -464,7 +464,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"useItemEffect": "core.triggerDebuff('remove', 'curse');",
 		"canUseItemEffect": "core.hasFlag('curse');",
 		"defaultPrice": 400,
-		"hideInToolbox": true
+		"hideInToolbox": false
 	},
 	"superWine": {
 		"cls": "tools",
@@ -473,7 +473,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"useItemEffect": "core.triggerDebuff('remove', ['poison', 'weak', 'curse']);",
 		"canUseItemEffect": "(function() {\n\treturn core.hasFlag('poison') || core.hasFlag('weak') || core.hasFlag('curse');\n})();",
 		"defaultPrice": 800,
-		"hideInToolbox": true
+		"hideInToolbox": false
 	},
 	"hammer": {
 		"cls": "tools",
@@ -604,15 +604,25 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"canUseItemEffect": "true"
 	},
 	"I337": {
-		"cls": "items",
-		"name": "新物品",
-		"canUseItemEffect": "true"
+		"cls": "constants",
+		"name": "难度设置(快捷键C)",
+		"canUseItemEffect": "true",
+		"text": "游戏中，使用本物品或按下C键，可以调整难度词条。",
+		"useItemEvent": [
+			{
+				"type": "insert",
+				"name": "难度配置",
+				"args": [
+					"tutorialSetting"
+				]
+			}
+		]
 	},
 	"I338": {
 		"cls": "constants",
 		"name": "难度设置(快捷键C)",
 		"canUseItemEffect": "true",
-		"text": "游戏中，可使用本物品，或按下C，可以调整难度词条。",
+		"text": "游戏中，使用本物品或按下C键，可以调整难度词条。",
 		"useItemEvent": [
 			{
 				"type": "insert",
@@ -1094,7 +1104,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"canUseItemEffect": "true",
 		"useItemEffect": "core.events.openNotebook(true);",
 		"hideInReplay": true,
-		"text": "显示与魔塔老人的对话（快捷键I）",
+		"text": "显示与魔塔老人的对话（快捷键F）",
 		"defaultPrice": 2000
 	},
 	"I576": {

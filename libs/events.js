@@ -85,11 +85,19 @@ events.prototype._startGame_setHard = function () {
 
 events.prototype._startGame_afterStart = function (callback) {
     core.ui.closePanel();
-    core.changeFloor(core.firstData.floorId, null, core.firstData.hero.loc, null, function () {
-        // 插入一个空事件避免直接回放录像出错
-        core.insertAction([]);
-        if (callback) callback();
-    });
+    if(core.getFlag("goTutorial", false)){
+        core.changeFloor('Tutorial1', null, {'x': 1, 'y': 1, 'direction':'down'}, null, function () {
+            // 插入一个空事件避免直接回放录像出错
+            core.insertAction([]);
+            if (callback) callback();
+        });
+    }else{
+        core.changeFloor(core.firstData.floorId, null, core.firstData.hero.loc, null, function () {
+            // 插入一个空事件避免直接回放录像出错
+            core.insertAction([]);
+            if (callback) callback();
+        });
+    }
     this._startGame_upload();
 }
 
@@ -116,10 +124,10 @@ events.prototype.win = function (reason, norank, noexit) {
 ////// 游戏失败事件 //////
 events.prototype.lose = function (reason) {
     if (core.isReplaying()) return core.control._replay_error(reason, function () { core.lose(reason); });
-    core.insertCommonEvent("结局处理", [reason]);
-    core.doAction();
-    // core.status.gameOver = true;
-    // return this.eventdata.lose(reason);
+    // core.insertCommonEvent("结局处理", [reason]);
+    // core.doAction();
+    core.status.gameOver = true;
+    return this.eventdata.lose(reason);
 }
 
 ////// 游戏结束 //////

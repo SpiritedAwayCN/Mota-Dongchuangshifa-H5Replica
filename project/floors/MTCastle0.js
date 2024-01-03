@@ -26,6 +26,13 @@ main.floors.MTCastle0=
         "\t[仙子,fairy]\b[this,10,18]对的，左边入口是你可以去的地方，右边是你无法进入的地方。",
         "\t[仙子,fairy]\b[this,10,18]好啦，去吧，${status:name}。据说这里面有一个神圣的十字架。",
         {
+            "type": "if",
+            "condition": "(flag:VerboseHint===1)",
+            "true": [
+                "\t[H5复刻作者]-38F圣十字架并非必需。-37F圣十字架的实际效果为：提升当前角色10%的能力值。请合理规划获取时机！"
+            ]
+        },
+        {
             "type": "hide",
             "loc": [
                 [

@@ -14,7 +14,13 @@ main.floors.MTn22=
     "defaultGround": "ground",
     "bgm": "mtboss.mp3",
     "firstArrive": [
-        "\t[H5复刻作者]本层有大量圣水，但请注意：\n-23F将\r[red]强制重设\r角色生命，并\r[red]清空\r背包中的圣水、\r[red]强制删除\r本层所有未拾取的圣水。\n请合理规划资源！"
+        {
+            "type": "if",
+            "condition": "(flag:VerboseHint===1)",
+            "true": [
+                "\t[H5复刻作者]本层有大量圣水，但请注意：-23F将\r[red]强制重设\r角色生命，并\r[red]清空\r背包中的圣水、\r[red]强制删除\r本层所有未拾取的圣水。请合理规划资源！@clue"
+            ]
+        }
     ],
     "eachArrive": [],
     "parallelDo": "",
@@ -28,8 +34,11 @@ main.floors.MTn22=
                         "text": "好吧",
                         "action": [
                             {
-                                "type": "lose",
-                                "reason": "结局8"
+                                "type": "insert",
+                                "name": "结局处理",
+                                "args": [
+                                    "结局8"
+                                ]
                             }
                         ]
                     },

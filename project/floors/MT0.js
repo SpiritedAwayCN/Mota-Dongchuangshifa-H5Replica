@@ -162,8 +162,10 @@ main.floors.MT0=
         "6,9": [
             "\t[隐者,recluse]\b[this]按H键可以查看本魔塔的全部快捷键。",
             "\t[隐者,recluse]\b[this]比较重要的快捷键有：\nX - 怪物手册\nG - 楼层传送器\nT - 打开物品栏\nQ - 装备栏（也可双击状态栏中的物品栏图标）",
-            "\t[隐者,recluse]\b[this]比较重要的快捷键有：\nV - 使用快捷商店\nE - 异常状态解除药水使用\n1/2 - 血瓶/宝石道具化控制\nPgUp/PgDn - 浏览全塔地图",
-            "\t[隐者,recluse]\b[this]使用PgUp/PgDn浏览地图时，按X也可呼出怪物手册，按G将尝试使用楼层传送器前往。"
+            "\t[隐者,recluse]\b[this]比较重要的快捷键有：\nV - 使用快捷商店\nE - 异常状态解除药水使用\nC - 修改难度选项\n1/2 - 血瓶/宝石道具化控制\nPgUp/PgDn - 浏览全塔地图",
+            "\t[隐者,recluse]\b[this]使用PgUp/PgDn浏览地图时，按X也可呼出怪物手册，按G将尝试使用楼层传送器前往。",
+            "\t[隐者,recluse]\b[this]原版魔塔并没有PgUp/PgDn浏览地图的功能，\r[#FF60FF]首次游玩魔塔时滥用该功能可能会失去探索的乐趣，请酌情使用\r！",
+            "\t[隐者,recluse]\b[this]更多系统的使用说明在“新手教程”有讲解，从标题界面开始新游戏即能进入新手教程！"
         ],
         "9,8": {
             "trigger": null,
@@ -244,14 +246,20 @@ main.floors.MT0=
                                 "condition": "((status:money>=2000 )&&((item:greenKey>0 )&& core.values.isMAGValid))",
                                 "true": [
                                     {
-                                        "type": "lose",
-                                        "reason": "结局5"
+                                        "type": "insert",
+                                        "name": "结局处理",
+                                        "args": [
+                                            "结局5"
+                                        ]
                                     }
                                 ],
                                 "false": [
                                     {
-                                        "type": "lose",
-                                        "reason": "结局3"
+                                        "type": "insert",
+                                        "name": "结局处理",
+                                        "args": [
+                                            "结局3"
+                                        ]
                                     }
                                 ]
                             }

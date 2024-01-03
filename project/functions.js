@@ -318,7 +318,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	if (damage == null || damage >= core.status.hero.hp) {
 		core.status.hero.hp = 0;
 		core.updateStatusBar(false, true);
-		core.events.lose('战斗失败');
+		// core.events.lose('战斗失败');
+		core.insertCommonEvent("结局处理", ['结局1']);
 		return;
 	}
 
@@ -495,6 +496,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	if (core.status.floorId == null) return;
 	var event = core.floors[core.status.floorId].afterGetItem[x + "," + y];
 	if (event && (event instanceof Array || !isGentleClick || !event.disableOnGentleClick)) {
+		if(!(event instanceof Array) && 'data' in event) event = event.data;
 		core.unshift(todo, event);
 	}
 
@@ -1002,7 +1004,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		break;
 	case 67: // C: 难度系统
 		// 		core.status.route.push("key:67");
-		core.useItem("I338");
+		if (core.hasItem("I338")) core.useItem("I338");
+		else core.useItem("I337");
 		// 		core.insertCommonEvent("难度配置");
 		break;
 	case 66: // B：打开数据统计
@@ -1011,7 +1014,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	case 72: // H：打开帮助页面
 		core.ui._drawHelp();
 		break;
-	case 73: // I: 打开对话记录本
+	case 70: // F: 打开对话记录本
 		core.events.openNotebook(true);
 		break
 	case 77: // M：打开存档笔记
@@ -1423,7 +1426,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	if (core.statusBar.hard.innerText != realHardText) {
 		core.statusBar.hard.innerText = realHardText;
 	}
-	var hardColor = realHard === 15 ? "#FF00FF" : (realHard >= 10 ? "red" : realHard >= 6 ? 'orange' : 'lime');
+	var hardColor = realHard === 15 ? "red" : (realHard >= 10 ? "#FF00FF" : realHard >= 6 ? 'orange' : 'lime');
 	if (core.statusBar.hard.getAttribute('_style') != hardColor) {
 		core.statusBar.hard.style.color = hardColor;
 		core.statusBar.hard.setAttribute('_style', hardColor);
@@ -1468,7 +1471,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		// 血网
 		// 如需调用当前楼层的ratio可使用  core.status.maps[floorId].ratio
 		if (id == 'lavaNet' && !core.hasItem('amulet')) {
-			damage[loc] = (damage[loc] || 0) + core.values.lavaDamage;
+			var lvl = core.getFlag('lavaNetLevel', 0);
+			damage[loc] = (damage[loc] || 0) + (lvl == 0 ? core.values.lavaDamage : 5);
 			type[loc][(block.event.name || "血网") + "伤害"] = true;
 		}
 		if (id == 'lavaNet2') {
@@ -1671,7 +1675,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		if (core.status.hero.hp <= 0 || (core.hasFlag('dying') && core.values.poisonDamage > 0)) {
 			core.status.hero.hp = 0;
 			core.updateStatusBar(false, true);
-			core.events.lose();
+			// core.events.lose('结局2');
+			core.insertCommonEvent("结局处理", ['结局2']);
 			return;
 		} else {
 			core.updateStatusBar(false, true);

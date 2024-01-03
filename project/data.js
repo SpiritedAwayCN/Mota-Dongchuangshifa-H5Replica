@@ -2,6 +2,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 {
 	"main": {
 		"floorIds": [
+			"Tutorial1",
 			"Scene0",
 			"Scene1",
 			"CheatingZone",
@@ -828,6 +829,42 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 		],
 		"startText": [
 			{
+				"type": "confirm",
+				"text": "是否查看H5复刻版专属新手教程？\n建议不熟悉H5魔塔的玩家查看\n建议未玩过原版东窗事发的玩家查看",
+				"yes": [
+					{
+						"type": "setValue",
+						"name": "status:hp",
+						"value": "50"
+					},
+					{
+						"type": "setValue",
+						"name": "status:atk",
+						"value": "8"
+					},
+					{
+						"type": "setValue",
+						"name": "status:def",
+						"value": "8"
+					},
+					{
+						"type": "insert",
+						"name": "难度配置",
+						"args": [
+							"tutorial"
+						]
+					},
+					{
+						"type": "function",
+						"function": "function(){\ncore.setFlag(\"goTutorial\", true);\n}"
+					},
+					{
+						"type": "exit"
+					}
+				],
+				"no": []
+			},
+			{
 				"type": "comment",
 				"text": "初始剧情"
 			},
@@ -951,6 +988,12 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"value": "3",
 				"norefresh": true
 			},
+			{
+				"type": "setValue",
+				"name": "flag:lavaNetLevelUb",
+				"value": "0",
+				"norefresh": true
+			},
 			"\t[H5复刻作者]本H5复刻版有专属难度系统，\n您可以选择各项难度tag获得相应的难度点数。",
 			"\t[H5复刻作者]最高的可能难度点数为15；\n从难度10起，您的分数将单独出现在对应的排行榜上。",
 			"\t[H5复刻作者]接下来将呼出本H5复刻版的专属难度系统页面。\n这些tag也可在游戏中更改，直到其效果实际生效。",
@@ -1016,52 +1059,20 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 		"shops": [
 			{
 				"id": "shop1",
-				"text": "\t[贪婪之神,moneyShop]勇敢的武士啊, 给我${20+2*flag:shop1}金币就可以：",
-				"textInList": "1F金币商店",
+				"text": "\t[贪婪之神,moneyShop]勇敢的武士啊, 给我${20+80*flag:shop1}金币就可以：",
+				"textInList": "教学空间商店",
 				"mustEnable": true,
 				"disablePreview": false,
 				"choices": [
 					{
-						"text": "生命+800",
-						"need": "status:money>=20+2*flag:shop1",
-						"action": [
-							{
-								"type": "comment",
-								"text": "新版商店中需要手动扣减金币和增加访问次数"
-							},
-							{
-								"type": "setValue",
-								"name": "status:money",
-								"operator": "-=",
-								"value": "20+2*flag:shop1"
-							},
-							{
-								"type": "setValue",
-								"name": "flag:shop1",
-								"operator": "+=",
-								"value": "1"
-							},
-							{
-								"type": "setValue",
-								"name": "status:hp",
-								"operator": "+=",
-								"value": "800"
-							}
-						]
-					},
-					{
 						"text": "攻击+4",
-						"need": "status:money>=20+2*flag:shop1",
+						"need": "status:money>=20+80*flag:shop1",
 						"action": [
-							{
-								"type": "comment",
-								"text": "新版商店中需要手动扣减金币和增加访问次数"
-							},
 							{
 								"type": "setValue",
 								"name": "status:money",
 								"operator": "-=",
-								"value": "20+2*flag:shop1"
+								"value": "20+80*flag:shop1"
 							},
 							{
 								"type": "setValue",
