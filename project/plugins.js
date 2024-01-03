@@ -1200,7 +1200,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 				{ "type": "follow", "name": toSave.image || "hero.png" }
 			]);
 		}
-		console.log(actions);
+		// 		console.log(actions);
 		core.insertAction(actions);
 		core.setFlag("heroId", toHeroId); // 保存切换到的角色ID
 	}
