@@ -146,6 +146,7 @@ main.floors.MTn5=
                                     192,
                                     1
                                 ],
+                                "need": "status:money>=700",
                                 "action": [
                                     {
                                         "type": "playSound",
@@ -297,6 +298,7 @@ main.floors.MTn5=
                                     192,
                                     1
                                 ],
+                                "need": "status:money>=700",
                                 "action": [
                                     {
                                         "type": "playSound",

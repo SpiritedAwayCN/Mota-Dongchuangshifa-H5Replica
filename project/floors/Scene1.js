@@ -152,13 +152,13 @@ main.floors.Scene1=
         "\t[战争魔王,yellowKing]\b[this,4,14]就是这样。",
         "\t[仙子,fairy]\b[this,4,13]是的",
         {
+            "type": "function",
+            "function": "function(){\ncore.status.hard = \"难度\" + core.getFlag('hard') + '（结局12：灭亡与新生）';\n}"
+        },
+        {
             "type": "if",
             "condition": "(flag:GoodEnding===1)",
             "true": [
-                {
-                    "type": "function",
-                    "function": "function(){\ncore.status.hard = \"难度\" + core.getFlag('hard') + '（结局12：灭亡与新生）';\n}"
-                },
                 "\t[战争魔王,yellowKing]\b[this,4,14]旧的国家不存在了，老国王也已经不在了。这个建立在旧国家上的新国家，包含的恶行会就此结束吗？",
                 "\t[仙子,fairy]\b[this,4,13]一个曾经不值得同情的国家……积累了几代人的横征暴敛，所包含的恶不会就因为一个人，在短短几年内就完全消散。",
                 "\t[战争魔王,yellowKing]\b[this,4,14]是啊，所有恶行都降临到了曾经的这个国家上，勇士当年想做的真不值。但他做到了。",
@@ -172,10 +172,6 @@ main.floors.Scene1=
                 }
             ],
             "false": [
-                {
-                    "type": "function",
-                    "function": "function(){\ncore.status.hard = \"难度\" + core.getFlag('hard') + '（结局10/11：无奈的奈落）';\n}"
-                },
                 {
                     "type": "if",
                     "condition": "(flag:s172_PerfectEnding===1)",
@@ -228,6 +224,17 @@ main.floors.Scene1=
         "就是这样……\n扑朔迷离的国家，扑朔迷离魔塔，扑朔迷离圣人……\n\n\r[#80FF80]您已通关${flag:enddingName}，难度${flag:realHard}。\n积分方式：当前角色攻防和",
         {
             "type": "if",
+            "condition": "(flag:GoodEnding!==1)",
+            "true": [
+                {
+                    "type": "setValue",
+                    "name": "flag:enddingName",
+                    "value": "\"结局10/11：无奈的奈落\""
+                }
+            ]
+        },
+        {
+            "type": "if",
             "condition": "(flag:realHard>=10)",
             "true": [
                 {
@@ -241,12 +248,24 @@ main.floors.Scene1=
                     "condition": "(flag:realHard>=0)",
                     "true": [
                         {
+                            "type": "function",
+                            "function": "function(){\ncore.status.hard = \"难度0~9\";\n}"
+                        },
+                        {
+                            "type": "setValue",
+                            "name": "flag:hard",
+                            "value": "0"
+                        },
+                        {
                             "type": "win",
-                            "reason": "${flag:enddingName}",
-                            "norank": 1
+                            "reason": "${flag:enddingName}"
                         }
                     ],
                     "false": [
+                        {
+                            "type": "function",
+                            "function": "function(){\ncore.status.hard = \"作弊难度\";\n}"
+                        },
                         {
                             "type": "win",
                             "reason": "${flag:enddingName}",

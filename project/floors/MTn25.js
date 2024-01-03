@@ -57,7 +57,7 @@ main.floors.MTn25=
                                 "time": 500,
                                 "keep": true,
                                 "steps": [
-                                    "up:0"
+                                    "up:1"
                                 ]
                             },
                             {
@@ -95,7 +95,7 @@ main.floors.MTn25=
                                 "time": 500,
                                 "keep": true,
                                 "steps": [
-                                    "down:0"
+                                    "down:1"
                                 ]
                             },
                             "\t[杰克,thief]\b[this]太好了，真好用，送你3个蓝宝石！",
