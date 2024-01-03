@@ -241,22 +241,12 @@ main.floors.Scene1=
                     "condition": "(flag:realHard>=0)",
                     "true": [
                         {
-                            "type": "setValue",
-                            "name": "flag:hard",
-                            "value": "\"难度0~9\""
-                        },
-                        {
                             "type": "win",
                             "reason": "${flag:enddingName}",
                             "norank": 1
                         }
                     ],
                     "false": [
-                        {
-                            "type": "setValue",
-                            "name": "flag:hard",
-                            "value": "\"作弊难度\""
-                        },
                         {
                             "type": "win",
                             "reason": "${flag:enddingName}",
