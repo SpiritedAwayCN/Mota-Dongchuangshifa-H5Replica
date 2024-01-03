@@ -231,7 +231,7 @@ main.floors.Tutorial1=
                     "false": [
                         "\t[老人,man]\b[this]相信刚才获得血瓶的时候你已经发现了，\r[lime]血瓶是可以道具化的\r！",
                         "\t[老人,man]\b[this]一般情况下，拾取血瓶时将立刻回复生命值。但是，血瓶也可以\\d道具化\\d，直接存入背包以后再使用。",
-                        "\t[老人,man]\b[this]\r[lime]按下1键即可设置血瓶是否道具化！\r(手机玩家请点击下方\\i[toolbox]左起第3个图标进入物品栏，然后\r[lime]双击\\i[skill1]血瓶道具化图标\r进入界面)",
+                        "\t[老人,man]\b[this]\r[lime]按下1键即可设置血瓶是否道具化！\r(手机玩家请点击下方\\i[toolbox]左起第3个图标进入道具栏，然后\r[lime]双击\\i[skill1]血瓶道具化图标\r进入界面)",
                         "\t[老人,man]\b[this]现在，\r[yellow]请将血瓶设置为\"道具化\"状态\r，这样获取血瓶时会存入背包，而不是直接喝掉。",
                         {
                             "type": "setValue",
@@ -284,7 +284,7 @@ main.floors.Tutorial1=
                     }
                 ],
                 "false": [
-                    "\t[老人,man]\b[this]好了，现在可以使用血瓶增加生命了。同样\r[lime]按1快速使用背包中的血瓶\r。手机玩家按之前的方式进入血瓶道具化界面使用，也可直接在物品栏使用！",
+                    "\t[老人,man]\b[this]好了，现在可以使用血瓶增加生命了。同样\r[lime]按1快速使用背包中的血瓶\r。手机玩家按之前的方式进入血瓶道具化界面使用，也可直接在道具栏使用！",
                     {
                         "type": "setValue",
                         "name": "switch:A",
@@ -297,10 +297,10 @@ main.floors.Tutorial1=
         "12,3": [
             "\t[老人,man]\b[this]我上面是更多种类的血瓶还有宝石。",
             "\t[老人,man]\b[this]红宝石可以为你增加攻击，蓝宝石增加防御。和血瓶一样，宝石也可道具化。\r[lime]按2键设置宝石的道具化\r与使用背包中的宝石。",
-            "\t[老人,man]\b[this]对于手机玩家，在物品栏中选择\\i[I335]宝石道具化图标可进入相同的页面。",
+            "\t[老人,man]\b[this]对于手机玩家，在道具栏中选择\\i[I335]宝石道具化图标可进入相同的页面。",
             {
                 "type": "choices",
-                "text": "\t[老人,man]目前已讲解了血瓶宝石的作用/道具化/使用\r[lime]\n按1键\r使用\\i[redPotion]血瓶/设置血瓶道具化\r[lime]\n按2键\r使用\\i[blueGem]宝石/设置宝石道具化\n手机玩家在物品栏选择对应图标可进入相应的界面",
+                "text": "\t[老人,man]目前已讲解了血瓶宝石的作用/道具化/使用\r[lime]\n按1键\r使用\\i[redPotion]血瓶/设置血瓶道具化\r[lime]\n按2键\r使用\\i[blueGem]宝石/设置宝石道具化\n手机玩家在道具栏选择对应图标可进入相应的界面",
                 "choices": [
                     {
                         "text": "我明白了，下一步",
@@ -354,7 +354,7 @@ main.floors.Tutorial1=
                         "type": "if",
                         "condition": "(switch:A===1)",
                         "true": [
-                            "\t[老人,man]\b[this]请\r[lime]按2键进入宝石道具化页面\r，并在其中\r[yellow]使用加点数，全提升攻击力！\r（手机玩家请在物品栏双击\\d\\i[I335]宝石道具化\\d图标进入）",
+                            "\t[老人,man]\b[this]请\r[lime]按2键进入宝石道具化页面\r，并在其中\r[yellow]使用加点数，全提升攻击力！\r（手机玩家请在道具栏双击\\d\\i[I335]宝石道具化\\d图标进入）",
                             "\t[老人,man]\b[this]如果你全部的加点数用于提升攻击，\r[yellow]你将应该用有13点攻击力\r！"
                         ],
                         "false": [
@@ -418,7 +418,7 @@ main.floors.Tutorial1=
             }
         ],
         "8,6": [
-            "\t[老人,man]\b[this]我上方是一个大金币，\r[yellow]在物品栏使用它后\r可以获得数量客观的金币与经验。",
+            "\t[老人,man]\b[this]我上方是一个大金币，\r[yellow]在道具栏使用它后\r可以获得数量可观的金币与经验。",
             "\t[老人,man]\b[this]绝大部分消耗类物品都需要在背包使用，\r[lime]按T键\r即可呼出背包界面，\r[lime]选中对应物品并再次点击\r即可使用。（手机玩家请在下方工具栏中点击左起第3项进入）",
             {
                 "type": "choices",
@@ -560,7 +560,7 @@ main.floors.Tutorial1=
                         ],
                         "false": [
                             "\t[老人,man]\b[this]你获得了一把很厉害的\\i[sword5]神圣剑。但你需要\r[yellow]装备它\r才能发挥其功效。",
-                            "\t[老人,man]\b[this]\r[lime]按下Q键\r即可呼出装备界面（手机玩家需要\r[lime]双击\\i[toolbox]物品栏图标\r呼出装备界面），现在，请装备上\\i[sword5]神圣剑！"
+                            "\t[老人,man]\b[this]\r[lime]按下Q键\r即可呼出装备界面（手机玩家需要\r[lime]双击\\i[toolbox]道具栏图标\r呼出装备界面），现在，请装备上\\i[sword5]神圣剑！"
                         ]
                     }
                 ]
@@ -571,7 +571,7 @@ main.floors.Tutorial1=
                 "type": "if",
                 "condition": "core.hasFlag('weak')",
                 "true": [
-                    "\t[老人,man]\b[this]请先\r[yellow]在物品栏使用\\i[weakWine]解衰药水\r解除衰弱状态！此外，\r[lime]按下E键\r也可以快捷使用各类异常状态解药！",
+                    "\t[老人,man]\b[this]请先\r[yellow]在道具栏使用\\i[weakWine]解衰药水\r解除衰弱状态！此外，\r[lime]按下E键\r也可以快捷使用各类异常状态解药！",
                     {
                         "type": "if",
                         "condition": "(blockId:4,13==='weakWine')",
@@ -851,7 +851,7 @@ main.floors.Tutorial1=
                 ],
                 "false": [
                     "\t[老人,man]\b[this]刚刚经过路障的时候，由于更低的难度效果已生效，所以\r[#FF60FF]之前的难度项\"熔岩网扣血效果遵循原版\"也不可用了\r！",
-                    "\t[老人,man]\b[this]您可以\r[lime]按C键或通过背包\r打开难度设置界面验证：相关的难度选项是否已经失效！",
+                    "\t[老人,man]\b[this]您可以\r[lime]按C键或通过背包\r打开难度设置界面验证：相关的难度选项已经失效！",
                     {
                         "type": "setValue",
                         "name": "switch:A",

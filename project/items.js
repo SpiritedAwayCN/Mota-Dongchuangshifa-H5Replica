@@ -552,7 +552,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 	"skill1": {
 		"cls": "constants",
 		"name": "血瓶道具化(快捷键1)",
-		"text": "血瓶可以设置直接使用或放入背包，快捷键1。手机玩家可通过物品栏使用本道具呼出界面。",
+		"text": "血瓶可以设置直接使用或放入背包，快捷键1。手机玩家可通过道具栏使用本道具呼出界面。",
 		"hideInReplay": true,
 		"useItemEffect": "core.insertCommonEvent(\"SetPotionItemized\", [\"Potion\"]);",
 		"canUseItemEffect": "true"
@@ -590,7 +590,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 	"I335": {
 		"cls": "constants",
 		"name": "宝石道具化(快捷键2)",
-		"text": "宝石可以设置直接使用或放入背包，快捷键2。手机玩家可通过物品栏使用本道具呼出界面。",
+		"text": "宝石可以设置直接使用或放入背包，快捷键2。手机玩家可通过道具栏使用本道具呼出界面。",
 		"hideInReplay": true,
 		"useItemEffect": "core.insertCommonEvent(\"SetPotionItemized\", [\"Gem\"]);",
 		"canUseItemEffect": "true"
@@ -598,7 +598,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 	"I336": {
 		"cls": "constants",
 		"name": "药水快捷使用(快捷键E)",
-		"text": "药水可以快捷使用，快捷键E。手机玩家可通过物品栏使用本道具呼出界面。",
+		"text": "药水可以快捷使用，快捷键E。手机玩家可通过道具栏使用本道具呼出界面。",
 		"hideInReplay": true,
 		"useItemEffect": "core.insertCommonEvent(\"SetPotionItemized\", [\"Wine\"]);",
 		"canUseItemEffect": "true"

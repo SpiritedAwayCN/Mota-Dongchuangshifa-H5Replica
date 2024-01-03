@@ -3998,6 +3998,16 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 								"condition": "((flag:SuperSteelKeyInvalid!==1)&&(flag:SuperSteelKeyAttained!==1))",
 								"true": [
 									{
+										"type": "hide",
+										"loc": [
+											[
+												4,
+												10
+											]
+										],
+										"floorId": "Treasure3"
+									},
+									{
 										"type": "setValue",
 										"name": "flag:SuperSteelKeyInvalid",
 										"value": "1"
@@ -4073,8 +4083,26 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 										]
 									},
 									{
+										"type": "if",
+										"condition": "(flag:realHard<10)",
+										"true": [
+											{
+												"type": "setValue",
+												"name": "temp:prompt",
+												"value": "core.getInvalidColorString('FF4040') +'总难度10以上才可进入专属榜单'"
+											}
+										],
+										"false": [
+											{
+												"type": "setValue",
+												"name": "temp:prompt",
+												"value": "core.getInvalidColorString('40FF40') +'当前难度可以计入排行榜'"
+											}
+										]
+									},
+									{
 										"type": "choices",
-										"text": "\t[H5复刻版难度系统]总难度10以上方可计入排行榜\n\r[orange]当前总难度：${flag:realHard}/15\r[red]\n${flag:noFixSevereBug ? '启用\"恶性特性修复\"才可结算难度值' : \"\"}\n\r游戏过程中可随时呼出本界面",
+										"text": "\t[H5复刻版难度系统]${temp:prompt}\n\r[orange]当前总难度：${flag:realHard}/15\r[red]\n${flag:noFixSevereBug ? '启用\"恶性特性修复\"才可结算难度值' : \"\"}\n\r游戏过程中按C键可随时呼出本界面",
 										"choices": [
 											{
 												"text": "原版难度：${['简单','困难','噩梦'][flag:baseHard]} (难度+${flag:baseHard})",
@@ -4240,6 +4268,16 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																				"value": "0"
 																			},
 																			{
+																				"type": "show",
+																				"loc": [
+																					[
+																						4,
+																						10
+																					]
+																				],
+																				"floorId": "Treasure3"
+																			},
+																			{
 																				"type": "playSound",
 																				"name": "confirm.mp3"
 																			}
@@ -4251,7 +4289,6 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 															{
 																"text": "体验优化 [+5难]",
 																"action": [
-																	"\t[当前选择的难度选项(+5难)：]* 5以内攻防扣减不可被衰弱避免[+1难]\n* 37F至多只能拾取6个宝物[+1难]\n* 85/-80F血瓶增益效果降低[+1难]\n* 万能铁门钥匙不再出现[+1难]\n* 85F起非领袖敌人+10%生命与25%伤害[+1难]",
 																	{
 																		"type": "setValue",
 																		"name": "flag:noFixSevereBug",
@@ -4298,15 +4335,25 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		"value": "0"
 																	},
 																	{
+																		"type": "hide",
+																		"loc": [
+																			[
+																				4,
+																				10
+																			]
+																		],
+																		"floorId": "Treasure3"
+																	},
+																	{
 																		"type": "playSound",
 																		"name": "confirm.mp3"
-																	}
+																	},
+																	"\t[当前选择的难度选项(+5难)：]* 5以内攻防扣减不可被衰弱避免[+1难]\n* 37F至多只能拾取6个宝物[+1难]\n* 85/-80F血瓶增益效果降低[+1难]\n* 万能铁门钥匙不再出现[+1难]\n* 85F起非领袖敌人+10%生命与25%伤害[+1难]"
 																]
 															},
 															{
 																"text": "难度上榜 [+9难]",
 																"action": [
-																	"\t[当前选择的难度选项(+9难)：]* 20以内攻防扣减不可被衰弱避免[+2难]\n* 37F至多只能拾取3个宝物[+2难]\n* 85/-80F血瓶增益效果降低[+1难]\n* 紫血瓶效果*0.2,且部分不可拾取[+1难]\n* 万能铁门钥匙不再出现[+1难]\n* 51F起非领袖敌人+15%命/15%攻[+1难]\n* 85F起非领袖敌人+10%生命与25%伤害[+1难]",
 																	{
 																		"type": "setValue",
 																		"name": "flag:noFixSevereBug",
@@ -4353,9 +4400,20 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		"value": "0"
 																	},
 																	{
+																		"type": "hide",
+																		"loc": [
+																			[
+																				4,
+																				10
+																			]
+																		],
+																		"floorId": "Treasure3"
+																	},
+																	{
 																		"type": "playSound",
 																		"name": "confirm.mp3"
-																	}
+																	},
+																	"\t[当前选择的难度选项(+9难)：]* 20以内攻防扣减不可被衰弱避免[+2难]\n* 37F至多只能拾取3个宝物[+2难]\n* 85/-80F血瓶增益效果降低[+1难]\n* 紫血瓶效果*0.2,且部分不可拾取[+1难]\n* 万能铁门钥匙不再出现[+1难]\n* 51F起非领袖敌人+15%命/15%攻[+1难]\n* 85F起非领袖敌人+10%生命与25%伤害[+1难]"
 																]
 															},
 															{
@@ -4366,7 +4424,6 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																	255
 																],
 																"action": [
-																	"\t[当前选择的难度选项(+13难)：]\r[#FF00FF]* 所有攻防扣减不可被衰弱避免[+3难]\n* 37F至多只能拾取1个宝物[+4难]\r\n* 85/-80F血瓶增益效果降低[+1难]\n* 紫血瓶效果*0.2,且部分不可拾取[+1难]\n* 万能铁门钥匙不再出现[+1难]\n* 51F起非领袖敌人+15%生命与15%攻击[+1难]\n* 85F起非领袖敌人+10%生命与25%伤害[+1难]\n* -58F起非领袖敌人+20%生命与20%攻击[+1难]",
 																	{
 																		"type": "setValue",
 																		"name": "flag:noFixSevereBug",
@@ -4413,9 +4470,20 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		"value": "1"
 																	},
 																	{
+																		"type": "hide",
+																		"loc": [
+																			[
+																				4,
+																				10
+																			]
+																		],
+																		"floorId": "Treasure3"
+																	},
+																	{
 																		"type": "playSound",
 																		"name": "confirm.mp3"
-																	}
+																	},
+																	"\t[当前选择的难度选项(+13难)：]\r[#FF00FF]* 所有攻防扣减不可被衰弱避免[+3难]\n* 37F至多只能拾取1个宝物[+4难]\r\n* 85/-80F血瓶增益效果降低[+1难]\n* 紫血瓶效果*0.2,且部分不可拾取[+1难]\n* 万能铁门钥匙不再出现[+1难]\n* 51F起非领袖敌人+15%生命与15%攻击[+1难]\n* 85F起非领袖敌人+10%生命与25%伤害[+1难]\n* -58F起非领袖敌人+20%生命与20%攻击[+1难]"
 																]
 															},
 															{

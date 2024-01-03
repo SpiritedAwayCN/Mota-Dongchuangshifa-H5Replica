@@ -1623,8 +1623,8 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		}
 	}
 
-	this.getInvalidColorString = function () {
-		return "\\r[\#999999]";
+	this.getInvalidColorString = function (colorCode) {
+		return colorCode ? "\\r[\#" + colorCode + "]" : "\\r[\#999999]";
 	}
 
 	this.getRealCombo = function (basicCombo) {
