@@ -390,7 +390,7 @@ main.floors.MT0=
                 "text": "是否查看H5专属Good End触发条件？",
                 "yes": [
                     "\t[H5复刻作者]原版并没有完美结局，H5专属Good End是在原作者Joey·Cooper的同意下加入，作为彩蛋有条件触发。",
-                    "\t[H5专属Good End触发条件]开局与0层仙子对话；且在15难度与最终领袖战斗前，将出现\r[lime]Good End专属选项\r。\n选择该项并击败最终boss后，即可达成Good End。"
+                    "\t[H5专属Good End触发条件]开局与0层仙子对话，在15难度下与最终领袖战斗前，将出现\r[lime]Good End专属选项\r。\n选择该项并击败最终boss后，即可进入Good End。"
                 ],
                 "no": []
             }
