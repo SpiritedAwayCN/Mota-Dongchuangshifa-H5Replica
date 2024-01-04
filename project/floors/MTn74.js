@@ -38,6 +38,10 @@ main.floors.MTn74=
                         "need": "switch:A<52",
                         "action": [
                             {
+                                "type": "comment",
+                                "text": "原版就是独立开关，不是检测等级，我也没想到。"
+                            },
+                            {
                                 "type": "setValue",
                                 "name": "flag:lv",
                                 "operator": "+=",

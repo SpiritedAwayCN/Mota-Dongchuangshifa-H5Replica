@@ -230,19 +230,35 @@ main.floors.MTn84=
                 "type": "hide",
                 "remove": true
             }
+        ],
+        "7,13": [
+            {
+                "type": "if",
+                "condition": "(flag:VerboseHint===1)",
+                "true": [
+                    {
+                        "type": "confirm",
+                        "text": "此处下楼会直接前往-86F，\n将丢失大部分功能性宝物，是否下楼？",
+                        "yes": [],
+                        "no": [
+                            {
+                                "type": "exit"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "changeFloor",
+                "floorId": "MTn86",
+                "stair": "upFloor"
+            }
         ]
     },
     "changeFloor": {
         "7,1": {
             "floorId": ":next",
             "stair": "downFloor"
-        },
-        "7,13": {
-            "floorId": "MTn86",
-            "loc": [
-                7,
-                13
-            ]
         }
     },
     "beforeBattle": {},

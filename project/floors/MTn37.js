@@ -119,24 +119,20 @@ main.floors.MTn37=
                 "condition": "(blockId:4,10===\"portal\")",
                 "true": [
                     {
-                        "type": "show",
-                        "loc": [
-                            [
-                                3,
-                                4
-                            ]
-                        ],
-                        "floorId": "MTWorld"
-                    },
-                    {
-                        "type": "show",
-                        "loc": [
-                            [
-                                9,
-                                8
-                            ]
-                        ],
-                        "floorId": "MTWorld"
+                        "type": "if",
+                        "condition": "(core.getBlockId(3,4,'MTWorld',false)!=='portal')",
+                        "true": [
+                            {
+                                "type": "show",
+                                "loc": [
+                                    [
+                                        9,
+                                        8
+                                    ]
+                                ],
+                                "floorId": "MTWorld"
+                            }
+                        ]
                     },
                     {
                         "type": "changeFloor",
@@ -145,6 +141,16 @@ main.floors.MTn37=
                             9,
                             9
                         ]
+                    },
+                    {
+                        "type": "show",
+                        "loc": [
+                            [
+                                3,
+                                4
+                            ]
+                        ],
+                        "floorId": "MTWorld"
                     }
                 ]
             }

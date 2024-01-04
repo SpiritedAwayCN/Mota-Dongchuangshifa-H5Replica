@@ -1177,7 +1177,7 @@ main.floors.Secret2=
                             "text": "\t[Black Devil,blackKing]最后一次，你真的要救这个不值得救的国家吗？",
                             "choices": [
                                 {
-                                    "text": "犹疑(接受来自魔王的6倍攻防)",
+                                    "text": "犹疑(接受来自魔王的5倍攻防)",
                                     "color": [
                                         40,
                                         255,
@@ -1190,13 +1190,13 @@ main.floors.Secret2=
                                             "type": "setValue",
                                             "name": "status:atk",
                                             "operator": "*=",
-                                            "value": "6"
+                                            "value": "5"
                                         },
                                         {
                                             "type": "setValue",
                                             "name": "status:def",
                                             "operator": "*=",
-                                            "value": "6"
+                                            "value": "5"
                                         },
                                         {
                                             "type": "setValue",

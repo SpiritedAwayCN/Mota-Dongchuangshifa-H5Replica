@@ -3998,18 +3998,19 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 								"condition": "((flag:SuperSteelKeyInvalid!==1)&&(flag:SuperSteelKeyAttained!==1))",
 								"true": [
 									{
-										"type": "hide",
-										"loc": [
-											[
-												4,
-												10
-											]
-										],
-										"floorId": "Treasure3"
-									},
-									{
 										"type": "setValue",
 										"name": "flag:SuperSteelKeyInvalid",
+										"value": "1"
+									}
+								]
+							},
+							{
+								"type": "if",
+								"condition": "((flag:QueenLessProp!==1)&&(flag:RescuedQueen!==1))",
+								"true": [
+									{
+										"type": "setValue",
+										"name": "flag:QueenLessProp",
 										"value": "1"
 									}
 								]
@@ -4054,7 +4055,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 									{
 										"type": "setValue",
 										"name": "flag:realHard",
-										"value": "flag:noFixSevereBug?0:(flag:weakTagLevel+(flag:37FItemlevel<3?flag:37FItemlevel:4)+flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:F51promote+flag:F85promote+flag:Fm58promote)+flag:baseHard"
+										"value": "flag:noFixSevereBug?0:(flag:weakTagLevel+flag:37FItemlevel+flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:F51promote+flag:F85promote+flag:Fm58promote+flag:QueenLessProp)+flag:baseHard"
 									}
 								]
 							},
@@ -4078,7 +4079,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 											{
 												"type": "setValue",
 												"name": "flag:realHard",
-												"value": "flag:noFixSevereBug?0:(flag:weakTagLevel+(flag:37FItemlevel<3?flag:37FItemlevel:4)+flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:F51promote+flag:F85promote+flag:Fm58promote)+flag:baseHard"
+												"value": "flag:noFixSevereBug?0:(flag:weakTagLevel+flag:37FItemlevel+flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:F51promote+flag:F85promote+flag:Fm58promote+flag:QueenLessProp)+flag:baseHard"
 											}
 										]
 									},
@@ -4119,7 +4120,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 														"text": "\t[原版难度]请选择原版难度。\r[#FF4040]\n本项仅在游戏开始时可设置，\n游戏中不可修改",
 														"choices": [
 															{
-																"text": "原版简单",
+																"text": "原版简单[+0难]",
 																"action": [
 																	{
 																		"type": "setValue",
@@ -4149,7 +4150,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																]
 															},
 															{
-																"text": "原版困难",
+																"text": "原版困难[+1难]",
 																"action": [
 																	{
 																		"type": "setValue",
@@ -4174,8 +4175,23 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																]
 															},
 															{
-																"text": "原版噩梦",
+																"text": "原版噩梦[+2难]",
 																"action": [
+																	{
+																		"type": "setValue",
+																		"name": "status:hp",
+																		"value": "1"
+																	},
+																	{
+																		"type": "setValue",
+																		"name": "status:atk",
+																		"value": "1"
+																	},
+																	{
+																		"type": "setValue",
+																		"name": "status:def",
+																		"value": "1"
+																	},
 																	{
 																		"type": "setValue",
 																		"name": "flag:baseHard",
@@ -4245,6 +4261,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																			{
 																				"type": "setValue",
 																				"name": "flag:PotionLessRate",
+																				"value": "0"
+																			},
+																			{
+																				"type": "setValue",
+																				"name": "flag:QueenLessProp",
 																				"value": "0"
 																			},
 																			{
@@ -4321,6 +4342,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																	},
 																	{
 																		"type": "setValue",
+																		"name": "flag:QueenLessProp",
+																		"value": "0"
+																	},
+																	{
+																		"type": "setValue",
 																		"name": "flag:F51promote",
 																		"value": "0"
 																	},
@@ -4335,20 +4361,10 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		"value": "0"
 																	},
 																	{
-																		"type": "hide",
-																		"loc": [
-																			[
-																				4,
-																				10
-																			]
-																		],
-																		"floorId": "Treasure3"
-																	},
-																	{
 																		"type": "playSound",
 																		"name": "confirm.mp3"
 																	},
-																	"\t[当前选择的难度选项(+5难)：]* 5以内攻防扣减不可被衰弱避免[+1难]\n* 37F至多只能拾取6个宝物[+1难]\n* 85/-80F血瓶增益效果降低[+1难]\n* 万能铁门钥匙不再出现[+1难]\n* 85F起非领袖敌人+10%生命与25%伤害[+1难]"
+																	"\t[当前选择的难度选项(+5难)：]* 5以内攻防扣减不可被衰弱避免[+1难]\n* 37F至多只能拾取6个宝物[+1难]\n* 85/-80F血瓶增益效果降低[+1难]\n* 宝库中万能铁门钥匙/圣水不可获取[+1难]\n* 85F起非领袖敌人+10%生命与25%伤害[+1难]"
 																]
 															},
 															{
@@ -4386,6 +4402,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																	},
 																	{
 																		"type": "setValue",
+																		"name": "flag:QueenLessProp",
+																		"value": "0"
+																	},
+																	{
+																		"type": "setValue",
 																		"name": "flag:F51promote",
 																		"value": "1"
 																	},
@@ -4400,20 +4421,10 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		"value": "0"
 																	},
 																	{
-																		"type": "hide",
-																		"loc": [
-																			[
-																				4,
-																				10
-																			]
-																		],
-																		"floorId": "Treasure3"
-																	},
-																	{
 																		"type": "playSound",
 																		"name": "confirm.mp3"
 																	},
-																	"\t[当前选择的难度选项(+9难)：]* 20以内攻防扣减不可被衰弱避免[+2难]\n* 37F至多只能拾取3个宝物[+2难]\n* 85/-80F血瓶增益效果降低[+1难]\n* 紫血瓶效果*0.2,且部分不可拾取[+1难]\n* 万能铁门钥匙不再出现[+1难]\n* 51F起非领袖敌人+15%命/15%攻[+1难]\n* 85F起非领袖敌人+10%生命与25%伤害[+1难]"
+																	"\t[当前选择的难度选项(+9难)：]* 20以内攻防扣减不可被衰弱避免[+2难]\n* 37F至多只能拾取3个宝物[+2难]\n* 85/-80F血瓶增益效果降低[+1难]\n* 紫血瓶效果*0.2,且部分不可拾取[+1难]\n* 宝库中万能铁门钥匙/圣水不可获取[+1难]\n* 51F起非领袖敌人+15%命/15%攻[+1难]\n* 85F起非领袖敌人+10%生命与25%伤害[+1难]"
 																]
 															},
 															{
@@ -4456,6 +4467,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																	},
 																	{
 																		"type": "setValue",
+																		"name": "flag:QueenLessProp",
+																		"value": "1"
+																	},
+																	{
+																		"type": "setValue",
 																		"name": "flag:F51promote",
 																		"value": "1"
 																	},
@@ -4470,20 +4486,10 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		"value": "1"
 																	},
 																	{
-																		"type": "hide",
-																		"loc": [
-																			[
-																				4,
-																				10
-																			]
-																		],
-																		"floorId": "Treasure3"
-																	},
-																	{
 																		"type": "playSound",
 																		"name": "confirm.mp3"
 																	},
-																	"\t[当前选择的难度选项(+13难)：]\r[#FF00FF]* 所有攻防扣减不可被衰弱避免[+3难]\n* 37F至多只能拾取1个宝物[+4难]\r\n* 85/-80F血瓶增益效果降低[+1难]\n* 紫血瓶效果*0.2,且部分不可拾取[+1难]\n* 万能铁门钥匙不再出现[+1难]\n* 51F起非领袖敌人+15%生命与15%攻击[+1难]\n* 85F起非领袖敌人+10%生命与25%伤害[+1难]\n* -58F起非领袖敌人+20%生命与20%攻击[+1难]"
+																	"\t[当前选择的难度选项(+13难)：]\r[#FF40FF]* 所有攻防扣减不可被衰弱避免[+3难]\n* 37F至多只能拾取1个宝物[+3难]\r\n* 85/-80F血瓶增益效果降低[+1难]\n* 紫血瓶效果*0.2,且部分不可拾取[+1难]\n* 宝库中万能铁门钥匙/圣水不可获取[+1难]\n\r[#FF40FF]* 第85层NPC赠送的能力值降为一半[+1难]\n\r* 51F起非领袖敌人+15%生命与15%攻击[+1难]\n* 85F起非领袖敌人+10%生命与25%伤害[+1难]\n* -58F起非领袖敌人+20%生命与20%攻击[+1难]"
 																]
 															},
 															{
@@ -4508,7 +4514,12 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 														"text": "\t[恶性特性修复]只有开启此项才可正常计算难度，确认${flag:noFixSevereBug?'启':'禁'}用吗？\n\r[orange]启用时，将影响：\r\n① -23/-59F控血NPC不可跳过\n② 领袖战斗楼层升/降飞羽不可用\n③ 48F宝石升级NPC仅可用一次\n④ 地牢捷克将要求持有幸运金币\n⑤ -50F商店将仅允许出售装备\n\r[#FF4040]本项仅在游戏开始时可设置，游戏中不可修改\r",
 														"choices": [
 															{
-																"text": "启用",
+																"text": "启用修复，难度正常计算",
+																"color": [
+																	80,
+																	255,
+																	80
+																],
 																"action": [
 																	{
 																		"type": "setValue",
@@ -4518,7 +4529,12 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																]
 															},
 															{
-																"text": "禁用",
+																"text": "禁用修复，难度仅计算初始",
+																"color": [
+																	255,
+																	80,
+																	80
+																],
 																"action": [
 																	{
 																		"type": "setValue",
@@ -4532,7 +4548,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 												]
 											},
 											{
-												"text": "衰弱相关 (难度+${flag:weakTagLevel})",
+												"text": "衰弱相关 (难度+${flag:noFixSevereBug? 0 : flag:weakTagLevel})",
 												"action": [
 													{
 														"type": "while",
@@ -4545,7 +4561,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																	{
 																		"type": "setValue",
 																		"name": "flag:realHard",
-																		"value": "flag:noFixSevereBug?0:(flag:weakTagLevel+(flag:37FItemlevel<3?flag:37FItemlevel:4)+flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:F51promote+flag:F85promote+flag:Fm58promote)+flag:baseHard"
+																		"value": "flag:noFixSevereBug?0:(flag:weakTagLevel+flag:37FItemlevel+flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:F51promote+flag:F85promote+flag:Fm58promote+flag:QueenLessProp)+flag:baseHard"
 																	}
 																]
 															},
@@ -4617,7 +4633,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 												]
 											},
 											{
-												"text": "37F宝物相关 (难度+${flag:noFixSevereBug? 0 : (flag:37FItemlevel<3?flag:37FItemlevel:4)})",
+												"text": "37F宝物相关 (难度+${flag:noFixSevereBug? 0 : flag:37FItemlevel})",
 												"action": [
 													{
 														"type": "while",
@@ -4630,13 +4646,13 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																	{
 																		"type": "setValue",
 																		"name": "flag:realHard",
-																		"value": "flag:noFixSevereBug?0:(flag:weakTagLevel+(flag:37FItemlevel<3?flag:37FItemlevel:4)+flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:F51promote+flag:F85promote+flag:Fm58promote)+flag:baseHard"
+																		"value": "flag:noFixSevereBug?0:(flag:weakTagLevel+flag:37FItemlevel+flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:F51promote+flag:F85promote+flag:Fm58promote+flag:QueenLessProp)+flag:baseHard"
 																	}
 																]
 															},
 															{
 																"type": "choices",
-																"text": "\t[附加难度：37F宝物相关]\r[orange]当前总难度：${flag:realHard}/15\r\n原版中，37F有12个高价值宝物可以全部获得\n\n\r[#FF8080]难度Tag：请选择挑战项目\r\n\r[#80FF80]当前已选择：\r${['遵循原版','至多只拾取6个宝物','至多只拾取3个宝物','至多只拾取1个宝物'][flag:37FItemlevel]}，+${flag:37FItemlevel<3?flag:37FItemlevel:4}难",
+																"text": "\t[附加难度：37F宝物相关]\r[orange]当前总难度：${flag:realHard}/15\r\n原版中，37F有12个高价值宝物可以全部获得\n\n\r[#FF8080]难度Tag：请选择挑战项目\r\n\r[#80FF80]当前已选择：\r${['遵循原版','至多只拾取6个宝物','至多只拾取3个宝物','至多只拾取1个宝物'][flag:37FItemlevel]}，+${flag:37FItemlevel}难",
 																"choices": [
 																	{
 																		"text": "遵循原版[+0难]",
@@ -4671,7 +4687,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		]
 																	},
 																	{
-																		"text": "至多只拾取1个宝物[+4难]",
+																		"text": "至多只拾取1个宝物[+3难]",
 																		"color": [
 																			255,
 																			0,
@@ -4702,7 +4718,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 												]
 											},
 											{
-												"text": "血瓶宝物相关 (难度+${flag:noFixSevereBug? 0 : flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid})",
+												"text": "血瓶宝物相关 (难度+${flag:noFixSevereBug? 0 : flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:QueenLessProp})",
 												"action": [
 													{
 														"type": "while",
@@ -4715,13 +4731,13 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																	{
 																		"type": "setValue",
 																		"name": "flag:realHard",
-																		"value": "flag:noFixSevereBug?0:(flag:weakTagLevel+(flag:37FItemlevel<3?flag:37FItemlevel:4)+flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:F51promote+flag:F85promote+flag:Fm58promote)+flag:baseHard"
+																		"value": "flag:noFixSevereBug?0:(flag:weakTagLevel+flag:37FItemlevel+flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:F51promote+flag:F85promote+flag:Fm58promote+flag:QueenLessProp)+flag:baseHard"
 																	}
 																]
 															},
 															{
 																"type": "choices",
-																"text": "\t[附加难度：血瓶宝物相关]\r[orange]当前总难度：${flag:realHard}/15\r\n相比于原版，血瓶宝物可以效果有更多限制。\n\r[#FF8080]\n难度Tag：每项+1难可叠加，请选择挑战项目\r\n\r[#80FF80]当前已选择：+${flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid}难",
+																"text": "\t[附加难度：血瓶宝物相关]\r[orange]当前总难度：${flag:realHard}/15\r\n相比于原版，血瓶宝物可以效果有更多限制。\n\r[#FF8080]\n难度Tag：每项+1难可叠加，请选择挑战项目\r\n\r[#80FF80]当前已选择：+${flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:QueenLessProp}难",
 																"choices": [
 																	{
 																		"text": "85/-80F血瓶增益效果降低[ON]",
@@ -4784,7 +4800,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		]
 																	},
 																	{
-																		"text": "万能铁门钥匙不再出现[ON]",
+																		"text": "宝库中万能铁门钥匙/圣水不可获取[ON]",
 																		"color": [
 																			255,
 																			215,
@@ -4798,21 +4814,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																				"type": "setValue",
 																				"name": "flag:SuperSteelKeyInvalid",
 																				"value": "0"
-																			},
-																			{
-																				"type": "hide",
-																				"loc": [
-																					[
-																						4,
-																						10
-																					]
-																				],
-																				"floorId": "Treasure3"
 																			}
 																		]
 																	},
 																	{
-																		"text": "万能铁门钥匙不再出现[OFF]",
+																		"text": "宝库中万能铁门钥匙/圣水不可获取[OFF]",
 																		"need": "flag:SuperSteelKeyAttained!==1",
 																		"condition": "flag:SuperSteelKeyInvalid!==1",
 																		"action": [
@@ -4820,16 +4826,36 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																				"type": "setValue",
 																				"name": "flag:SuperSteelKeyInvalid",
 																				"value": "1"
-																			},
+																			}
+																		]
+																	},
+																	{
+																		"text": "第85层NPC赠送的能力值降为一半[ON]",
+																		"color": [
+																			255,
+																			0,
+																			255,
+																			1
+																		],
+																		"need": "flag:RescuedQueen!==1",
+																		"condition": "flag:QueenLessProp===1",
+																		"action": [
 																			{
-																				"type": "show",
-																				"loc": [
-																					[
-																						4,
-																						10
-																					]
-																				],
-																				"floorId": "Treasure3"
+																				"type": "setValue",
+																				"name": "flag:QueenLessProp",
+																				"value": "0"
+																			}
+																		]
+																	},
+																	{
+																		"text": "第85层NPC赠送的能力值降为一半[OFF]",
+																		"need": "flag:RescuedQueen!==1",
+																		"condition": "flag:QueenLessProp!==1",
+																		"action": [
+																			{
+																				"type": "setValue",
+																				"name": "flag:QueenLessProp",
+																				"value": "1"
 																			}
 																		]
 																	},
@@ -4849,7 +4875,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 												]
 											},
 											{
-												"text": "敌方属性相关 (难度+${flag:noFixSevereBug? 0 : flag:F51promote+flag:F85promote+flag:Fm58promote})",
+												"text": "非领袖敌方加强 (难度+${flag:noFixSevereBug? 0 : flag:F51promote+flag:F85promote+flag:Fm58promote})",
 												"action": [
 													{
 														"type": "while",
@@ -4862,16 +4888,16 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																	{
 																		"type": "setValue",
 																		"name": "flag:realHard",
-																		"value": "flag:noFixSevereBug?0:(flag:weakTagLevel+(flag:37FItemlevel<3?flag:37FItemlevel:4)+flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:F51promote+flag:F85promote+flag:Fm58promote)+flag:baseHard"
+																		"value": "flag:noFixSevereBug?0:(flag:weakTagLevel+flag:37FItemlevel+flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:F51promote+flag:F85promote+flag:Fm58promote+flag:QueenLessProp)+flag:baseHard"
 																	}
 																]
 															},
 															{
 																"type": "choices",
-																"text": "\t[附加难度：敌方属性相关]\r[orange]当前总难度：${flag:realHard}/15\r\n相比于原版，敌方属性可以更高。\n\r[#FF8080]\n难度Tag：每项+1难可叠加，请选择挑战项目\r\n\r[#80FF80]当前已选择：+${flag:F51promote+flag:F85promote+flag:Fm58promote}难",
+																"text": "\t[附加难度：非领袖敌方加强]\r[orange]当前总难度：${flag:realHard}/15\r\n相比于原版，非领袖敌方单位属性可以更高。\n仅对非领袖敌方单位生效。\r[#FF8080]\n难度Tag：可多选每项+1难，可叠加\r\n\r[#80FF80]当前已选择：+${flag:F51promote+flag:F85promote+flag:Fm58promote}难",
 																"choices": [
 																	{
-																		"text": "51F起非领袖敌人+15%命/15%攻[ON]",
+																		"text": "51F起 +15%生命/15%攻击[ON]",
 																		"color": [
 																			255,
 																			215,
@@ -4889,7 +4915,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		]
 																	},
 																	{
-																		"text": "51F起非领袖敌人+15%命/15%攻[OFF]",
+																		"text": "51F起 +15%生命/15%攻击[OFF]",
 																		"need": "!core.hasVisitedFloor('MT51')",
 																		"condition": "flag:F51promote!==1",
 																		"action": [
@@ -4901,7 +4927,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		]
 																	},
 																	{
-																		"text": "85F起非领袖敌人+10%命/25%伤害[ON]",
+																		"text": "85F起 +10%生命/30%伤害[ON]",
 																		"color": [
 																			255,
 																			215,
@@ -4919,7 +4945,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		]
 																	},
 																	{
-																		"text": "85F起非领袖敌人+10%命/25%伤害[OFF]",
+																		"text": "85F起 +10%生命/30%伤害[OFF]",
 																		"need": "!core.hasVisitedFloor('MT85')",
 																		"condition": "flag:F85promote!==1",
 																		"action": [
@@ -4931,7 +4957,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		]
 																	},
 																	{
-																		"text": "-58F起非领袖敌人+20%命/20%攻[ON]",
+																		"text": "-58F起 +20%生命/20%攻击[ON]",
 																		"color": [
 																			255,
 																			215,
@@ -4949,7 +4975,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		]
 																	},
 																	{
-																		"text": "-58F起非领袖敌人+20%命/20%攻[OFF]",
+																		"text": "-58F起 +20%生命/20%攻击[OFF]",
 																		"need": "!core.hasVisitedFloor('MTn58')",
 																		"condition": "flag:Fm58promote!==1",
 																		"action": [

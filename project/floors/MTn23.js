@@ -89,12 +89,12 @@ main.floors.MTn23=
             }
         ],
         "11,1": [
-            "\t[神秘老人,wizard]\b[this]知道什么是属性爆发么？",
-            "\t[神秘老人,wizard]\b[this]就是你的一种属性达到了现已承受的极限。",
-            "\t[神秘老人,wizard]\b[this]一般分物品极限，普通极限。",
-            "\t[神秘老人,wizard]\b[this]物品极限如圣水，让你生命突然翻倍等。普通极限是指魔塔的属性承受到了极限。",
-            "\t[神秘老人,wizard]\b[this]你的所有能力上限都是9999999.",
-            "\t[神秘老人,wizard]\b[this]你生命到了极限了吧，以前的怪物清光了吧，结束吧，极限的勇士是不可以的！",
+            "\t[神秘老人,wizard]\b[this,11,1]知道什么是属性爆发么？",
+            "\t[神秘老人,wizard]\b[this,11,1]就是你的一种属性达到了现已承受的极限。",
+            "\t[神秘老人,wizard]\b[this,11,1]一般分物品极限，普通极限。",
+            "\t[神秘老人,wizard]\b[this,11,1]物品极限如圣水，让你生命突然翻倍等。普通极限是指魔塔的属性承受到了极限。",
+            "\t[神秘老人,wizard]\b[this,11,1]你的所有能力上限都是9999999.",
+            "\t[神秘老人,wizard]\b[this,11,1]你生命到了极限了吧，以前的怪物清光了吧，结束吧，极限的勇士是不可以的！",
             {
                 "type": "function",
                 "function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n(hero_id == 0 ? core.status.hero : core.getFlag(\"hero0\")).hp = 5000;\n(hero_id == 1 ? core.status.hero : core.getFlag(\"hero1\")).hp = 5000;\ncore.updateStatusBar(true);\n}"

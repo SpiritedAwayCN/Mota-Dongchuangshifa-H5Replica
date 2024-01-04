@@ -19,7 +19,7 @@ main.floors.MT85=
             "type": "if",
             "condition": "(flag:F85promote===1)",
             "true": [
-                "\t[H5难度系统]根据当前难度设置，全部敌人对角色的伤害增加。\n相关难度选项已生效！并已锁定。",
+                "\t[H5难度系统]根据当前难度设置，非领袖敌人属性提升，且对角色的伤害增加。\n相关难度选项已生效！并已锁定。",
                 {
                     "type": "setValue",
                     "name": "flag:diffVulnerable",
@@ -66,11 +66,19 @@ main.floors.MT85=
             },
             {
                 "type": "if",
-                "condition": "(switch:A===1)",
+                "condition": "(flag:RescuedQueen===1)",
                 "true": [
                     "\t[公主,N549]\b[this]快去救！我父王在地下！"
                 ],
                 "false": [
+                    {
+                        "type": "tip",
+                        "text": "已自动存档！"
+                    },
+                    {
+                        "type": "autoSave",
+                        "removeLast": true
+                    },
                     "\t[公主,N549]\b[this]你终于来了！",
                     "\t[hero]\b[hero]为了救你，费了很大劲呢！",
                     "\t[公主,N549]\b[this]我们快回去吧！至少先给国人报个喜！我们离开这么久了，他们可能现在可能已经开始恐慌了，赶快回去安抚他们一下！",
@@ -118,15 +126,41 @@ main.floors.MT85=
                         ]
                     },
                     "\t[公主,N549]\b[this]这......好吧！",
-                    "\t[公主,N549]\b[this]我这里也有一些东西。送全部角色10000生命，\n1000攻击，1000防御，400魔防，1连击！",
                     {
-                        "type": "function",
-                        "function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n[0, 1].forEach(id => {\n\tvar hero = hero_id === id ? core.status.hero : core.getFlag(\"hero\" + id);\n\thero.hp += 10000;\n\thero.atk += 1000;\n\thero.def += 1000;\n\thero.mdef += 400;\n});\ncore.updateStatusBar(true);\n}"
+                        "type": "if",
+                        "condition": "(flag:QueenLessProp===1)",
+                        "true": [
+                            "\t[公主,N549]\b[this]我这里也有一些东西。送全部角色\r[#FF60FF]5000生命，\n500攻击，500防御，200魔防\r，1连击！",
+                            {
+                                "type": "function",
+                                "function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n[0, 1].forEach(id => {\n\tvar hero = hero_id === id ? core.status.hero : core.getFlag(\"hero\" + id);\n\thero.hp += 5000;\n\thero.atk += 500;\n\thero.def += 500;\n\thero.mdef += 200;\n});\ncore.updateStatusBar(true);\n}"
+                            },
+                            {
+                                "type": "tip",
+                                "text": "85F赠送属性降低效果生效，已锁定！"
+                            }
+                        ],
+                        "false": [
+                            "\t[公主,N549]\b[this]我这里也有一些东西。送全部角色10000生命，\n1000攻击，1000防御，400魔防，1连击！",
+                            {
+                                "type": "function",
+                                "function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n[0, 1].forEach(id => {\n\tvar hero = hero_id === id ? core.status.hero : core.getFlag(\"hero\" + id);\n\thero.hp += 10000;\n\thero.atk += 1000;\n\thero.def += 1000;\n\thero.mdef += 400;\n});\ncore.updateStatusBar(true);\n}"
+                            },
+                            {
+                                "type": "tip",
+                                "text": "85F赠送属性降低难度选项，已禁用！"
+                            }
+                        ]
                     },
                     {
                         "type": "setValue",
                         "name": "status:combo",
                         "operator": "+=",
+                        "value": "1"
+                    },
+                    {
+                        "type": "setValue",
+                        "name": "flag:RescuedQueen",
                         "value": "1"
                     },
                     {
@@ -144,7 +178,7 @@ main.floors.MT85=
                         "type": "if",
                         "condition": "(flag:PotionLessValue===1)",
                         "true": [
-                            "\t[公主,N549]\b[this]红、蓝宝石效果变为+6，黄宝石加点数变为+4！红血瓶效果变为+500、蓝血瓶效果变为+800、黄血瓶效果变为+1750、绿血瓶效果变为+2750！！",
+                            "\t[公主,N549]\b[this]红、蓝宝石效果变为+6，黄宝石加点数变为+4！\r[#FF60FF]红血瓶效果变为+500、蓝血瓶效果变为+800、黄血瓶效果变为+1750、绿血瓶效果变为+2750\r！！",
                             {
                                 "type": "tip",
                                 "text": "血瓶增益降低难度效果已生效！"
@@ -176,12 +210,7 @@ main.floors.MT85=
                     "\t[公主,N549]\b[this]救出我的父王！",
                     "\t[hero]\b[hero]那你......",
                     "\t[公主,N549]\b[this]听我的，去！",
-                    "\t[hero]\b[hero]那你......保重！",
-                    {
-                        "type": "setValue",
-                        "name": "switch:A",
-                        "value": "1"
-                    }
+                    "\t[hero]\b[hero]那你......保重！"
                 ]
             }
         ]

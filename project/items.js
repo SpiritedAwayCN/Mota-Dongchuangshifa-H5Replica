@@ -55,7 +55,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"defaultPrice": 1000
 	},
 	"yellowGem": {
-		"cls": "items",
+		"cls": "tools",
 		"name": "黄宝石",
 		"text": "可以进行加点",
 		"itemEffect": "core.values.levelupPoint += core.values.yellowGem;\ncore.status.hero.lv += 1;\ncore.plugin.refreshComboWand();",

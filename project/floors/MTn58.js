@@ -54,7 +54,7 @@ main.floors.MTn58=
     "parallelDo": "",
     "events": {
         "7,2": [
-            "\t[神秘老人,wizard]\b[this]所有角色生命变为200000。",
+            "\t[神秘老人,wizard]\b[this,7,2]所有角色生命变为200000。",
             {
                 "type": "function",
                 "function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n(hero_id == 0 ? core.status.hero : core.getFlag(\"hero0\")).hp = 200000;\n(hero_id == 1 ? core.status.hero : core.getFlag(\"hero1\")).hp = 200000;\ncore.updateStatusBar(true);\n}"
