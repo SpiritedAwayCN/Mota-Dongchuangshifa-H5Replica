@@ -19,14 +19,14 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 								"need": "core.values.levelupPoint>0",
 								"action": [
 									{
+										"type": "function",
+										"function": "function(){\ncore.values.levelupPoint-=1;\n}"
+									},
+									{
 										"type": "setValue",
 										"name": "status:atk",
 										"operator": "+=",
 										"value": "1"
-									},
-									{
-										"type": "function",
-										"function": "function(){\ncore.values.levelupPoint-=1;\n}"
 									}
 								]
 							},
@@ -35,14 +35,14 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 								"need": "core.values.levelupPoint>0",
 								"action": [
 									{
+										"type": "function",
+										"function": "function(){\ncore.values.levelupPoint-=1;\n}"
+									},
+									{
 										"type": "setValue",
 										"name": "status:def",
 										"operator": "+=",
 										"value": "2"
-									},
-									{
-										"type": "function",
-										"function": "function(){\ncore.values.levelupPoint-=1;\n}"
 									}
 								]
 							},
@@ -52,14 +52,14 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 								"condition": "core.values.isMAGValid",
 								"action": [
 									{
+										"type": "function",
+										"function": "function(){\ncore.values.levelupPoint-=1;\n}"
+									},
+									{
 										"type": "setValue",
 										"name": "status:mdef",
 										"operator": "+=",
 										"value": "5"
-									},
-									{
-										"type": "function",
-										"function": "function(){\ncore.values.levelupPoint-=1;\n}"
 									}
 								]
 							},
@@ -68,14 +68,14 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 								"need": "core.values.levelupPoint>0",
 								"action": [
 									{
+										"type": "function",
+										"function": "function(){\ncore.values.levelupPoint-=1;\n}"
+									},
+									{
 										"type": "setValue",
 										"name": "status:hp",
 										"operator": "+=",
 										"value": "125"
-									},
-									{
-										"type": "function",
-										"function": "function(){\ncore.values.levelupPoint-=1;\n}"
 									}
 								]
 							},
@@ -4090,14 +4090,27 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 											{
 												"type": "setValue",
 												"name": "temp:prompt",
-												"value": "core.getInvalidColorString('FF4040') +'总难度10以上才可进入专属榜单'"
+												"value": "core.getInvalidColorString('FF4040') +'总难度10以上才可进入专属榜单！'"
 											}
 										],
 										"false": [
 											{
-												"type": "setValue",
-												"name": "temp:prompt",
-												"value": "core.getInvalidColorString('40FF40') +'当前难度可以计入排行榜'"
+												"type": "if",
+												"condition": "flag:realHard>=15",
+												"true": [
+													{
+														"type": "setValue",
+														"name": "temp:prompt",
+														"value": "core.getInvalidColorString('40FF40') +'☆当前难度可能触发H5专属Good End☆'"
+													}
+												],
+												"false": [
+													{
+														"type": "setValue",
+														"name": "temp:prompt",
+														"value": "core.getInvalidColorString('40FF40') +'当前难度可以计入专属排行榜！'"
+													}
+												]
 											}
 										]
 									},

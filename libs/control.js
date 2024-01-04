@@ -1939,7 +1939,7 @@ control.prototype._replayAction_click = function (action) {
 control.prototype._replayAction_ignoreInput = function (action) {
     if (action.indexOf('input:') == 0 || action.indexOf('input2:') == 0 || action.indexOf('choices:') == 0 || action.indexOf('random:') == 0) {
         console.warn('警告！录像播放中出现了未知的 ' + action + '！');
-        debugger;
+        // debugger;
         core.replay();
         return true;
     }

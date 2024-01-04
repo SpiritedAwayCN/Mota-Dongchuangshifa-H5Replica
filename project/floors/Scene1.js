@@ -153,7 +153,7 @@ main.floors.Scene1=
         "\t[仙子,fairy]\b[this,4,13]是的",
         {
             "type": "function",
-            "function": "function(){\ncore.status.hard = \"难度\" + core.getFlag('hard') + '（结局12：灭亡与新生）';\n}"
+            "function": "function(){\ncore.status.hard = \"难度\" + core.getFlag('hard');\n}"
         },
         {
             "type": "if",
@@ -230,6 +230,20 @@ main.floors.Scene1=
                     "type": "setValue",
                     "name": "flag:enddingName",
                     "value": "\"结局10/11：无奈的奈落\""
+                },
+                {
+                    "type": "if",
+                    "condition": "flag:GoodEnding===2",
+                    "true": [
+                        {
+                            "type": "setText"
+                        },
+                        "\t[H5复刻作者]\r[orange]警告：检测到与\\i[blackKing]Black Devil战斗前可选择另一项\r，且选择另一项仍能战斗胜利！\n\r[lime]请选择另一项以Good End结局结算游戏！\r（既然能过真结局，就别卷这个结局的排行榜了）",
+                        {
+                            "type": "lose",
+                            "reason": "与Black Devil战斗请选择另一项，按Good End结算游戏！"
+                        }
+                    ]
                 }
             ]
         },

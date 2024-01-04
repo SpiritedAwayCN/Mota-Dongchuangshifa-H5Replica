@@ -511,7 +511,7 @@ main.floors.MT30=
                 },
                 {
                     "type": "if",
-                    "condition": "flag:VerboseHint",
+                    "condition": "(flag:VerboseHint===1)",
                     "true": [
                         "\t[H5复刻作者]\b[this]提示：请先营救13F小偷。"
                     ]

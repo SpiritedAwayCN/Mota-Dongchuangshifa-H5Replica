@@ -81,7 +81,7 @@ main.floors.MT32=
                             13,
                             1
                         ],
-                        "time": 500,
+                        "time": 400,
                         "keep": true,
                         "steps": [
                             "down:12",

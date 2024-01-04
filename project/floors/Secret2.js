@@ -1173,6 +1173,10 @@ main.floors.Secret2=
                     "condition": "((flag:realHard>=15)&&flag:s172_PerfectEnding)",
                     "true": [
                         {
+                            "type": "function",
+                            "function": "function(){\nvar info = core.getDamageInfo('blackKing', { 'atk': hero.atk * 5, 'def': hero.def * 5 });\nif (info && info.damage < hero.hp)\n\tcore.setFlag(\"GoodEnding\", 2);\n}"
+                        },
+                        {
                             "type": "choices",
                             "text": "\t[Black Devil,blackKing]最后一次，你真的要救这个不值得救的国家吗？",
                             "choices": [
@@ -1271,7 +1275,7 @@ main.floors.Secret2=
                         "\t[Black Devil,blackKing]\b[up]前方便是你的国家，你名义上完满的完成了拯救国家的任务。但是，这个国家值得你拯救吗？",
                         {
                             "type": "sleep",
-                            "time": 500
+                            "time": 300
                         },
                         "\t[hero]\b[hero]……",
                         "\t[Black Devil,blackKing]\b[up]${status:name}，你接受了我的力量，同时也战胜了我，你的国家不该是恶意的化生。你有实力，有了战胜魔塔的名誉，你应该有所行动。",
