@@ -66,8 +66,110 @@ main.floors.MTn69=
                 "true": [
                     {
                         "type": "confirm",
-                        "text": "进入后将无法返回，是否前往？",
+                        "text": "为便于结局判定，进入后将丢失所有：\n背包中的血瓶、宝石、圣水、解药。\n且进入后将无法返回，是否前往？",
                         "yes": [
+                            {
+                                "type": "setValue",
+                                "name": "item:redPotion",
+                                "value": "0",
+                                "norefresh": true
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "item:bluePotion",
+                                "value": "0",
+                                "norefresh": true
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "item:yellowPotion",
+                                "value": "0",
+                                "norefresh": true
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "item:greenPotion",
+                                "value": "0",
+                                "norefresh": true
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "item:redGem",
+                                "value": "0",
+                                "norefresh": true
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "item:blueGem",
+                                "value": "0",
+                                "norefresh": true
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "item:yellowGem",
+                                "value": "0",
+                                "norefresh": true
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "item:greenGem",
+                                "value": "0",
+                                "norefresh": true
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "item:bAtkGem",
+                                "value": "0",
+                                "norefresh": true
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "item:bDefGem",
+                                "value": "0",
+                                "norefresh": true
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "item:bMdefGem",
+                                "value": "0",
+                                "norefresh": true
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "item:superPotion",
+                                "value": "0",
+                                "norefresh": true
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "item:weakWine",
+                                "value": "0",
+                                "norefresh": true
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "item:poisonWine",
+                                "value": "0",
+                                "norefresh": true
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "item:curseWine",
+                                "value": "0",
+                                "norefresh": true
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "item:superWine",
+                                "value": "0",
+                                "norefresh": true
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "item:I334",
+                                "value": "0",
+                                "norefresh": true
+                            },
                             {
                                 "type": "changeFloor",
                                 "floorId": "SecretPath",

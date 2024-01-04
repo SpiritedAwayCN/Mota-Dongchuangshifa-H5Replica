@@ -105,5 +105,6 @@ main.floors.SecretPath=
     "fgmap": [
 
 ],
-    "isDark": true
+    "isDark": true,
+    "bgm": "055Negative04.mp3"
 }
