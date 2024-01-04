@@ -395,7 +395,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"cls": "tools",
 		"name": "破冰镐",
 		"text": "可以破坏勇士面前的一堵冰墙",
-		"useItemEffect": "(function () {\n\tcore.drawTip(core.material.items[itemId].name + '使用成功', itemId);\n\tvar next_id = core.getBlockId(core.nextX(), core.nextY());\n\tif (next_id === \"IceWall\") {\n\t\tcore.insertAction({ \"type\": \"setBlock\", \"name\": \"yellowWall\", \"loc\": [\"core.nextX()\", \"core.nextY()\"] })\n\t} else {\n\t\tcore.insertAction({ \"type\": \"openDoor\", \"loc\": [\"core.nextX()\", \"core.nextY()\"] });\n\t}\n})();",
+		"useItemEffect": "(function () {\n\tcore.drawTip(core.material.items[itemId].name + '使用成功', itemId);\n\tvar next_id = core.getBlockId(core.nextX(), core.nextY());\n\tif (next_id === \"IceWall\") {\n\t\tvar nx = core.nextX(),\n\t\t\tny = core.nextY();\n\t\tcore.insertAction([{\n\t\t\t\"type\": \"setBlock\",\n\t\t\t\"number\": \"yellowWall\",\n\t\t\t\"loc\": [\n\t\t\t\t[nx, ny]\n\t\t\t]\n\t\t}, \"\\\\t[H5复刻作者]这不是BUG，原版在这里用确实会变成墙。\"]);\n\t} else {\n\t\tcore.insertAction({ \"type\": \"openDoor\", \"loc\": [\"core.nextX()\", \"core.nextY()\"] });\n\t}\n})();",
 		"canUseItemEffect": "(function () {\n\tvar next_id = core.getBlockId(core.nextX(), core.nextY());\n\treturn next_id == 'Ice' || next_id == 'A456' || next_id == 'IceWall';\n})();",
 		"defaultPrice": 5000
 	},

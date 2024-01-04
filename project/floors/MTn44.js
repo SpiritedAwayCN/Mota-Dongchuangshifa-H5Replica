@@ -30,7 +30,82 @@ main.floors.MTn44=
                     1
                 ]
             }
-        ]
+        ],
+        "3,12": {
+            "trigger": null,
+            "enable": true,
+            "noPass": true,
+            "displayDamage": true,
+            "opacity": 0.2,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": []
+        },
+        "5,12": {
+            "trigger": null,
+            "enable": true,
+            "noPass": true,
+            "displayDamage": true,
+            "opacity": 0.2,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": []
+        },
+        "7,12": {
+            "trigger": null,
+            "enable": true,
+            "noPass": true,
+            "displayDamage": true,
+            "opacity": 0.2,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": []
+        },
+        "9,12": {
+            "trigger": null,
+            "enable": true,
+            "noPass": true,
+            "displayDamage": true,
+            "opacity": 0.2,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": []
+        },
+        "11,12": {
+            "trigger": null,
+            "enable": true,
+            "noPass": true,
+            "displayDamage": true,
+            "opacity": 0.2,
+            "filter": {
+                "blur": 0,
+                "hue": 0,
+                "grayscale": 0,
+                "invert": false,
+                "shadow": 0
+            },
+            "data": []
+        }
     },
     "changeFloor": {
         "1,13": {
@@ -625,6 +700,81 @@ main.floors.MTn44=
                     5000
                 ]
             }
+        ],
+        "3,12": [
+            {
+                "type": "setBlock",
+                "number": "whiteWall"
+            },
+            {
+                "type": "setBlockOpacity",
+                "opacity": 1
+            },
+            {
+                "type": "setBgFgBlock",
+                "name": "bg",
+                "number": "ground"
+            }
+        ],
+        "5,12": [
+            {
+                "type": "setBlock",
+                "number": "whiteWall"
+            },
+            {
+                "type": "setBlockOpacity",
+                "opacity": 1
+            },
+            {
+                "type": "setBgFgBlock",
+                "name": "bg",
+                "number": "ground"
+            }
+        ],
+        "7,12": [
+            {
+                "type": "setBlock",
+                "number": "whiteWall"
+            },
+            {
+                "type": "setBlockOpacity",
+                "opacity": 1
+            },
+            {
+                "type": "setBgFgBlock",
+                "name": "bg",
+                "number": "ground"
+            }
+        ],
+        "9,12": [
+            {
+                "type": "setBlock",
+                "number": "whiteWall"
+            },
+            {
+                "type": "setBlockOpacity",
+                "opacity": 1
+            },
+            {
+                "type": "setBgFgBlock",
+                "name": "bg",
+                "number": "ground"
+            }
+        ],
+        "11,12": [
+            {
+                "type": "setBlock",
+                "number": "whiteWall"
+            },
+            {
+                "type": "setBlockOpacity",
+                "opacity": 1
+            },
+            {
+                "type": "setBgFgBlock",
+                "name": "bg",
+                "number": "ground"
+            }
         ]
     },
     "afterOpenDoor": {},
@@ -644,7 +794,7 @@ main.floors.MTn44=
     [20040,365,365,365,365,365,365,365,365,365,365,365,365,365,20042],
     [20040,  2,  2,  2,  2,  2,  2,  2,  2,  2,  2,  2,  2,  2,20042],
     [20040,  2,556,556,556,  2,566,566,566,  2,568,568,568,  2,20042],
-    [20040,455,  0,  2,454,  2,454,  2,454,  2,454,  2,  0,455,20042],
+    [20040,455,  0, 31,454, 31,454, 31,454, 31,454, 31,  0,455,20042],
     [20040, 87,454,  2,558,558,558,  2,567,567,567,  2,454, 88,20042],
     [20048,20049,20049,20049,20049,20049,20049,20049,20049,20049,20049,20049,20049,20049,20050]
 ],
@@ -662,7 +812,7 @@ main.floors.MTn44=
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
-    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,  0,  0,  2,  0,  2,  0,  2,  0,  2,  0,  2,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0]
 ],

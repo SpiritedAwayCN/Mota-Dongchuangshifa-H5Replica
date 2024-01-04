@@ -1571,7 +1571,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		// --- 首次获得道具的提示
 		if (!core.hasFlag("__itemHint__")) core.setFlag("__itemHint__", []);
 		var itemHint = core.getFlag("__itemHint__");
-		if (core.flags.itemFirstText && itemHint.indexOf(id) < 0 && itemCls != 'items') {
+		if ((core.flags.itemFirstText && itemHint.indexOf(id) < 0 && itemCls != 'items') || id === 'I541') {
 			var hint = core.material.items[id].text || "该道具暂无描述";
 			try {
 				hint = core.replaceText(hint);
