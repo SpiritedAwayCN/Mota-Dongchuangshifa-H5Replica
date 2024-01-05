@@ -1136,7 +1136,7 @@ control.prototype.checkBlock = function () {
 			var lvl = core.getFlag('lavaNetLevel', 0), lvlUb = core.getFlag('lavaNetLevelUb', 0);
             if (lvl < lvlUb) {
 				core.setFlag('lavaNetLevelUb', lvl);
-				core.insertAction('\t[H5难度系统]熔岩网伤害已按当前难度设置生效，\r[#FF40FF]相关的更高难度选项已不可用！\r');
+				core.insertAction('\t[H5难度系统]血网伤害已按当前难度设置生效，\r[#FF40FF]相关的更高难度选项已不可用！\r');
 			}
         }
         this._checkBlock_disableQuickShop();

@@ -3887,10 +3887,10 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 									},
 									{
 										"type": "choices",
-										"text": "\t[附加难度：路障相关]\r[orange]当前总难度：${flag:realHard}/2\r\n踩入熔岩网时将扣除角色一定生命，该扣血值可以变化\n\n\r[#FF8080]难度Tag：请选择挑战项目\r\n\r[#80FF80]当前已选择：\r${['熔岩网扣血效果-95%','熔岩网扣血效果遵循原作','熔岩网扣血效果+400%'][flag:lavaNetLevel+1]}，+${flag:lavaNetLevel+1}难",
+										"text": "\t[附加难度：路障相关]\r[orange]当前总难度：${flag:realHard}/2\r\n踩入血网时将扣除角色一定生命，该扣血值可以变化\n\n\r[#FF8080]难度Tag：请选择挑战项目\r\n\r[#80FF80]当前已选择：\r${['血网扣血效果-95%','血网扣血效果遵循原作','血网扣血效果+400%'][flag:lavaNetLevel+1]}，+${flag:lavaNetLevel+1}难",
 										"choices": [
 											{
-												"text": "熔岩网扣血效果-95%[+0难]",
+												"text": "血网扣血效果-95%[+0难]",
 												"action": [
 													{
 														"type": "setValue",
@@ -3900,7 +3900,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 												]
 											},
 											{
-												"text": "熔岩网扣血效果遵循原作[+1难]",
+												"text": "血网扣血效果遵循原作[+1难]",
 												"need": "flag:lavaNetLevelUb>=0",
 												"action": [
 													{
@@ -3911,7 +3911,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 												]
 											},
 											{
-												"text": "熔岩网扣血效果+400%[+2难]",
+												"text": "血网扣血效果+400%[+2难]",
 												"need": "flag:lavaNetLevelUb>=1",
 												"action": [
 													{
