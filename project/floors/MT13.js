@@ -59,7 +59,7 @@ main.floors.MT13=
                 "operator": "+=",
                 "value": "1"
             },
-            "\t[H5复刻作者]原版与杰克对话后，还会获得一把\\i[pickaxe]破墙镐，已存入背包！",
+            "\t[H5复刻作者]原作与杰克对话后，还会获得一把\\i[pickaxe]破墙镐，已存入背包！",
             {
                 "type": "setValue",
                 "name": "flag:s59_F12Imported",

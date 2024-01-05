@@ -18,7 +18,7 @@ main.floors.MT16=
     "parallelDo": "",
     "events": {
         "6,11": [
-            "\t[H5复刻作者]\b[this]到达此地块后，7F经验商店已升级，请留意。\n（原版没有文字提示）",
+            "\t[H5复刻作者]\b[this]到达此地块后，7F经验商店已升级，请留意。\n（原作没有文字提示）",
             {
                 "type": "setValue",
                 "name": "flag:s61_MansChat",

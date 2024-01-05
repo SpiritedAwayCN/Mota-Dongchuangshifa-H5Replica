@@ -3887,7 +3887,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 									},
 									{
 										"type": "choices",
-										"text": "\t[附加难度：路障相关]\r[orange]当前总难度：${flag:realHard}/2\r\n踩入熔岩网时将扣除角色一定生命，该扣血值可以变化\n\n\r[#FF8080]难度Tag：请选择挑战项目\r\n\r[#80FF80]当前已选择：\r${['熔岩网扣血效果-95%','熔岩网扣血效果遵循原版','熔岩网扣血效果+400%'][flag:lavaNetLevel+1]}，+${flag:lavaNetLevel+1}难",
+										"text": "\t[附加难度：路障相关]\r[orange]当前总难度：${flag:realHard}/2\r\n踩入熔岩网时将扣除角色一定生命，该扣血值可以变化\n\n\r[#FF8080]难度Tag：请选择挑战项目\r\n\r[#80FF80]当前已选择：\r${['熔岩网扣血效果-95%','熔岩网扣血效果遵循原作','熔岩网扣血效果+400%'][flag:lavaNetLevel+1]}，+${flag:lavaNetLevel+1}难",
 										"choices": [
 											{
 												"text": "熔岩网扣血效果-95%[+0难]",
@@ -3900,7 +3900,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 												]
 											},
 											{
-												"text": "熔岩网扣血效果遵循原版[+1难]",
+												"text": "熔岩网扣血效果遵循原作[+1难]",
 												"need": "flag:lavaNetLevelUb>=0",
 												"action": [
 													{
@@ -4119,7 +4119,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 										"text": "\t[H5复刻版难度系统]${temp:prompt}\n\r[orange]当前总难度：${flag:realHard}/15\r[red]\n${flag:noFixSevereBug ? '启用\"恶性特性修复\"才可结算难度值' : \"\"}\n\r游戏过程中按C键可随时呼出本界面",
 										"choices": [
 											{
-												"text": "原版难度：${['简单','困难','噩梦'][flag:baseHard]} (难度+${flag:baseHard})",
+												"text": "原作难度：${['简单','困难','噩梦'][flag:baseHard]} (难度+${flag:baseHard})",
 												"color": [
 													255,
 													215,
@@ -4130,10 +4130,10 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 												"action": [
 													{
 														"type": "choices",
-														"text": "\t[原版难度]请选择原版难度。\r[#FF4040]\n本项仅在游戏开始时可设置，\n游戏中不可修改",
+														"text": "\t[原作难度]请选择原作难度。\r[#FF4040]\n本项仅在游戏开始时可设置，\n游戏中不可修改",
 														"choices": [
 															{
-																"text": "原版简单[+0难]",
+																"text": "原作简单[+0难]",
 																"action": [
 																	{
 																		"type": "setValue",
@@ -4163,7 +4163,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																]
 															},
 															{
-																"text": "原版困难[+1难]",
+																"text": "原作困难[+1难]",
 																"action": [
 																	{
 																		"type": "setValue",
@@ -4188,7 +4188,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																]
 															},
 															{
-																"text": "原版噩梦[+2难]",
+																"text": "原作噩梦[+2难]",
 																"action": [
 																	{
 																		"type": "setValue",
@@ -4240,7 +4240,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 														"text": "\t[选择预设难度]以下是一些预设的难度选项，可选择后再\n进行细粒度修改。\n\r[lime]\n首次游玩推荐选择：体验优化/难度上榜\r",
 														"choices": [
 															{
-																"text": "接近原版 [+0难]",
+																"text": "接近原作 [+0难]",
 																"color": [
 																	255,
 																	64,
@@ -4249,7 +4249,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																"action": [
 																	{
 																		"type": "confirm",
-																		"text": "该项将启用原版中的一些恶性特性\n难度等级无法正常计算，确认选择吗？",
+																		"text": "该项将启用原作中的一些恶性特性\n难度等级无法正常计算，确认选择吗？",
 																		"yes": [
 																			{
 																				"type": "setValue",
@@ -4580,10 +4580,10 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 															},
 															{
 																"type": "choices",
-																"text": "\t[附加难度：衰弱相关]\r[orange]当前总难度：${flag:realHard}/15\r\n原版中，多数在衰弱时触发的攻防扣减将在解衰时恢复\n如：退化、路障、NPC、剧情事件等。\n\n\r[#FF8080]难度Tag：请选择挑战项目\r\n\r[#80FF80]当前已选择：\r${['遵循原版','5以内扣减不可被衰弱避免','20以内扣减不可被衰弱避免','所有扣减不可被衰弱避免'][flag:weakTagLevel]}，+${flag:weakTagLevel}难",
+																"text": "\t[附加难度：衰弱相关]\r[orange]当前总难度：${flag:realHard}/15\r\n原作中，多数在衰弱时触发的攻防扣减将在解衰时恢复\n如：退化、路障、NPC、剧情事件等。\n\n\r[#FF8080]难度Tag：请选择挑战项目\r\n\r[#80FF80]当前已选择：\r${['遵循原作','5以内扣减不可被衰弱避免','20以内扣减不可被衰弱避免','所有扣减不可被衰弱避免'][flag:weakTagLevel]}，+${flag:weakTagLevel}难",
 																"choices": [
 																	{
-																		"text": "遵循原版[+0难]",
+																		"text": "遵循原作[+0难]",
 																		"action": [
 																			{
 																				"type": "setValue",
@@ -4665,10 +4665,10 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 															},
 															{
 																"type": "choices",
-																"text": "\t[附加难度：37F宝物相关]\r[orange]当前总难度：${flag:realHard}/15\r\n原版中，37F有12个高价值宝物可以全部获得\n\n\r[#FF8080]难度Tag：请选择挑战项目\r\n\r[#80FF80]当前已选择：\r${['遵循原版','至多只拾取6个宝物','至多只拾取3个宝物','至多只拾取1个宝物'][flag:37FItemlevel]}，+${flag:37FItemlevel}难",
+																"text": "\t[附加难度：37F宝物相关]\r[orange]当前总难度：${flag:realHard}/15\r\n原作中，37F有12个高价值宝物可以全部获得\n\n\r[#FF8080]难度Tag：请选择挑战项目\r\n\r[#80FF80]当前已选择：\r${['遵循原作','至多只拾取6个宝物','至多只拾取3个宝物','至多只拾取1个宝物'][flag:37FItemlevel]}，+${flag:37FItemlevel}难",
 																"choices": [
 																	{
-																		"text": "遵循原版[+0难]",
+																		"text": "遵循原作[+0难]",
 																		"action": [
 																			{
 																				"type": "setValue",
@@ -4750,7 +4750,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 															},
 															{
 																"type": "choices",
-																"text": "\t[附加难度：血瓶宝物相关]\r[orange]当前总难度：${flag:realHard}/15\r\n相比于原版，血瓶宝物可以效果有更多限制。\n\r[#FF8080]\n难度Tag：每项+1难可叠加，请选择挑战项目\r\n\r[#80FF80]当前已选择：+${flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:QueenLessProp}难",
+																"text": "\t[附加难度：血瓶宝物相关]\r[orange]当前总难度：${flag:realHard}/15\r\n相比于原作，血瓶宝物可以效果有更多限制。\n\r[#FF8080]\n难度Tag：每项+1难可叠加，请选择挑战项目\r\n\r[#80FF80]当前已选择：+${flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:QueenLessProp}难",
 																"choices": [
 																	{
 																		"text": "85/-80F血瓶增益效果降低[ON]",
@@ -4907,7 +4907,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 															},
 															{
 																"type": "choices",
-																"text": "\t[附加难度：非领袖敌方加强]\r[orange]当前总难度：${flag:realHard}/15\r\n相比于原版，非领袖敌方单位属性可以更高。\n仅对非领袖敌方单位生效。\r[#FF8080]\n难度Tag：可多选每项+1难，可叠加\r\n\r[#80FF80]当前已选择：+${flag:F51promote+flag:F85promote+flag:Fm58promote}难",
+																"text": "\t[附加难度：非领袖敌方加强]\r[orange]当前总难度：${flag:realHard}/15\r\n相比于原作，非领袖敌方单位属性可以更高。\n仅对非领袖敌方单位生效。\r[#FF8080]\n难度Tag：可多选每项+1难，可叠加\r\n\r[#80FF80]当前已选择：+${flag:F51promote+flag:F85promote+flag:Fm58promote}难",
 																"choices": [
 																	{
 																		"text": "51F起 +15%生命/15%攻击[ON]",

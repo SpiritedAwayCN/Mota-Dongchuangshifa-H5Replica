@@ -19,7 +19,7 @@ main.floors.MTn49=
     "events": {
         "7,11": [
             "\t[老人,man]\b[this]岩浆上有岩浆裂纹的路面可以通过，不过费血加倍。@clue",
-            "\t[H5复刻作者]遵循原版设定，即使持有\\i[amulet]自然之靴也会受到一半的伤害。@clue",
+            "\t[H5复刻作者]遵循原作设定，即使持有\\i[amulet]自然之靴也会受到一半的伤害。@clue",
             {
                 "type": "hide",
                 "remove": true

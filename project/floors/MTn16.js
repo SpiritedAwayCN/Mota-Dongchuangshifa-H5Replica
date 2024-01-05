@@ -14,7 +14,7 @@ main.floors.MTn16=
     "defaultGround": "ground",
     "bgm": "012Theme01.mp3",
     "firstArrive": [
-        "\t[H5魔塔作者]原版中，本层所有火焰会随机游走，并在触碰角色时造成伤害。\n考虑手机端适配，本复刻版没有让它们移动。"
+        "\t[H5魔塔作者]原作中，本层所有火焰会随机游走，并在触碰角色时造成伤害。\n考虑手机端适配，本复刻版没有让它们移动。"
     ],
     "eachArrive": [],
     "parallelDo": "",

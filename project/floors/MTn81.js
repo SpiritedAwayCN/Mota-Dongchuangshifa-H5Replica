@@ -178,7 +178,7 @@ main.floors.MTn81=
                 "type": "function",
                 "function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n[0, 1].forEach(id => {\n\tvar hero = hero_id === id ? core.status.hero : core.getFlag(\"hero\" + id);\n\thero.hp = Math.max(1, hero.hp - 10);\n});\ncore.updateStatusBar(true);\n}"
             },
-            "\t[H5复刻作者]原版中，本层约每5秒触发本事件并扣血。\n本复刻版改为在本层的固定位置触发，且每处只触发一次。"
+            "\t[H5复刻作者]原作中，本层约每5秒触发本事件并扣血。\n本复刻版改为在本层的固定位置触发，且每处只触发一次。"
         ],
         "1,3": [
             {

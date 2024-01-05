@@ -2021,7 +2021,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	var globalAttribute = core.status.globalAttribute || core.initStatus.globalAttribute;
 	core.fillText('ui', "魔塔-东窗事发（H5复刻版）", text_start, top + 35, globalAttribute.selectColor, "bold 20px " + globalAttribute.font);
 	core.fillText('ui', "原作者： Joey·Cooper（发布于2009年8月）", text_start, top + 76, "#FFFFFF", "bold 14px " + globalAttribute.font);
-	core.fillText('ui', "原版开发工具： 魔塔样板3975，RPG Maker 1.03", text_start, top + 76 + text_interval);
+	core.fillText('ui', "原作开发工具： 魔塔样板3975，RPG Maker 1.03", text_start, top + 76 + text_interval);
 	core.fillText('ui', "复刻作者： SpiritedAwayCN（完成于2024年1月）", text_start, top + 80 + text_interval * 2);
 	core.fillText('ui', "复刻版新增系统/剧情编写：SpiritedAwayCN", text_start, top + 80 + text_interval * 3);
 	core.fillText('ui', "复刻版测试：SpiritedAwayCN、Joey·Cooper等", text_start, top + 80 + text_interval * 4);
