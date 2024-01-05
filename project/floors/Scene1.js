@@ -24,11 +24,6 @@ main.floors.Scene1=
             ]
         },
         {
-            "type": "setValue",
-            "name": "flag:hard",
-            "value": "flag:realHard"
-        },
-        {
             "type": "setText",
             "time": 60
         },
@@ -153,7 +148,7 @@ main.floors.Scene1=
         "\t[仙子,fairy]\b[this,4,13]是的",
         {
             "type": "function",
-            "function": "function(){\ncore.status.hard = \"难度\" + core.getFlag('hard');\n}"
+            "function": "function(){\ncore.status.hard = \"难度\" + core.getFlag('realHard') + \"（分数=攻防和）\";\n}"
         },
         {
             "type": "if",
@@ -221,7 +216,19 @@ main.floors.Scene1=
             "time": 500,
             "keep": true
         },
-        "就是这样……\n扑朔迷离的国家，扑朔迷离魔塔，扑朔迷离圣人……\n\n\r[#80FF80]您已通关${flag:enddingName}，难度${flag:realHard}。\n积分方式：当前角色攻防和",
+        {
+            "type": "if",
+            "condition": "(flag:realHard>=10)",
+            "true": [
+                "就是这样……\n扑朔迷离的国家，扑朔迷离魔塔，扑朔迷离圣人……\n\n\r[#80FF80]您已通关${flag:enddingName}，难度${flag:realHard}。\n积分方式：当前角色攻防和"
+            ],
+            "false": [
+                "就是这样……\n扑朔迷离的国家，扑朔迷离魔塔，扑朔迷离圣人……\n\n\r[#80FF80]您已通关${flag:enddingName}，难度${flag:realHard}。\n积分方式：难度*100000 + 当前角色攻防和"
+            ]
+        },
+        {
+            "type": "setText"
+        },
         {
             "type": "if",
             "condition": "(flag:GoodEnding!==1)",
@@ -233,11 +240,8 @@ main.floors.Scene1=
                 },
                 {
                     "type": "if",
-                    "condition": "flag:GoodEnding===2",
+                    "condition": "(flag:GoodEnding===2)",
                     "true": [
-                        {
-                            "type": "setText"
-                        },
                         "\t[H5复刻作者]\r[orange]警告：检测到与\\i[blackKing]Black Devil战斗前可选择另一项\r，且选择另一项仍能战斗胜利！\n\r[lime]请选择另一项以Good End结局结算游戏！\r（既然能过真结局，就别卷这个结局的排行榜了）",
                         {
                             "type": "lose",
@@ -252,8 +256,26 @@ main.floors.Scene1=
             "condition": "(flag:realHard>=10)",
             "true": [
                 {
-                    "type": "win",
-                    "reason": "${flag:enddingName}"
+                    "type": "setValue",
+                    "name": "flag:hard",
+                    "value": "flag:realHard-9"
+                },
+                {
+                    "type": "if",
+                    "condition": "(flag:GoodEnding===1)",
+                    "true": [
+                        {
+                            "type": "win",
+                            "reason": "${flag:enddingName}"
+                        }
+                    ],
+                    "false": [
+                        {
+                            "type": "win",
+                            "reason": "${flag:enddingName}",
+                            "norank": 1
+                        }
+                    ]
                 }
             ],
             "false": [
@@ -263,7 +285,7 @@ main.floors.Scene1=
                     "true": [
                         {
                             "type": "function",
-                            "function": "function(){\ncore.status.hard = \"难度0~9\";\n}"
+                            "function": "function(){\ncore.status.hard = \"难度0~9（分数=难度*100000+攻防和）\";\n}"
                         },
                         {
                             "type": "setValue",
@@ -272,7 +294,8 @@ main.floors.Scene1=
                         },
                         {
                             "type": "win",
-                            "reason": "${flag:enddingName}"
+                            "reason": "${flag:enddingName}",
+                            "norank": 1
                         }
                     ],
                     "false": [
@@ -281,9 +304,13 @@ main.floors.Scene1=
                             "function": "function(){\ncore.status.hard = \"作弊难度\";\n}"
                         },
                         {
-                            "type": "win",
-                            "reason": "${flag:enddingName}",
-                            "norank": 1
+                            "type": "setValue",
+                            "name": "flag:hard",
+                            "value": "0"
+                        },
+                        "\t[H5复刻作者]\r[orange]警告：当前为作弊难度，无法进入积分榜！\r",
+                        {
+                            "type": "restart"
                         }
                     ]
                 }

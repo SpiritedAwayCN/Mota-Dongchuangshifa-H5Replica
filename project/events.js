@@ -4090,7 +4090,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 											{
 												"type": "setValue",
 												"name": "temp:prompt",
-												"value": "core.getInvalidColorString('FF4040') +'总难度10以上才可进入专属榜单！'"
+												"value": "core.getInvalidColorString('FF4040') +'总难度10以上才可进入专属积分榜！'"
 											}
 										],
 										"false": [
@@ -4585,7 +4585,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																	{
 																		"type": "setValue",
 																		"name": "temp:prompt",
-																		"value": "core.getInvalidColorString('FF4040') +'总难度10以上才可进入专属榜单！'"
+																		"value": "core.getInvalidColorString('FF4040') +'总难度10以上才可进入专属积分榜！'"
 																	}
 																],
 																"false": [
@@ -4701,7 +4701,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																	{
 																		"type": "setValue",
 																		"name": "temp:prompt",
-																		"value": "core.getInvalidColorString('FF4040') +'总难度10以上才可进入专属榜单！'"
+																		"value": "core.getInvalidColorString('FF4040') +'总难度10以上才可进入专属积分榜！'"
 																	}
 																],
 																"false": [
@@ -4817,7 +4817,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																	{
 																		"type": "setValue",
 																		"name": "temp:prompt",
-																		"value": "core.getInvalidColorString('FF4040') +'总难度10以上才可进入专属榜单！'"
+																		"value": "core.getInvalidColorString('FF4040') +'总难度10以上才可进入专属积分榜！'"
 																	}
 																],
 																"false": [
@@ -5005,7 +5005,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																	{
 																		"type": "setValue",
 																		"name": "temp:prompt",
-																		"value": "core.getInvalidColorString('FF4040') +'总难度10以上才可进入专属榜单！'"
+																		"value": "core.getInvalidColorString('FF4040') +'总难度10以上才可进入专属积分榜！'"
 																	}
 																],
 																"false": [

@@ -166,7 +166,8 @@ main.floors.MT0=
             "\t[神秘老人,wizard]\b[this]本复刻版基于H5魔塔样板制作。\n魔塔原作者：Joey·Cooper\n复刻作者：SpiritedAwayCN",
             "\t[神秘老人,wizard]\b[this]尽管已尽可能接近原作，但复刻版仍非完美复刻。\n原作特性较多，不影响游戏进程的特性没有复刻。",
             "\t[神秘老人,wizard]\b[this]为了平台兼容性，原作中所有mid格式的BGM均重新内录、并为缩小游戏文件大小有损压制了一遍，因此音质会受到负面影响，十分抱歉。",
-            "\t[神秘老人,wizard]\b[this]本H5复刻版由\r[gold]原作者Joey·Cooper授权复刻\r，感谢原作者的支持！"
+            "\t[神秘老人,wizard]\b[this]本H5复刻版由\r[gold]原作者Joey·Cooper授权复刻\r，感谢原作者的支持！",
+            "\t[神秘老人,wizard]\b[this]此外，感谢复刻作者的朋友IcyChlorine提出的宝贵建议与修改！"
         ],
         "6,9": [
             "\t[隐者,recluse]\b[this]按H键可以查看本魔塔的全部快捷键。",
@@ -382,6 +383,15 @@ main.floors.MT0=
             },
             {
                 "type": "confirm",
+                "default": true,
+                "text": "是否查看本魔塔的积分方式？",
+                "yes": [
+                    "\t[H5复刻作者]作弊难度：不视为通关，平台榜单不计入；\n难度0~9：攻防和+难度值*100000，共用一个榜；\n难度10~15：攻防和，各难度值单独排榜。"
+                ],
+                "no": []
+            },
+            {
+                "type": "confirm",
                 "text": "有一些来自H5复刻作者的通关提示，\n是否查看？",
                 "yes": [
                     "\t[H5复刻作者]36~37F，需要前期保存5把红钥匙，因此，前期开红门须谨慎！\n可通过PgUp/PgDn浏览地图提前查看地图并规划。",
@@ -397,7 +407,7 @@ main.floors.MT0=
             },
             {
                 "type": "confirm",
-                "text": "是否查看H5专属Good End触发条件？",
+                "text": "是否查看H5专属Good End触发条件？\n计入H5平台成就榜单要求达成此结局",
                 "yes": [
                     "\t[H5复刻作者]原作并没有完美结局，H5专属Good End是在原作者Joey·Cooper的同意下加入，作为彩蛋有条件触发。",
                     "\t[H5专属Good End触发条件]开局与0层仙子对话，在15难度下与最终领袖战斗前，将出现\r[lime]Good End专属选项\r。\n选择该项并击败最终boss后，即可进入Good End。"

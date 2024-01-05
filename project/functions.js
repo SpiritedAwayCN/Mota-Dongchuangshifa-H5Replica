@@ -56,6 +56,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	// 请注意，成绩统计时是按照hp进行上传并排名
 	// 可以先在这里对最终分数进行计算，比如将2倍攻击和5倍黄钥匙数量加到分数上
 	core.status.hero.hp = core.getRealStatus('atk') + core.getRealStatus('def');
+	var current_hard = core.getFlag("realHard", 0)
+	if (current_hard < 10) core.status.hero.hp += current_hard * 100000;
 
 	// 如果不退出，则临时存储数据
 	if (noexit) {
@@ -2024,8 +2026,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	core.fillText('ui', "原作开发工具： 魔塔样板3975，RPG Maker 1.03", text_start, top + 76 + text_interval);
 	core.fillText('ui', "复刻作者： SpiritedAwayCN（完成于2024年1月）", text_start, top + 80 + text_interval * 2);
 	core.fillText('ui', "复刻版新增系统/剧情编写：SpiritedAwayCN", text_start, top + 80 + text_interval * 3);
-	core.fillText('ui', "复刻版测试：SpiritedAwayCN、Joey·Cooper等", text_start, top + 80 + text_interval * 4);
-	core.fillText('ui', "感谢原作者Joey·Cooper的复刻与改动授权！", text_start, top + 84 + text_interval * 5, "orange");
+	core.fillText('ui', "复刻版测试：SpiritedAwayCN、IcyChlorine等", text_start, top + 80 + text_interval * 4);
+	core.fillText('ui', "感谢原作者Joey·Cooper的复刻改动授权并测试！", text_start, top + 84 + text_interval * 5, "orange");
 	core.fillText('ui', "感谢HTML5造塔技术群所提供的技术帮助！", text_start, top + 84 + text_interval * 6);
 	core.fillText('ui', "样板版本： HTML5 魔塔样板" + main.__VERSION__, text_start, top + 90 + text_interval * 7, 'white');
 	core.fillText('ui', "样板作者： 艾之葵", text_start, top + 90 + text_interval * 8);
