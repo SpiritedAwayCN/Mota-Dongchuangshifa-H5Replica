@@ -210,6 +210,8 @@ enemys.prototype.getDamageString = function (enemy, x, y, floorId) {
             damage += "-";
         if (core.enemys.hasSpecial(enemy, 11))
             damage += "^";
+        if (core.enemys.hasSpecial(enemy, 32) || core.enemys.hasSpecial(enemy, 33))
+            damage += "*"; // 神偷/遗忘
     }
 
     return {

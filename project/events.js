@@ -4096,7 +4096,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 										"false": [
 											{
 												"type": "if",
-												"condition": "flag:realHard>=15",
+												"condition": "(flag:realHard>=15)",
 												"true": [
 													{
 														"type": "setValue",
@@ -4579,8 +4579,39 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																]
 															},
 															{
+																"type": "if",
+																"condition": "(flag:realHard<10)",
+																"true": [
+																	{
+																		"type": "setValue",
+																		"name": "temp:prompt",
+																		"value": "core.getInvalidColorString('FF4040') +'总难度10以上才可进入专属榜单！'"
+																	}
+																],
+																"false": [
+																	{
+																		"type": "if",
+																		"condition": "(flag:realHard>=15)",
+																		"true": [
+																			{
+																				"type": "setValue",
+																				"name": "temp:prompt",
+																				"value": "core.getInvalidColorString('40FF40') +'☆当前难度可能触发H5专属Good End☆'"
+																			}
+																		],
+																		"false": [
+																			{
+																				"type": "setValue",
+																				"name": "temp:prompt",
+																				"value": "core.getInvalidColorString('40FF40') +'当前难度可以计入专属排行榜！'"
+																			}
+																		]
+																	}
+																]
+															},
+															{
 																"type": "choices",
-																"text": "\t[附加难度：衰弱相关]\r[orange]当前总难度：${flag:realHard}/15\r\n原作中，多数在衰弱时触发的攻防扣减将在解衰时恢复\n如：退化、路障、NPC、剧情事件等。\n\n\r[#FF8080]难度Tag：请选择挑战项目\r\n\r[#80FF80]当前已选择：\r${['遵循原作','5以内扣减不可被衰弱避免','20以内扣减不可被衰弱避免','所有扣减不可被衰弱避免'][flag:weakTagLevel]}，+${flag:weakTagLevel}难",
+																"text": "\t[附加难度：衰弱相关]\r[orange]当前总难度：${flag:realHard}/15\r\n${temp:prompt}\r\n原作中，多数在衰弱时触发的攻防扣减将在解衰时恢复\n如：退化、路障、NPC、剧情事件等。\n\n\r[#FF8080]难度Tag：请选择挑战项目\r\n\r[#80FF80]当前已选择：\r${['遵循原作','5以内扣减不可被衰弱避免','20以内扣减不可被衰弱避免','所有扣减不可被衰弱避免'][flag:weakTagLevel]}，+${flag:weakTagLevel}难",
 																"choices": [
 																	{
 																		"text": "遵循原作[+0难]",
@@ -4664,8 +4695,39 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																]
 															},
 															{
+																"type": "if",
+																"condition": "(flag:realHard<10)",
+																"true": [
+																	{
+																		"type": "setValue",
+																		"name": "temp:prompt",
+																		"value": "core.getInvalidColorString('FF4040') +'总难度10以上才可进入专属榜单！'"
+																	}
+																],
+																"false": [
+																	{
+																		"type": "if",
+																		"condition": "(flag:realHard>=15)",
+																		"true": [
+																			{
+																				"type": "setValue",
+																				"name": "temp:prompt",
+																				"value": "core.getInvalidColorString('40FF40') +'☆当前难度可能触发H5专属Good End☆'"
+																			}
+																		],
+																		"false": [
+																			{
+																				"type": "setValue",
+																				"name": "temp:prompt",
+																				"value": "core.getInvalidColorString('40FF40') +'当前难度可以计入专属排行榜！'"
+																			}
+																		]
+																	}
+																]
+															},
+															{
 																"type": "choices",
-																"text": "\t[附加难度：37F宝物相关]\r[orange]当前总难度：${flag:realHard}/15\r\n原作中，37F有12个高价值宝物可以全部获得\n\n\r[#FF8080]难度Tag：请选择挑战项目\r\n\r[#80FF80]当前已选择：\r${['遵循原作','至多只拾取6个宝物','至多只拾取3个宝物','至多只拾取1个宝物'][flag:37FItemlevel]}，+${flag:37FItemlevel}难",
+																"text": "\t[附加难度：37F宝物相关]\r[orange]当前总难度：${flag:realHard}/15\n${temp:prompt}\r\n原作中，37F有12个高价值宝物可以全部获得\n\n\r[#FF8080]难度Tag：请选择挑战项目\r\n\r[#80FF80]当前已选择：\r${['遵循原作','至多只拾取6个宝物','至多只拾取3个宝物','至多只拾取1个宝物'][flag:37FItemlevel]}，+${flag:37FItemlevel}难",
 																"choices": [
 																	{
 																		"text": "遵循原作[+0难]",
@@ -4749,8 +4811,39 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																]
 															},
 															{
+																"type": "if",
+																"condition": "(flag:realHard<10)",
+																"true": [
+																	{
+																		"type": "setValue",
+																		"name": "temp:prompt",
+																		"value": "core.getInvalidColorString('FF4040') +'总难度10以上才可进入专属榜单！'"
+																	}
+																],
+																"false": [
+																	{
+																		"type": "if",
+																		"condition": "(flag:realHard>=15)",
+																		"true": [
+																			{
+																				"type": "setValue",
+																				"name": "temp:prompt",
+																				"value": "core.getInvalidColorString('40FF40') +'☆当前难度可能触发H5专属Good End☆'"
+																			}
+																		],
+																		"false": [
+																			{
+																				"type": "setValue",
+																				"name": "temp:prompt",
+																				"value": "core.getInvalidColorString('40FF40') +'当前难度可以计入专属排行榜！'"
+																			}
+																		]
+																	}
+																]
+															},
+															{
 																"type": "choices",
-																"text": "\t[附加难度：血瓶宝物相关]\r[orange]当前总难度：${flag:realHard}/15\r\n相比于原作，血瓶宝物可以效果有更多限制。\n\r[#FF8080]\n难度Tag：每项+1难可叠加，请选择挑战项目\r\n\r[#80FF80]当前已选择：+${flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:QueenLessProp}难",
+																"text": "\t[附加难度：血瓶宝物相关]\r[orange]当前总难度：${flag:realHard}/15\n${temp:prompt}\r\n相比于原作，血瓶宝物可以效果有更多限制。\n\r[#FF8080]\n难度Tag：每项+1难可叠加，请选择挑战项目\r\n\r[#80FF80]当前已选择：+${flag:PotionLessValue+flag:PotionLessRate+flag:SuperSteelKeyInvalid+flag:QueenLessProp}难",
 																"choices": [
 																	{
 																		"text": "85/-80F血瓶增益效果降低[ON]",
@@ -4906,8 +4999,39 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																]
 															},
 															{
+																"type": "if",
+																"condition": "(flag:realHard<10)",
+																"true": [
+																	{
+																		"type": "setValue",
+																		"name": "temp:prompt",
+																		"value": "core.getInvalidColorString('FF4040') +'总难度10以上才可进入专属榜单！'"
+																	}
+																],
+																"false": [
+																	{
+																		"type": "if",
+																		"condition": "(flag:realHard>=15)",
+																		"true": [
+																			{
+																				"type": "setValue",
+																				"name": "temp:prompt",
+																				"value": "core.getInvalidColorString('40FF40') +'☆当前难度可能触发H5专属Good End☆'"
+																			}
+																		],
+																		"false": [
+																			{
+																				"type": "setValue",
+																				"name": "temp:prompt",
+																				"value": "core.getInvalidColorString('40FF40') +'当前难度可以计入专属排行榜！'"
+																			}
+																		]
+																	}
+																]
+															},
+															{
 																"type": "choices",
-																"text": "\t[附加难度：非领袖敌方加强]\r[orange]当前总难度：${flag:realHard}/15\r\n相比于原作，非领袖敌方单位属性可以更高。\n仅对非领袖敌方单位生效。\r[#FF8080]\n难度Tag：可多选每项+1难，可叠加\r\n\r[#80FF80]当前已选择：+${flag:F51promote+flag:F85promote+flag:Fm58promote}难",
+																"text": "\t[附加难度：非领袖敌方加强]\r[orange]当前总难度：${flag:realHard}/15\n${temp:prompt}\r\n相比于原作，非领袖敌方单位属性可以更高。\n仅对非领袖敌方单位生效。\r[#FF8080]\n难度Tag：可多选每项+1难，可叠加\r\n\r[#80FF80]当前已选择：+${flag:F51promote+flag:F85promote+flag:Fm58promote}难",
 																"choices": [
 																	{
 																		"text": "51F起 +15%生命/15%攻击[ON]",
