@@ -229,7 +229,7 @@ main.floors.MTWorld=
                     "true": [
                         {
                             "type": "choices",
-                            "text": "\t[魔法楼阁,portal]每次进入/离开该隐藏层会强制扣除：\n所有角色的全部金币与经验，\n\r[red]无法恢复！\r\n是否确认前往？",
+                            "text": "\t[魔法楼阁,portal]可在其中获得\\i[coin]幸运金币，但每次\n进入/离开该隐藏层会强制扣除：\n所有角色的全部金币与经验，\n\r[red]无法恢复！\r\n是否确认前往？",
                             "choices": [
                                 {
                                     "text": "确认前往",

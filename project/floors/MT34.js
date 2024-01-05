@@ -30,7 +30,7 @@ main.floors.MT34=
                 "type": "if",
                 "condition": "flag:VerboseHint",
                 "true": [
-                    "\t[H5复刻作者]提示：魔塔世界中解锁了新的隐藏层。"
+                    "\t[H5复刻作者]提示：魔塔世界中解锁了新的隐藏层，请留意。魔塔世界在28F有入口。"
                 ]
             },
             {

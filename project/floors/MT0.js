@@ -165,8 +165,8 @@ main.floors.MT0=
         "8,5": [
             "\t[神秘老人,wizard]\b[this]本复刻版基于H5魔塔样板制作。\n魔塔原作者：Joey·Cooper\n复刻作者：SpiritedAwayCN",
             "\t[神秘老人,wizard]\b[this]尽管已尽可能接近原作，但复刻版仍非完美复刻。\n原作特性较多，不影响游戏进程的特性没有复刻。",
-            "\t[神秘老人,wizard]\b[this]为了平台兼容性，原作中所有mid格式的BGM均重新内录、并为缩小游戏文件大小有损压制了一遍，因此音质会受到影响。",
-            "\t[神秘老人,wizard]\b[this]本H5复刻版由原作者Joey·Cooper授权复刻，感谢原作者的支持！"
+            "\t[神秘老人,wizard]\b[this]为了平台兼容性，原作中所有mid格式的BGM均重新内录、并为缩小游戏文件大小有损压制了一遍，因此音质会受到负面影响，十分抱歉。",
+            "\t[神秘老人,wizard]\b[this]本H5复刻版由\r[gold]原作者Joey·Cooper授权复刻\r，感谢原作者的支持！"
         ],
         "6,9": [
             "\t[隐者,recluse]\b[this]按H键可以查看本魔塔的全部快捷键。",
