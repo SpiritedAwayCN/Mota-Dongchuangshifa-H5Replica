@@ -1955,10 +1955,10 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 				id = canGetItems[k].id;
 			// 			flag = true;
 			core.trigger(x, y);
-			if (!main.replayChecking) animateHwnd.add(id, x * 32, y * 32);
+			if (!main.replayChecking && !core.isReplaying()) animateHwnd.add(id, x * 32, y * 32);
 		}
 		// 		if (flag) core.autoGetItem(false, true);
-		if (!main.replayChecking && !recursive) animateHwnd.start();
+		if (!main.replayChecking && !recursive && !core.isReplaying()) animateHwnd.start();
 	}
 }
 }
