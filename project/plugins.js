@@ -1834,6 +1834,9 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		var bgMap = core.getBgMapArray();
 		// 		console.log(canMoveArray);
 
+		// 起点有毛病也不行
+		if (blockfn && !blockfn(blocksObj, sx, sy)) return;
+
 		var visited = [],
 			queue = [];
 		visited[sx + "," + sy] = 0;
@@ -1848,6 +1851,8 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 				var nx = x + core.utils.scan[direction].x,
 					ny = y + core.utils.scan[direction].y,
 					nindex = nx + "," + ny;
+				var i_dir = core.utils.turnDirection(':back', direction);
+				if (!core.inArray(canMoveArray[nx][ny], i_dir)) continue; // 反向不可达，不可用
 				if (visited[nindex]) continue;
 				if (core.onSki(bgMap[ny][nx])) continue;
 				if (blockfn && !blockfn(blocksObj, nx, ny)) continue;
@@ -1921,7 +1926,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 
 	this.autoGetItem = function (force, recursive) {
 		if (core.getFlag("autoGetPotion", 0) !== 1 && core.getFlag("autoGetGem", 0) !== 1) return;
-		console.log(core.status.event.id, core.status.lockControl);
+		// 		console.log(core.status.event.id, core.status.lockControl);
 
 		if (core.hasFlag('poison') || !core.status.floorId || !core.status.checkBlock.damage || (!force && core.status.event.id == 'action') || core.status.lockControl) return;
 
