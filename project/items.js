@@ -484,62 +484,20 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"defaultPrice": 10000
 	},
 	"lifeWand": {
-		"cls": "tools",
-		"name": "生命魔杖",
-		"text": "可以恢复100点生命值",
+		"cls": "constants",
+		"name": "自动拾取设置（快捷键4）",
+		"text": "可设置是否自动拾取物品，快捷键4。手机玩家可通过道具栏使用本道具呼出界面。",
 		"useItemEvent": [
 			{
-				"type": "comment",
-				"text": "先恢复一个魔杖（因为使用道具必须消耗一个）"
-			},
-			{
-				"type": "function",
-				"function": "function(){\ncore.addItem('lifeWand', 1);\n}"
-			},
-			{
-				"type": "playSound",
-				"name": "打开界面"
-			},
-			{
-				"type": "input",
-				"text": "请输入生命魔杖使用次数：(0-${item:lifeWand})"
-			},
-			{
-				"type": "comment",
-				"text": "【接受用户输入】弹窗输入的结果将会保存在“flag:input”中\n如果需要更多帮助，请查阅帮助文档"
-			},
-			{
-				"type": "if",
-				"condition": "flag:input<=item:lifeWand",
-				"true": [
-					{
-						"type": "setValue",
-						"name": "item:lifeWand",
-						"operator": "-=",
-						"value": "flag:input"
-					},
-					{
-						"type": "setValue",
-						"name": "status:hp",
-						"operator": "+=",
-						"value": "flag:input*100"
-					},
-					{
-						"type": "playSound",
-						"name": "回血"
-					},
-					"成功使用${flag:input}次生命魔杖，恢复${flag:input*100}点生命。"
-				],
-				"false": [
-					{
-						"type": "playSound",
-						"name": "操作失败"
-					},
-					"输入不合法！"
+				"type": "insert",
+				"name": "SetPotionItemized",
+				"args": [
+					"AutoGet"
 				]
 			}
 		],
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "true",
+		"hideInReplay": true
 	},
 	"jumpShoes": {
 		"cls": "tools",
@@ -616,7 +574,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 					"tutorialSetting"
 				]
 			}
-		]
+		],
+		"hideInReplay": true
 	},
 	"I338": {
 		"cls": "constants",

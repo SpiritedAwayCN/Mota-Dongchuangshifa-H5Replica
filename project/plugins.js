@@ -1801,5 +1801,159 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		}
 		return;
 	}
+},
+    "autoGetItem": function () {
+	var enable = true;
+	if (!enable) return;
+	// 
+	// var noUpdate = false;
+	////// 更新状态栏 ////// 不建议状态栏刷新后触发 容易导致录像不一致的问题
+	//control.prototype.updateStatusBar = function (doNotCheckAutoEvents) {
+	//	if (!core.isPlaying()) return;
+	//	if (noUpdate) return;
+	//	noUpdate = true;
+	//	core.autoGetItem();
+	//	noUpdate = false;
+	//	this.controldata.updateStatusBar();
+	//	if (!doNotCheckAutoEvents) core.checkAutoEvents();
+	//	this._updateStatusBar_setToolboxIcon();
+	//	core.clearRouteFolding();
+	//}
+
+	////// 每移动一格后执行的事件 //////
+	var old_moveOneStep = control.prototype.moveOneStep;
+	control.prototype.moveOneStep = function (callback) {
+		var res = old_moveOneStep.call(core.control, callback);
+		core.autoGetItem();
+		return res;
+	}
+
+	function bfsFlood(sx, sy, blockfn) {
+		var canMoveArray = core.generateMovableArray();
+		var blocksObj = core.getMapBlocksObj();
+		var bgMap = core.getBgMapArray();
+		// 		console.log(canMoveArray);
+
+		var visited = [],
+			queue = [];
+		visited[sx + "," + sy] = 0;
+		queue.push(sx + "," + sy);
+
+		while (queue.length > 0) {
+			var now = queue.shift().split(","),
+				x = ~~now[0],
+				y = ~~now[1];
+			for (var direction in core.utils.scan) {
+				if (!core.inArray(canMoveArray[x][y], direction)) continue;
+				var nx = x + core.utils.scan[direction].x,
+					ny = y + core.utils.scan[direction].y,
+					nindex = nx + "," + ny;
+				if (visited[nindex]) continue;
+				if (core.onSki(bgMap[ny][nx])) continue;
+				if (blockfn && !blockfn(blocksObj, nx, ny)) continue;
+				visited[nindex] = visited[now] + 1;
+				queue.push(nindex);
+			}
+		}
+	}
+
+	function attractAnimate() {
+		var name = 'attractAnimate';
+		var isPlaying = false;
+		this.nodes = [];
+
+		this.add = function (id, x, y, callback) {
+			this.nodes.push({ id: id, x: x, y: y, callback: callback });
+		}
+		this.start = function () {
+			if (isPlaying) return;
+			isPlaying = true;
+			core.registerAnimationFrame(name, true, this.update);
+			this.ctx = core.createCanvas(name, 0, 0, core.__PIXELS__, core.__PIXELS__, 120);
+		}
+		this.remove = function () {
+			core.unregisterAnimationFrame(name);
+			core.deleteCanvas(name);
+			isPlaying = false;
+		}
+		this.clear = function () {
+			this.nodes = [];
+			this.remove();
+		}
+		var lastTime = -1;
+		var self = this;
+		this.update = function (timeStamp) {
+			if (lastTime < 0) lastTime = timeStamp;
+			if (timeStamp - lastTime < 20) return;
+			lastTime = timeStamp;
+			core.clearMap(name);
+			var cx = core.status.heroCenter.px - 16,
+				cy = core.status.heroCenter.py - 16;
+			var thr = 5; //缓动比例倒数 越大移动越慢
+			self.nodes.forEach(function (n) {
+				var dx = cx - n.x,
+					dy = cy - n.y;
+				if (Math.abs(dx) <= thr && Math.abs(dy) <= thr) {
+					n.dead = true;
+				} else {
+					n.x += ~~(dx / thr);
+					n.y += ~~(dy / thr);
+				}
+				core.drawIcon(name, n.id, n.x, n.y, 32, 32);
+			});
+			self.nodes = self.nodes.filter(function (n) {
+				if (n.dead && n.callback) {
+					n.callback();
+				}
+				return !n.dead;
+			});
+			if (self.nodes.length == 0)
+				self.remove();
+		}
+	}
+
+
+	var animateHwnd = new attractAnimate();
+
+	this.stopAttractAnimate = function () {
+		animateHwnd.clear();
+	}
+
+	this.autoGetItem = function (force, recursive) {
+		if (core.getFlag("autoGetPotion", 0) !== 1 && core.getFlag("autoGetGem", 0) !== 1) return;
+		console.log(core.status.event.id, core.status.lockControl);
+
+		if (core.hasFlag('poison') || !core.status.floorId || !core.status.checkBlock.damage || (!force && core.status.event.id == 'action') || core.status.lockControl) return;
+
+		var canGetItems = {};
+		bfsFlood(core.getHeroLoc('x'), core.getHeroLoc('y'), function (blockMap, x, y) {
+			var idx = x + ',' + y;
+			if (idx in canGetItems) return false;
+			var blk = blockMap[idx];
+			// 			console.log(blk);
+			if (blk && !blk.disable && !core.isMapBlockDisabled(core.status.floorId, blk.x, blk.y) && blk.event.trigger == 'getItem') {
+				var cond1 = core.getFlag("autoGetPotion", 0) === 1 && /^(I454)|((red|blue|green|yellow)Potion)$/.test(blk.event.id);
+				var cond2 = core.getFlag("autoGetGem", 0) === 1 && /^(I455)|((red|blue|green|yellow)Gem)$/.test(blk.event.id);
+				var cond3 = core.getFlag("autoGetKey", 0) === 1 && /^(.+Wine)|((red|blue|green|yellow|steel|[BHL]Special)Key)$/.test(blk.event.id);
+				cond1 = cond1 && (!core.getFlag('dying') || core.values.isPotionItemized); // 死亡状态不获得非道具化血瓶
+				if (!(cond1 || cond2 || cond3)) return false;
+				canGetItems[idx] = { x: x, y: y, id: blk.event.id };
+				return !core.status.checkBlock.damage[idx] && !core.status.checkBlock.ambush[idx];
+			}
+			return core.maps._canMoveDirectly_checkNextPoint(blockMap, x, y);
+		});
+		// 		console.log(canGetItems);
+		// 		var flag = false;
+		for (var k in canGetItems) {
+			var x = canGetItems[k].x,
+				y = canGetItems[k].y,
+				id = canGetItems[k].id;
+			// 			flag = true;
+			core.trigger(x, y);
+			if (!main.replayChecking) animateHwnd.add(id, x * 32, y * 32);
+		}
+		// 		if (flag) core.autoGetItem(false, true);
+		if (!main.replayChecking && !recursive) animateHwnd.start();
+	}
 }
 }
