@@ -87,7 +87,7 @@ main.floors.MT0=
                     {
                         "type": "hide",
                         "remove": true,
-                        "time": 2000
+                        "time": 1000
                     }
                 ],
                 "false": [
