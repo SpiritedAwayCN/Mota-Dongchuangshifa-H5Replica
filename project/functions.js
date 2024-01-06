@@ -1981,7 +1981,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		_fillBoldTextWithFontCheck(core.setTwoDigits(core.itemCount('yellowKey')), x_base, y_base, '#FFCCAA', 16);
 		_fillBoldTextWithFontCheck(core.setTwoDigits(core.itemCount('blueKey')), x_base + x_interval, y_base, '#AAAADD', 16);
 		_fillBoldTextWithFontCheck(core.setTwoDigits(core.itemCount('redKey')), x_base + x_interval * 2, y_base, '#FF8888', 16);
-		_fillBoldTextWithFontCheck(core.values.isGreenkeyValid ? core.setTwoDigits(core.itemCount('greenKey')) : "00", x_base + x_interval * 0.5, y_base + 24, '#88FF88', 16);
+		_fillBoldTextWithFontCheck(core.values.isGreenkeyValid ? core.setTwoDigits(core.itemCount('greenKey')) : "--", x_base + x_interval * 0.5, y_base + 24, '#88FF88', 16);
 		_fillBoldTextWithFontCheck(core.setTwoDigits(core.itemCount('steelKey')), x_base + x_interval * 1.5, y_base + 24, '#C0C0C0', 16);
 
 		// 绘制状态

@@ -59,30 +59,36 @@ main.floors.MT37=
                 },
                 {
                     "type": "if",
-                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])",
                     "true": [
                         {
-                            "type": "confirm",
-                            "default": true,
-                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
-                            "yes": [
+                            "type": "if",
+                            "condition": "(flag:F37_DisabledTag!==1)",
+                            "true": [
                                 {
-                                    "type": "setValue",
-                                    "name": "flag:F37_DisabledTag",
-                                    "value": "1"
-                                },
-                                {
-                                    "type": "setValue",
-                                    "name": "flag:37FItemlevelUb",
-                                    "operator": "-=",
-                                    "value": "1"
-                                }
-                            ],
-                            "no": [
-                                {
-                                    "type": "exit"
+                                    "type": "confirm",
+                                    "default": true,
+                                    "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                                    "yes": [
+                                        {
+                                            "type": "setValue",
+                                            "name": "flag:F37_DisabledTag",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "no": [
+                                        {
+                                            "type": "exit"
+                                        }
+                                    ]
                                 }
                             ]
+                        },
+                        {
+                            "type": "setValue",
+                            "name": "flag:37FItemlevelUb",
+                            "operator": "-=",
+                            "value": "1"
                         }
                     ]
                 },
@@ -139,30 +145,36 @@ main.floors.MT37=
                 },
                 {
                     "type": "if",
-                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])",
                     "true": [
                         {
-                            "type": "confirm",
-                            "default": true,
-                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
-                            "yes": [
+                            "type": "if",
+                            "condition": "(flag:F37_DisabledTag!==1)",
+                            "true": [
                                 {
-                                    "type": "setValue",
-                                    "name": "flag:F37_DisabledTag",
-                                    "value": "1"
-                                },
-                                {
-                                    "type": "setValue",
-                                    "name": "flag:37FItemlevelUb",
-                                    "operator": "-=",
-                                    "value": "1"
-                                }
-                            ],
-                            "no": [
-                                {
-                                    "type": "exit"
+                                    "type": "confirm",
+                                    "default": true,
+                                    "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                                    "yes": [
+                                        {
+                                            "type": "setValue",
+                                            "name": "flag:F37_DisabledTag",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "no": [
+                                        {
+                                            "type": "exit"
+                                        }
+                                    ]
                                 }
                             ]
+                        },
+                        {
+                            "type": "setValue",
+                            "name": "flag:37FItemlevelUb",
+                            "operator": "-=",
+                            "value": "1"
                         }
                     ]
                 },
@@ -219,30 +231,36 @@ main.floors.MT37=
                 },
                 {
                     "type": "if",
-                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])",
                     "true": [
                         {
-                            "type": "confirm",
-                            "default": true,
-                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
-                            "yes": [
+                            "type": "if",
+                            "condition": "(flag:F37_DisabledTag!==1)",
+                            "true": [
                                 {
-                                    "type": "setValue",
-                                    "name": "flag:F37_DisabledTag",
-                                    "value": "1"
-                                },
-                                {
-                                    "type": "setValue",
-                                    "name": "flag:37FItemlevelUb",
-                                    "operator": "-=",
-                                    "value": "1"
-                                }
-                            ],
-                            "no": [
-                                {
-                                    "type": "exit"
+                                    "type": "confirm",
+                                    "default": true,
+                                    "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                                    "yes": [
+                                        {
+                                            "type": "setValue",
+                                            "name": "flag:F37_DisabledTag",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "no": [
+                                        {
+                                            "type": "exit"
+                                        }
+                                    ]
                                 }
                             ]
+                        },
+                        {
+                            "type": "setValue",
+                            "name": "flag:37FItemlevelUb",
+                            "operator": "-=",
+                            "value": "1"
                         }
                     ]
                 },
@@ -299,30 +317,36 @@ main.floors.MT37=
                 },
                 {
                     "type": "if",
-                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])",
                     "true": [
                         {
-                            "type": "confirm",
-                            "default": true,
-                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
-                            "yes": [
+                            "type": "if",
+                            "condition": "(flag:F37_DisabledTag!==1)",
+                            "true": [
                                 {
-                                    "type": "setValue",
-                                    "name": "flag:F37_DisabledTag",
-                                    "value": "1"
-                                },
-                                {
-                                    "type": "setValue",
-                                    "name": "flag:37FItemlevelUb",
-                                    "operator": "-=",
-                                    "value": "1"
-                                }
-                            ],
-                            "no": [
-                                {
-                                    "type": "exit"
+                                    "type": "confirm",
+                                    "default": true,
+                                    "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                                    "yes": [
+                                        {
+                                            "type": "setValue",
+                                            "name": "flag:F37_DisabledTag",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "no": [
+                                        {
+                                            "type": "exit"
+                                        }
+                                    ]
                                 }
                             ]
+                        },
+                        {
+                            "type": "setValue",
+                            "name": "flag:37FItemlevelUb",
+                            "operator": "-=",
+                            "value": "1"
                         }
                     ]
                 },
@@ -379,30 +403,36 @@ main.floors.MT37=
                 },
                 {
                     "type": "if",
-                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])",
                     "true": [
                         {
-                            "type": "confirm",
-                            "default": true,
-                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
-                            "yes": [
+                            "type": "if",
+                            "condition": "(flag:F37_DisabledTag!==1)",
+                            "true": [
                                 {
-                                    "type": "setValue",
-                                    "name": "flag:F37_DisabledTag",
-                                    "value": "1"
-                                },
-                                {
-                                    "type": "setValue",
-                                    "name": "flag:37FItemlevelUb",
-                                    "operator": "-=",
-                                    "value": "1"
-                                }
-                            ],
-                            "no": [
-                                {
-                                    "type": "exit"
+                                    "type": "confirm",
+                                    "default": true,
+                                    "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                                    "yes": [
+                                        {
+                                            "type": "setValue",
+                                            "name": "flag:F37_DisabledTag",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "no": [
+                                        {
+                                            "type": "exit"
+                                        }
+                                    ]
                                 }
                             ]
+                        },
+                        {
+                            "type": "setValue",
+                            "name": "flag:37FItemlevelUb",
+                            "operator": "-=",
+                            "value": "1"
                         }
                     ]
                 },
@@ -459,30 +489,36 @@ main.floors.MT37=
                 },
                 {
                     "type": "if",
-                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])",
                     "true": [
                         {
-                            "type": "confirm",
-                            "default": true,
-                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
-                            "yes": [
+                            "type": "if",
+                            "condition": "(flag:F37_DisabledTag!==1)",
+                            "true": [
                                 {
-                                    "type": "setValue",
-                                    "name": "flag:F37_DisabledTag",
-                                    "value": "1"
-                                },
-                                {
-                                    "type": "setValue",
-                                    "name": "flag:37FItemlevelUb",
-                                    "operator": "-=",
-                                    "value": "1"
-                                }
-                            ],
-                            "no": [
-                                {
-                                    "type": "exit"
+                                    "type": "confirm",
+                                    "default": true,
+                                    "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                                    "yes": [
+                                        {
+                                            "type": "setValue",
+                                            "name": "flag:F37_DisabledTag",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "no": [
+                                        {
+                                            "type": "exit"
+                                        }
+                                    ]
                                 }
                             ]
+                        },
+                        {
+                            "type": "setValue",
+                            "name": "flag:37FItemlevelUb",
+                            "operator": "-=",
+                            "value": "1"
                         }
                     ]
                 },
@@ -539,30 +575,36 @@ main.floors.MT37=
                 },
                 {
                     "type": "if",
-                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])",
                     "true": [
                         {
-                            "type": "confirm",
-                            "default": true,
-                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
-                            "yes": [
+                            "type": "if",
+                            "condition": "(flag:F37_DisabledTag!==1)",
+                            "true": [
                                 {
-                                    "type": "setValue",
-                                    "name": "flag:F37_DisabledTag",
-                                    "value": "1"
-                                },
-                                {
-                                    "type": "setValue",
-                                    "name": "flag:37FItemlevelUb",
-                                    "operator": "-=",
-                                    "value": "1"
-                                }
-                            ],
-                            "no": [
-                                {
-                                    "type": "exit"
+                                    "type": "confirm",
+                                    "default": true,
+                                    "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                                    "yes": [
+                                        {
+                                            "type": "setValue",
+                                            "name": "flag:F37_DisabledTag",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "no": [
+                                        {
+                                            "type": "exit"
+                                        }
+                                    ]
                                 }
                             ]
+                        },
+                        {
+                            "type": "setValue",
+                            "name": "flag:37FItemlevelUb",
+                            "operator": "-=",
+                            "value": "1"
                         }
                     ]
                 },
@@ -619,30 +661,36 @@ main.floors.MT37=
                 },
                 {
                     "type": "if",
-                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])",
                     "true": [
                         {
-                            "type": "confirm",
-                            "default": true,
-                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
-                            "yes": [
+                            "type": "if",
+                            "condition": "(flag:F37_DisabledTag!==1)",
+                            "true": [
                                 {
-                                    "type": "setValue",
-                                    "name": "flag:F37_DisabledTag",
-                                    "value": "1"
-                                },
-                                {
-                                    "type": "setValue",
-                                    "name": "flag:37FItemlevelUb",
-                                    "operator": "-=",
-                                    "value": "1"
-                                }
-                            ],
-                            "no": [
-                                {
-                                    "type": "exit"
+                                    "type": "confirm",
+                                    "default": true,
+                                    "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                                    "yes": [
+                                        {
+                                            "type": "setValue",
+                                            "name": "flag:F37_DisabledTag",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "no": [
+                                        {
+                                            "type": "exit"
+                                        }
+                                    ]
                                 }
                             ]
+                        },
+                        {
+                            "type": "setValue",
+                            "name": "flag:37FItemlevelUb",
+                            "operator": "-=",
+                            "value": "1"
                         }
                     ]
                 },
@@ -699,30 +747,36 @@ main.floors.MT37=
                 },
                 {
                     "type": "if",
-                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])",
                     "true": [
                         {
-                            "type": "confirm",
-                            "default": true,
-                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
-                            "yes": [
+                            "type": "if",
+                            "condition": "(flag:F37_DisabledTag!==1)",
+                            "true": [
                                 {
-                                    "type": "setValue",
-                                    "name": "flag:F37_DisabledTag",
-                                    "value": "1"
-                                },
-                                {
-                                    "type": "setValue",
-                                    "name": "flag:37FItemlevelUb",
-                                    "operator": "-=",
-                                    "value": "1"
-                                }
-                            ],
-                            "no": [
-                                {
-                                    "type": "exit"
+                                    "type": "confirm",
+                                    "default": true,
+                                    "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                                    "yes": [
+                                        {
+                                            "type": "setValue",
+                                            "name": "flag:F37_DisabledTag",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "no": [
+                                        {
+                                            "type": "exit"
+                                        }
+                                    ]
                                 }
                             ]
+                        },
+                        {
+                            "type": "setValue",
+                            "name": "flag:37FItemlevelUb",
+                            "operator": "-=",
+                            "value": "1"
                         }
                     ]
                 },
@@ -779,30 +833,36 @@ main.floors.MT37=
                 },
                 {
                     "type": "if",
-                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])",
                     "true": [
                         {
-                            "type": "confirm",
-                            "default": true,
-                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
-                            "yes": [
+                            "type": "if",
+                            "condition": "(flag:F37_DisabledTag!==1)",
+                            "true": [
                                 {
-                                    "type": "setValue",
-                                    "name": "flag:F37_DisabledTag",
-                                    "value": "1"
-                                },
-                                {
-                                    "type": "setValue",
-                                    "name": "flag:37FItemlevelUb",
-                                    "operator": "-=",
-                                    "value": "1"
-                                }
-                            ],
-                            "no": [
-                                {
-                                    "type": "exit"
+                                    "type": "confirm",
+                                    "default": true,
+                                    "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                                    "yes": [
+                                        {
+                                            "type": "setValue",
+                                            "name": "flag:F37_DisabledTag",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "no": [
+                                        {
+                                            "type": "exit"
+                                        }
+                                    ]
                                 }
                             ]
+                        },
+                        {
+                            "type": "setValue",
+                            "name": "flag:37FItemlevelUb",
+                            "operator": "-=",
+                            "value": "1"
                         }
                     ]
                 },
@@ -859,30 +919,36 @@ main.floors.MT37=
                 },
                 {
                     "type": "if",
-                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])",
                     "true": [
                         {
-                            "type": "confirm",
-                            "default": true,
-                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
-                            "yes": [
+                            "type": "if",
+                            "condition": "(flag:F37_DisabledTag!==1)",
+                            "true": [
                                 {
-                                    "type": "setValue",
-                                    "name": "flag:F37_DisabledTag",
-                                    "value": "1"
-                                },
-                                {
-                                    "type": "setValue",
-                                    "name": "flag:37FItemlevelUb",
-                                    "operator": "-=",
-                                    "value": "1"
-                                }
-                            ],
-                            "no": [
-                                {
-                                    "type": "exit"
+                                    "type": "confirm",
+                                    "default": true,
+                                    "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                                    "yes": [
+                                        {
+                                            "type": "setValue",
+                                            "name": "flag:F37_DisabledTag",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "no": [
+                                        {
+                                            "type": "exit"
+                                        }
+                                    ]
                                 }
                             ]
+                        },
+                        {
+                            "type": "setValue",
+                            "name": "flag:37FItemlevelUb",
+                            "operator": "-=",
+                            "value": "1"
                         }
                     ]
                 },
@@ -939,30 +1005,36 @@ main.floors.MT37=
                 },
                 {
                     "type": "if",
-                    "condition": "((flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])&&(flag:F37_DisabledTag!==1))",
+                    "condition": "(flag:F37_fetched>=[12,6,3,1][flag:37FItemlevelUb])",
                     "true": [
                         {
-                            "type": "confirm",
-                            "default": true,
-                            "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
-                            "yes": [
+                            "type": "if",
+                            "condition": "(flag:F37_DisabledTag!==1)",
+                            "true": [
                                 {
-                                    "type": "setValue",
-                                    "name": "flag:F37_DisabledTag",
-                                    "value": "1"
-                                },
-                                {
-                                    "type": "setValue",
-                                    "name": "flag:37FItemlevelUb",
-                                    "operator": "-=",
-                                    "value": "1"
-                                }
-                            ],
-                            "no": [
-                                {
-                                    "type": "exit"
+                                    "type": "confirm",
+                                    "default": true,
+                                    "text": "获得此宝物后，部分更高难度选项将不再可用。\n您当前可获得此宝物，确认要获得此宝物吗？",
+                                    "yes": [
+                                        {
+                                            "type": "setValue",
+                                            "name": "flag:F37_DisabledTag",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "no": [
+                                        {
+                                            "type": "exit"
+                                        }
+                                    ]
                                 }
                             ]
+                        },
+                        {
+                            "type": "setValue",
+                            "name": "flag:37FItemlevelUb",
+                            "operator": "-=",
+                            "value": "1"
                         }
                     ]
                 },
