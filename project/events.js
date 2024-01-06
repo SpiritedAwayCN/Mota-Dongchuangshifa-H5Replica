@@ -561,6 +561,121 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 						]
 					},
 					{
+						"case": "\"AutoGet\"",
+						"action": [
+							{
+								"type": "while",
+								"condition": "1",
+								"data": [
+									{
+										"type": "choices",
+										"text": "\t[自动拾取设置]请选择要自动拾取的物品种类\r[#FF4040]\n自动拾取可能导致负面效果，请勿过度依赖\r",
+										"choices": [
+											{
+												"text": "血瓶自动拾取 [${flag:autoGetPotion===1 ? \"ON\" : \"OFF\"}]",
+												"color": [
+													255,
+													215,
+													0,
+													1
+												],
+												"action": [
+													{
+														"type": "if",
+														"condition": "(flag:autoGetPotion===1)",
+														"true": [
+															{
+																"type": "setValue",
+																"name": "flag:autoGetPotion",
+																"value": "0"
+															}
+														],
+														"false": [
+															"\t[血瓶自动拾取]\r[lime]血瓶自动拾取已开启，下次角色移动时生效！\r\n\r[orange]对于\\i[redPotion]\\i[bluePotion]\\i[greenPotion]\\i[yellowPotion]：\n\r若未道具化，则直接增加生命（死亡状态下不拾取）；\n若已道具化，则直接存入背包。\n\r[orange]对于\\i[I454]：\r\n直接为当前角色增加生命值。\n\n部分情况下不会生效（如中毒、有特殊事件的血瓶等）",
+															{
+																"type": "setValue",
+																"name": "flag:autoGetPotion",
+																"value": "1"
+															}
+														]
+													}
+												]
+											},
+											{
+												"text": "宝石自动拾取 [${flag:autoGetGem===1 ? \"ON\" : \"OFF\"}]",
+												"color": [
+													255,
+													215,
+													0,
+													1
+												],
+												"action": [
+													{
+														"type": "if",
+														"condition": "(flag:autoGetGem===1)",
+														"true": [
+															{
+																"type": "setValue",
+																"name": "flag:autoGetGem",
+																"value": "0"
+															}
+														],
+														"false": [
+															"\t[宝石自动拾取]\r[lime]宝石自动拾取已开启，下次角色移动时生效！\r\n\r[orange]对于\\i[redGem]\\i[blueGem]\\i[greenGem]\\i[yellowGem]：\n\r若未道具化，则直接生效，增加角色能力；\n若已道具化，则直接存入背包。\n\r[orange]对于\\i[I455]：\r\n直接为当前角色增加能力值。\n\n部分情况下不会生效（如中毒、有特殊事件的宝石等）",
+															{
+																"type": "setValue",
+																"name": "flag:autoGetGem",
+																"value": "1"
+															}
+														]
+													}
+												]
+											},
+											{
+												"text": "钥匙/解药自动拾取 [${flag:autoGetKey===1 ? \"ON\" : \"OFF\"}]",
+												"color": [
+													255,
+													215,
+													0,
+													1
+												],
+												"action": [
+													{
+														"type": "if",
+														"condition": "(flag:autoGetKey===1)",
+														"true": [
+															{
+																"type": "setValue",
+																"name": "flag:autoGetKey",
+																"value": "0"
+															}
+														],
+														"false": [
+															{
+																"type": "setValue",
+																"name": "flag:autoGetKey",
+																"value": "1"
+															}
+														]
+													}
+												]
+											},
+											{
+												"text": "完成",
+												"action": [
+													{
+														"type": "break",
+														"n": 1
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					},
+					{
 						"case": "\"Wine\"",
 						"action": [
 							{
@@ -643,7 +758,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 								"data": [
 									{
 										"type": "choices",
-										"text": "\t[使用宝石]开启道具化以获得物品形式的宝石。\n每点击一次使用一个宝石。",
+										"text": "\t[使用宝石]开启道具化以获得物品形式的宝石。\n每点击一次使用一个宝石（可长按）。",
 										"choices": [
 											{
 												"text": "宝石道具化 [${core.values.isGemItemized ? \"ON\" : \"OFF\"}]",
@@ -763,7 +878,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 								"data": [
 									{
 										"type": "choices",
-										"text": "\t[使用香蕉]香蕉与宝石共用道具化设置\n每点击一次使用一个香蕉。",
+										"text": "\t[使用香蕉]香蕉与宝石共用道具化设置\n每点击一次使用一个香蕉（可长按）。",
 										"choices": [
 											{
 												"text": "宝石道具化 [${core.values.isGemItemized ? \"ON\" : \"OFF\"}]",
@@ -857,7 +972,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 								"data": [
 									{
 										"type": "choices",
-										"text": "\t[使用血瓶]开启道具化以获得物品形式的血瓶。\n每点击一次使用一个血瓶。",
+										"text": "\t[使用血瓶]开启道具化以获得物品形式的血瓶。\n每点击一次使用一个血瓶（可长按）",
 										"choices": [
 											{
 												"text": "血瓶道具化 [${core.values.isPotionItemized? \"ON\" : \"OFF\"}]",
@@ -3508,44 +3623,58 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 								]
 							},
 							{
-								"type": "choices",
-								"text": "\t[获得血瓶,I454]选择一名角色：\n+${flag:arg2}HP",
-								"choices": [
+								"type": "if",
+								"condition": "(flag:autoGetPotion===1)",
+								"true": [
 									{
-										"text": "当前行动角色",
-										"color": [
-											0,
-											255,
-											0,
-											1
-										],
-										"action": [
-											{
-												"type": "setValue",
-												"name": "status:hp",
-												"operator": "+=",
-												"value": "flag:arg2"
-											}
-										]
-									},
+										"type": "setValue",
+										"name": "status:hp",
+										"operator": "+=",
+										"value": "flag:arg2"
+									}
+								],
+								"false": [
 									{
-										"text": "${(core.getFlag('hero0') || core.status.hero).name}",
-										"icon": "N331",
-										"action": [
+										"type": "choices",
+										"text": "\t[获得血瓶,I454]选择一名角色：\n+${flag:arg2}HP",
+										"choices": [
 											{
-												"type": "function",
-												"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n(hero_id == 0 ? core.status.hero : core.getFlag(\"hero0\")).hp += core.getFlag(\"arg2\", 0);\ncore.updateStatusBar(true);\n}"
-											}
-										]
-									},
-									{
-										"text": "${(core.getFlag('hero1') || core.status.hero).name}",
-										"icon": "N448",
-										"need": "flag:FoundWoman===1",
-										"action": [
+												"text": "当前行动角色",
+												"color": [
+													0,
+													255,
+													0,
+													1
+												],
+												"action": [
+													{
+														"type": "setValue",
+														"name": "status:hp",
+														"operator": "+=",
+														"value": "flag:arg2"
+													}
+												]
+											},
 											{
-												"type": "function",
-												"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n(hero_id == 1 ? core.status.hero : core.getFlag(\"hero1\")).hp += core.getFlag(\"arg2\", 0);\ncore.updateStatusBar(true);\n}"
+												"text": "${(core.getFlag('hero0') || core.status.hero).name}",
+												"icon": "N331",
+												"action": [
+													{
+														"type": "function",
+														"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n(hero_id == 0 ? core.status.hero : core.getFlag(\"hero0\")).hp += core.getFlag(\"arg2\", 0);\ncore.updateStatusBar(true);\n}"
+													}
+												]
+											},
+											{
+												"text": "${(core.getFlag('hero1') || core.status.hero).name}",
+												"icon": "N448",
+												"need": "flag:FoundWoman===1",
+												"action": [
+													{
+														"type": "function",
+														"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n(hero_id == 1 ? core.status.hero : core.getFlag(\"hero1\")).hp += core.getFlag(\"arg2\", 0);\ncore.updateStatusBar(true);\n}"
+													}
+												]
 											}
 										]
 									}
@@ -3561,91 +3690,117 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 						"case": "\"potionDouble\"",
 						"action": [
 							{
-								"type": "choices",
-								"text": "\t[获得血瓶,I454]选择一名角色：生命翻倍！\r[#FF40FF]\n(实际生命回复量受难度影响)\r",
-								"choices": [
+								"type": "if",
+								"condition": "(flag:autoGetPotion===1)",
+								"true": [
 									{
-										"text": "当前行动角色",
-										"color": [
-											0,
-											255,
-											0,
-											1
+										"type": "if",
+										"condition": "(flag:PotionLessRate===1)",
+										"true": [
+											{
+												"type": "function",
+												"function": "function(){\ncore.status.hero.hp = Math.floor(core.status.hero.hp * 1.2);\n}"
+											}
 										],
-										"action": [
+										"false": [
 											{
-												"type": "if",
-												"condition": "(flag:PotionLessRate===1)",
-												"true": [
-													{
-														"type": "function",
-														"function": "function(){\ncore.status.hero.hp = Math.floor(core.status.hero.hp * 1.2);\n}"
-													}
-												],
-												"false": [
-													{
-														"type": "setValue",
-														"name": "status:hp",
-														"operator": "*=",
-														"value": "2"
-													}
-												]
-											}
-										]
-									},
-									{
-										"text": "${(core.getFlag('hero0') || core.status.hero).name}",
-										"icon": "N331",
-										"action": [
-											{
-												"type": "if",
-												"condition": "(flag:PotionLessRate===1)",
-												"true": [
-													{
-														"type": "function",
-														"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\nvar hero = (hero_id == 0 ? core.status.hero : core.getFlag(\"hero0\"));\nhero.hp = Math.floor(hero.hp * 1.2);\n}"
-													}
-												],
-												"false": [
-													{
-														"type": "function",
-														"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\nvar hero = (hero_id == 0 ? core.status.hero : core.getFlag(\"hero0\"));\nhero.hp *= 2;\n}"
-													}
-												]
-											}
-										]
-									},
-									{
-										"text": "${(core.getFlag('hero1') || core.status.hero).name}",
-										"icon": "N448",
-										"need": "flag:FoundWoman===1",
-										"action": [
-											{
-												"type": "if",
-												"condition": "(flag:PotionLessRate===1)",
-												"true": [
-													{
-														"type": "function",
-														"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\nvar hero = (hero_id == 1 ? core.status.hero : core.getFlag(\"hero1\"));\nhero.hp = Math.floor(hero.hp * 1.2);\n}"
-													}
-												],
-												"false": [
-													{
-														"type": "function",
-														"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\nvar hero = (hero_id == 1 ? core.status.hero : core.getFlag(\"hero1\"));\nhero.hp *= 2;\n}"
-													}
-												]
+												"type": "setValue",
+												"name": "status:hp",
+												"operator": "*=",
+												"value": "2"
 											}
 										]
 									}
+								],
+								"false": [
+									{
+										"type": "choices",
+										"text": "\t[获得血瓶,I454]选择一名角色：生命翻倍！\r[#FF40FF]\n(实际生命回复量受难度影响)\r",
+										"choices": [
+											{
+												"text": "当前行动角色",
+												"color": [
+													0,
+													255,
+													0,
+													1
+												],
+												"action": [
+													{
+														"type": "if",
+														"condition": "(flag:PotionLessRate===1)",
+														"true": [
+															{
+																"type": "function",
+																"function": "function(){\ncore.status.hero.hp = Math.floor(core.status.hero.hp * 1.2);\n}"
+															}
+														],
+														"false": [
+															{
+																"type": "setValue",
+																"name": "status:hp",
+																"operator": "*=",
+																"value": "2"
+															}
+														]
+													}
+												]
+											},
+											{
+												"text": "${(core.getFlag('hero0') || core.status.hero).name}",
+												"icon": "N331",
+												"action": [
+													{
+														"type": "if",
+														"condition": "(flag:PotionLessRate===1)",
+														"true": [
+															{
+																"type": "function",
+																"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\nvar hero = (hero_id == 0 ? core.status.hero : core.getFlag(\"hero0\"));\nhero.hp = Math.floor(hero.hp * 1.2);\n}"
+															}
+														],
+														"false": [
+															{
+																"type": "function",
+																"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\nvar hero = (hero_id == 0 ? core.status.hero : core.getFlag(\"hero0\"));\nhero.hp *= 2;\n}"
+															}
+														]
+													}
+												]
+											},
+											{
+												"text": "${(core.getFlag('hero1') || core.status.hero).name}",
+												"icon": "N448",
+												"need": "flag:FoundWoman===1",
+												"action": [
+													{
+														"type": "if",
+														"condition": "(flag:PotionLessRate===1)",
+														"true": [
+															{
+																"type": "function",
+																"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\nvar hero = (hero_id == 1 ? core.status.hero : core.getFlag(\"hero1\"));\nhero.hp = Math.floor(hero.hp * 1.2);\n}"
+															}
+														],
+														"false": [
+															{
+																"type": "function",
+																"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\nvar hero = (hero_id == 1 ? core.status.hero : core.getFlag(\"hero1\"));\nhero.hp *= 2;\n}"
+															}
+														]
+													}
+												]
+											}
+										]
+									},
+									{
+										"type": "update"
+									},
+									{
+										"type": "playSound",
+										"name": "recovery.mp3"
+									}
 								]
-							},
-							{
-								"type": "update"
-							},
-							{
-								"type": "playSound",
-								"name": "recovery.mp3"
 							}
 						]
 					},
@@ -3653,54 +3808,66 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 						"case": "\"gem\"",
 						"action": [
 							{
-								"type": "function",
-								"function": "function(){\nvar prompt = \"\";\nvar atk = core.getFlag(\"arg2\", 0),\n\tdef = core.getFlag(\"arg3\", 0),\n\tmdef = core.getFlag(\"arg4\", 0),\n\thp = core.getFlag(\"arg5\", 0);\n\nif (atk) prompt += `\n+` + atk + \"攻击\";\nif (def) prompt += `\n+` + def + \"防御\";\nif (mdef) prompt += `\n+` + mdef + \"魔防\";\nif (hp) prompt += `\n+` + hp + \"生命\";\n\ncore.setFlag(\"arg1\", prompt);\n}"
-							},
-							{
-								"type": "choices",
-								"text": "\t[获得宝石,I455]选择一名角色：${flag:arg1}",
-								"choices": [
+								"type": "if",
+								"condition": "(flag:autoGetGem===1)",
+								"true": [
 									{
-										"text": "当前行动角色",
-										"color": [
-											0,
-											255,
-											0,
-											1
-										],
-										"action": [
+										"type": "function",
+										"function": "function(){\nvar hero = core.status.hero;\nhero.atk += core.getFlag(\"arg2\", 0);\nhero.def += core.getFlag(\"arg3\", 0);\nhero.mdef += core.getFlag(\"arg4\", 0);\nhero.hp += core.getFlag(\"arg5\", 0);\ncore.setFlag(\"arg2\", 0);\ncore.setFlag(\"arg3\", 0);\ncore.setFlag(\"arg4\", 0);\ncore.setFlag(\"arg5\", 0);\ncore.updateStatusBar(true);\n}"
+									}
+								],
+								"false": [
+									{
+										"type": "function",
+										"function": "function(){\nvar prompt = \"\";\nvar atk = core.getFlag(\"arg2\", 0),\n\tdef = core.getFlag(\"arg3\", 0),\n\tmdef = core.getFlag(\"arg4\", 0),\n\thp = core.getFlag(\"arg5\", 0);\n\nif (atk) prompt += `\n+` + atk + \"攻击\";\nif (def) prompt += `\n+` + def + \"防御\";\nif (mdef) prompt += `\n+` + mdef + \"魔防\";\nif (hp) prompt += `\n+` + hp + \"生命\";\n\ncore.setFlag(\"arg1\", prompt);\n}"
+									},
+									{
+										"type": "choices",
+										"text": "\t[获得宝石,I455]选择一名角色：${flag:arg1}",
+										"choices": [
 											{
-												"type": "function",
-												"function": "function(){\nvar hero = core.status.hero;\nhero.atk += core.getFlag(\"arg2\", 0);\nhero.def += core.getFlag(\"arg3\", 0);\nhero.mdef += core.getFlag(\"arg4\", 0);\nhero.hp += core.getFlag(\"arg5\", 0);\ncore.setFlag(\"arg2\", 0);\ncore.setFlag(\"arg3\", 0);\ncore.setFlag(\"arg4\", 0);\ncore.setFlag(\"arg5\", 0);\ncore.updateStatusBar(true);\n}"
+												"text": "当前行动角色",
+												"color": [
+													0,
+													255,
+													0,
+													1
+												],
+												"action": [
+													{
+														"type": "function",
+														"function": "function(){\nvar hero = core.status.hero;\nhero.atk += core.getFlag(\"arg2\", 0);\nhero.def += core.getFlag(\"arg3\", 0);\nhero.mdef += core.getFlag(\"arg4\", 0);\nhero.hp += core.getFlag(\"arg5\", 0);\ncore.setFlag(\"arg2\", 0);\ncore.setFlag(\"arg3\", 0);\ncore.setFlag(\"arg4\", 0);\ncore.setFlag(\"arg5\", 0);\ncore.updateStatusBar(true);\n}"
+													}
+												]
+											},
+											{
+												"text": "${(core.getFlag('hero0') || core.status.hero).name}",
+												"icon": "N331",
+												"action": [
+													{
+														"type": "function",
+														"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\nvar hero = (hero_id == 0 ? core.status.hero : core.getFlag(\"hero0\"))\nhero.atk += core.getFlag(\"arg2\", 0);\nhero.def += core.getFlag(\"arg3\", 0);\nhero.mdef += core.getFlag(\"arg4\", 0);\nhero.hp += core.getFlag(\"arg5\", 0);\ncore.setFlag(\"arg2\", 0);\ncore.setFlag(\"arg3\", 0);\ncore.setFlag(\"arg4\", 0);\ncore.setFlag(\"arg5\", 0);\ncore.updateStatusBar(true);\n}"
+													}
+												]
+											},
+											{
+												"text": "${(core.getFlag('hero1') || core.status.hero).name}",
+												"icon": "N448",
+												"need": "flag:FoundWoman===1",
+												"action": [
+													{
+														"type": "function",
+														"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\nvar hero = (hero_id == 1 ? core.status.hero : core.getFlag(\"hero1\"))\nhero.atk += core.getFlag(\"arg2\", 0);\nhero.def += core.getFlag(\"arg3\", 0);\nhero.mdef += core.getFlag(\"arg4\", 0);\nhero.hp += core.getFlag(\"arg5\", 0);\ncore.setFlag(\"arg2\", 0);\ncore.setFlag(\"arg3\", 0);\ncore.setFlag(\"arg4\", 0);\ncore.setFlag(\"arg5\", 0);\ncore.updateStatusBar(true);\n}"
+													}
+												]
 											}
 										]
 									},
 									{
-										"text": "${(core.getFlag('hero0') || core.status.hero).name}",
-										"icon": "N331",
-										"action": [
-											{
-												"type": "function",
-												"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\nvar hero = (hero_id == 0 ? core.status.hero : core.getFlag(\"hero0\"))\nhero.atk += core.getFlag(\"arg2\", 0);\nhero.def += core.getFlag(\"arg3\", 0);\nhero.mdef += core.getFlag(\"arg4\", 0);\nhero.hp += core.getFlag(\"arg5\", 0);\ncore.setFlag(\"arg2\", 0);\ncore.setFlag(\"arg3\", 0);\ncore.setFlag(\"arg4\", 0);\ncore.setFlag(\"arg5\", 0);\ncore.updateStatusBar(true);\n}"
-											}
-										]
-									},
-									{
-										"text": "${(core.getFlag('hero1') || core.status.hero).name}",
-										"icon": "N448",
-										"need": "flag:FoundWoman===1",
-										"action": [
-											{
-												"type": "function",
-												"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\nvar hero = (hero_id == 1 ? core.status.hero : core.getFlag(\"hero1\"))\nhero.atk += core.getFlag(\"arg2\", 0);\nhero.def += core.getFlag(\"arg3\", 0);\nhero.mdef += core.getFlag(\"arg4\", 0);\nhero.hp += core.getFlag(\"arg5\", 0);\ncore.setFlag(\"arg2\", 0);\ncore.setFlag(\"arg3\", 0);\ncore.setFlag(\"arg4\", 0);\ncore.setFlag(\"arg5\", 0);\ncore.updateStatusBar(true);\n}"
-											}
-										]
+										"type": "playSound",
+										"name": "recovery.mp3"
 									}
 								]
-							},
-							{
-								"type": "playSound",
-								"name": "recovery.mp3"
 							}
 						]
 					},

@@ -105,24 +105,45 @@ main.floors.MTn3=
             "keep": true
         },
         {
-            "type": "setValue",
-            "name": "item:poisonWine",
-            "value": "0"
-        },
-        {
-            "type": "setValue",
-            "name": "item:weakWine",
-            "value": "0"
-        },
-        {
-            "type": "setValue",
-            "name": "item:curseWine",
-            "value": "0"
-        },
-        {
-            "type": "setValue",
-            "name": "item:superWine",
-            "value": "0"
+            "type": "if",
+            "condition": "(flag:Fm3NoKeyDiminish!==1)",
+            "true": [
+                {
+                    "type": "setValue",
+                    "name": "item:yellowKey",
+                    "value": "0"
+                },
+                {
+                    "type": "setValue",
+                    "name": "item:blueKey",
+                    "value": "0"
+                },
+                {
+                    "type": "setValue",
+                    "name": "item:redKey",
+                    "value": "0"
+                },
+                {
+                    "type": "setValue",
+                    "name": "item:poisonWine",
+                    "value": "0"
+                },
+                {
+                    "type": "setValue",
+                    "name": "item:weakWine",
+                    "value": "0"
+                },
+                {
+                    "type": "setValue",
+                    "name": "item:curseWine",
+                    "value": "0"
+                },
+                {
+                    "type": "setValue",
+                    "name": "item:superWine",
+                    "value": "0"
+                }
+            ]
         },
         {
             "type": "setValue",
@@ -193,21 +214,6 @@ main.floors.MTn3=
                 ]
             ],
             "remove": true
-        },
-        {
-            "type": "setValue",
-            "name": "item:yellowKey",
-            "value": "0"
-        },
-        {
-            "type": "setValue",
-            "name": "item:blueKey",
-            "value": "0"
-        },
-        {
-            "type": "setValue",
-            "name": "item:redKey",
-            "value": "0"
         },
         "\t[hero]到天堂了么？......还没有......",
         "\t[hero]......能力好像有点问题......",
