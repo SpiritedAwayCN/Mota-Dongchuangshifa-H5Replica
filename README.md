@@ -2,6 +2,8 @@
 
 游戏链接：https://h5mota.com/games/dongchuangshifa
 
+直接从本仓库下载也可游玩：启动服务.exe -> 启动游戏
+
 基于[H5魔塔样板](https://github.com/ckcz123/mota-js) Ver 2.10.2制作。
 
 * 【作者】：SpiritedAwayCN
