@@ -21,7 +21,21 @@ main.floors.NM_FEX1=
     "firstArrive": [],
     "eachArrive": [],
     "parallelDo": "",
-    "events": {},
+    "events": {
+        "1,0": [
+            {
+                "type": "confirm",
+                "text": "原作墙与地面对比太小，是否更换墙体贴图？\n（再次点击确认可以复原）",
+                "yes": [
+                    {
+                        "type": "function",
+                        "function": "function(){\nvar blocks = [];\nfor (var index in core.status.thisMap.blocks) {\n\tvar block = core.status.thisMap.blocks[index];\n\tif (core.inArray([\"whiteWall\", \"X10043\"], block.event.id)) {\n\t\tblocks.push(block);\n\t}\n}\nconsole.log(blocks);\n// \tcore.removeBlockByIndexes(indexes);\nblocks.forEach(block => {\n\tcore.setBlock(block.event.id === 'whiteWall' ? 'X10043' : 'whiteWall', block.x, block.y);\n});\ncore.redrawMap();\n}"
+                    }
+                ],
+                "no": []
+            }
+        ]
+    },
     "changeFloor": {},
     "beforeBattle": {
         "7,8": [
@@ -251,7 +265,7 @@ main.floors.NM_FEX1=
     "cannotMove": {},
     "cannotMoveIn": {},
     "map": [
-    [20040,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20042],
+    [20040,129,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20042],
     [20040,  0,  0, 34,350,350,350,350,  0,357,357, 34,357,357,20042],
     [20040,  2,  2,  2,  2,  2,  2,162,  2,  2,  2,  2,  2,  0,20042],
     [20040, 32, 32,  2,  0, 27,  2, 27,  2, 28,  0,  2, 32, 32,20042],
@@ -268,7 +282,7 @@ main.floors.NM_FEX1=
     [20040,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20041,20042]
 ],
     "bgmap": [
-    [  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+    [  0,20003,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
     [  0,10003,10003,10003,10003,10003,10003,10003,10003,10003,10003,10003,10003,10003,  0],
     [  0,10003,10003,10003,10003,10003,10003,10003,10003,10003,10003,10003,10003,10003,  0],
     [  0,10003,10003,10003,10003,10003,10003,10003,10003,10003,10003,10003,10003,10003,  0],

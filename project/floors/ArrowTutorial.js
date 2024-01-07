@@ -13,7 +13,7 @@ main.floors.ArrowTutorial=
     "images": [],
     "ratio": 1,
     "defaultGround": "grass2",
-    "bgm": "010-River01.ogg",
+    "bgm": "010-River01.mp3",
     "weather": null,
     "firstArrive": [],
     "eachArrive": [],

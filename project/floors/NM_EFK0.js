@@ -17,7 +17,7 @@ main.floors.NM_EFK0=
         "\t[Joey Cooper]我临时加的，它的难度属困难。",
         {
             "type": "playSound",
-            "name": "029-Door06.ogg"
+            "name": "029-Door06.mp3"
         },
         "\t[Joey Cooper]作弊器关闭。",
         {

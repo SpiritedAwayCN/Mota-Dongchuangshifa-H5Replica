@@ -5343,7 +5343,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 			},
 			{
 				"type": "playSound",
-				"name": "157-Skill01.ogg",
+				"name": "157-Skill01.mp3",
 				"stop": true,
 				"pitch": 70
 			},

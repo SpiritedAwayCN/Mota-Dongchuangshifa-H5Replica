@@ -29,7 +29,7 @@ main.floors.Scene0=
         "\t[hero]\b[hero]这个......我马上回去救国王！",
         {
             "type": "playSound",
-            "name": "029-Door06.ogg",
+            "name": "029-Door06.mp3",
             "stop": true
         },
         {
@@ -38,7 +38,7 @@ main.floors.Scene0=
         },
         {
             "type": "playSound",
-            "name": "029-Door06.ogg",
+            "name": "029-Door06.mp3",
             "stop": true
         },
         {
@@ -47,7 +47,7 @@ main.floors.Scene0=
         },
         {
             "type": "playSound",
-            "name": "029-Door06.ogg",
+            "name": "029-Door06.mp3",
             "stop": true
         },
         {
@@ -56,7 +56,7 @@ main.floors.Scene0=
         },
         {
             "type": "playSound",
-            "name": "029-Door06.ogg",
+            "name": "029-Door06.mp3",
             "stop": true
         },
         {
@@ -65,7 +65,7 @@ main.floors.Scene0=
         },
         {
             "type": "playSound",
-            "name": "029-Door06.ogg",
+            "name": "029-Door06.mp3",
             "stop": true
         },
         {

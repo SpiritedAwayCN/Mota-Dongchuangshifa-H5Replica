@@ -50,7 +50,7 @@ main.floors.MTn11=
                     "true": [
                         {
                             "type": "playSound",
-                            "name": "029-Door06.ogg"
+                            "name": "029-Door06.mp3"
                         },
                         {
                             "type": "show",
