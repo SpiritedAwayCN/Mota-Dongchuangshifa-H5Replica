@@ -1435,7 +1435,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 	// 难度
 	var realHard = core.getFlag("realHard", core.status.hard || 0);
-	var realHardText = "N" + realHard
+	var realHardText = "难度" + realHard
 	if (core.statusBar.hard.innerText != realHardText) {
 		core.statusBar.hard.innerText = realHardText;
 	}
