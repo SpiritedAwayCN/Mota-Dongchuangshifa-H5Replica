@@ -2668,11 +2668,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 															128,
 															1
 														],
-														"need": "status:money>=100",
+														"need": "status:money>=200",
 														"action": [
 															{
 																"type": "input",
-																"text": "每200金币换1攻击，请输入购买次数(1~${Math.floor(status:money/100)})："
+																"text": "每200金币换1攻击，请输入购买次数(1~${Math.floor(status:money/200)})："
 															},
 															{
 																"type": "if",
@@ -2711,11 +2711,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 															255,
 															1
 														],
-														"need": "status:money>=100",
+														"need": "status:money>=200",
 														"action": [
 															{
 																"type": "input",
-																"text": "每200金币换1防御，请输入购买次数(1~${Math.floor(status:money/100)})："
+																"text": "每200金币换1防御，请输入购买次数(1~${Math.floor(status:money/200)})："
 															},
 															{
 																"type": "if",
@@ -2861,6 +2861,50 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 														]
 													},
 													{
+														"text": "1防御(200金币)",
+														"icon": "blueGem",
+														"color": [
+															128,
+															255,
+															255,
+															1
+														],
+														"need": "status:money>=200",
+														"condition": "flag:PotionLessRate===1",
+														"action": [
+															{
+																"type": "input",
+																"text": "每200金币换1防御，请输入购买次数(1~${Math.floor(status:money/200)})："
+															},
+															{
+																"type": "if",
+																"condition": "((flag:input>=1 )&&( flag:input <=Math.floor(status:money/200) ))",
+																"true": [
+																	{
+																		"type": "playSound",
+																		"name": "shop.mp3",
+																		"stop": true
+																	},
+																	{
+																		"type": "setValue",
+																		"name": "status:money",
+																		"operator": "-=",
+																		"value": "flag:input*200"
+																	},
+																	{
+																		"type": "setValue",
+																		"name": "status:def",
+																		"operator": "+=",
+																		"value": "flag:input"
+																	}
+																],
+																"false": [
+																	"输入不合法，购买失败！"
+																]
+															}
+														]
+													},
+													{
 														"text": "1防御(100金币)",
 														"icon": "blueGem",
 														"color": [
@@ -2870,6 +2914,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 															1
 														],
 														"need": "status:money>=100",
+														"condition": "flag:PotionLessRate!==1",
 														"action": [
 															{
 																"type": "input",
@@ -2895,6 +2940,18 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		"name": "status:def",
 																		"operator": "+=",
 																		"value": "flag:input"
+																	},
+																	{
+																		"type": "if",
+																		"condition": "(flag:PotionLessRateHinted!==1)",
+																		"true": [
+																			"\t[H5难度系统]-5/49F商店性价比降低难度选项已失效！",
+																			{
+																				"type": "setValue",
+																				"name": "flag:PotionLessRateHinted",
+																				"value": "1"
+																			}
+																		]
 																	}
 																],
 																"false": [
@@ -3705,6 +3762,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 										"false": [
 											{
 												"type": "setValue",
+												"name": "flag:PotionLessRateHinted",
+												"value": "1"
+											},
+											{
+												"type": "setValue",
 												"name": "status:hp",
 												"operator": "*=",
 												"value": "2"
@@ -3713,6 +3775,24 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 									}
 								],
 								"false": [
+									{
+										"type": "if",
+										"condition": "(flag:PotionLessRate!==1)",
+										"true": [
+											{
+												"type": "if",
+												"condition": "(flag:PotionLessRateHinted!==1)",
+												"true": [
+													"\t[H5难度系统]根据当前难度设置，紫血瓶按原效果增加生命值。\n紫血瓶弱化相关难度选项已失效。",
+													{
+														"type": "setValue",
+														"name": "flag:PotionLessRateHinted",
+														"value": "1"
+													}
+												]
+											}
+										]
+									},
 									{
 										"type": "choices",
 										"text": "\t[获得血瓶,I454]选择一名角色：生命翻倍！\r[#FF40FF]\n(实际生命回复量受难度影响)\r",
@@ -4604,7 +4684,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		"type": "playSound",
 																		"name": "confirm.mp3"
 																	},
-																	"\t[当前选择的难度选项(+9难)：]* 20以内攻防扣减不可被衰弱避免[+2难]\n* 37F至多只能拾取3个宝物[+2难]\n* 85/-80F血瓶增益效果降低[+1难]\n* 紫血瓶效果*0.2,且部分不可拾取[+1难]\n* 宝库中万能铁门钥匙/圣水不可获取[+1难]\n* 51F起非领袖敌人+15%命/15%攻[+1难]\n* 85F起非领袖敌人+10%生命与25%伤害[+1难]"
+																	"\t[当前选择的难度选项(+9难)：]* 20以内攻防扣减不可被衰弱避免[+2难]\n* 37F至多只能拾取3个宝物[+2难]\n* 85/-80F血瓶增益效果降低[+1难]\n* 紫血瓶效果*0.2,-5/49F商店性价比下降[+1难]\n* 宝库中万能铁门钥匙/圣水不可获取[+1难]\n* 51F起非领袖敌人+15%命/15%攻[+1难]\n* 85F起非领袖敌人+10%生命与25%伤害[+1难]"
 																]
 															},
 															{
@@ -4669,7 +4749,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		"type": "playSound",
 																		"name": "confirm.mp3"
 																	},
-																	"\t[当前选择的难度选项(+13难)：]\r[#FF40FF]* 所有攻防扣减不可被衰弱避免[+3难]\n* 37F至多只能拾取1个宝物[+3难]\r\n* 85/-80F血瓶增益效果降低[+1难]\n* 紫血瓶效果*0.2,且部分不可拾取[+1难]\n* 宝库中万能铁门钥匙/圣水不可获取[+1难]\n\r[#FF40FF]* 第85层NPC赠送的能力值降为一半[+1难]\n\r* 51F起非领袖敌人+15%生命与15%攻击[+1难]\n* 85F起非领袖敌人+10%生命与25%伤害[+1难]\n* -58F起非领袖敌人+20%生命与20%攻击[+1难]"
+																	"\t[当前选择的难度选项(+13难)：]\r[#FF40FF]* 所有攻防扣减不可被衰弱避免[+3难]\n* 37F至多只能拾取1个宝物[+3难]\r\n* 85/-80F血瓶增益效果降低[+1难]\n* 紫血瓶效果*0.2,-5/49F商店性价比下降[+1难]\n* 宝库中万能铁门钥匙/圣水不可获取[+1难]\n\r[#FF40FF]* 第85层NPC赠送的能力值降为一半[+1难]\n\r* 51F起非领袖敌人+15%生命与15%攻击[+1难]\n* 85F起非领袖敌人+10%生命与25%伤害[+1难]\n* -58F起非领袖敌人+20%生命与20%攻击[+1难]"
 																]
 															},
 															{
@@ -5043,7 +5123,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		]
 																	},
 																	{
-																		"text": "紫血瓶效果*0.2,且部分不可拾取[ON]",
+																		"text": "紫血瓶效果*0.2,-5/49F商店性价比下降[ON]",
 																		"color": [
 																			255,
 																			215,
@@ -5061,7 +5141,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		]
 																	},
 																	{
-																		"text": "紫血瓶效果*0.2,且部分不可拾取[OFF]",
+																		"text": "紫血瓶效果*0.2,-5/49F商店性价比下降[OFF]",
 																		"need": "flag:PotionLessRateHinted!==1",
 																		"condition": "flag:PotionLessRate!==1",
 																		"action": [

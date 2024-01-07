@@ -82,7 +82,7 @@ main.floors.MTn5=
                                 ]
                             },
                             {
-                                "text": "加8防御",
+                                "text": "加4防御",
                                 "icon": "blueGem",
                                 "color": [
                                     128,
@@ -91,6 +91,7 @@ main.floors.MTn5=
                                     1
                                 ],
                                 "need": "status:money>=700",
+                                "condition": "flag:PotionLessRate===1",
                                 "action": [
                                     {
                                         "type": "playSound",
@@ -106,6 +107,47 @@ main.floors.MTn5=
                                         "name": "status:money",
                                         "operator": "-=",
                                         "value": "700"
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "加8防御",
+                                "icon": "blueGem",
+                                "color": [
+                                    128,
+                                    255,
+                                    255,
+                                    1
+                                ],
+                                "need": "status:money>=700",
+                                "condition": "flag:PotionLessRate!==1",
+                                "action": [
+                                    {
+                                        "type": "playSound",
+                                        "name": "shop.mp3",
+                                        "stop": true
+                                    },
+                                    {
+                                        "type": "function",
+                                        "function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n(hero_id == 1 ? core.status.hero : core.getFlag(\"hero1\")).def += 8;\n}"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "status:money",
+                                        "operator": "-=",
+                                        "value": "700"
+                                    },
+                                    {
+                                        "type": "if",
+                                        "condition": "(flag:PotionLessRateHinted!==1)",
+                                        "true": [
+                                            "\t[H5难度系统]-5/49F商店性价比降低难度选项已失效！",
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:PotionLessRateHinted",
+                                                "value": "1"
+                                            }
+                                        ]
                                     }
                                 ]
                             },
@@ -234,7 +276,7 @@ main.floors.MTn5=
                                 ]
                             },
                             {
-                                "text": "加8防御",
+                                "text": "加4防御",
                                 "icon": "blueGem",
                                 "color": [
                                     128,
@@ -243,6 +285,7 @@ main.floors.MTn5=
                                     1
                                 ],
                                 "need": "status:money>=700",
+                                "condition": "flag:PotionLessRate===1",
                                 "action": [
                                     {
                                         "type": "playSound",
@@ -258,6 +301,47 @@ main.floors.MTn5=
                                         "name": "status:money",
                                         "operator": "-=",
                                         "value": "700"
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "加8防御",
+                                "icon": "blueGem",
+                                "color": [
+                                    128,
+                                    255,
+                                    255,
+                                    1
+                                ],
+                                "need": "status:money>=700",
+                                "condition": "flag:PotionLessRate!==1",
+                                "action": [
+                                    {
+                                        "type": "playSound",
+                                        "name": "shop.mp3",
+                                        "stop": true
+                                    },
+                                    {
+                                        "type": "function",
+                                        "function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n(hero_id == 0 ? core.status.hero : core.getFlag(\"hero0\")).def += 8;\n}"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "status:money",
+                                        "operator": "-=",
+                                        "value": "700"
+                                    },
+                                    {
+                                        "type": "if",
+                                        "condition": "(flag:PotionLessRateHinted!==1)",
+                                        "true": [
+                                            "\t[H5难度系统]-5/49F商店性价比降低难度选项已失效！",
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:PotionLessRateHinted",
+                                                "value": "1"
+                                            }
+                                        ]
                                     }
                                 ]
                             },

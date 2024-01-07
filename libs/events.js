@@ -108,7 +108,7 @@ events.prototype._startGame_upload = function () {
     formData.append('name', core.firstData.name);
     formData.append('version', core.firstData.version);
     formData.append('platform', core.platform.string);
-    formData.append('hard', core.encodeBase64(core.status.hard));
+    formData.append('hard', core.encodeBase64('')); // core.status.hard
     formData.append('hardCode', core.getFlag('hard', 0));
     formData.append('base64', 1);
 
