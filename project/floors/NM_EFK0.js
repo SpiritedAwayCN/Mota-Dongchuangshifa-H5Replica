@@ -75,7 +75,7 @@ main.floors.NM_EFK0=
     "fgmap": [
 
 ],
-    "bgm": "mine.ogg",
+    "bgm": "mine.mp3",
     "weather": [
         "snow",
         3

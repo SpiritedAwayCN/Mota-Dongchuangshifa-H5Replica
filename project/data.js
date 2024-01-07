@@ -291,7 +291,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			"CastleinSky.mp3",
 			"bgm.mp3",
 			"guitar.mp3",
-			"mine.ogg",
+			"mine.mp3",
 			"mtboss.mp3",
 			"xxmt0F.mp3",
 			"xxmtUdG.mp3"

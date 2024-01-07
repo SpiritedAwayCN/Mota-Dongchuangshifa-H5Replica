@@ -13,7 +13,7 @@ main.floors.Tutorial1=
     "images": [],
     "ratio": 1,
     "defaultGround": "ground",
-    "bgm": "mine.ogg",
+    "bgm": "mine.mp3",
     "weather": [
         "snow",
         3

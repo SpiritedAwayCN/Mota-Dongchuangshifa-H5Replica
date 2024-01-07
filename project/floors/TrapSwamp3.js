@@ -12,7 +12,7 @@ main.floors.TrapSwamp3=
     "images": [],
     "ratio": 1,
     "defaultGround": "ground",
-    "bgm": "mine.ogg",
+    "bgm": "mine.mp3",
     "firstArrive": [],
     "eachArrive": [],
     "parallelDo": "",

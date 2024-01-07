@@ -13,7 +13,7 @@ main.floors.Scene1=
     "images": [],
     "ratio": 1,
     "defaultGround": "grass",
-    "bgm": "mine.ogg",
+    "bgm": "mine.mp3",
     "firstArrive": [],
     "eachArrive": [
         {

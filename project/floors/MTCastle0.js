@@ -12,7 +12,7 @@ main.floors.MTCastle0=
     "images": [],
     "ratio": 1,
     "defaultGround": "grass",
-    "bgm": "mine.ogg",
+    "bgm": "mine.mp3",
     "firstArrive": [
         "\t[hero]\b[hero]这是.....国家？",
         "\t[仙子,fairy]\b[this,10,18]？你是......",

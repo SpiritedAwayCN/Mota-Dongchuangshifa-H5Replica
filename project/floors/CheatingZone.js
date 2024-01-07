@@ -13,7 +13,7 @@ main.floors.CheatingZone=
     "images": [],
     "ratio": 1,
     "defaultGround": "grass2",
-    "bgm": "mine.ogg",
+    "bgm": "mine.mp3",
     "weather": [
         "rain",
         6

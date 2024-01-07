@@ -12,7 +12,7 @@ main.floors.MT880=
     "images": [],
     "ratio": 1,
     "defaultGround": "ground",
-    "bgm": "mine.ogg",
+    "bgm": "mine.mp3",
     "firstArrive": [],
     "eachArrive": [],
     "parallelDo": "",

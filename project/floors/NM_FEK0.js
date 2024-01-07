@@ -126,7 +126,7 @@ main.floors.NM_FEK0=
     "fgmap": [
 
 ],
-    "bgm": "mine.ogg",
+    "bgm": "mine.mp3",
     "weather": [
         "snow",
         3

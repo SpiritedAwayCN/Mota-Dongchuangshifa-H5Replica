@@ -20,7 +20,7 @@ main.floors.Secret2=
     ],
     "ratio": 1,
     "defaultGround": "ground",
-    "bgm": "mine.ogg",
+    "bgm": "mine.mp3",
     "firstArrive": [
         "\t[hero]\b[hero]还在下雨？不管了，回国家吧。"
     ],
