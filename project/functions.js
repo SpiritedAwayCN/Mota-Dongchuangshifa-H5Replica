@@ -1434,8 +1434,9 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	core.setStatusBarInnerHTML('fly', "飞" + core.itemCount('centerFly'));
 
 	// 难度
-	var realHard = core.getFlag("realHard", core.status.hard || 0);
-	var realHardText = "难度" + realHard
+	var realHard = core.getFlag("realHard", core.status.hard || 0),
+		offset = core.getFlag("realHardOffset", 0);
+	var realHardText = "难度" + realHard + (offset ? "(" + offset + ")" : "");
 	if (core.statusBar.hard.innerText != realHardText) {
 		core.statusBar.hard.innerText = realHardText;
 	}
@@ -2030,7 +2031,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	core.strokeRect('ui', left - 1, top - 1, right + 1, bottom + 1, '#FFFFFF', 2);
 
 	var text_start = left + 24;
-	var text_interval = 24;
+	var text_interval = 22;
 	// 名称
 	core.setTextAlign('ui', 'left');
 	var globalAttribute = core.status.globalAttribute || core.initStatus.globalAttribute;
@@ -2041,10 +2042,11 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	core.fillText('ui', "复刻版新增系统/剧情编写：SpiritedAwayCN", text_start, top + 80 + text_interval * 3);
 	core.fillText('ui', "复刻版测试：SpiritedAwayCN、IcyChlorine等", text_start, top + 80 + text_interval * 4);
 	core.fillText('ui', "感谢原作者Joey·Cooper的复刻改动授权并测试！", text_start, top + 84 + text_interval * 5, "orange");
-	core.fillText('ui', "感谢HTML5造塔技术群所提供的技术帮助！", text_start, top + 84 + text_interval * 6);
-	core.fillText('ui', "样板版本： HTML5 魔塔样板" + main.__VERSION__, text_start, top + 90 + text_interval * 7, 'white');
-	core.fillText('ui', "样板作者： 艾之葵", text_start, top + 90 + text_interval * 8);
-	core.fillText('ui', 'HTML5魔塔交流群：539113091', text_start, top + 90 + text_interval * 9);
+	core.fillText('ui', "感谢B站up主盐铁桶子的实况视频对本复刻的重要参考！", text_start, top + 84 + text_interval * 6);
+	core.fillText('ui', "感谢HTML5造塔技术群所提供的技术帮助！", text_start, top + 84 + text_interval * 7);
+	core.fillText('ui', "样板版本： HTML5 魔塔样板" + main.__VERSION__, text_start, top + 90 + text_interval * 8, 'white');
+	core.fillText('ui', "样板作者： 艾之葵", text_start, top + 90 + text_interval * 9);
+	core.fillText('ui', 'HTML5魔塔交流群：539113091', text_start, top + 90 + text_interval * 10);
 	core.playSound('打开界面');
 }
     }

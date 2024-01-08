@@ -24,6 +24,18 @@ main.floors.Scene1=
             ]
         },
         {
+            "type": "setValue",
+            "name": "flag:realHard",
+            "operator": "+=",
+            "value": "flag:realHardOffset",
+            "norefresh": true
+        },
+        {
+            "type": "setValue",
+            "name": "flag:realHardOffset",
+            "value": "0"
+        },
+        {
             "type": "setText",
             "time": 60
         },
@@ -236,7 +248,7 @@ main.floors.Scene1=
                 {
                     "type": "setValue",
                     "name": "flag:enddingName",
-                    "value": "\"结局10/11：无奈的奈落\""
+                    "value": "\"结局10 or 11：无奈的奈落\""
                 },
                 {
                     "type": "if",

@@ -1103,7 +1103,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 								"data": [
 									{
 										"type": "choices",
-										"text": "\t[比例商店,trader]5000塔币，回复全体角色2500生命，\n并选择一项：",
+										"text": "\t[比例商店,trader]5000塔币${flag:PotionLessRate===1?'':'，回复全体角色2500生命，并'}选择一项：",
 										"choices": [
 											{
 												"text": "0.6%攻,0.3%防,0.1%魔防",
@@ -1129,6 +1129,28 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 														"name": "status:money",
 														"operator": "-=",
 														"value": "5000"
+													},
+													{
+														"type": "if",
+														"condition": "(flag:PotionLessRate!==1)",
+														"true": [
+															{
+																"type": "if",
+																"condition": "(flag:PotionLessRateHinted!==1)",
+																"true": [
+																	"\t[H5难度系统]-5/49F/魔塔城堡商店性价比降低难度选项已不可用！",
+																	{
+																		"type": "setValue",
+																		"name": "flag:PotionLessRateHinted",
+																		"value": "1"
+																	}
+																]
+															},
+															{
+																"type": "function",
+																"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n[0, 1].forEach(id => {\n\tvar hero = hero_id === id ? core.status.hero : core.getFlag(\"hero\" + id);\n\thero.hp += 2500;\n});\ncore.updateStatusBar(true);\n}"
+															}
+														]
 													}
 												]
 											},
@@ -1156,6 +1178,28 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 														"name": "status:money",
 														"operator": "-=",
 														"value": "5000"
+													},
+													{
+														"type": "if",
+														"condition": "(flag:PotionLessRate!==1)",
+														"true": [
+															{
+																"type": "if",
+																"condition": "(flag:PotionLessRateHinted!==1)",
+																"true": [
+																	"\t[H5难度系统]-5/49F/魔塔城堡商店性价比降低难度选项已不可用！",
+																	{
+																		"type": "setValue",
+																		"name": "flag:PotionLessRateHinted",
+																		"value": "1"
+																	}
+																]
+															},
+															{
+																"type": "function",
+																"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n[0, 1].forEach(id => {\n\tvar hero = hero_id === id ? core.status.hero : core.getFlag(\"hero\" + id);\n\thero.hp += 2500;\n});\ncore.updateStatusBar(true);\n}"
+															}
+														]
 													}
 												]
 											},
@@ -1183,6 +1227,28 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 														"name": "status:money",
 														"operator": "-=",
 														"value": "5000"
+													},
+													{
+														"type": "if",
+														"condition": "(flag:PotionLessRate!==1)",
+														"true": [
+															{
+																"type": "if",
+																"condition": "(flag:PotionLessRateHinted!==1)",
+																"true": [
+																	"\t[H5难度系统]-5/49F/魔塔城堡商店性价比降低难度选项已不可用！",
+																	{
+																		"type": "setValue",
+																		"name": "flag:PotionLessRateHinted",
+																		"value": "1"
+																	}
+																]
+															},
+															{
+																"type": "function",
+																"function": "function(){\nvar hero_id = core.getFlag(\"heroId\", 0);\n[0, 1].forEach(id => {\n\tvar hero = hero_id === id ? core.status.hero : core.getFlag(\"hero\" + id);\n\thero.hp += 2500;\n});\ncore.updateStatusBar(true);\n}"
+															}
+														]
 													}
 												]
 											},
@@ -2945,7 +3011,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		"type": "if",
 																		"condition": "(flag:PotionLessRateHinted!==1)",
 																		"true": [
-																			"\t[H5难度系统]-5/49F商店性价比降低难度选项已失效！",
+																			"\t[H5难度系统]-5/49F/魔塔城堡商店性价比降低难度选项已不可用！",
 																			{
 																				"type": "setValue",
 																				"name": "flag:PotionLessRateHinted",
@@ -4549,16 +4615,6 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																				"value": "0"
 																			},
 																			{
-																				"type": "show",
-																				"loc": [
-																					[
-																						4,
-																						10
-																					]
-																				],
-																				"floorId": "Treasure3"
-																			},
-																			{
 																				"type": "playSound",
 																				"name": "confirm.mp3"
 																			}
@@ -4684,7 +4740,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		"type": "playSound",
 																		"name": "confirm.mp3"
 																	},
-																	"\t[当前选择的难度选项(+9难)：]* 20以内攻防扣减不可被衰弱避免[+2难]\n* 37F至多只能拾取3个宝物[+2难]\n* 85/-80F血瓶增益效果降低[+1难]\n* 紫血瓶效果*0.2,-5/49F商店性价比下降[+1难]\n* 宝库中万能铁门钥匙/圣水不可获取[+1难]\n* 51F起非领袖敌人+15%命/15%攻[+1难]\n* 85F起非领袖敌人+10%生命与25%伤害[+1难]"
+																	"\t[当前选择的难度选项(+9难)：]* 20以内攻防扣减不可被衰弱避免[+2难]\n* 37F至多只能拾取3个宝物[+2难]\n* 85/-80F血瓶增益效果降低[+1难]\n* 紫血瓶效果*0.2,-5/49F/魔塔城堡商店性价比下降[+1难]\n* 宝库中万能铁门钥匙/圣水不可获取[+1难]\n* 51F起非领袖敌人+15%命/15%攻[+1难]\n* 85F起非领袖敌人+10%生命与25%伤害[+1难]"
 																]
 															},
 															{
@@ -4749,7 +4805,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		"type": "playSound",
 																		"name": "confirm.mp3"
 																	},
-																	"\t[当前选择的难度选项(+13难)：]\r[#FF40FF]* 所有攻防扣减不可被衰弱避免[+3难]\n* 37F至多只能拾取1个宝物[+3难]\r\n* 85/-80F血瓶增益效果降低[+1难]\n* 紫血瓶效果*0.2,-5/49F商店性价比下降[+1难]\n* 宝库中万能铁门钥匙/圣水不可获取[+1难]\n\r[#FF40FF]* 第85层NPC赠送的能力值降为一半[+1难]\n\r* 51F起非领袖敌人+15%生命与15%攻击[+1难]\n* 85F起非领袖敌人+10%生命与25%伤害[+1难]\n* -58F起非领袖敌人+20%生命与20%攻击[+1难]"
+																	"\t[当前选择的难度选项(+13难)：]\r[#FF40FF]* 所有攻防扣减不可被衰弱避免[+3难]\n* 37F至多只能拾取1个宝物[+3难]\r\n* 85/-80F血瓶增益效果降低[+1难]\n* 紫血瓶效果*0.2,-5/49F/魔塔城堡商店性价比下降[+1难]\n* 宝库中万能铁门钥匙/圣水不可获取[+1难]\n\r[#FF40FF]* 第85层NPC赠送的能力值降为一半[+1难]\n\r* 51F起非领袖敌人+15%生命与15%攻击[+1难]\n* 85F起非领袖敌人+10%生命与25%伤害[+1难]\n* -58F起非领袖敌人+20%生命与20%攻击[+1难]"
 																]
 															},
 															{
@@ -5123,7 +5179,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		]
 																	},
 																	{
-																		"text": "紫血瓶效果*0.2,-5/49F商店性价比下降[ON]",
+																		"text": "紫血瓶效果*0.2,部分商店性价比下降[ON]",
 																		"color": [
 																			255,
 																			215,
@@ -5141,10 +5197,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		]
 																	},
 																	{
-																		"text": "紫血瓶效果*0.2,-5/49F商店性价比下降[OFF]",
+																		"text": "紫血瓶效果*0.2,部分商店性价比下降[OFF]",
 																		"need": "flag:PotionLessRateHinted!==1",
 																		"condition": "flag:PotionLessRate!==1",
 																		"action": [
+																			"\t[该项具体效果]* 所有\\i[I454]紫血瓶效果*0.2\n* 全塔两处高价值紫血瓶不可获取\n* -5F商店每次可购买防御由8降为4\n* 49F商店每次购买防御的价格由100变为200\n* 魔塔城堡商店不再增加生命值",
 																			{
 																				"type": "setValue",
 																				"name": "flag:PotionLessRate",

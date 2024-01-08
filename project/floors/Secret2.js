@@ -1170,7 +1170,7 @@ main.floors.Secret2=
                 },
                 {
                     "type": "if",
-                    "condition": "((flag:realHard>=15)&&flag:s172_PerfectEnding)",
+                    "condition": "((flag:realHard+flag:realHardOffset>=15)&&flag:s172_PerfectEnding)",
                     "true": [
                         {
                             "type": "function",

@@ -1048,6 +1048,9 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		core.setFlag("hero1", core.clone(hero1)); // 将属性值存到变量中
 		// core.setFlag("hero2", core.clone(hero2)); // 更多的角色也存入变量中；每个定义的角色都需要新增一行
 
+		var saveEquips = core.getFlag("saveEquips", []);
+		saveEquips[99] = [];
+		core.setFlag("saveEquips", saveEquips);
 		// 检测是否存在装备
 		if (hero1.equipment) {
 			if (!hero1.items || !hero1.items.equips) {
@@ -1101,6 +1104,11 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		// 		if (hero1.equipment) {
 		// 			core.items.quickSaveEquip(100 + currHeroId);
 		core.items.quickSaveEquip(100);
+		var saveEquips = core.getFlag("saveEquips", []);
+		if (!saveEquips[99]) {
+			saveEquips[99] = [];
+			core.setFlag("saveEquips", saveEquips);
+		}
 		core.items.quickLoadEquip(99);
 		// 		}
 
