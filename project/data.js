@@ -1021,6 +1021,22 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 			},
 			{
 				"type": "if",
+				"condition": "(flag:realHard>=10)",
+				"true": [
+					{
+						"type": "function",
+						"function": "function(){\ncore.status.hard = \"难度\" + core.getFlag('realHard') + \"（分数=攻防和）\";\n}"
+					}
+				],
+				"false": [
+					{
+						"type": "function",
+						"function": "function(){\ncore.status.hard = \"难度0~9（分数=难度*100000+攻防和）\";\n}"
+					}
+				]
+			},
+			{
+				"type": "if",
 				"condition": "(flag:baseHard>=1)",
 				"true": [
 					{
