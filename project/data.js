@@ -1031,7 +1031,7 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"false": [
 					{
 						"type": "function",
-						"function": "function(){\ncore.status.hard = \"难度0~9（分数=难度*100000+攻防和）\";\n}"
+						"function": "function(){\ncore.status.hard = \"难度0~9,分数=难*10w+攻防和\";\n}"
 					}
 				]
 			},
