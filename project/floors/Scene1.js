@@ -297,7 +297,7 @@ main.floors.Scene1=
                     "true": [
                         {
                             "type": "function",
-                            "function": "function(){\ncore.status.hard = \"难度0~9,分数=难*10w+攻防和\";\n}"
+                            "function": "function(){\ncore.status.hard = \"难度0~9,含难度分\";\n}"
                         },
                         {
                             "type": "setValue",

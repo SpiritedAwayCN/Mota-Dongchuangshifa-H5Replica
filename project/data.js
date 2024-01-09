@@ -869,6 +869,10 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 						"function": "function(){\ncore.setFlag(\"goTutorial\", true);\n}"
 					},
 					{
+						"type": "function",
+						"function": "function(){\ncore.status.hard = \"难度0~9,含难度分\";\n}"
+					},
+					{
 						"type": "exit"
 					}
 				],
@@ -1024,14 +1028,24 @@ var data_a1e2fb4a_e986_4524_b0da_9b7ba7c0874d =
 				"condition": "(flag:realHard>=10)",
 				"true": [
 					{
+						"type": "setValue",
+						"name": "flag:hard",
+						"value": "flag:realHard-9"
+					},
+					{
 						"type": "function",
 						"function": "function(){\ncore.status.hard = \"难度\" + core.getFlag('realHard') + \"（分数=攻防和）\";\n}"
 					}
 				],
 				"false": [
 					{
+						"type": "setValue",
+						"name": "flag:hard",
+						"value": "0"
+					},
+					{
 						"type": "function",
-						"function": "function(){\ncore.status.hard = \"难度0~9,分数=难*10w+攻防和\";\n}"
+						"function": "function(){\ncore.status.hard = \"难度0~9,含难度分\";\n}"
 					}
 				]
 			},
