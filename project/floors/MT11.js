@@ -792,7 +792,17 @@ main.floors.MT11=
             }
         ]
     },
-    "afterGetItem": {},
+    "afterGetItem": {
+        "7,2": [
+            {
+                "type": "if",
+                "condition": "(flag:VerboseHint===1)",
+                "true": [
+                    "\t[H5复刻作者]请谨慎规划其使用！除非极特殊的情况，该钥匙必须使用在不得不使用的位置。"
+                ]
+            }
+        ]
+    },
     "afterOpenDoor": {},
     "autoEvent": {},
     "cannotMove": {},

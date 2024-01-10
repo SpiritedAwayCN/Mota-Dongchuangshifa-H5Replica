@@ -1865,6 +1865,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 				if (core.onSki(bgMap[ny][nx])) continue;
 				if (blockfn && !blockfn(blocksObj, nx, ny)) continue;
 				visited[nindex] = visited[now] + 1;
+
 				queue.push(nindex);
 			}
 		}
@@ -1951,7 +1952,8 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 				cond1 = cond1 && (!core.getFlag('dying') || core.values.isPotionItemized); // 死亡状态不获得非道具化血瓶
 				if (!(cond1 || cond2 || cond3)) return false;
 				canGetItems[idx] = { x: x, y: y, id: blk.event.id };
-				return !core.status.checkBlock.damage[idx] && !core.status.checkBlock.ambush[idx];
+				console.log(blk);
+				return !core.status.checkBlock.damage[idx] && !core.status.checkBlock.ambush[idx] && !(blk.opacity && blk.opacity < 1);
 			}
 			return core.maps._canMoveDirectly_checkNextPoint(blockMap, x, y);
 		});

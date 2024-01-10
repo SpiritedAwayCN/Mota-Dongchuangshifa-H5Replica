@@ -22,7 +22,7 @@ main.floors.lostWorld1=
             "enable": true,
             "noPass": true,
             "displayDamage": true,
-            "opacity": 1,
+            "opacity": 0.95,
             "filter": {
                 "blur": 0,
                 "hue": 0,

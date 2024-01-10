@@ -29,7 +29,7 @@ main.floors.NM_FEX1=
                 "yes": [
                     {
                         "type": "function",
-                        "function": "function(){\nvar blocks = [];\nfor (var index in core.status.thisMap.blocks) {\n\tvar block = core.status.thisMap.blocks[index];\n\tif (core.inArray([\"whiteWall\", \"X10043\"], block.event.id)) {\n\t\tblocks.push(block);\n\t}\n}\nconsole.log(blocks);\n// \tcore.removeBlockByIndexes(indexes);\nblocks.forEach(block => {\n\tcore.setBlock(block.event.id === 'whiteWall' ? 'X10043' : 'whiteWall', block.x, block.y);\n});\ncore.redrawMap();\n}"
+                        "function": "function(){\nvar blocks = [];\nfor (var index in core.status.thisMap.blocks) {\n\tvar block = core.status.thisMap.blocks[index];\n\tif (core.inArray([\"whiteWall\", \"X10043\"], block.event.id)) {\n\t\tblocks.push(block);\n\t}\n}\n// console.log(blocks);\n// \tcore.removeBlockByIndexes(indexes);\nblocks.forEach(block => {\n\tcore.setBlock(block.event.id === 'whiteWall' ? 'X10043' : 'whiteWall', block.x, block.y);\n});\ncore.redrawMap();\n}"
                     }
                 ],
                 "no": []
