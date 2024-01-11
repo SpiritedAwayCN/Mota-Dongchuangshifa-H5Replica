@@ -48,7 +48,7 @@ main.floors.MTn87=
             "\t[hero]\b[hero]好的。",
             {
                 "type": "if",
-                "condition": "(core.getFlag(\"hero_id\", 0) === 0)",
+                "condition": "(core.getFlag(\"heroId\", 0) === 0)",
                 "true": [
                     {
                         "type": "if",
