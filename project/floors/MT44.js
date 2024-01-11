@@ -14,7 +14,20 @@ main.floors.MT44=
     "ratio": 1,
     "defaultGround": "ground",
     "bgm": "045Positive03.mp3",
-    "firstArrive": [],
+    "firstArrive": [
+        {
+            "type": "if",
+            "condition": "(!core.getBlock(7, 13, 'MTn29', false))",
+            "true": [
+                "\t[H5复刻作者]在不击败-29F领袖的情况下，直接到本层并非作者本意。\n\n15难度真结局原本流程也能通关，本操作被视为邪教过关，排行榜将额外记录\"邪教过关\"。非15难度真结局不受影响。",
+                {
+                    "type": "setValue",
+                    "name": "flag:Buggy44F",
+                    "value": "1"
+                }
+            ]
+        }
+    ],
     "eachArrive": [],
     "parallelDo": "",
     "events": {},

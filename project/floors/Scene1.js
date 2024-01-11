@@ -173,9 +173,22 @@ main.floors.Scene1=
                 "\t[战争魔王,yellowKing]\b[this,4,14]魔塔将继续充当守护人，如果曾经充满恶的国家再临，魔塔的意志将促使我们再次发起进攻。",
                 "\t[仙子,fairy]\b[this,4,13]拭目以待吧，比起屠龙者终成恶龙的发展，我更愿意相信希望。",
                 {
-                    "type": "setValue",
-                    "name": "flag:enddingName",
-                    "value": "\"结局12：灭亡与新生\""
+                    "type": "if",
+                    "condition": "(flag:Buggy44F===1)",
+                    "true": [
+                        {
+                            "type": "setValue",
+                            "name": "flag:enddingName",
+                            "value": "\"结局12：灭亡与新生(邪教过关)\""
+                        }
+                    ],
+                    "false": [
+                        {
+                            "type": "setValue",
+                            "name": "flag:enddingName",
+                            "value": "\"结局12：灭亡与新生\""
+                        }
+                    ]
                 }
             ],
             "false": [
