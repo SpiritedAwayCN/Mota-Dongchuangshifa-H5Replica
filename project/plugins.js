@@ -1631,6 +1631,8 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		}
 	}
 
+	this.clearCache = function () { lv_cache = null; }
+
 	this.getInvalidColorString = function (colorCode) {
 		return colorCode ? "\\r[\#" + colorCode + "]" : "\\r[\#999999]";
 	}

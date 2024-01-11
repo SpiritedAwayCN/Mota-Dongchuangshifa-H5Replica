@@ -1239,6 +1239,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	core.setFlag('__fromLoad__', true);
 
 	// TODO：增加自己的一些读档处理
+	core.clearCache();
 	core.stopAttractAnimate();
 
 	// 切换到对应的楼层
