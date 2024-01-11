@@ -179,7 +179,7 @@ main.floors.Scene1=
                         {
                             "type": "setValue",
                             "name": "flag:enddingName",
-                            "value": "\"结局12：灭亡与新生(邪教过关)\""
+                            "value": "\"结局12：灭亡与新生(飞跃43F)\""
                         }
                     ],
                     "false": [
