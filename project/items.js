@@ -644,7 +644,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"hideInReplay": true,
 		"hideInToolbox": false,
 		"useItemEffect": "core.insertCommonEvent(\"SwitchCharactor\");",
-		"canUseItemEffect": "true"
+		"canUseItemEffect": "(function () {\n\tif (core.inArray(['prison', 'prison2', 'MT880', 'MTn86'], core.status.floorId)) return false;\n\treturn true;\n})();"
 	},
 	"fly": {
 		"cls": "constants",
